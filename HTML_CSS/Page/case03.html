@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>利用border属性制作三角图标</title>
+    <style>
+      .page-normal {
+        height: auto;
+        width: 500px;
+        margin: 30px auto;
+        /*第一步*/
+        font-size: 0;
+      }
+      .page-normal span {
+        height: auto;
+        width: auto;
+        padding: 1px 6px;
+        border: 1px solid rosybrown;
+        display: inline-block;
+        text-align: center;
+        /*间隙大小能够自己设置*/
+        margin-left: 3px;
+      }
+      .page-normal span[class="ellipsis"] {
+        border: none;
+      }
+      .page-normal span:hover {
+        background-color: burlywood;
+      }
+      .page-normal span[class="ellipsis"]:hover {
+        background-color: #fff;
+      }
+      .page-normal span a {
+        text-decoration: none;
+        color: yellowgreen;
+        /*第二步*/
+        font-size: 14px;
+      }
+      /*三角图标的制作*/
+     .page-normal span:first-child i{
+     	height: 0;
+     	width: 0;
+     	display: inline-block;
+     	border: 6px solid transparent;
+     	border-right: 6px solid #ccc;
+     	margin-right: 2px;
+     }
+     .page-normal span:last-child i{
+     	height: 0;
+     	width: 0;
+     	display: inline-block;
+     	border: 6px solid transparent;
+     	border-left: 6px solid brown;
+     	margin-left: 2px;
+     }
+    </style>
+  </head>
+  <body>
+    <div class="page-normal">
+      <span><a href="#"><i></i>上一页</a></span>
+      <span><a href="#">1</a></span>
+      <span><a href="#">2</a></span>
+      <span><a href="#">3</a></span>
+      <span><a href="#">4</a></span>
+      <span><a href="#">5</a></span>
+      <span><a href="#">6</a></span>
+      <span class="ellipsis"><a href="#">.....</a></span>
+      <span><a href="#">20</a></span>
+      <span><a href="#">21</a></span>
+      <span><a href="#">22</a></span>
+      <span><a href="#">23</a></span>
+      <span><a href="#">下一页<i></i></a></span>
+    </div>
+  </body>
+</html>

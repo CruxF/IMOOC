@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>解决元素产生空隙的问题</title>
+    <style>
+      .page-normal {
+        height: auto;
+        width: 500px;
+        margin: 30px auto;
+        /*第一步*/
+        font-size: 0;
+      }
+      .page-normal span {
+        height: auto;
+        width: auto;
+        padding: 1px 6px;
+        border: 1px solid rosybrown;
+        display: inline-block;
+        text-align: center;
+        /*间隙大小能够自己设置*/
+        margin-left: 3px;
+      }
+      .page-normal span[class="ellipsis"] {
+        border: none;
+      }
+      .page-normal span:hover {
+        background-color: burlywood;
+      }
+      .page-normal span[class="ellipsis"]:hover {
+        background-color: #fff;
+      }
+      .page-normal span a {
+        text-decoration: none;
+        color: yellowgreen;
+        /*第二步*/
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-normal">
+      <span><a href="#">&lt;</a></span>
+      <span><a href="#">1</a></span>
+      <span><a href="#">2</a></span>
+      <span><a href="#">3</a></span>
+      <span><a href="#">4</a></span>
+      <span><a href="#">5</a></span>
+      <span><a href="#">6</a></span>
+      <span class="ellipsis"><a href="#">.....</a></span>
+      <span><a href="#">20</a></span>
+      <span><a href="#">21</a></span>
+      <span><a href="#">22</a></span>
+      <span><a href="#">23</a></span>
+      <span><a href="#">&gt;</a></span>
+    </div>
+  </body>
+</html>
