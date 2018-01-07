@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript回到顶部效果</title>
+    <script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <style>
+      .box div {
+        height: 750px;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .box div:nth-child(1) {
+        background-color: green;
+      }
+      .box div:nth-child(2) {
+        background-color: grey;
+      }
+      .box div:nth-child(3) {
+        background-color: brown;
+      }
+      #backTop {
+        position: fixed;
+        right: 20px;
+        bottom: 30px;
+        background-color: lightblue;
+        padding: 3px 12px;
+        color: black;
+        font-size: 16px;
+      }
+      #backTop:hover {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <button id="backTop">回到顶部</button>
+
+    <script>
+      $(document).ready(function () {
+        var btn = $("#backTop");
+
+        //回到顶部按钮点击事件
+        btn.on('click', function () {
+          $('html, body').animate({
+            scrollTop: 0
+          }, 800)
+        });
+
+        //鼠标滚动事件
+        $(window).on('scroll', function () {
+          if ($(window).scrollTop() >= $(window).height()) {
+            btn.fadeIn(); //出现
+          } else {
+            btn.fadeOut(); //隐藏
+          }
+        });
+        //页面加载时自动执行滚动事件
+        $(window).trigger('scroll');
+      })
+    </script>
+  </body>
+</html>

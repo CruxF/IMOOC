@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript回到顶部效果</title>
+    <style>
+      .box div {
+        height: 750px;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .box div:nth-child(1) {
+        background-color: green;
+      }
+      .box div:nth-child(2) {
+        background-color: grey;
+      }
+      .box div:nth-child(3) {
+        background-color: brown;
+      }
+      #backTop {
+        position: fixed;
+        right: 20px;
+        bottom: 30px;
+        background-color: lightblue;
+        padding: 3px 12px;
+        color: black;
+        font-size: 16px;
+        display: none;
+      }
+      #backTop:hover {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <button id="backTop">回到顶部</button>
+
+    <script>
+      //页面加载完毕后触发
+      window.onload = function () {
+        var btn = document.getElementById("backTop");
+        //获取页面可视区的高度
+        var clientHeight = document.documentElement.clientHeight;
+        var timer = null;
+        var isTop = true;
+
+        //滚动条滚动时触发事件
+        window.onscroll = function () {
+          var stop = document.documentElement.scrollTop || document.body.scrollTop;
+          if (stop >= clientHeight) {
+            btn.style.display = 'block';
+          } else {
+            btn.style.display = 'none';
+          }
+          if (!isTop) {
+            clearInterval(timer);
+          }
+          isTop = false;
+        }
+
+        //button按钮被点击事件
+        btn.onclick = function () {
+          //避免二次点击重新触发定时器
+          clearInterval(timer);
+          //设置定时器
+          timer = setInterval(function () {
+            //得到浏览器滚动条距离顶部的高度(兼容性写法)
+            var stop = document.documentElement.scrollTop || document.body.scrollTop;
+            //创建滚动条的速度
+            var speed = Math.floor(stop / 10) + 1;
+            //重新为滚动条距离顶部的高度赋值
+            document.documentElement.scrollTop = document.body.scrollTop = stop - speed;
+            //为isTop重新赋值
+            isTop = true;
+            //当滚动条距离顶部高度为0时，清除定时器
+            if (stop == 0) {
+              clearInterval(timer);
+              alert("已经回到顶部");
+            }
+          }, 30)
+        }
+      }
+    </script>
+  </body>
+</html>
