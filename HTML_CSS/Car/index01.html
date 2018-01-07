@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>停车动画</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .boxgrid {
+        width: 594px;
+        height: 504px;
+        border: 2px solid #A52A2A;
+      }
+      .boxgrid .car {
+        position: absolute;
+        top: 0;
+        left: 720px;
+      }
+      .boxgrid img:first-child{
+      	height: 500px;
+      	width: 460px;
+      }
+      .boxgrid img:last-child{
+      	height: 500px;
+      	width: 590px;
+      }
+      .btn{
+      	position: absolute;
+      	left: 10px;
+      	top: 20px;
+      }
+      .btn button{
+      	padding: 3px 15px;
+      	display: block;
+      	background-color: brown;
+      	color: #FFFFFF;
+      	font-size: 15px;
+      	border: none;
+      	margin-top: 5px;
+      	cursor: pointer;
+      }
+      .btn button:hover{
+      	background-color: rosybrown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxgrid">
+      <img src="img/car.png" alt="法拉利" class="car" title="法拉利" />
+      <img src="img/carport.png" alt="王老五的车位" title="王老五的车位" />
+    </div>
+	<div class="btn">
+		<button id="enter">进入</button>
+		<button id="leave">离开</button>
+	</div>
+
+    <script>
+      $(document).ready(function () {
+        $("#enter").click(function(){
+        	$(".car").animate({left:'60px'},{duration:300});
+        });
+        $("#leave").click(function(){
+        	$(".car").animate({left:'720px'},{duration:300});
+        })
+      });
+    </script>
+  </body>
+</html>
