@@ -29,6 +29,16 @@
 **:grey_question:感悟:**<br>
 实现思路其实一点难度也没有，就是通过jQuery绑定节点，然后添加点击事件，接着为事件绑定相关的动画。唯一学到的是：何谓[同源策略](https://github.com/acgotaku/WebSecurity/blob/master/docs/content/Browser_Security/Same-Origin-Policy.md)？<br>
 
-**下面加强下认知：** 以下两个demo的源码几乎一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议,可以在控制台查看错误信息<br>
+**加强认知：** <br>
+一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议,可以在控制台查看错误信息<br>
 [使用https协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index.html)<br>
 [使用http协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index01.html)<br><br>
+
+
+# :alien:3、BackTop=>回到顶部效果
+
+除了课程内的那套JavaScript实现方法，另外增加了jQuery的实现方法。实现思路不是很难，小细节很多，主要是需要经常刻意训练自己，毕竟这些业务的写法都差不多，不会变到哪里去的。一个词：“熟能生巧”，关于代码的一些分析都写成注释了。可以从下面的demo中进行查看：<br>
+
+[JavaScript写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index.html)<br>
+[jQuery写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index01.html)<br>
+
