@@ -1,4 +1,4 @@
-## :open_mouth:1、page=>分页页码制作
+# :open_mouth:1、page=>分页页码制作
 
 该demo源自慕课网，看了老师的教程，自己重新实现了一遍，以下知识点对初入HTML和CSS的新手还是记一下比较好<br>
 
@@ -22,14 +22,13 @@
 [为分页页码插入小图标](https://cruxf.github.io/IMOOC/HTML_CSS/Page/case03.html)<br><br>
 
 
-## :sunglasses:2、Car=>帝都抢车位制作
+# :sunglasses:2、Car=>帝都抢车位制作
 
 该课程给的源码其实是非常不科学的，哪有这样停车的？而且动画还完全没有实现好，一怒之下，自己花了几分钟修改了一下。<br>
 
 **:grey_question:感悟:**<br>
-实现思路其实一点难度也没有，就是通过jQuery绑定节点，然后添加一个点击事件，接着为事件绑定相关的动画。唯一感受到的是：何谓[同源策略](https://github.com/acgotaku/WebSecurity/blob/master/docs/content/Browser_Security/Same-Origin-Policy.md)？<br>
+实现思路其实一点难度也没有，就是通过jQuery绑定节点，然后添加点击事件，接着为事件绑定相关的动画。唯一学到的是：何谓[同源策略](https://github.com/acgotaku/WebSecurity/blob/master/docs/content/Browser_Security/Same-Origin-Policy.md)？<br>
 
-**下面加强下认知：** 以下两个demo的源码几乎一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议<br>
-
+**下面加强下认知：** 以下两个demo的源码几乎一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议,可以在控制台查看错误信息<br>
 [使用https协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index.html)<br>
 [使用http协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index01.html)<br><br>
