@@ -21,3 +21,10 @@
 [修复元素之间的间隔](https://cruxf.github.io/IMOOC/HTML_CSS/Page/case02.html)
 [为分页页码插入小图标](https://cruxf.github.io/IMOOC/HTML_CSS/Page/case03.html)
 
+
+## :sunglasses:2、Car=>帝都抢车位制作
+
+该课程给的源码其实是非常不科学的，哪有这样停车的？而且动画还完全没有实现好，一怒之下，自己花了几分钟修改了一下。<br>
+
+**感悟:**<br>
+实现思路其实一点难度也没有，就是通过jQuery绑定节点，然后添加一个点击事件，接着为事件绑定相关的动画。唯一感受到的是：何谓同源策略？
