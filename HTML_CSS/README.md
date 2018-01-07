@@ -29,7 +29,7 @@
 **:grey_question:感悟:**<br>
 实现思路其实一点难度也没有，就是通过jQuery绑定节点，然后添加一个点击事件，接着为事件绑定相关的动画。唯一感受到的是：何谓[同源策略](https://github.com/acgotaku/WebSecurity/blob/master/docs/content/Browser_Security/Same-Origin-Policy.md)？<br>
 
-**下面加强下认知：**以下两个demo的源码几乎一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议<br>
+**下面加强下认知：** 以下两个demo的源码几乎一模一样，但是由于使用CDN引入的jQuery文件的协议不同（一个为http协议，一个为https协议），从而导致的结果也不同。造成这种情况的原因是因为浏览器使用的协议是安全性更高的https协议<br>
 
 [使用https协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index.html)<br>
-[使用http协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index01.html><br><br>
+[使用http协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index01.html)<br><br>
