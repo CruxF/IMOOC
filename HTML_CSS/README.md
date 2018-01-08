@@ -9,7 +9,7 @@
 1、元素写成一行，消除空格。优点是简单，缺点是代码忒难看了，不利于阅读和维护。<br>
 2、设置font-size:0;推荐使用这种方式，简单好用，具体使用技巧在源码中有解释。<br>
 户外拓展：<br>
-其实解决方法还有蛮多的，在这就不一一解释了，毕竟这个并不是什么重点和难点，继续讨论下去就有点像孔乙已那般：“你知道‘回’字有几种写法吗？”<br><br>
+其实解决方法还有蛮多的，在这就不一一解释了，毕竟这个并不是什么重点和难点，继续讨论下去就有点像孔乙已那般：“你知道‘回’字有几种写法吗？”<br>
 
 **:bride_with_veil:case03.html**<br>
 使用css中元素border特点制作三角图形的原理简单解释为:<br>
@@ -42,6 +42,17 @@
 
 除了课程内的那套JavaScript实现方法，另外增加了jQuery的实现方法。实现过程中，小细节很多，主要是需要经常刻意训练自己的思维，毕竟这些业务的写法都差不多，不会变到哪里去的。一个词：“熟能生巧”，关于代码的一些分析都写成注释了。可以从下面的demo中进行查看：<br>
 
-[JavaScript写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index.html)<br>
-[jQuery写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index01.html)<br>
+#### :nail_care:代码效果展示
 
+[JavaScript写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index.html)<br>
+[jQuery写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index01.html)<br><br>
+
+
+# 4、Accordion=>手风琴效果
+
+之前一直有怀疑自己：到底会不会CSS？今天终于确定下来了：根本就不会好吧:persevere:<br>JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课后根据自己的理解，写了一份简陋版的，代码层层递进，非常易于理解。<br>
+
+#### :nail_care:代码效果展示
+
+[课程demo](https://cruxf.github.io/IMOOC/HTML_CSS/Accordion/index.html)<br>
+[自己demo](https://cruxf.github.io/IMOOC/HTML_CSS/Accordion/index01.html)<br><br>
