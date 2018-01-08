@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>手风琴效果</title>
+    <style type="text/css">
+      .header {
+        height: 128px;
+        width: 629px;
+        border: 1px solid #d3d3d3;
+        overflow: hidden;
+        margin: 50px auto;
+      }
+      .header ul {
+        width: auto;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .header li {
+        width: 156px;
+        height: 128px;
+        float: left;
+        overflow: hidden;
+        border-right: 1px dashed #cacaca;
+        position: relative;
+      }
+      .header li:last-child {
+        border-right: none;
+      }
+      .header li a {
+        display: block;
+        text-decoration: none;
+      }
+      .header li img {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        height: 72px;
+        width: 100px;
+      }
+      .mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        opacity: 0;
+      }
+      .header li:hover .mask {
+        opacity: 0.2;
+      }
+      .header .big {
+        width: 314px;
+      }
+      .header .big a {
+        width: 314px;
+      }
+      .header .big img {
+        width: 195px;
+        height: 120px;
+        right: 0;
+        bottom: 0;
+      }
+      .info h3 {
+        margin-left: 5px;
+      }
+    </style>
+    <script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  </head>
+  <body>
+    <div id="box" class="header">
+      <ul>
+        <li class="big">
+          <a href="#">
+            <img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg">
+            <div class="info">
+              <h3 style="color:#f62368">聚美妆</h3>
+            </div>
+            <i class="mask"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="http://gtms01.alicdn.com/tps/i1/T1qxGLFsVbXXbA5QAK-195-120.jpg_Q90.jpg">
+            <div class="info">
+              <h3 style="color:#ff578a">Baby购</h3>
+            </div>
+            <i class="mask"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="http://gtms04.alicdn.com/tps/i4/T1CCeIFrVbXXbA5QAK-195-120.jpg_Q90.jpg">
+            <div class="info">
+              <h3 style="color:#d61939">TV购</h3>
+            </div>
+            <i class="mask"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        var outer = document.getElementById('box');
+        var list = outer.getElementsByTagName('li');
+        for (var i = 0; i < list.length; i++) {
+          list[i].onmouseover = function () {
+            for (var i = 0; i < list.length; i++) {
+              list[i].className = '';
+            }
+            this.className = 'big';
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
