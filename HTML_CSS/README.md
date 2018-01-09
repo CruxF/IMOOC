@@ -58,3 +58,43 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 [课程demo](https://cruxf.github.io/IMOOC/HTML_CSS/Accordion/index.html)<br>
 [自己demo](https://cruxf.github.io/IMOOC/HTML_CSS/Accordion/index01.html)<br><br>
+
+
+# 5、FormBea=>表单美化
+
+该课程算是比较古老的，里面很多方法和技巧都已经过了时，不过还是有一些可取之处。看了那么教学视频，也是第一次意识到，有时候思路跟着老师走容易走进一条死胡同，最好的办法就是取之精华，弃其糟粕，然后再按照自己思路实现一次。下面来看看我的代码和课程老师的代码：<br>
+
+**单选按钮篇** <br>
+
+老师：利用dl来模拟单选按钮，单单在语义化这一块就已经很大问题了，效果实现是利用了css中`background-position`属性。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/radio.html)<br>
+
+本人：将代码语义化，把实现思路变得简单化。第一个demo效果并不怎么吸引人，并且鼠标滑动的时候就选定了单选按钮；第二个demo使用相关技巧增加了一定效果，同时解决了鼠标滑动的时候就选定了单选按钮这个问题。<br>
+[点击查看效果1](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/radio01.html)<br>
+[点击查看效果2](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/radio02.html)<br>
+
+**复选框篇** <br>
+
+老师：代码量巨大，实现过程繁琐。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/checkbox.html)<br>
+
+本人：利用CSS3特性和一些相关的技巧，极大地简化了代码，并且没有引用外部图片资源，一定程度上提高网页的加载性能。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/checkbox01.html)<br>
+
+**文本框篇** <br>
+
+老师：没啥问题，实现思路清晰明了，实在是要找问题的话，那只能是引用了外部的图片资源这一点。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/text.html)<br>
+
+本人：增加了JavaScript代码，将外部图片资源改为内部文本内容。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/text01.html)<br>
+
+**下拉列表篇** <br>
+
+老师：代码量庞大，代码结构复杂，不易让人理解，并且在下拉菜单出现的时候会有页面抖动的不良效果。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished.html)<br>
+
+本人：缩减了代码，改善了代码结构，为了更易理解，增加了注释，解决了下拉菜单出现的时候页面抖动的不良效果。<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished01.html)<br>
+
+
