@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单美化_复选按钮篇</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .type {
+        height: 30px;
+        line-height: 30px;
+        width: 600px;
+        margin: 50px auto;
+        border: 1px solid #CCCCCC;
+        padding: 0 8px;
+      }
+      #form label {
+        display: inline-block;
+      }
+      label:hover {
+        text-decoration: underline;
+        color: brown;
+      }
+      label i {
+        font-size: 12px;
+        font-style: normal;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        text-align: center;
+        line-height: 12px;
+        color: #fff;
+        vertical-align: middle;
+        margin: -2px 2px 1px 9px;
+        border: 1px solid black;
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+      /*当复选框被选中时，i的背景色发生变化*/
+      input[type="checkbox"]:checked+i {
+        background: #2489c5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="type">
+      <form action="#" method="post" id="form">
+        <label><input type="checkbox" checked><i>✓</i>消费者保障</label>
+        <label><input type="checkbox"><i>✓</i>破损补寄</label>
+        <label><input type="checkbox"><i>✓</i>7天退换</label>
+        <label><input type="checkbox"><i>✓</i>正品保障</label>
+        <label><input type="checkbox"><i>✓</i>电子凭证</label>
+        <label><input type="checkbox"><i>✓</i>旺旺在线</label>
+      </form>
+    </div>
+  </body>
+</html>

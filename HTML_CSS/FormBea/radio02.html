@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>美化单选框</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .type {
+        height: 30px;
+        line-height: 30px;
+        width: 350px;
+        margin: 50px auto;
+        border: 1px solid #CCCCCC;
+        padding: 0 8px;
+      }
+      .type form {
+        display: inline-block;
+      }
+      label:hover {
+        text-decoration: underline;
+        color: brown;
+      }
+      label i {
+        font-size: 12px;
+        font-style: normal;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        text-align: center;
+        line-height: 12px;
+        color: #fff;
+        vertical-align: middle;
+        margin: -2px 2px 1px 8px;
+        border: 1px solid black;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      input[type="radio"]+i {
+        border-radius: 7px;
+      }
+      /*当单选框被选中时，i的背景色发生变化*/
+      input[type="radio"]:checked+i {
+        background: #2489c5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="type">
+      <span>配送类型：</span>
+      <form action="#" method="post" id="form">
+        <label onmouseover="show(0)"><input type="radio" name="abc" checked><i>✓</i>全部</label>
+        <label onmouseover="show(1)"><input type="radio" name="abc"><i>✓</i>京东配送</label>
+        <label onmouseover="show(2)"><input type="radio" name="abc"><i>✓</i>第三方配送</label>
+      </form>
+    </div>
+
+    <script>
+      function show(index) {
+        var lab = document.getElementsByTagName("i");
+        for (var i = 0; i < lab.length; i++) {
+          if (i == index) {
+            lab[i].style.borderColor = "#2489c5";
+          } else {
+            lab[i].style.borderColor = "black";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

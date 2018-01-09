@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>表单美化_文本框</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <style>
+      body {
+        font: 13px/26px "微软雅黑";
+        background: #666666;
+      }
+      div, ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+        line-height: 30px;
+        padding: 0 10px;
+      }
+      a:hover {
+        color: #C00;
+      }
+      #Layer {
+        width: 500px;
+        height: 326px;
+        border: 3px solid #333333;
+        background: #FFF;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -163px 0 0 -250px;
+      }
+      .province {
+        width: 320px;
+        height: 42px;
+        background: #C00;
+        margin: 80px auto;
+        padding-left: 10px;
+        position: relative;
+      }
+      .province strong {
+        width: 48px;
+        height: 42px;
+        color: #FFF;
+        line-height: 42px;
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        float: left;
+      }
+      .province span {
+        width: 200px;
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid #999;
+        background: #FFF url(img/province_sprites.png) no-repeat 189px -2px;
+        display: block;
+        float: left;
+        margin-top: 8px;
+        padding-left: 4px;
+        cursor: pointer;
+      }
+      .province ul {
+        width: 328px;
+        height: auto;
+        background: #FFF;
+        border: 1px solid #dfdfdf;
+        border-bottom: none;
+        clear: both;
+        position: absolute;
+        left: 0;
+        top: 42px;
+        display: none;
+      }
+      .province ul li {
+        height: 30px;
+        line-height: 30px;
+        border-bottom: 1px solid #dfdfdf;
+        padding-left: 10px;
+      }
+      .province ul li b {
+        font-weight: bold;
+      }
+      ul, li {
+        list-style: none;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+    <script>
+      function addLoadEvent(func) {
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+          window.onload = func;
+        } else {
+          window.onload = function () {
+            oldonload();
+            func();
+          }
+        }
+      }
+
+      function $(id) {
+        return document.getElementById(id);
+      }
+
+      function showProvince() {
+        $("selectProvince").onclick = showAllProvince;
+        selectProvince();
+      }
+
+      function showAllProvince() {
+        $("allProvince").style.display = "block";
+        $("selectProvince").style.color = "#CCCCCC";
+        $("selectProvince").style.backgroundPosition = "189px -17px";
+      }
+
+      function hideAllProvince() {
+        $("allProvince").style.display = "none";
+        $("selectProvince").style.color = "#000000";
+        $("selectProvince").style.backgroundPosition = "189px -2px";
+      }
+
+      function selectProvince() {
+        var pro = $("allProvince").getElementsByTagName("li");
+        var links;
+        for (var i = 0; i < pro.length; i++) {
+          links = pro[i].getElementsByTagName("a");
+          for (var j = 0; j < links.length; j++) {
+            links[j].onclick = function () {
+              $("selectProvince").innerHTML = this.innerHTML;
+              hideAllProvince();
+            }
+          }
+        }
+      }
+      addLoadEvent(showProvince);
+    </script>
+  </head>
+
+  <body>
+    <div id="Layer">
+      <div class="province">
+        <strong>送货至</strong>
+        <span id="selectProvince">北京</span>
+        <ul id="allProvince" class="show">
+          <li><b>A</b>
+            <a href="javascript:void(0);">安徽</a>
+          </li>
+          <li><b>B</b>
+            <a href="javascript:void(0);">北京</a>
+          </li>
+          <li><b>C</b>
+            <a href="javascript:void(0);">重庆</a>
+          </li>
+          <li><b>F</b>
+            <a href="javascript:void(0);">福建</a>
+          </li>
+          <li><b>G</b>
+            <a href="javascript:void(0);">广东</a>
+            <a href="javascript:void(0);">广西</a>
+          </li>
+          <li><b>H</b>
+            <a href="javascript:void(0);">河北</a>
+            <a href="javascript:void(0);">河南</a>
+            <a href="javascript:void(0);">黑龙江</a>
+          </li>
+          <li><b>J</b>
+            <a href="javascript:void(0);">吉林</a>
+            <a href="javascript:void(0);">江苏</a>
+          </li>
+          <li><b>L</b>
+            <a href="javascript:void(0);">辽宁</a>
+          </li>
+          <li><b>N</b>
+            <a href="javascript:void(0);">内蒙古</a>
+          </li>
+          <li><b>Q</b>
+            <a href="javascript:void(0);">青海</a>
+          </li>
+          <li><b>S</b>
+            <a href="javascript:void(0);">上海</a>
+            <a href="javascript:void(0);">山东</a>
+          </li>
+          <li><b>T</b>
+            <a href="javascript:void(0);">天津</a>
+          </li>
+          <li><b>X</b>
+            <a href="javascript:void(0);">新疆</a>
+          </li>
+          <li><b>Y</b>
+            <a href="javascript:void(0);">云南</a>
+          </li>
+          <li><b>Z</b>
+            <a href="javascript:void(0);">浙江</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

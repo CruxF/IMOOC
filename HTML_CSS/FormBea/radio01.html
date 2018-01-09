@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>单选框美化</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .type {
+        height: 30px;
+        line-height: 30px;
+        width: 350px;
+        margin: 50px auto;
+        border: 1px solid #CCCCCC;
+        padding: 0 8px;
+      }
+      .type div, form {
+        display: inline-block;
+      }
+      .type div {
+        margin-right: 8px;
+      }
+      .type input {
+        border: 1px solid red;
+      }
+      .type label:hover {
+        color: brown;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="type">
+      <span>配送类型：</span>
+      <form action="#" method="get" id="form">
+        <div class="first">
+          <input type="radio" name="ra" id="fir" checked="checked" />
+          <!--加载一个鼠标滑动事件-->
+          <label for="fir" onmouseover="show(0)">全部</label>
+        </div>
+        <div class="second">
+          <input type="radio" name="ra" id="sec" />
+          <label for="sec" onmouseover="show(1)">京东配送</label>
+        </div>
+        <div class="third">
+          <input type="radio" name="ra" id="thi" />
+          <label for="thi" onmouseover="show(2)">第三方配送</label>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function show(index) {
+        var form = document.getElementById("form");
+        var inp = form.getElementsByTagName("input");
+        for (var i = 0; i < inp.length; i++) {
+          if (i == index) {
+            inp[i].checked = true;
+          } else {
+            inp[i].checked = false;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

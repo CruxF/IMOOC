@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>表单美化_文本框</title>
+    <link rel="stylesheet" href="css/public.css" />
+    <style>
+      body {
+        font: 14px/28px "微软雅黑";
+      }
+      .contact *:focus {
+        outline: none;
+      }
+      .contact {
+        width: 700px;
+        height: auto;
+        background: #F6F6F6;
+        margin: 50px auto;
+        padding: 10px;
+      }
+      .contact ul {
+        width: 700px;
+      }
+      .contact ul li {
+        border-bottom: 1px solid #DFDFDF;
+        padding: 12px;
+        position: relative;
+      }
+      .contact ul li label {
+        width: 120px;
+        display: inline-block;
+        float: left;
+      }
+      .contact ul li input[type="text"] {
+        width: 220px;
+        height: 20px;
+        border: 1px solid #AAA;
+        padding: 3px 8px;
+        border-radius: 5px;
+        transition: padding-right .25s linear;
+      }
+      .contact ul li input:focus {
+        border-color: #C00;
+        padding-right: 70px;
+      }
+      .contact ul li i {
+        position: absolute;
+        top: 15px;
+        left: 352px;
+        color: red;
+        transition: left .25s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact">
+      <form action="#" method="post" name="cForm">
+        <ul>
+          <li>
+            <label for="user">姓名：</label>
+            <input type="text" name="user" id="user" placeholder="you name" required="required" />
+            <i id="iname">*</i>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <script>
+      var tex = document.getElementsByTagName("input")[0];
+      var ina = document.getElementById("iname");
+			//定义一个获得焦点事件
+      tex.onfocus = function () {
+        ina.innerHTML = "!";
+        ina.style.left = "420px";
+      }
+      //定义一个失去焦点事件
+      tex.onblur = function () {
+        ina.innerHTML = "*";
+        ina.style.left = "352px";
+      }
+    </script>
+  </body>
+</html>

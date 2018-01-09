@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>表单美化_文本框</title>
+    <link rel="stylesheet" href="css/public.css" />
+    <style>
+      body {
+        font: 14px/28px "微软雅黑";
+      }
+      .contact *:focus {
+        outline: none;
+      }
+      .contact {
+        width: 700px;
+        height: auto;
+        background: #F6F6F6;
+        margin: 50px auto;
+        padding: 10px;
+      }
+      .contact ul {
+        width: 700px;
+      }
+      .contact ul li {
+        border-bottom: 1px solid #DFDFDF;
+        padding: 12px;
+      }
+      .contact ul li label {
+        width: 120px;
+        display: inline-block;
+        float: left;
+      }
+      .contact ul li input[type="text"] {
+        width: 220px;
+        height: 20px;
+        border: 1px solid #AAA;
+        /*
+    		 background-image
+    		 background-repeat
+    		 background-color
+    		 backgrount-position
+    		 */
+        background: url(img/red_asterisk.png) no-repeat #FFF 98%;
+        padding: 3px 8px;
+        border-radius: 5px;
+        transition: padding-right .25s linear;
+      }
+      .contact ul li input:focus {
+        border-color: #C00;
+        background-image: url(img/invalid.png);
+        padding-right: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact">
+      <form action="#" method="post" name="cForm">
+        <ul>
+          <li>
+            <label for="user">姓名：</label>
+            <input type="text" name="user" id="user" placeholder="you name" required="required" />
+          </li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>

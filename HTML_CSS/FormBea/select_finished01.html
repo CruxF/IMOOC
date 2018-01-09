@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>表单美化_文本框</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <style>
+      body {
+        font: 13px/26px "微软雅黑";
+        background: #666666;
+      }
+      .box {
+        width: 500px;
+        height: 326px;
+        border: 3px solid #333333;
+        background: #FFF;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -163px 0 0 -250px;
+        /*解决浏览器出现滚动条的闪动问题*/
+        overflow: scroll;
+      }
+      /*头部区*/      
+      .bTop {
+        width: 320px;
+        height: 42px;
+        background: #C00;
+        margin: 80px auto;
+        padding-left: 10px;
+        position: relative;
+        line-height: 42px;
+      }
+      .bTop strong {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .bTop span {
+        display: inline-block;
+        height: 25px;
+        width: 200px;
+        line-height: 25px;
+        background-color: #fff;
+        position: absolute;
+        top: 8px;
+        left: 65px;
+        padding-left: 5px;
+        cursor: pointer;
+      }
+      /*三角形实现*/     
+      .itop {
+        height: 0;
+        width: 0;
+        border: 5px solid transparent;
+        border-top: 5px solid black;
+        position: absolute;
+        top: 18px;
+        left: 255px;
+      }
+      /*倒三角形实现*/      
+      .ibottom {
+        height: 0;
+        width: 0;
+        border: 5px solid transparent;
+        border-bottom: 5px solid black;
+        position: absolute;
+        top: 13px;
+        left: 255px;
+      }
+      /*尾部样式*/      
+      .bSelect {
+        width: 329px;
+        height: auto;
+        border: 1px solid #ccc;
+        position: absolute;
+        top: 122px;
+        left: 50%;
+        margin-left: -165px;
+        display: none;
+      }
+      .bSelect ul {
+        background-color: #fff;
+      }
+      .bSelect ul li {
+        height: 30px;
+        line-height: 30px;
+        border-bottom: 1px solid #dfdfdf;
+        padding-left: 8px;
+      }
+      .bSelect ul li b {
+        margin-right: 6px;
+      }
+      .bSelect ul li a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="bTop">
+        <strong>送货至：</strong>
+        <span id="tspan" onclick="showinfo()">北京</span>
+        <i class="itop" id="triangle"></i>
+      </div>
+      <div class="bSelect" id="bSe">
+        <ul id="ulList" class="show">
+          <li><b>A</b>
+            <a href="javascript:void(0);">安徽</a>
+          </li>
+          <li><b>B</b>
+            <a href="javascript:void(0);">北京</a>
+          </li>
+          <li><b>C</b>
+            <a href="javascript:void(0);">重庆</a>
+          </li>
+          <li><b>F</b>
+            <a href="javascript:void(0);">福建</a>
+          </li>
+          <li><b>G</b>
+            <a href="javascript:void(0);">广东</a>
+            <a href="javascript:void(0);">广西</a>
+          </li>
+          <li><b>H</b>
+            <a href="javascript:void(0);">河北</a>
+            <a href="javascript:void(0);">河南</a>
+            <a href="javascript:void(0);">黑龙江</a>
+          </li>
+          <li><b>J</b>
+            <a href="javascript:void(0);">吉林</a>
+            <a href="javascript:void(0);">江苏</a>
+          </li>
+          <li><b>L</b>
+            <a href="javascript:void(0);">辽宁</a>
+          </li>
+          <li><b>N</b>
+            <a href="javascript:void(0);">内蒙古</a>
+          </li>
+          <li><b>Q</b>
+            <a href="javascript:void(0);">青海</a>
+          </li>
+          <li><b>S</b>
+            <a href="javascript:void(0);">上海</a>
+            <a href="javascript:void(0);">山东</a>
+          </li>
+          <li><b>T</b>
+            <a href="javascript:void(0);">天津</a>
+          </li>
+          <li><b>X</b>
+            <a href="javascript:void(0);">新疆</a>
+          </li>
+          <li><b>Y</b>
+            <a href="javascript:void(0);">云南</a>
+          </li>
+          <li><b>Z</b>
+            <a href="javascript:void(0);">浙江</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+    	//提取出公共id值
+    	var bselect = document.getElementById("bSe");
+      var trian = document.getElementById("triangle");
+      //定义一个显示底部信息的函数
+      function showinfo() {
+        bselect.style.display = "block";
+        trian.className = "ibottom";
+      }
+      //定义一个隐藏底部信息的函数
+      function hideinfo() {
+        bselect.style.display = "none";
+        trian.className = "itop";
+      }
+
+      function selectinfo() {
+        var ulList = document.getElementById("ulList");
+        var linfo = ulList.getElementsByTagName("li");
+        var tspan = document.getElementById("tspan");
+        var links;
+        for (var i = 0; i < linfo.length; i++) {
+          links = linfo[i].getElementsByTagName("a");
+          for (var j = 0; j < links.length; j++) {
+            links[j].onclick = function () {
+              tspan.innerHTML = this.innerHTML;
+              hideinfo();
+            }
+          }
+        }
+      }
+      selectinfo();
+    </script>
+  </body>
+</html>

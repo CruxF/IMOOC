@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单美化_复选按钮篇</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <style type="text/css">
+      body {
+        font: 12px/22px "微软雅黑";
+      }
+      .checkbox {
+        width: 520px;
+        height: 30px;
+        border: 1px solid #DFDFDF;
+        border-width: 1px 0 1px;
+        margin: 20px auto;
+        padding-left: 10px;
+        overflow: hidden;
+      }
+      .checkbox form {
+        height: 30px;
+      }
+      .checkbox form input {
+        display: none;
+      }
+      .checkbox form label {
+        line-height: 30px;
+        display: block;
+      }
+      .checkbox ul li {
+        float: left;
+        margin-right: 10px;
+      }
+      .costom-checkbox {
+        position: relative;
+      }
+      .custom-checkbox label {
+        display: block;
+        position: relative;
+        padding-right: 1em;
+        line-height: 1;
+        padding: 0 0 0 25px;
+        cursor: pointer;
+      }
+      .custom-checkbox label {
+        background: url(img/checkbox.gif) no-repeat -10px -13px;
+      }
+      .custom-checkbox label.hover, .custom-checkbox label.focus {
+        background-position: -10px -113px;
+      }
+      .custom-checkbox label.checked {
+        background-position: -10px -213px;
+      }
+      .custom-checkbox label.checkedHover, .custom-checkbox label.checkedFocus {
+        background-position: -10px -313px;
+      }
+      .custom-checkbox label.focus {
+        outline: 1px dotted #ccc;
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/custominput.js"></script>
+    <script type="text/javascript">
+      $(function () {
+
+        $('input').customInput();
+
+        $('.toggle').each(function () {
+          $('div:first', this).addClass('first');
+          $('div:last', this).addClass('last');
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="checkbox">
+      <form action="#" method="post" name="typeForm">
+        <ul>
+          <li><input type="checkbox" name="type" id="x" value="" /><label for="x">消费者保障</label></li>
+          <li><input type="checkbox" name="type" id="po" value="" /><label for="po">破损补寄</label></li>
+          <li><input type="checkbox" name="type" id="s" value="" /><label for="s">7天退换</label></li>
+          <li><input type="checkbox" name="type" id="z" value="" /><label for="z">正品保障</label></li>
+          <li><input type="checkbox" name="type" id="d" value="" /><label for="d">电子凭证</label></li>
+          <li><input type="checkbox" name="type" id="wang" value="" /><label for="wang">旺旺在线</label></li>
+          <li><input type="checkbox" name="type" id="p" value="" /><label for="p">品牌授权</label></li>
+          <li><input type="checkbox" name="type" id="h" value="" /><label for="h">货到付款</label></li>
+          <li><input type="checkbox" name="type" id="cre" value="" /><label for="cre">信用卡</label></li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
