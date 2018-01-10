@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>jQuery水平菜单</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      a {
+        color: #333;
+        text-decoration: none
+      }
+      .nav {
+        list-style: none;
+        height: 30px;
+        position: relative;
+        border-bottom: 10px solid #F60;
+        padding: 50px 0 0 200px;
+      }
+      .nav li {
+        float: left;
+      }
+      .nav li a {
+        display: block;
+        height: 30px;
+        width: 120px;
+        text-align: center;
+        line-height: 30px;
+        background: #efefef;
+        margin-left: 2px;
+      }
+      .nav li a.on, .nav li a:hover {
+        background: #F60;
+        color: #fff;
+      }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("a").hover(
+          function () {
+			$(this).stop().animate({"width":"160px"},200);
+          },
+          function () {
+          	$(this).stop().animate({"width":"120px"},200);
+          }
+        )
+      });
+    </script>
+  </head>
+  <body>
+
+    <ul class="nav">
+      <li>
+        <a class="on" href="#">首　　页</a>
+      </li>
+      <li>
+        <a href="#">关于我们</a>
+      </li>
+      <li>
+        <a href="#">产品展示</a>
+      </li>
+      <li>
+        <a href="#">售后服务</a>
+      </li>
+      <li>
+        <a href="#">联系我们</a>
+      </li>
+    </ul>
+
+  </body>
+</html>

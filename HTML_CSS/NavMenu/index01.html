@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      /* 默认样式清除 设置基本样式 */
+      
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      /* 效果样式 */
+      
+      .wrap {
+        width: 800px;
+        margin: 10% auto;
+      }
+      .nav li {
+        float: left;
+      }
+      .nav li a {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        background: #5E5E5E;
+        display: block;
+        position: relative;
+      }
+      /*核心代码*/
+      
+      .nav li a:after {
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        right: -25px;
+        border-left: solid 25px #5E5E5E;
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        z-index: 10;
+      }
+      .nav li a {
+        padding-left: 30px;
+      }
+      .nav li small {
+        text-transform: uppercase;
+        font-size: 22px;
+      }
+      /*鼠标滑动触发样式*/
+      
+      .nav a:hover {
+        background: green;
+      }
+      .nav a:hover:after {
+        border-left: 25px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="nav clearfix">
+        <li>
+          <a href="#">1 <small>step1</small></a>
+        </li>
+        <li>
+          <a href="#">2 <small>step2</small></a>
+        </li>
+        <li>
+          <a href="#">3 <small>step3</small></a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

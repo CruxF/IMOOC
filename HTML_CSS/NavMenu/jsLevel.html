@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript水平菜单</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      a {
+        color: #333;
+        text-decoration: none
+      }
+      .nav {
+        list-style: none;
+        height: 30px;
+        border-bottom: 10px solid #F60;
+        padding: 50px 0 0 200px;
+      }
+      .nav li {
+        float: left;
+      }
+      .nav li a {
+        display: block;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        width: 80px;
+        background: #efefef;
+        margin-left: 1px;
+      }
+      .nav li a.on, .nav li a:hover {
+        background: #F60;
+        color: #fff;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        var oNav = document.getElementsByTagName('ul')[0];
+        var aA = oNav.getElementsByTagName('a');
+        for (var i = 0; i < aA.length; i++) {
+          aA[i].onmouseover = function () {
+            if (this.className != "on") {
+              clearInterval(this.time);
+              var This = this;
+              This.time = setInterval(function () {
+                This.style.width = This.offsetWidth + 8 + "px";
+                if (This.offsetWidth >= 120)
+                  clearInterval(This.time);
+              }, 30)
+            }
+          }
+          aA[i].onmouseout = function () {
+            if (this.className != "on") {
+              clearInterval(this.time);
+              var This = this;
+              this.time = setInterval(function () {
+                This.style.width = This.offsetWidth - 8 + "px";
+                if (This.offsetWidth <= 80) {
+                  This.style.width = '80px';
+                  clearInterval(This.time);
+                }
+              }, 30)
+            }
+          }
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+
+    <ul class="nav">
+      <li>
+        <a class="on" href="#">首　　页</a>
+      </li>
+      <li>
+        <a href="#">关于我们</a>
+      </li>
+      <li>
+        <a href="#">产品展示</a>
+      </li>
+      <li>
+        <a href="#">售后服务</a>
+      </li>
+      <li>
+        <a href="#">联系我们</a>
+      </li>
+    </ul>
+
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      /* 默认样式清除 设置基本样式 */
+      
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .clearfix:before, .clearfix:after {
+        content: "";
+        display: table;
+      }
+      .clearfix:after {
+        clear: both;
+      }
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        font-size: 1.6rem;
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        line-height: 1;
+      }
+      ul li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #5e5e5e;
+      }
+      /* 效果样式 */
+      
+      .wrap {
+        width: 800px;
+        margin: 10% auto;
+      }
+      .nav li {
+        float: left;
+      }
+      .nav a {
+        font-size: 3rem;
+        color: #fff;
+        display: block;
+        width: 150px;
+        padding: 10px;
+        background-color: #3e3e3e;
+        position: relative;
+      }
+      .nav a small {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        vertical-align: 30%;
+      }
+      .nav a:after {
+        content: "";
+        position: absolute;
+        right: -25px;
+        z-index: 9;
+        margin-top: -10px;
+        border-left: solid 25px #3e3e3e;
+        border-top: solid 25px rgba(0, 0, 0, 0);
+        border-bottom: solid 25px rgba(0, 0, 0, 0);
+      }
+      .nav li+li>a {
+        padding-left: 30px;
+      }
+      .nav li a:hover {
+        background-color: #FFB90F;
+      }
+      .nav li a:hover::after {
+        border-left: solid 25px #FFB90F;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="nav clearfix">
+        <li>
+          <a href="#">1 <small>step1</small></a>
+        </li>
+        <li>
+          <a href="#">2 <small>step2</small></a>
+        </li>
+        <li>
+          <a href="#">3 <small>step3</small></a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

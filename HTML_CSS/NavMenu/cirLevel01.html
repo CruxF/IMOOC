@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>圆角水平菜单</title>
+    <style>
+    	*{
+    		padding: 0;
+    		margin: 0;
+    	}
+      nav {
+        width: 100%;
+        height: auto;
+        margin: 50px auto;
+        border-bottom: 10px solid green;
+        display: inline-block;
+      }
+      ul {
+      	margin-left: 26%;
+        width: auto;
+        height: auto;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+      ul li {
+        float: left;
+      }
+      ul a {
+        width: 130px;
+        display: block;
+        text-decoration: none;
+        color: black;
+        height: 30px;
+        line-height: 30px;
+        background: #ccc;
+        margin-right: 2px;
+        border-radius: 7px 7px 0 0;
+        transition: background-color .3s linear;
+      }
+      ul li:last-child a {
+        margin-right: 0px;
+      }
+      ul li a:hover {
+        background: yellowgreen;
+        color: #fff;
+        height: 35px;
+        line-height: 35px;
+        margin-top: -5px;
+      }
+      ul li:first-child a{
+      	background: yellowgreen;
+        color: #fff;
+        height: 35px;
+        line-height: 35px;
+        margin-top: -5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">首&nbsp;&nbsp;页</a>
+        </li>
+        <li>
+          <a href="#">公司简介</a>
+        </li>
+        <li>
+          <a href="#">产品列表</a>
+        </li>
+        <li>
+          <a href="#">售后服务</a>
+        </li>
+        <li>
+          <a href="#">建议投诉</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>垂直菜单</title>
+    <style>
+      nav {
+        width: 100px;
+        height: auto;
+        margin: 50px auto;
+        border: 1px solid green;
+      }
+      ul {
+        width: 100px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      ul a {
+        display: block;
+        text-decoration: none;
+        color: black;
+        height: 40px;
+        line-height: 40px;
+        background: #ccc;
+        margin-bottom: 2px;
+        transition: background-color .3s linear;
+      }
+      ul li:last-child a {
+        margin-bottom: 0px;
+      }
+      ul a:hover {
+        background: yellowgreen;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">首&nbsp;&nbsp;页</a>
+        </li>
+        <li>
+          <a href="#">公司简介</a>
+        </li>
+        <li>
+          <a href="#">产品列表</a>
+        </li>
+        <li>
+          <a href="#">售后服务</a>
+        </li>
+        <li>
+          <a href="#">建议投诉</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

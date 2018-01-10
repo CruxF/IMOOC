@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>css动画水平菜单</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      a {
+        color: black;
+        text-decoration: none
+      }
+      .nav {
+        list-style: none;
+        height: 30px;
+        border-bottom: 10px solid green;
+        padding: 50px 0 0 200px;
+      }
+      .nav li {
+        float: left;
+      }
+      .nav li a {
+        display: block;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        width: 80px;
+        background: #ccc;
+        margin-left: 2px;
+        transition: width .3s linear;
+        -webkit-transition: width .3s linear;
+        -moz-transition: width .3s linear;
+        -o-transition: width .3s linear;
+      }
+      .nav li a:hover {
+        background: yellowgreen;
+        color: #fff;
+      }
+      .nav li a:hover {
+      	width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <ul class="nav">
+      <li>
+        <a class="on" href="#">首　　页</a>
+      </li>
+      <li>
+        <a href="#">关于我们</a>
+      </li>
+      <li>
+        <a href="#">产品展示</a>
+      </li>
+      <li>
+        <a href="#">售后服务</a>
+      </li>
+      <li>
+        <a href="#">联系我们</a>
+      </li>
+    </ul>
+
+  </body>
+</html>
