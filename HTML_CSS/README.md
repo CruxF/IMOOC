@@ -66,7 +66,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 **:bird:单选按钮篇** <br>
 
-老师：利用dl来模拟单选按钮，单单在语义化这一块就已经很大问题了，效果实现是利用了css中`background-position`属性。<br>
+老师：利用dl来模拟单选按钮，在语义化这一块已经很大问题了，效果实现是利用了css中`background-position`属性。<br>
 [点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/radio.html)<br>
 
 本人：将代码语义化，把实现思路变得简单化。第一个demo效果并不怎么吸引人，并且鼠标滑动的时候就选定了单选按钮；第二个demo使用相关技巧增加了一定效果，同时解决了鼠标滑动的时候就选定了单选按钮这个问题。<br>
@@ -95,6 +95,33 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished.html)<br>
 
 本人：缩减了代码，改善了代码结构，为了更易理解，增加了注释，解决了下拉菜单出现的时候页面抖动的不良效果。<br>
-[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished01.html)<br>
+[点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished01.html)<br><br>
+
+
+# 6、NavMenu=>导航条菜单的制作
+
+课程虽然才短短二十几分钟，但是如果深入了解的话会发现非常多的知识点。包括CSS3的新属性、BFC概念、层级概念、盒子模型中的边框、定位布局、伪类以及伪元素、JavaScript中的定时器和jQuery中的API等，下面来看相关的demo：<br>
+
+**垂直菜单：** <br>
+
+[老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical.html)<br>
+[本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical01.html)<br>
+
+**水平菜单：** <br>
+
+[老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level.html)<br>
+[本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level01.html)<br>
+
+**伸缩菜单——改变高度：** <br>
+
+
+
+
+
+
+
+
+
+
 
 
