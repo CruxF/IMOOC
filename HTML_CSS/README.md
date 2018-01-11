@@ -104,18 +104,29 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 **垂直菜单：** <br>
 
+老师的实现方法很精炼，而我的只是稍微做了一点动画的处理。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical.html)<br>
 [本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical01.html)<br>
 
-**水平菜单：** <br>
+**水平菜单——高度伸缩：** <br>
 
+几乎完整的将源码照般过来，在demo2中我应用了BFC解决了父元素塌陷的问题，更多BFC知识我会在未来的某一天进行整理。其中盒子高度伸缩一个重要的点就是在伸缩的时候margin的值。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level.html)<br>
-[本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level01.html)<br>
+[本人的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level01.html)<br>
+[本人的demo2](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level02.html)<br>
 
-**伸缩菜单——改变高度：** <br>
+**水平菜单——长度伸缩：** <br>
+
+其实实现该效果完全没必要用到JavaScript和jQuery，老师这么做，我猜应该是想给新手打开一个新的学习之门，而且在JavaScript实现效果中，关于定时器各方面的讲解和考虑还是挺有用的。<br>
+[老师的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/jsLevel.html)<br>
+[老师的demo2](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/jqLevel.html)<br>
 
 
+**圆角菜单：** <br>
 
+老师采用了鼠标滑动改变背影图片的位置的方法来实现菜单的圆角效果，其实这个方法在CSS3规范的时候就已经完全过时了，不仅实现麻烦，还额外请求了外部资源，影响性能。<br>
+[老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel.html)<br>
+[本人的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel01.html)<br>
 
 
 
