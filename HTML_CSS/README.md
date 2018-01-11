@@ -102,37 +102,42 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 课程虽然才短短二十几分钟，但是如果深入了解的话会发现非常多的知识点。包括CSS3的新属性、BFC概念、层级概念、盒子模型中的边框、定位布局、伪类以及伪元素、JavaScript中的定时器和jQuery中的API等，下面来看相关的demo：<br>
 
-**垂直菜单：** <br>
+**:snowflake:垂直菜单：** <br>
 
 老师的实现方法很精炼，而我的只是稍微做了一点动画的处理。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical.html)<br>
 [本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/vertical01.html)<br>
 
-**水平菜单——高度伸缩：** <br>
+**:cyclone:水平菜单——高度伸缩：** <br>
 
 几乎完整的将源码照般过来，在demo2中我应用了BFC解决了父元素塌陷的问题，更多BFC知识我会在未来的某一天进行整理。其中盒子高度伸缩一个重要的点就是在伸缩的时候margin的值。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level.html)<br>
 [本人的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level01.html)<br>
 [本人的demo2](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/level02.html)<br>
 
-**水平菜单——长度伸缩：** <br>
+**:cat:水平菜单——长度伸缩：** <br>
 
 其实实现该效果完全没必要用到JavaScript和jQuery，老师这么做，我猜应该是想给新手打开一个新的学习之门，而且在JavaScript实现效果中，关于定时器各方面的讲解和考虑还是挺有用的。<br>
 [老师的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/jsLevel.html)<br>
 [老师的demo2](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/jqLevel.html)<br>
+[本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/csLevel.html)<br>
 
-
-**圆角菜单：** <br>
+**:hamster:圆角菜单：** <br>
 
 老师采用了鼠标滑动改变背影图片的位置的方法来实现菜单的圆角效果，其实这个方法在CSS3规范的时候就已经完全过时了，不仅实现麻烦，还额外请求了外部资源，影响性能。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel.html)<br>
 [本人的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel01.html)<br>
 
+**:frog:三角形菜单：** <br>
 
+在课程接近尾声的时候，老师布置了一个任务：实现带三角形的水平菜单。刚开始是有些头绪，知道是要用到定位的知识和边框的知识，但是遗漏了两点：<br>
+1、如何实现两个元素之间的绑定？<br>
+2、视图上元素的显示受到哪个属性的影响？<br>
+后来当我想通了，意识到使用伪元素，比如:after或者:before就能够和原来的元素绑定在一起；视图上元素的显示和z-index有关系。随之而来，问题迎刃而解，原来CSS中真的是有魔法^_^<br>
+[本人的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/index01.html)<br>
 
+**:bear:二级菜单：** <br>
 
-
-
-
-
-
+最后的任务是实现一个二级菜单，课程要求利用JavaScript来实现，参考课程之前使用定时器制作水平菜单那视频，应该很快就能明白过来如何下手。不过还是使用CSS来实现会方便非常多。<br>
+[JavaScript演示效果](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/test.html)<br>
+[CSS演示效果](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/test01.html)<br>
