@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS实现二级菜单</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      a {
+        color: #333;
+        text-decoration: none
+      }
+      ul {
+        list-style: none;
+      }
+      .nav {
+        height: 30px;
+        border-bottom: 5px solid #F60;
+        margin: 60px auto;
+        width: 600px;
+      }
+      .nav li {
+        float: left;
+        position: relative;
+        height: 30px;
+        width: 120px
+      }
+      .nav li a {
+        display: block;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        width: 120px;
+        background: #efefef;
+        margin-left: 1px;
+      }
+      .subNav {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 120px;
+        /*高度为零，这是个点*/
+        height: 0;
+        overflow: hidden;
+      }
+      .subNav li a {
+        background: #ddd
+      }
+      .subNav li a:hover {
+        background: #efefef;
+        color: #2489C5;
+      }
+      ul>li ul {
+        transition: height 0.3s linear;
+      }
+      /*程序的执行流程*/
+      ul>li:hover ul {
+        height: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">一级菜单</a>
+        <ul class="subNav">
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+        <ul class="subNav">
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+    </ul>
+  </body>
+</html>

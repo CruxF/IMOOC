@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript实现二级菜单</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+      }
+      a {
+        color: #333;
+        text-decoration: none
+      }
+      ul {
+        list-style: none;
+      }
+      .nav {
+        height: 30px;
+        border-bottom: 5px solid #F60;
+        margin: 60px auto;
+        width: 600px;
+      }
+      .nav li {
+        float: left;
+        position: relative;
+        height: 30px;
+        width: 120px
+      }
+      .nav li a {
+        display: block;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        width: 120px;
+        background: #efefef;
+        margin-left: 1px;
+      }
+      .subNav {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 120px;
+        height: 0;
+        overflow: hidden;
+      }
+      .subNav li a {
+        background: #ddd
+      }
+      .subNav li a:hover {
+        background: #efefef;
+        color: #2489C5;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var aLi = document.getElementsByTagName('li');
+        for (var i = 0; i < aLi.length; i++) {
+          aLi[i].onmouseover = function () {
+            //鼠标经过一级菜单，二级菜单动画下拉显示出来,this表示当前的li元素
+            var subNav = this.getElementsByTagName("ul")[0];
+            subNav.style.overflow = 'visible';
+          }
+          //鼠标离开菜单，二级菜单动画收缩起来。		
+          aLi[i].onmouseout = function () {
+            var subNav = this.getElementsByTagName("ul")[0];
+            subNav.style.overflow = 'hidden';
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">一级菜单</a>
+        <ul class="subNav">
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+        <ul class="subNav">
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+          <li>
+            <a href="#">二级菜单</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+      <li>
+        <a href="#">一级菜单</a>
+      </li>
+    </ul>
+  </body>
+</html>
