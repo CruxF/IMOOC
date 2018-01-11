@@ -124,7 +124,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 **:hamster:圆角菜单：** <br>
 
-老师采用了鼠标滑动改变背影图片的位置的方法来实现菜单的圆角效果，其实这个方法在CSS3规范的时候就已经完全过时了，不仅实现麻烦，还额外请求了外部资源，影响性能。<br>
+老师采用了鼠标滑动改变背影图片的位置的方法来实现菜单的圆角效果，其实这个方法在CSS3规范出来的时候就已经完全过时了，不仅实现麻烦，还额外请求了外部资源，影响性能。<br>
 [老师的demo](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel.html)<br>
 [本人的demo1](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/cirLevel01.html)<br>
 
