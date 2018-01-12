@@ -152,7 +152,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 **1、websocket初体验：** <br>
 创建一个HTML文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。<br>
 [点击我呀查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/index.html)<br>
-[HTML源代码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index.html)<br>
+[客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index.html)<br>
 
 **2、搭建自己的websocket server：**<br>
 步骤一：安装nodejs-websocket（npm install nodejs-websocket）;<br>
@@ -165,12 +165,18 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 原因分析：由于nodejs-websocket文档中的示例代码并有添加错误处理事件，因此导致server直接挂掉。<br>
 解决方式：在原js文件中添加一个错误处理函数即可。这样就能实现关闭页面，只是显示出错误信息，server并没有挂掉，重新运行html文件依然能够成功，下面是相关的源码。<br>
-[HTML源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index02.html)<br>
-[JavaScript源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer02.js)<br>
+[客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index02.html)<br>
+[服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer02.js)<br>
 
 **3、实现简单的聊天功能：** <br>
+1、首先，在客户端中用JavaScript构建一个websocket实例，并且为它绑定一个需要连接到的服务器地址；<br>
+2、接着，网络连接开始建立，触发了websocket中的onopen事件，该事件向服务器端发送数据；<br>
+3、然后，服务器端接收数据，并对其处理；<br>
+4、最后，客户端中的websocket里的onmessage事件被触发，返回数据到客户端。<br>
 
-
+解释不是很到位，希望多多包涵，当然也希望有大佬再好好跟我讲解讲解。你们可以根据这篇博客：[浅谈websocket](https://github.com/CruxF/Blog/issues/2)和下面两份源代码自己重新分析一次<br>
+[客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index03.html)<br>
+[服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer03.js)<br>
 
 
 
