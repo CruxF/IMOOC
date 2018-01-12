@@ -152,7 +152,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 **1、websocket初体验：** 
 创建一个文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。[点击我呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/index.html)<br>
 
-**2、搭建自己的websocket server：** 
+**2、搭建自己的websocket server：**<br>
 步骤一：安装nodejs-websocket（npm install nodejs-websocket）;<br>
 步骤二：创建一个js文件，将[nodejs-websocket的地址](https://github.com/sitegui/nodejs-websocket)中的相关代码复制进来；<br>
 步骤三：运行项目中的js文件（node 文件名.js）；<br>
