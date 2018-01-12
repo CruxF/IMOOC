@@ -149,7 +149,28 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 ## 基础篇
 
-1、websocket初体验，创建一个文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果。[点击我呀]()
+**1、websocket初体验：** 
+创建一个文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。[点击我呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/index.html)<br>
+
+**2、搭建自己的websocket server：** 
+步骤一：安装nodejs-websocket（npm install nodejs-websocket）;<br>
+步骤二：创建一个js文件，将[nodejs-websocket的地址](https://github.com/sitegui/nodejs-websocket)中的相关代码复制进来；<br>
+步骤三：运行项目中的js文件（node 文件名.js）；<br>
+步骤四：修改html文件中websocket的服务器地址；<br>
+步骤五：本地打开查看效果。（由于没有导入庞大的node_modules包，因此无法直接在线上查看效果，需要你们下载代码到本地项目中，然后安装nodejs-websocket才能正常运行）；<br>
+
+**小毛病：** 关闭页面控制台会报错，意思就是说server挂掉了，再次打开页面需要重新开启服务。<br>
+
+原因分析：由于nodejs-websocket文档中的示例代码并有添加错误处理事件，因此导致server直接挂掉。<br>
+解决方式：在原js文件中添加一个错误处理函数即可。这样就能实现关闭页面，只是显示出错误信息，server并没有挂掉，重新运行html文件依然能够成功，下面是相关的源码。<br>
+[HTML源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index02.html)<br>
+[JavaScript源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer02.js)<br>
+
+
+
+
+
+
 
 
 
