@@ -194,7 +194,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 ## 单机篇
 
 虽然看着头晕啊，不过还是阻止不了我将源码弄到手:joy:，先放着再说，日后再来好好分析分析。<br>
-[点我查看效果呀]()
-[我是源码]()
+[点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/singleTetris/single.html)<br>
+[我是源码](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS/WebSocket/singleTetris)
 
 
