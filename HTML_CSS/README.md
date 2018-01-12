@@ -178,16 +178,23 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index03.html)<br>
 [服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer03.js)<br>
 
-**4、使用socket.io：** <br>
+**4、使用Socket.io：** <br>
 
-**什么是socket.io？** <br>
+什么是socket.io？<br>
 答：socket.io是一个面向实时web应用的JavaScript库，它使得服务器和客户端之间实时双向的通信成为可能。他有两个部分组成：在浏览器中运行的客户端库，和面向node.js的服务端库。两者有着几乎一样的API，像node.js一样，它也是事件驱动的。<br>
 
-**为什么需要使用socket.io？** <br>
+为什么需要使用socket.io？<br>
 答：可以直接发送一个字符串，不用像websocket那样先把对象转化为字符串发送，然后再转化回来；可以发送自定义事件，不需要定义type这个属性去识别消息类型。下面请看两份两份源码来进行分析。<br>
 [客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index06.html)<br>
 [服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer06.js)<br>
 
-**注意：** 在开发程序之前，需要下载安装：npm install socket.io
+**注意：** 在开发程序之前，需要下载安装：npm install socket.io<br>
+
+
+## 单机篇
+
+虽然看着头晕啊，不过还是阻止不了我将源码弄到手:joy:，先放着再说，日后再来好好分析分析。<br>
+[点我查看效果呀]()
+[我是源码]()
 
 
