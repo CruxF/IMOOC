@@ -171,16 +171,23 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 **3、实现简单的聊天功能：** <br>
 1、首先，在客户端中用JavaScript构建一个websocket实例，并且为它绑定一个需要连接到的服务器地址；<br>
 2、接着，网络连接开始建立，触发了websocket中的onopen事件，该事件向服务器端发送数据；<br>
-3、然后，服务器端接收数据，并对其处理；<br>
+3、然后，服务器端接收数据，并对其处理，里面有个广播函数，是向所有的连接触发事件；<br>
 4、最后，客户端中的websocket里的onmessage事件被触发，返回数据到客户端。<br>
 
 解释不是很到位，希望多多包涵，当然也希望有大佬再好好跟我讲解讲解。你们可以根据这篇博客：[浅谈websocket](https://github.com/CruxF/Blog/issues/2)和下面两份源代码自己重新分析一次<br>
 [客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index03.html)<br>
 [服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer03.js)<br>
 
+**4、使用socket.io：** <br>
 
+**什么是socket.io？** <br>
+答：socket.io是一个面向实时web应用的JavaScript库，它使得服务器和客户端之间实时双向的通信成为可能。他有两个部分组成：在浏览器中运行的客户端库，和面向node.js的服务端库。两者有着几乎一样的API，像node.js一样，它也是事件驱动的。<br>
 
+**为什么需要使用socket.io？** <br>
+答：可以直接发送一个字符串，不用像websocket那样先把对象转化为字符串发送，然后再转化回来；可以发送自定义事件，不需要定义type这个属性去识别消息类型。下面请看两份两份源码来进行分析。<br>
+[客户端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index06.html)<br>
+[服务器端源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer06.js)<br>
 
-
+**注意：** 在开发程序之前，需要下载安装：npm install socket.io
 
 
