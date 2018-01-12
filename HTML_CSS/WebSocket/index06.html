@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>使用socket.io改进聊天室</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Chat Room</h1>
+    <input type="text" id="sendTxt" />
+    <button id="sendBtn">发送</button>
+
+    <script>
+      var socket = io("ws://localhost:6001/");
+
+      function showMessage(str, type) {
+        var div = document.createElement("div");
+        div.innerHTML = str;
+        if (type == 'enter') {
+          div.style.color = "cornflowerblue";
+        } else if (type == "leave") {
+          div.style.color = "rosybrown";
+        }
+        document.body.appendChild(div);
+      }
+
+      document.getElementById("sendBtn").onclick = function () {
+        var txt = document.getElementById("sendTxt").value;
+        if (txt) {
+          socket.emit("message",txt);
+        }
+      }
+
+			socket.on("enter",function(data){
+				showMessage(data,"enter");
+			})
+			
+			socket.on("message",function(data){
+				showMessage(data,"message");
+			})
+			
+			socket.on("leave",function(data){
+				showMessage(data,"leave");
+			})
+    </script>
+  </body>
+</html>

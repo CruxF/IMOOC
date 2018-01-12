@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>初步使用socket.io</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+  </head>
+  <body>
+    <script>
+      var socket = io('ws://localhost:5000');
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', {
+          my: 'data'
+        });
+      });
+    </script>
+  </body>
+</html>
