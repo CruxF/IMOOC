@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>single</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div>请用方向键和空格键进行操作：上->旋转，右->右移，下->下移，空格->坠落</div>
+    <!-- 我的游戏区域 -->
+    <div class="square" id="local">
+      <div class="title">我的游戏区域</div>
+      <div class="game" id="local_game"></div>
+      <div class="next" id="local_next"></div>
+      <div class="info">
+        <div>已用时：<span id="local_time">0</span>s</div>
+        <div>已得分：<span id="local_score">0</span>分</div>
+        <div id="local_gameover"></div>
+      </div>
+    </div>
+    <!-- 对方游戏区域 -->
+    <div class="square" id="local">
+      <div class="title">对方游戏区域</div>
+      <div class="game" id="remote_game"></div>
+      <div class="next" id="remote_next"></div>
+      <div class="info">
+        <div>已用时：<span id="remote_time">0</span>s</div>
+        <div>已得分：<span id="remote_score">0</span>分</div>
+        <div id="remote_gameover"></div>
+        <button id="down">down</button><br />
+        <button id="left">left</button><br />
+        <button id="right">right</button><br />
+        <button id="rotate">rotate</button><br />
+        <button id="fall">fall</button><br />
+        <button id="fixed">fixed</button><br />
+        <button id="performNext">performNext</button><br />
+        <button id="checkClear">checkClear</button><br />
+        <button id="checkGameOver">checkGameOver</button> <br />
+        <button id="setTime">setTime</button><br />
+        <button id="addScore">addScore</button><br />
+        <button id="gameover">gameover</button><br />
+        <button id="addTailLines">addTailLines</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/square.js"></script>
+    <script type="text/javascript" src="js/squareFactory.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/remote.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
