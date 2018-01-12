@@ -149,8 +149,10 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 ## 基础篇
 
-**1、websocket初体验：** 
-创建一个文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。[点击我呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/index.html)<br>
+**1、websocket初体验：** <br>
+创建一个HTML文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。<br>
+[点击我呀查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/index.html)<br>
+[HTML源代码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index.html)<br>
 
 **2、搭建自己的websocket server：**<br>
 步骤一：安装nodejs-websocket（npm install nodejs-websocket）;<br>
@@ -165,6 +167,8 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 解决方式：在原js文件中添加一个错误处理函数即可。这样就能实现关闭页面，只是显示出错误信息，server并没有挂掉，重新运行html文件依然能够成功，下面是相关的源码。<br>
 [HTML源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/index02.html)<br>
 [JavaScript源码](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/WebSocket/wsServer02.js)<br>
+
+**3、实现简单的聊天功能：** <br>
 
 
 
