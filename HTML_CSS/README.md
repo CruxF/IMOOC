@@ -141,3 +141,15 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 最后的任务是实现一个二级菜单，课程要求利用JavaScript来实现，参考课程之前使用定时器制作水平菜单那视频，应该很快就能明白过来如何下手。不过还是使用CSS来实现会方便非常多。<br>
 [JavaScript演示效果](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/test.html)<br>
 [CSS演示效果](https://cruxf.github.io/IMOOC/HTML_CSS/NavMenu/test01.html)<br>
+
+
+# 7、WebSocket=>基于WebSocket的火拼俄罗斯方块
+
+这是一个很长的系列，希望大家有耐心的学下去，看下去，在开始实战练习之前，不妨先看看这篇博客：[浅谈websocket](https://github.com/CruxF/Blog/issues/2)<br>
+
+## 基础篇
+
+1、websocket初体验，创建一个文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果。[点击我呀]()
+
+
+
