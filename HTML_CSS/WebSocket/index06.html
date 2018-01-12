@@ -27,21 +27,21 @@
       document.getElementById("sendBtn").onclick = function () {
         var txt = document.getElementById("sendTxt").value;
         if (txt) {
-          socket.emit("message",txt);
+          socket.emit("message", txt);
         }
       }
 
-			socket.on("enter",function(data){
-				showMessage(data,"enter");
-			})
-			
-			socket.on("message",function(data){
-				showMessage(data,"message");
-			})
-			
-			socket.on("leave",function(data){
-				showMessage(data,"leave");
-			})
+      socket.on("enter", function (data) {
+        showMessage(data, "enter");
+      })
+
+      socket.on("message", function (data) {
+        showMessage(data, "message");
+      })
+
+      socket.on("leave", function (data) {
+        showMessage(data, "leave");
+      })
     </script>
   </body>
 </html>
