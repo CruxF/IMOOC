@@ -13,7 +13,7 @@
     </div>
 
     <script>
-      var websocket = new WebSocket("ws://echo.websocket.org/");
+      var websocket = new WebSocket("wss://echo.websocket.org/");
       websocket.onopen = function () {
         console.log("websocket open");
         document.getElementById("recv").innerHTML = "Connected";
