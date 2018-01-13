@@ -1,0 +1,59 @@
+.box {
+  min-width: 1160px;
+}
+.public-header {
+  height: 110px;
+}
+.public-header .header-logo {
+  float: left;
+  margin-top: 40px;
+}
+.public-header .header-logo a {
+  height: 54px;
+  width: 182px;
+  background: url("../img/index-header-logo.png") no-repeat;
+}
+.public-header .header-nav {
+  float: right;
+  font-size: 14px;
+}
+.public-header .header-nav .item {
+  float: left;
+  margin-top: 44px;
+  margin-left: 50px;
+}
+.public-header .header-nav a {
+  color: #3b3b3b;
+}
+.public-header .header-nav a:hover {
+  text-decoration: underline;
+}
+.public-container {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+}
+.public-footer {
+  height: 218px;
+  margin-top: 200px;
+  padding-top: 100px;
+  background: #3b3b3b;
+}
+.public-footer .footer-col {
+  width: 230px;
+  float: left;
+  margin-right: 60px;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 1.8;
+}
+.public-footer .footer-col:last-child {
+  margin-right: 0;
+}
+.public-footer .footer-logo {
+  width: 182px;
+  height: 55px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  background: url("../img/index-footer-logo.png") no-repeat;
+}

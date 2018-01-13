@@ -1,0 +1,27 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, input, form, a, p, textarea {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+}
+ul, ol, li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+img {
+  border: none;
+  display: block;
+}
+.clearfloat {
+  zoom: 1;
+}
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
