@@ -200,6 +200,18 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 虽然看着头晕啊，不过还是阻止不了我将源码弄到手:joy:，先放着再说，日后再来好好分析分析。<br>
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/singleTetris/single.html)<br>
-[我是源码](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS/WebSocket/singleTetris)
+[我是源码](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS/WebSocket/singleTetris)<br>
+
+
+# 8、PSD => 从PSD到HTML
+
+这是一个简单的切图视频，没有什么难点，然而其中包含的软技能却是十分有用，让我慢慢领悟到了：面向结果编程。<br>
+
+刚看到这张PSD图的时候，本来打算自己写一遍，后来想一想，还是算了。虽然自己写的速度可能比较快，但是在过程中由于经验与视野有限，肯定考虑到的方面不会很多，然后就跟着老师一起敲代码，一起思考，果不其然，深受启发。<br>
+
+比如，开发的顺序：尽量先开发不易更改的公共部分；代码规范和命名；良好的HTML结构；公共样式的书写；兼容性上的问题及解决方式。下面是演示效果，解决了缩小浏览器窗口底部样式缺失的问题。<br>
+[点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/PSD/index.html)<br>
+下面是自己写的一些切图技巧，不过应该只有自己看的懂。<br>
+[切图总结]()
 
 
