@@ -1,0 +1,148 @@
+课程目标：
+1、了解正则表达式的语法；
+2、在IDE中使用正则表达式处理规则复杂的字符串查找、替换需求。
+3、在JavaScript程序设计中使用正则表达式处理字符串。
+
+
+正则表达式工具：http://regexper.com
+
+
+两种方法实例化RegExp对象
+1、字面量
+var reg = /\bis\b/g;  \b代表单词边界，g代表全文进行匹配。如果没有，会怎么样呢？亲自动手试试
+测试：
+'he is a boy,This is a dog'.replace(reg,'IS');
+2、构造函数
+var reg = new RegExp('\\bis\\b','g');   需要使用\来进行转义
+测试：
+'he is a boy,This is a dog'.replace(reg,'IS');
+
+
+修饰符
+1、g：global全文搜索，不添加，搜索到第一个匹配停止；
+2、i：ignore case忽略大小写，默认大小写敏感；
+3、m：multiple lines多行搜索。
+测试：
+'He is a boy,IS she?'.replace(/\bis\b/g,'0');
+'He is a boy,IS she?'.replace(/\bis\b/gi,'0');
+'@123\n@234\n@345'.replace(/^@\d/gm,'Q');
+
+
+正则表达式由两种基本字符类型组成
+1、原义文本字符：看到什么就是什么；
+2、元字符：在正则表达式中有特殊含义的非字母字符。如下面几种
+*：
++：
+$：
+
+^：
+可以用来创建反向类/负向类，也就是不属于某类的内容，比如：
+'a1b2c3d4'.replace(/[^abc]/g,'X');
+
+.：
+|：
+\：
+()：
+{}：
+
+[]：
+可以用来构建一个简单的类，也就是几个字符归纳为集合，比如：
+'a1b2c3d4'.replace(/[abc]/g,'X');
+可以使用[a-z]来连接两个字符表示从a到z的任意字符，比如：
+'a1b2d3x4z9'.replace(/[a-z]/g,'A');
+在[]组成的类内部是可以连写的，比如：
+'a1b2d3x4z9B7A3N4M8'.replace(/[a-zA-Z]/g,'J');
+如何在[]把-给算上呢？其实只要把-加在后面即可比如：
+'2018-01-14'.replace(/[0-9-]/g,'A');
+
+
+预定义类：来匹配常见的字符类，方便我们的书写
+字符                等价类                           含义
+.        [^\r\n]         除了回车符和换行符之外的所有字符
+\d       [0-9]           数字字符
+\D       [^0-9]          非数字字符
+\s       [\t\n\x0B\f\r]  空白符
+\S       [^\t\n\x0B\f\r] 非空白符
+\w       [a-zA-Z_0-9]    单词字符(字母、数字下划线)
+\W       [^a-zA-Z_0-9]   非单词字符
+测试1：匹配一个ab+数字+任意字符的字符串
+'ab32432dab2,'.replace(/ab\d./g,'B');
+
+
+边界：正则表达式还提供了几个常用的边界匹配字符
+^：以xxx开始；
+$：以xxx结束；
+\b：单词边界；
+\B：非单词边界。
+测试1：
+'This is a boy,she is girl'.replace(/is/g,'0');
+'This is a boy,she is girl'.replace(/\bis\b/g,'0');
+'This is a boy,she is girl'.replace(/\Bis\b/g,'0');
+测试2：
+'@123@abc@'.replace(/@./g,'B');
+'@123@abc@'.replace(/^@./g,'B');
+'@123@abc@'.replace(/.@/g,'B');
+'@123@abc@'.replace(/.@$/g,'B');
+
+
+量词
+?：出现零次或一次(最多出现一次)；
++：出现一次或多次(至少出现一次)；
+*：出现零次或多次(任意次)；
+{n}：出现n次；
+{n,m}：出现n到m次；
+{n,}：至少出现n次。
+
+
+贪婪模式与非贪婪模式
+1、贪婪模式：尽可能多的匹配，比如：
+'12345678'.replace(/\d{3,6}/g,'X');
+2、非贪婪模式：让正则表达式尽可能少的匹配，也就是说一旦成功匹配则不再继续尝试，比如：
+'12345678'.replace(/\d{3,6}?/g,'X');
+
+
+分组
+使用()可以达到分组的功能，使用量词作用于分组，比如：
+'a1b2c3d4'.replace(/([a-z]\d){3}/g,'X');
+'BoyGirl'.replace(/Boy|Girl/g,'X');
+'BoyGirlBoyBorl'.replace(/Boy(Gi|Bo)rl/g,'X');
+分组的反向引用：
+比如将2018-01-14 =>01/14/2018,测试：
+'2018-01-14'.replace(/\d{4}-\d{2}-\d{2}/g,'$2/$3/$1');
+'2018-01-14'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$2/$3/$1');
+忽略分组：不希望捕获某些分组，只需要在分组内加上?:就可以了
+
+
+前瞻：正则表达式从文本头部向尾部开始解析，文本尾部方向，称为“前”。前瞻就是在正则表达式匹配到规则的时候，
+           向前检查是否符合断言，后顾/后瞻方向相反。
+正向前瞻：exp(?=assert),(前面是数字的)比如：
+'a2*3'.replace(/\w(?=\d)/g,'X');
+'a2*34v8'.replace(/\w(?=\d)/g,'X');
+'a2*34vv'.replace(/\w(?=\d)/g,'X');
+负向前瞻：exp(?!assert)，(前面不是数字的)比如：
+'a2*3'.replace(/\w(?!\d)/g,'X');
+'a2*34v8'.replace(/\w(?!\d)/g,'X');
+'a2*34vv'.replace(/\w(?!\d)/g,'X');
+
+
+JavaScript对象属性
+1、global：是否全文搜索，默认是false；
+/\w/.global         /\w/gim.global
+2、ignoreCase：是否大小写敏感，即默认是false；
+/\w/.ignoreCase     /\w/gim.ignoreCase
+3、multiline：多行搜索，默认值是false；
+/\w/.multiline      /\w/gim.multiline 
+4、lastIndex：是当前表达式匹配内容的最后一个字符的下一个位置；
+var reg = /\w/g;
+while(reg.test('ab')){
+	console.log(reg.lastIndex);
+}
+5、source：正则表达式的文本字符串
+/\w/.source         /\w/gim.source
+
+
+一个即时代码响应的网站：http://jsbin.com/
+
+
+
+
