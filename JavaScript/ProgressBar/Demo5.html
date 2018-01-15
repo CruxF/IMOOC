@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>实时监测加载的进度条</title>
+    <style>
+      .loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background: #fff;
+      }
+      .loading .pic {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 20px;
+        line-height: 100px;
+        text-align: center;
+      }
+      .loading .pic span {
+        display: block;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+        -webkit-box-shadow: 0 3px 0 #666;
+        box-shadow: 0 3px 0 #666;
+        -webkit-animation: rotate 1s infinite linear;
+        animation: rotate 1s infinite linear;
+      }
+      @-webkit-keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+      $(function () {
+        //获得img元素
+        var img = $("img");
+        var num = 0;
+        //遍历img
+        img.each(function (i) {
+          //创建img对象
+          var oImg = new Image();
+          //监测img对象的加载过程
+          oImg.onload = function () {
+            oImg.onload = null;
+            num++;
+            $(".loading b").html(parseInt(num / $("img").size() * 100) + "%");
+            if (num >= i) {
+              $(".loading").fadeOut();
+            }
+          }
+          //设置img对象的图片地址
+          oImg.src = img[i].src;
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="pic">
+        <span></span>
+        <b>0%</b>
+      </div>
+    </div>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468471&di=b5ead60ae9d545764943f7cd38b5799d&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fimage%2Fcrop%253D0%252C0%252C1024%252C704%2Fsign%3D3ac7b695f81fbe090811995456502003%2F4b90f603738da977781e0fc8ba51f8198618e324.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468471&di=fed86989869794b3908c562696985535&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd000baa1cd11728b80864d73c3fcc3cec3fd2c3c.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468472&di=bbbea908e946fed3bd94859b05bdcdde&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa8ec8a13632762d039d8c55caaec08fa503dc66b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=72c287af1dba222c2888c8f44447cfe9&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa2cc7cd98d1001e9da53afebb20e7bec55e797e3.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+  </body>
+</html>

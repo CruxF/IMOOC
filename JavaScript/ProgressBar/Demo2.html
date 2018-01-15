@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>通过加载状态事件制作进度条</title>
+    <style>
+      .loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background: #fff;
+      }
+      .loading .pic {
+        height: 64px;
+        width: 64px;
+        background: url(img/35.gif);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          $(".loading").fadeOut();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="pic"></div>
+    </div>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468471&di=b5ead60ae9d545764943f7cd38b5799d&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fimage%2Fcrop%253D0%252C0%252C1024%252C704%2Fsign%3D3ac7b695f81fbe090811995456502003%2F4b90f603738da977781e0fc8ba51f8198618e324.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468471&di=fed86989869794b3908c562696985535&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd000baa1cd11728b80864d73c3fcc3cec3fd2c3c.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468472&di=bbbea908e946fed3bd94859b05bdcdde&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa8ec8a13632762d039d8c55caaec08fa503dc66b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=72c287af1dba222c2888c8f44447cfe9&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa2cc7cd98d1001e9da53afebb20e7bec55e797e3.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238468477&di=bdc25c83dec8952688648865cefc5979&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff7246b600c3387446383a29f5b0fd9f9d62aa08b.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511238790517&di=5c436c6e11a4d8d7a41db303853fff35&imgtype=0&src=http%3A%2F%2Fwww.pconline.com.cn%2Fgames%2Fcartoon%2Fphoto%2F10304%2Fpic%2F19ling01.jpg" />
+  </body>
+</html>
