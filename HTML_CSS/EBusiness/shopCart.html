@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="box">
+      <div class="headerBar">
+        <div class="topBar">
+          <div class="comWidth">
+            <div class="leftArea">
+              <a href="#" class="collection">收藏慕课</a>
+            </div>
+            <div class="rightArea">
+              <span>欢迎来到慕课网！</span>
+              <a href="login.html">[登录]</a>
+              <a href="register.html">[免费注册]</a>
+            </div>
+          </div>
+        </div>
+        <div class="logoBar">
+          <div class="comWidth clearfix">
+            <div class="logo fl">
+              <a href="#"><img src="img/logo.png" alt="慕课网"></a>
+            </div>
+            <div class="stepBox fr">
+              <div class="step"></div>
+              <ul class="step-text">
+                <li class="s01 active">我的购物车</li>
+                <li class="s02 active">填写核定订单</li>
+                <li class="s03">订单提交成功</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="navBox">
+          <div class="comWidth">
+            <div class="shopClass fl">
+              <h3>全部商品分类<i></i></h3>
+            </div>
+            <ul class="nav fl">
+              <li>
+                <a href="#" class="active">数码城</a>
+              </li>
+              <li>
+                <a href="#">天黑黑</a>
+              </li>
+              <li>
+                <a href="#">团购</a>
+              </li>
+              <li>
+                <a href="#">发现</a>
+              </li>
+              <li>
+                <a href="#">二手特卖</a>
+              </li>
+              <li>
+                <a href="#" class="nobor">名品会</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="shoppingCart comWidth">
+        <h3 class="shopping-tit">收货信息</h3>
+        <div class="shopping-item">
+          <div class="shopping-cont padding-shop">
+            <form action="" id="info">
+              <div class="areaInfo clearfix">
+                <p><em>*</em> 选择地区:</p>
+                <p>
+                  <select name="" id="" class="col444">
+                    <option value="">北京市 海淀区 五环内</option>
+                    <option value="">上海市 黄埔区 三环内</option>
+                    <option value="">广州市 天河区 四环内</option>
+                  </select>
+                </p>
+              </div>
+              <div class="addInfoo clearfix">
+                <p><em>*</em> 详细地址:</p>
+                <p><input type="text" placeholder="最多输入26个汉字"></p>
+              </div>
+              <div class="personInfo clearfix">
+                <p><em>*</em> 收&nbsp;货&nbsp;人:</p>
+                <p><input type="text" placeholder="最多10个汉字"></p>
+              </div>
+              <div class="telInfo clearfix">
+                <p><em>*</em> 手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机:</p>
+                <p>
+                  <input type="text" placeholder="如1342525625">
+                  <span>&nbsp;&nbsp;或固定电话：</span>
+                  <input type="text" placeholder="区号" class="col444"> -
+                  <input type="text" placeholder="电话号码" class="col444"> -
+                  <input type="text" placeholder="分机号（可选）" class="col444">
+                </p>
+              </div>
+            </form>
+            <div class="comfirm">
+              <input type="button" value="确认收货地址" class="comfirmBtn">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shoppingCart comWidth">
+        <h3 class="shopping-tit">支付方式</h3>
+        <div class="givemoney">
+          <div class="givemoney-1 clearfix">
+            <div class="payWei-1 fl">
+              <input type="radio" name="pay" id="pay1"><label for="pay1">微信支付</label>
+            </div>
+            <div class="payWei-2 fl">
+              <span class="weixin"></span>用微信扫一扫就能支付！
+            </div>
+          </div>
+          <div class="givemoney-2 clearfix">
+            <div class="payCash-1 fl">
+              <input type="radio" name="pay" id="pay2"><label for="pay2">货到付款</label>
+            </div>
+            <div class="payCash-2 fl">
+              <span>送货上门后再付款，使用现金或刷银行卡。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shoppingCart comWidth">
+        <h3 class="shopping-tit">发票信息</h3>
+        <div class="padding25">
+          <div class="fapiao">
+            <input type="checkbox" name="fapiao" id="fapiao" checked>
+            <label for="fapiao">需要发票</label>
+          </div>
+          <div class="bill">
+            <div>
+              <b>*</b>发票类型：
+              <select name="" id="">
+                <option value="">商业零售发票</option>
+              </select>
+            </div>
+            <div>
+              <b>*</b>发票抬头：
+              <select name="" id="">
+                <option value="">个人</option>
+              </select><input type="text" placeholder="阿斯顿" class="bill-head">
+            </div>
+          </div>
+          <div class="saveAndNo">
+            <input type="button" value="保存" class="active">
+            <input type="button" value="取消">
+          </div>
+        </div>
+      </div>
+      <div class="shoppingCart comWidth">
+        <h3 class="shopping-tit">送货清单<a href="#" class="backCar">返回购物车修改</a></h3>
+        <div class="songhuo">
+          <table class="table">
+            <tr>
+              <th class="th-left">商品名称</th>
+              <th>单价</th>
+              <th>返现</th>
+              <th>数量</th>
+              <th>小计</th>
+            </tr>
+            <tr>
+              <td>
+                <div class="shopBuy-list clearfix">
+                  <div class="shopBuy-img fl">
+                    <img src="img/jpg/coolbox.jpg" alt="">
+                  </div>
+                  <div class="shopBuy-info fr">
+                    <p class="shopBuyName">Hisence 海信 BCD-202D 202升 三门冰箱（银色）</p>
+                    <p class="shopBuyName-add">[赠品] 保鲜盒 抽真空保鲜盒 海信冰洗赠品</p>
+                  </div>
+                </div>
+              </td>
+              <td class="tabtop">￥ 1459.00</td>
+              <td class="tabtop">￥ 0.00</td>
+              <td class="tabtop">1</td>
+              <td class="tabtop"><span class="redmoney">￥1459.00</span></td>
+            </tr>
+          </table>
+          <div class="morerequest">
+            <a href="#">若您对包裹有特殊要求，情在此留言</a>
+          </div>
+          <div class="sorry">
+            <span class="warn"></span>
+            <span>抱歉，以下商品暂时不能购买，已帮您自动在本次结算中剔除并扣减对应金额，您可以先购买其他商品：）</span>
+          </div>
+          <div class="cantBuy clearfix">
+            <div class="cantBuy-img fl">
+              <img src="img/jpg/swing.jpg" alt="">
+            </div>
+            <div class="cantBuy-info fl">
+              <p class="pinfo">清风 欧院系列 清香型 100抽3...</p>
+              <p>数量：1件</p>
+              <p>￥4.90<span class="nobuy-col">（无货）</span></4>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shoppingCart comWidth clearfix">
+        <h3 class="shopping-tit">订单结算</h3>
+        <div class="finalBox clearfix">
+          <div class="final">
+            <p class="all">总计 <span>￥1459.00</span></p>
+            <p class="allcom"><input type="button" value="提交订单"></p>
+          </div>
+        </div>
+      </div>
+      <div class="hr-25"></div>
+      <div class="footer">
+        <p>
+          <a href="#">慕课简介</a>
+          <i>|</i>
+          <a href="#">慕课公告</a>
+          <i>|</i>
+          <a href="#">招纳贤士</a>
+          <i>|</i>
+          <a href="#">联系我们</a>
+          <i>|</i>
+          <a href="#">客服热线：400-675-1234</a>
+        </p>
+        <p>
+          Copyright © 2006 - 2018 慕课版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号 &nbsp;&nbsp;&nbsp;某市公安局龙潭分局备案编号：32432421231
+        </p>
+        <p class="web">
+          <a href="#"><img src="img/webLogo.png" alt="logo"></a>
+          <a href="#"><img src="img/webLogo.png" alt="logo"></a>
+          <a href="#"><img src="img/webLogo.png" alt="logo"></a>
+          <a href="#"><img src="img/webLogo.png" alt="logo"></a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

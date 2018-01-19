@@ -1,0 +1,25 @@
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, dl, dt, dd, iput {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 12px;
+}
+img {
+  border: none;
+}
+li {
+  list-style: none;
+}
+input, select, textarea {
+  outline: none;
+  border: 0;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+  color: #656565;
+  cursor: pointer;
+}
