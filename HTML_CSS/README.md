@@ -216,6 +216,32 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/PSD/index.html)<br>
 
 下面是自己写的一些切图技巧，不过应该只有自己看的懂:joy:<br>
-[切图总结](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/PSD/%E8%AF%B4%E6%98%8E.txt)
+[切图总结](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/PSD/%E8%AF%B4%E6%98%8E.txt)<br><br>
+
+
+# 9、EBusiness => 手把手教你实现电商网站开发
+
+这门课程我认为最能锻炼人的就是耐心与细心:joy:。整个代码敲下来，难点并不是很多，甚至可以说是根本没有，浮动（float）布局在如今几乎很少被使用到了，完全可以利用display:inline-block;来代替，并且还有最新的flex布局以及网格布局等。仔细去研究的话，还会发现很多不合理的地方，比如标签与标签之间的嵌套关系，繁多的div嵌套关系，我个人觉得缺陷有些大的就是各个模块之间的CSS没有将其独立，而且代码规范实在一般般，看得实在头疼，对于一门教学课程来说，这个缺陷实在是有点大。<br>
+
+这当然不是说该门课程毫无价值，对初学者还是挺不错的上手项目。首先，锻炼你的耐心和细心；接着可以让你明白编程不是一件那么轻松的事情；最后就是当你完完全全做出来的时候，那成就高可是满满的。<br>
+
+下面是模块之间的演示部分，跳转链接只增加了一部分，并且修复了当浏览器窗口缩小时顶部和底部样式丢失的问题。部分代码格式没有处理好，大家可以将代码下载到本地，自己动手整理一下，[这是所有源码]()<br>
+[1、首页](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/index.html)<br>
+[2、产品列表](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/product.html)<br>
+[3、产品筛选](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/filter.html)<br>
+[4、产品介绍](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/proIntroduce.html)<br>
+[5、购物车](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/shopCart.html)<br>
+[6、登录](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/login.html)<br>
+[7、注册](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/register.html)<br>
+
+
+
+
+
+
+
+
+
+
 
 
