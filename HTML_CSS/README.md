@@ -232,9 +232,15 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [4、产品介绍](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/proIntroduce.html)<br>
 [5、购物车](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/shopCart.html)<br>
 [6、登录](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/login.html)<br>
-[7、注册](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/register.html)<br>
+[7、注册](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/register.html)<br><br>
 
 
+# 10、DelaBlog => HTML5和CSS3扁平化风格博客
+
+这门课程最终实现的静态效果很喜欢，符合现代PC端简洁明了的静态网页风格。在课堂上老师说了一个非常正确的开发思路：首先考虑整体布局，接着再考虑样式细节。其实前端页面开发的基本套路就是这样的，只要你页面的结构和整体布局搭建好了，那么剩下的细节补充就容易多了，并且还能让人专注于某个小模块的开发。<br>
+
+总体来说，课程难度并不大，跟着老师一点点的敲代码很快就能实现页面效果，并且理解其中的开发原理。我是一部分跟着老师敲，另外一部分是根据自己的喜好额外添加上去的，没太多的技术点，部分说明也以注释的形式写进了代码中，大家可以在源码中进行查看，下面是页面展示效果。<br>
+[点我查看呀](https://cruxf.github.io/IMOOC/HTML_CSS/DelaBlog/index.html)
 
 
 
