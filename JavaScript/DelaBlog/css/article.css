@@ -1,0 +1,30 @@
+.article h1 {
+  border: none;
+}
+.article #banner {
+  height: 400px;
+}
+.article #banner .inner {
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 30px;
+  color: #eee;
+}
+.content-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+.article .content {
+  background-color: #fefefe;
+}
+article {
+  line-height: 2;
+  padding: 10px 0;
+}
+.article-info {
+  font-size: 14px;
+  color: #888;
+  padding: 15px 0;
+}
