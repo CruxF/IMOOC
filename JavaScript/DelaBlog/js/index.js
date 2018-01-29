@@ -41,6 +41,6 @@
       backTop.fadeOut();
     }
   });
-  //页面加载自动触发sroll事件
+  //模拟页面滚动事件
   $(window).trigger('scroll');
 })
