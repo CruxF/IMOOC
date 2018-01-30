@@ -245,7 +245,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 # 11、DomBase => DOM探索之基础详解篇
 
-挺不错的一门课程，老师真的是功力深厚，学到了很多，同时也发现了一位大佬——[jaxil](https://github.com/jawil)。这位大佬的学习态度真的让人赞赏，并且他根据这门课程，认认真真的做了非常详细的总结，地址：[《DOM探索之基础详解篇》学习笔记 ](https://github.com/jawil/blog/issues/9)。站在大佬的肩膀上，我就不总结什么了，免得误人子弟，但是也不能什么也不留把:joy:下面给大家展示一下关于滑动门的效果。<br>
+挺不错的一门课程，老师真的是功力深厚，学到了很多，同时也发现了一位大佬——[jaxil](https://github.com/jawil)。这位大佬的学习态度真的让人赞赏，并且他根据这门课程，认认真真的做了非常详细的总结，地址：[《DOM探索之基础详解篇》学习笔记 ](https://github.com/jawil/blog/issues/9)。站在大佬的肩膀上，我就不总结什么了，免得误人子弟，但是也不能什么也不留吧:joy:，下面给大家展示一下关于滑动门的效果，额外增加了动画。<br>
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/DomBase/index.html)<br><br>
 
 
