@@ -1,0 +1,17 @@
+#box {
+  height: 460px;
+  border: 1px solid black;
+  margin: 80px auto;
+  overflow: hidden;
+  position: relative;
+}
+#box img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  transition: all .8s ease;
+}
+#box img:hover {
+  cursor: pointer;
+}
