@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>慕课网-弹出层</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/index.js" ></script>
+    <style type="text/css">      
+      #mask {        
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+        z-index: 100;
+        background-color: #000;
+        opacity: 0.7;
+        /*兼容IE*/
+        filter: alpha(opacity=70);
+      }
+      #loginCon {
+        position: fixed;
+        width: 670px;
+        height: 380px;
+        left: 50%;
+        top: 50%;
+        margin-left: -335px;
+        margin-top: -190px;
+        display: none;
+        background: url(img/loginBg.png) #2A2C2E center center no-repeat;
+        z-index: 1001;
+      }
+      #close {        
+        position: absolute;
+        right: 5px;
+        top: 15px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(img/close.png) no-repeat;
+      }
+    </style>    
+  </head>
+
+  <body>
+    <div id="header">
+      <div class="container" id="nav">
+        <h1 id="logo"><a href="/">慕课网</a></h1>
+        <ul class="l" id="nav-item">
+          <li>
+            <a href="/course/list">课程</a>
+          </li>
+        </ul>
+        <div id="login-area">
+          <button id="btnLogin" hidefocus="true" class="login-btn">登录</button>
+        </div>
+      </div>
+    </div>
+
+		<!--遮罩层-->
+		<div id="mask"></div>
+		<!--登录区-->
+		<div id="loginCon">
+			<div id="close"></div>
+		</div>
+
+    <div id="main">
+      <div class="slider-container">
+        <div id="slider">
+          <ul id="sliderUl">
+            <li id="bg01"></li>
+          </ul>
+          <div id="dotBox"><span class=""></span><span class="active"></span><span class=""></span></div>
+        </div>
+        <div id="discripcontainer">
+          <div class="discripbg"></div>
+          <div class="discrip">
+            <h3>换一种方式</h3>
+            <h2>来学习互联网编程</h2>
+            <h4>超酷的IT技术免费学习平台</h4>
+            <div class="btnarea">
+              <a id="enterbtn" href="/course/list">进入</a>
+              <a id="learnmore" href="javascript:;">了解更多</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="freshcourse" class="waper">
+        <h2><span>每一节课都有一种新奇的感觉</span></h2>
+        <ul id="freshcourseList">
+          <li>
+            <a href="/course/view/id/48"><img width="280" height="170" alt="IT菜鸟逆袭指南（江湖篇）" title="IT菜鸟逆袭指南（江湖篇）" src="http://img.mukewang.com/530c732400013e5106000338-300-170.jpg">
+              <h5>IT菜鸟逆袭指南（江湖篇）</h5>
+              <p>屌爆了！码农逆袭有秘诀，看“挨踢（IT）”小菜鸟慕无忌如何成为技术“土豪”。</p>
+              <div class="tips"><span class="l">16人参加</span> <span class="r">课程时长：1小时</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="/course/view/id/46"><img width="280" height="170" alt="分享：HTML5离线应用实战演练" title="分享：HTML5离线应用实战演练" src="http://img.mukewang.com/5305da0d0001ab9306000338-300-170.jpg">
+              <h5>分享：HTML5离线应用实战演练...</h5>
+              <p>FT Web App是少数真正实现了离线阅读体验的移动应用之一，一起来剖析它的技术吧！ </p>
+              <div class="tips"><span class="l">39人参加</span> <span class="r">课程时长：2小时</span></div>
+            </a>
+          </li>
+          <li class="mr0">
+            <a href="/course/view/id/43"><img width="280" height="170" alt="分享：移动优先的跨终端 Web" title="分享：移动优先的跨终端 Web" src="http://img.mukewang.com/52e618d80001a7e106000338-300-170.jpg">
+              <h5>分享：移动优先的跨终端 Web</h5>
+              <p>不可多得的学习宝典，移动互联时代，您必须知道的跨终端技术。</p>
+              <div class="tips"><span class="l">261人参加</span> <span class="r">课程时长：1小时</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="/course/view/id/41"><img width="280" height="170" alt="分享：响应式布局" title="分享：响应式布局" src="http://img.mukewang.com/52e5ed2300011d2706000338-300-170.jpg">
+              <h5>分享：响应式布局</h5>
+              <p>让网站兼容不同终端不再是梦，为解决移动互联网浏览而诞生。</p>
+              <div class="tips"><span class="l">148人参加</span> <span class="r">课程时长：1小时</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="/course/view/id/42"><img width="280" height="170" alt="案例：表单美化" title="案例：表单美化" src="http://img.mukewang.com/52e5f6ef000114ab06000338-300-170.jpg">
+              <h5>案例：表单美化</h5>
+              <p>追求不凡，一次学习四类表单控件的美化，让所有平淡的表单控件瞬间美好起来！</p>
+              <div class="tips"><span class="l">105人参加</span> <span class="r">课程时长：2小时</span></div>
+            </a>
+          </li>
+          <li class="mr0">
+            <a href="/course/view/id/44"><img width="280" height="170" alt="案例：表单验证" title="案例：表单验证" src="http://img.mukewang.com/52e62c09000162fd06000338-300-170.jpg">
+              <h5>案例：表单验证</h5>
+              <p>技术升级必修内容！ 通过对学习输入框的验证，轻松掌握正则表达式的用法！</p>
+              <div class="tips"><span class="l">81人参加</span> <span class="r">课程时长：1小时</span></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a id="enterbtn-large" href="/course/list">点击进入</a>
+      <div id="indexVideo">
+        <button class="btn-close"></button>
+        <div id="J_Video"></div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="waper">
+        <div class="footer_logo">
+        </div>
+        <ul class="footerwaper">
+          <li class="des">
+            <span style="">我们的使命：传播互联网最前沿技术，帮助更多的人实现梦想！</span>
+            <p>京ICP备 13046642号-2</p>
+          </li>
+          <li>
+            <p>
+              <a href="http://www.imooc.com/">网站首页</a>
+            </p>
+            <p>
+              <a href="/about/us">关于我们</a>
+            </p>
+            <p>
+              <a href="/about/job">人才招聘</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="/about/recruit">内容招募</a>
+            </p>
+            <p>
+              <a href="/about/contact">联系我们</a>
+            </p>
+            <p>
+              <a href="/user/feedback">意见反馈</a>
+            </p>
+          </li>
+
+          <li class="attention">
+            <span style="display: block;">在这里关注我们的动向</span>
+            <a id="qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间">QQ空间</a>
+            <a id="sinaweibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博">新浪微博</a>
+            <a id="qqweibo" href="http://t.qq.com/mukewang999" target="_blank" title="腾讯微博">腾讯微博</a>
+          </li>
+        </ul>
+      </div>
+    </div>    
+  </body>
+</html>
