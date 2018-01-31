@@ -52,7 +52,7 @@
 [案例演示](https://cruxf.github.io/IMOOC/JavaScript/ProgressBar/Demo5.html)<br><br>
 
 
-# 3、DelaBlog => CSS3扁平化博客之纹章页及常用组件
+# 3、DelaBlog => CSS3扁平化博客之文章页及常用组件
 
 该课程是一个系列的，之前的源码和分析在这里——[《HTML5和CSS3扁平化风格博客》](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS)。相比于之前的课程，增加了蒙层、侧边栏弹出、回到顶部效果，以及一个博文页面。<br>
 
