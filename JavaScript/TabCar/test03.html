@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .wrap {
+        height: 170px;
+        width: 490px;
+        margin: 60px auto;
+        overflow: hidden;
+        position: relative;
+        margin: 100px auto;
+      }
+      .wrap ul {
+        position: absolute;
+      }
+      .wrap ul li {
+        height: 170px;
+      }
+      .wrap ol {
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+      }
+      .wrap ol li {
+        height: 20px;
+        width: 20px;
+        background: #ccc;
+        border: solid 1px #666;
+        margin-left: 5px;
+        color: #000;
+        float: left;
+        line-height: center;
+        text-align: center;
+        cursor: pointer;
+      }
+      .wrap ol .on {
+        background: #E97305;
+        color: #fff;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var wrap = document.getElementById('wrap');
+        var pic = document.getElementById('pic');
+        var list = document.getElementById('list').getElementsByTagName('li');
+        var index = 0;
+        var timer = null;
+
+        //定时器函数
+        function auto() {
+          timer = setInterval(function () {
+            index++;
+            if (index >= list.length) {
+              index = 0;
+            }
+            change(index);
+          }, 2000);
+        }
+        auto();
+
+        //循环改变ul的margin-top的值
+        function change(curIndex) {
+          pic.style.marginTop = -170 * curIndex + 'px';
+          for (var n = 0; n < list.length; n++) {
+            list[n].className = '';
+          }
+          list[curIndex].className = 'on';
+          index = curIndex;
+        }
+
+        //鼠标移到图片区清除定时器
+        wrap.onmouseover = function () {
+          clearInterval(timer);
+        }
+
+        //鼠标离开图片区执行定时器函数
+        wrap.onmouseout = auto;
+
+        //按钮鼠标滑动事件
+        for (var i = 0; i < list.length; i++) {
+          //为每一个li元素的id赋值
+          list[i].id = i;
+          list[i].onmouseover = function () {
+            change(this.id);
+          }
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrap" id='wrap'>
+      <ul id="pic">
+        <li><img src="http://img.mukewang.com/54111cd9000174cd04900170.jpg" alt=""></li>
+        <li><img src="http://img.mukewang.com/54111dac000118af04900170.jpg" alt=""></li>
+        <li><img src="http://img.mukewang.com/54111d9c0001998204900170.jpg" alt=""></li>
+        <li><img src="http://img.mukewang.com/54111d8a0001f41704900170.jpg" alt=""></li>
+        <li><img src="http://img.mukewang.com/54111d7d00018ba604900170.jpg" alt=""></li>
+      </ul>
+      <ol id="list">
+        <li class="on">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ol>
+    </div>
+  </body>
+</html>

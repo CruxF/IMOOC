@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>编程练习二</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        var send = document.getElementById('send');
+        var times = 10;
+        var timer = null;
+        send.onclick = function () {
+          // 计时开始 
+          timer = setInterval(autoCount, 1000);
+        }
+
+        function autoCount() {
+          send.value = times + "秒后重试";
+          send.disabled = "false";
+          times--;
+          if (times < 0) {
+            clearInterval(timer);
+            autoStop();
+          }
+        }
+
+        function autoStop() {
+          send.value = "发送验证码";
+          send.removeAttribute("disabled");
+          times = 10;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" id="send" value="发送验证码">
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>编程练习一</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+        list-style: none;
+      }
+      .menu {
+        width: 210px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+      }
+      .menu p {
+        height: 25px;
+        line-height: 25px;
+        font-weight: bold;
+        background: #eee;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        padding-left: 5px;
+      }
+      .menu div ul {
+        display: none;
+      }
+      .menu li {
+        height: 24px;
+        line-height: 24px;
+        padding-left: 5px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function () {
+        var menu = document.getElementById('menu');
+        var ps = menu.getElementsByTagName('p');
+        var uls = menu.getElementsByTagName('ul');
+        for (var i in ps) {
+          ps[i].id = i;
+          ps[i].onclick = function () {
+            var u = uls[this.id];
+            if (u.style.display == 'block') {
+              u.style.display = 'none';
+            } else {
+              u.style.display = 'block';
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="menu" id="menu">
+      <div>
+        <p>Web前端</p>
+        <ul style="display:block">
+          <li>JavaScript</li>
+          <li>DIV+CSS</li>
+          <li>jQuery</li>
+        </ul>
+      </div>
+      <div>
+        <p>后台脚本</p>
+        <ul>
+          <li>PHP</li>
+          <li>ASP.net</li>
+          <li>JSP</li>
+        </ul>
+      </div>
+      <div>
+        <p>前端框架</p>
+        <ul>
+          <li>Extjs</li>
+          <li>Esspress</li>
+          <li>YUI</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
