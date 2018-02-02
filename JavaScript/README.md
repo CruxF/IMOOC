@@ -69,3 +69,27 @@
 针对这种情况，我基本重写了一次课程代码，大家可以结合[课程源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Popup/demo.html)来对比，来分析。我的[JS代码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Popup/js/index.js)也有需要改进的地方，比如将`document.getElementById()`封装成一个方法来获取HTML的DOM会使代码更加简洁和优美，在这只是给大家提个简单的思路。下面是我重写后的代码效果，与课程的效果一毛一样。<br>
 [案例演示](https://cruxf.github.io/IMOOC/JavaScript/Popup/index.html)<br><br>
 
+
+# 5、TabCar => Tab选项卡切换效果
+
+课程的JavaScript部分有很多亮点，比如一开始就使用一个$()封装了频繁用到的documen.getElementById()。
+```
+function $(id) {
+  return typeof id === 'string' ? document.getElementById(id) : id;
+}
+```
+课程循序渐进，简洁明了的注释，让我们充分的理解了定时器，以及学会如何去使用。代码逻辑容易明白，在开发中比较常见的问题一个是this的指向问题，另外一个就是清除定时器问题。关于这两个问题老师有提到，而我也在[源码](https://github.com/CruxF/IMOOC/tree/master/JavaScript/TabCar)中有总结了一些，有兴趣的可以去看看。<br>
+
+由于这是一个分步讲解课程，我将代码也写成了分步，为了能够与课程同步以及方便进行分析，编程训练也摘抄了一些认为较好的贴了上来，下面是一堆的演示效果。<br>
+1、[滑动、点击切换效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/index1-4.html)<br>
+2、[编程练习一效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/test01.html)<br>
+3、[延迟切换效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/index2-1.html)<br>
+4、[JavaScript自动切换效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/index3-1.html)<br>
+5、[JavaScript自动/手动切换效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/index3-2.html)<br>
+6、[JavaScript自动切换代码优化效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/index3-3.html)<br>
+7、[编程练习二效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/test02.html)<br>
+8、[编程练习三效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/test03.html)<br><br>
+
+
+
+
