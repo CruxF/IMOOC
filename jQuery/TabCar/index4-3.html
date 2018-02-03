@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tab选项卡——切换功能实现</title>
+    <link rel="stylesheet" href="css/index4-3.css" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index4-3.js"></script>
+  </head>
+  <body>
+    <div class="js-tab tab" data-config='{
+    			"triggerType":"click",
+    			"effect":"fade",
+    			"invoke":2,
+    			"auto":5000
+      }'>
+      <ul class="tab-nav">
+        <li class="active">
+          <a href="javascript:void(0)">新闻</a>
+        </li>
+        <li>
+          <a href="#">娱乐</a>
+        </li>
+        <li>
+          <a href="#">电影</a>
+        </li>
+        <li>
+          <a href="#">科技</a>
+        </li>
+      </ul>
+      <div class="content-wrap">
+        <div class="content-item current">
+          <img src="img/a.JPEG" />
+        </div>
+        <div class="content-item">
+          <img src="img/b.JPEG" />
+        </div>
+        <div class="content-item">
+          <img src="img/c.JPEG" />
+        </div>
+        <div class="content-item">
+          <img src="img/d.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        //Tab
+        var tab1 = new Tab($(".js-tab").eq(0));
+      });
+    </script>
+  </body>
+</html>

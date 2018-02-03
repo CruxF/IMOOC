@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #323232;
+  font-size: 12px;
+  font-family: "微软雅黑";
+}
+.box1, .box2, .box3 {
+  float: left;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+.box1 h3, .box2 h3, .box3 h3 {
+  font-family: "微软雅黑";
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+.tab {
+  width: 300px;
+}
+.tab ul {
+  list-style: none;
+}
+.tab .tab-nav {
+  height: 30px;
+}
+.tab .tab-nav li {
+  float: left;
+  margin-right: 5px;
+  background-color: #767676;
+  border-radius: 3px 3px 0 0;
+}
+.tab .tab-nav li a {
+  display: block;
+  height: 30px;
+  padding: 0 20px;
+  color: #fff;
+  line-height: 30px;
+  text-decoration: none;
+}
+.tab .tab-nav li.active {
+  background-color: #fff;
+}
+.tab .tab-nav li.active a {
+  color: #777;
+}
+.tab .content-wrap {
+  background-color: #fff;
+  padding: 5px;
+  height: 200px;
+  width: 300px;
+}
+.tab .content-wrap .content-item {
+  position: absolute;
+  height: 200px;
+  display: none;
+}
+.tab .content-item img {
+  height: 200px;
+  width: 300px;
+}
+.tab .content-wrap .current {
+  display: block;
+}
