@@ -1,0 +1,121 @@
+开发一个插件所需要的知识：
+1、闭包
+(function($){
+  //do something
+})(jQuery)
+闭包的作用：避免全局依赖、避免第三方破坏、兼容jQuery操作符"$"和jQuery
+
+2、开发方式
+- 类级别组件开发：即给jQuery命名空间下添加新的全局函数，也称为静态方法。
+jQuery.myPlugin = function(){
+  //do something
+};
+例如：$.Ajax()、$.extend()，其中jQuery的extend方法的作用是将用户自定义的插件参数与插件的默认参数加以合并
+- 对象级别组件开发：即挂载jQuery原型下的方法，这样通过选择器获取的jQuery对象实例也能共享该方法，也称为动态方法
+$.fn.myPlugin = function(){
+  //do something
+};
+这里的$.fn = $.prototype
+例如：addClass()、attr()等，需要创建实例来调用
+
+3、jQuery链式调用
+$("div").next().addClass()....
+代码：
+$.fn.myPlugin = function(){
+  return this.each(function(){
+    //do something
+  });
+};
+代码说明：
+- return this返回当前对象，来维护插件的链式调用
+- each循环实现每个元素的访问
+
+4、单例模式
+代码：
+$.fn.myPlugin = function(){
+  var me = $(this);
+  var instance = me.data("myPlugin");
+  if(!instance){
+    me.data("myPlugin",(instance = new myPlugin()));
+  }
+};
+代码说明：
+- 如果实例存在则不再重新创建实例
+- 利用data()来存放插件对象的实例
+
+5、on()语法
+- on(events[,selector][,data],handler(eventObject))
+- 在选定的元素上绑定一个或多个事件处理函数
+events：一个或多空格分隔的事件类型，例如click keydown
+selector：一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素，如果为null，那么被选中的元素总是能触发事件
+data：事件触发时，要传递给处理函数的event.data
+handler：事件触发时，执行的函数
+on()语法的优点：
+委托事件不仅可以给未创建的后代元素绑定事件外，当需要监视很多元素的时候，委托事件的开销更小。
+
+6、绑定鼠标滚轮事件
+- JavaScript事件有很多需要兼容的地方，鼠标滚轮事件显然也有额外的差异。包括IE6浏览器在内都适用mouseWheel，
+而只有火狐浏览器使用DOMMouseScroll。
+- $(document).on("mouseWheel DOMMouseScroll",handler);
+
+7、如何判断鼠标滚轮方向
+- 其他浏览通过wheeldalta属性来判断，但是火狐浏览器没有这个属性可以通过detail这个属性来判断
+- 开发中发现每次向下滚动时，wheeldalta都是-120，但是detail却是3，火狐浏览器方向判断的数值正负与其他浏览器是相反的
+
+8、绑定键盘事件keydown
+说明：keydown事件发生在键盘的键被按下的时候
+原生js中判断按下了哪个键是存在兼容性问题的：
+- IE：只有keyCode属性
+- FireFox：有which和charCode属性
+- Opera：有keyCode和which属性等
+但是jQuery已经解决了这个兼容问题，jQuery中通过.witch属性和.keyCode属性来确定按下了哪个键
+- arrow left：37
+- arrow up：38
+- arrow right：39
+- arrow down：40
+
+9、transitionend
+说明：transitionend事件会在CSS transition结束后触发
+
+10、转换Transform
+转换方式：
+- 旋转rotate，例如transform:rotate(45deg)
+- 缩放scale，例如transform:scale(2,0.5)
+- 移动translate，例如transform:translate(100px,-50px)
+- 扭曲skew，例如transform:skew(45deg,15deg)
+- 矩形变形，例如matrix(<number>,<number>,<number>,<number>,<number>,<number>)
+
+11、动画平滑过渡Transiton
+属性：
+- transition-property：设置过渡效果的CSS属性的名称，例如background，color或者all
+- transition-duration：完成过渡效果需要时间，以s/ms为单位
+- transition-timing-function：规定速度效果的速度曲线，例如linear，ease，ease-in，ease-out，ease-in-out，cubic-bezier
+- transition-delay：延时时间，以s/ms为单位
+- transition：<transition-property><transition-duration><transition-timing-function><transition-delay>
+
+12、如何判断浏览器是否支持某个CSS属性
+实现思路：
+- 通过判断某个element的style中是否存在某个css属性
+实现代码：
+(function(temp){
+  if(temp.style["transition"] !==undefined){
+    return true;
+  }
+  return false;
+})(document.createElement("div"));
+
+13、animate()
+语法：.animate(properties[,duration][,easing][,complete])
+描述：根据一组CSS属性，执行自定义动画
+- properties，一个CSS属性和值的对象，动画将根据这组对象移动
+- duration，一个字符串或者数字决定动画运行的时间，(slow,normal,fast)ms为单位
+- easing，表示动画使用哪种移动函数，linear和swing，默认swing
+- complete，在动画完成时执行的函数
+
+
+
+
+
+
+
+

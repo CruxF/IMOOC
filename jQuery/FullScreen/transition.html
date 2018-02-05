@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <style>
+      #box {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        margin: 50px;
+        transition: all 500ms linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+
+    <script>
+      var box = document.getElementById("box");
+      box.onclick = function () {
+        box.style.transform = "translate(300px,300px)";
+        box.style.background = "black";
+      }
+    </script>
+  </body>
+</html>

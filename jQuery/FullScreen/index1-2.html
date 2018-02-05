@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>全屏滚动样式结构样式编写</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      /*实现全屏的要素：
+		1、全屏的元素及其父元素都要设置height:100%
+		2、将html、body标签设置height:100%
+	  * */      
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      #container, .sections, .section {
+        height: 100%;
+      }
+      
+      #section0, #section1, #section2, #section3 {
+        background-color: #000;
+        background-size: cover;
+        background-position: 50% 50%;
+        text-align: center;
+        color: #fff;
+      }
+      #section0 {
+        background-image: url(img/1.jpg);
+      }
+      #section1 {
+        background-image: url(img/2.jpg);
+      }
+      #section2 {
+        background-image: url(img/3.jpg);
+      }
+      #section3 {
+        background-image: url(img/4.jpg);
+      }
+      /*横屏滚动样式*/      
+      .left {
+        float: left;
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <!--横屏滚动样式-->
+    <div id="container" style="width: 400%;">
+      <div class="sections">
+        <div class="section left" id="section0">
+          <h3>this is the page</h3>
+        </div>
+        <div class="section left" id="section1">
+          <h3>this is the page</h3>
+        </div>
+        <div class="section left" id="section2">
+          <h3>this is the page</h3>
+        </div>
+        <div class="section left" id="section3">
+          <h3>this is the page</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
