@@ -1,0 +1,55 @@
+body, div, h2, ul, li, a {
+  font-family: "微软雅黑";
+  margin: 0;
+  padding: 0;
+}
+.mianbox {
+  width: 1000px;
+  height: 450px;
+  overflow: hidden;
+  margin: 50px auto;
+  position: relative;
+}
+.mianbox ul li {
+  float: left;
+  list-style: none;
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+  border: #fff solid 30px;
+  margin-left: -60px;
+}
+.mianbox h2 {
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  letter-spacing: 0.5em;
+}
+.mianbox .butBox a {
+  position: absolute;
+  opacity: 0.6;
+}
+.mianbox .butBox a:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.mianbox .butBox .butLeft {
+  top: 220px;
+  left: 50px;
+  color: #fff;
+  font-size: 60px;
+}
+.mianbox .butBox .butRight {
+  top: 220px;
+  right: 50px;
+  color: #fff;
+  font-size: 60px;
+}
+.mianbox .butBox .butPlay {
+  top: 0px;
+  left: 0px;
+  border: #000 solid 1px;
+  padding: 3px;
+}
