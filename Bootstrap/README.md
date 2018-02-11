@@ -19,4 +19,4 @@ Bootstrap是一个很容易上手的框架，在慕课网学习完所有的该�
 还是那句话，如果学完上面三门课程，你觉得bootstrap框架就是那样，那么这门课程就会让你对该框架更进一步认识。这门课程的老师和之前《玩转Bootstrap（基础）》是同一个，因此风格也是类似的，具体且繁杂，适合进阶的人学习，并且建议结合官网[JavaScript插件](https://v3.bootcss.com/javascript/)进行学习效果更好。<br>
 
 ### 5、[基于bootstrap的网页开发](https://www.imooc.com/learn/182)
-这是我建议最后来学的一门课程，通过整个首页页面的搭建，你会进一步加深对基础知识和插件知识的理解与掌握。结合课程的章节，我分步写了各份源码，有需要的可以来[这里](https://github.com/CruxF/IMOOC/tree/master/Bootstrap/BootBaseWeb)进行copy。对最终的代码进行部分改造，可以[点击这里查看演示](https://cruxf.github.io/IMOOC/Bootstrap/BootBaseWeb/index3-11.html)
+这是我建议最后来学的一门课程，通过整个首页页面的搭建，你会进一步加深对基础知识和插件知识的理解与掌握。结合课程的章节，我分步写了各份源码，有需要的可以来[这里](https://github.com/CruxF/IMOOC/tree/master/Bootstrap/BootBaseWeb)进行copy。我对最终的代码进行部分改造，并且实现了所有的效果，可以[点击这里查看演示](https://cruxf.github.io/IMOOC/Bootstrap/BootBaseWeb/index3-11.html)
