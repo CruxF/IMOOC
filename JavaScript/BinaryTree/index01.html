@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>制作一个小游戏完整版</title>
+    <style>
+      #stage {
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+      #background {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: gray;
+      }
+      #hr {
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        top: 250px;
+        left: 0;
+        background-color: greenyellow;
+      }
+      /*坦克*/     
+      #cannon {
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-bottom: green solid 20px;
+        position: absolute;
+        top: 250px;
+        left: 140px;
+      }
+      /*外星人*/      
+      #alien {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
+        left: 80px;
+        background-color: black;
+      }
+      /*坦克子弹*/     
+      #missile {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 270px;
+        left: 140px;
+      }
+      /*击中外星人*/      
+      #explosion {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: yellow;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div id="background"></div>
+      <div id="hr"></div>
+      <div id="cannon"></div>
+      <div id="missile"></div>
+      <div id="alien"></div>
+      <div id="explosion"></div>
+    </div>
+    <p id="output">请输入X和Y坐标（0-300），然后点击fire</p>
+    <input id="inputX" type="text" placeholder="X..." />
+    <input id="inputY" type="text" placeholder="Y..." />
+    <button>fire!</button>
+
+    <script>
+      function BinaryTree() {
+        //这个Node类在外星人游戏中需要添加一个selected，表示该节点是否被选中，即该结点是否是外星人当前的横坐标
+        var Node = function (key) {
+          this.key = key;
+          this.left = null;
+          this.right = null;
+          this.selected = false;
+        };
+        //插入非根结点的方法
+        var insertNode = function (node, newNode) {
+          if (newNode.key < node.key) {
+            if (node.left === null) {
+              node.left = newNode;
+            } else {
+              insertNode(node.left, newNode);
+            }
+          } else {
+            if (node.right === null) {
+              node.right = newNode;
+            } else {
+              insertNode(node.right, newNode);
+            }
+          }
+        }
+        //创建树的接口
+        var root = null;
+        this.insert = function (key) {
+          var newNode = new Node(key);
+          if (root === null) {
+            root = newNode;
+          } else {
+            insertNode(root, newNode);
+          };
+        }
+
+        //中序遍历的方法
+        var inOrderTraverseNode = function (node, callback) {
+          if (node !== null) {
+            inOrderTraverseNode(node.left, callback);
+            callback(node.key);
+            inOrderTraverseNode(node.right, callback);
+          }
+        }
+        //中序遍历的接口
+        this.inOrderTraverse = function (callback) {
+          inOrderTraverseNode(root, callback);
+        }
+
+        //求最小值，即求二叉树的最左边的结点
+        var minNode = function (node) {
+          if (node) {
+            while (node && node.left !== null) {
+              node = node.left;
+            }
+            return node.key;
+          }
+        }
+        //求最小值的接口
+        this.min = function () {
+          return minNode(root);
+        }
+
+        //查找x结点的方法，原来的方法是返回true，或者false，但是在外星人游戏中应该返回的是结点
+        var findKey = function (node, key) {
+          if (node != null) {
+            if (node.key == key) {
+              return node;
+            }
+            if (node.key < key) {
+              return findKey(node.right, key);
+            } else {
+              return findKey(node.left, key);
+            }
+          }
+          return null;
+        }
+        //查找某个结点的接口
+        this.find = function (key) {
+          return findKey(root, key);
+        }
+
+        //前序遍历的方法
+        var preOrderTraverseNode = function (node, callback) {
+          if (node !== null) {
+            //原来的前序遍历是callback(node.key)，但是我们这里要存入nodesForAlien数组的是结点值所以改成callback(node)
+            callback(node);
+            preOrderTraverseNode(node.left, callback);
+            preOrderTraverseNode(node.right, callback);
+          }
+        }
+        //前序遍历的接口
+        this.preOrderTraverse = function (callback) {
+          preOrderTraverseNode(root, callback);
+        }
+      }
+
+      //二叉树的初始化，首先初始化nodes数组中的值，在外星人游戏中也是nodesForAlien数组的结点的key值
+      var nodes = [];
+      //往nodes数值注入9个在0-281这个区间的值，这个9个数也是9个可能出现的外星人横坐标
+      for (var i = 0; i < 10; i++) {
+        nodes.push(Math.floor(Math.random() * 281));
+      }
+      //按照nodes数组的值创建二叉树
+      var binaryTree = new BinaryTree();
+      nodes.forEach(function (key) {
+        binaryTree.insert(key);
+      })
+
+      //定义一个数组nodesForAlien
+      var nodesForAlien = [];
+      //定义一个回调函数，把当前访问的二叉树结点存入数组
+      var callback = function (node) {
+        nodesForAlien.push(node);
+      }
+      //调用二叉树的前序便遍历，访问二叉树，按照前序遍历的顺序把二叉树所有的结点存入nodesForAlien数组中
+      //这一步也就是初始化nodesForAlien数组，以后外星人的横坐标也就只能是在这个数组中的值。
+      binaryTree.preOrderTraverse(callback);
+
+      //把0-9中的一个随机的整数复制给alienNodeSelect
+      var alienNodeSelect = Math.floor(Math.random() * 9);
+
+      //让数组中下标为alienNodeSelect的元素的selected为true，即表示这个结点的key值就是外星人当前的横坐标
+      nodesForAlien[alienNodeSelect].selected = true;
+
+      //当前选择的结点key值就是当前外星人的横坐标
+      var alienX = nodesForAlien[alienNodeSelect].key;
+
+      //Game section
+      var alienY = 0;
+      var guessX = 0;
+      var guessY = 0;
+      var shotsRemaning = 8;
+      var shotsMade = 0;
+      var gameState = "";
+      var gameWon = false;
+
+      var cannon = document.querySelector("#cannon");
+      var alien = document.querySelector("#alien");
+      var missile = document.querySelector("#missile");
+      var explosion = document.querySelector("#explosion");
+
+      var inputX = document.querySelector("#inputX");
+      var inputY = document.querySelector("#inputY");
+      var output = document.querySelector("#output");
+
+      var button = document.querySelector("button");
+      button.style.cursor = "pointer";
+      button.addEventListener("click", clickHandler, false);
+      window.addEventListener("keydown", keydownHandler, false);
+
+      function clickHandler() {
+        validateInput();
+      }
+
+      function keydownHandler() {
+        if (event.keyCode === 13) {
+          validateInput();
+        }
+      }
+
+      function validateInput() {
+        guessX = parseInt(inputX.value);
+        guessY = parseInt(inputY.value);
+
+        if (isNaN(guessX) || isNaN(guessY)) {
+          output.innerHTML = "请输入坐标";
+        } else if (guessX > 300 || guessY > 300) {
+          output.innerHTML = "坐标不能大于300";
+        } else {
+          playGame();
+        }
+      }
+
+      function playGame() {
+        shotsRemaning = shotsRemaning - 1;
+        shotsMade = shotsMade + 1;
+        gameState = "炮弹" + ",数量：" + shotsRemaning;
+
+        guessX = parseInt(inputX.value);
+        guessY = parseInt(inputY.value);
+        var alienNode = binaryTree.find(guessX);
+        if (alienNode !== null && alienNode.selected == true) {
+          if (guessY >= alienY && guessY <= alienY + 20) {
+            gameWon = true;
+            endGame();
+          }
+        } else {
+          output.innerHTML = "没有击中！" + "<br>" + gameState;
+          if (shotsRemaning < 1) {
+            endGame();
+          }
+        }
+
+        if (!gameWon) {
+          nodesForAlien[alienNodeSelect].selected = false;
+          alienNodeSelect = Math.floor(Math.random() * 9);
+          nodesForAlien[alienNodeSelect].selected = true;
+          alienX = nodesForAlien[alienNodeSelect].key;
+          alienY += 30;
+        }
+        render();
+        console.log("X:" + alienX);
+        console.log("Y:" + alienY);
+      };
+
+      function render() {
+        alien.style.left = alienX + "px";
+        alien.style.top = alienY + "px";
+
+        cannon.style.left = guessX + "px";
+
+        missile.style.left = guessX + "px";
+        missile.style.top = guessY + "px";
+
+        if (gameWon) {
+          explosion.style.display = "block";
+          explosion.style.left = alienX + "px";
+          explosion.style.top = alienY + "px";
+
+          alien.style.display = "none";
+          missile.style.display = "none";
+        }
+      }
+
+      function endGame() {
+        if (gameWon) {
+          output.innerHTML = "Hit! 你拯救了地球~" + "<br>" + "你发射了炮弹" + shotsMade + "枚";
+        } else {
+          output.innerHTML = "失败了！" + "<br>" + "地球被外星人侵略！";
+        }
+
+        button.removeEventListener("click", clickHandler, false);
+        button.disabled = true;
+
+        window.removeEventListener("keydown", keydownHandler, false);
+        inputX.disabled = true;
+        inputY.disabled = true;
+      }
+    </script>
+  </body>
+</html>
