@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>Rem</title>
+    <style>
+      html {
+        font-size: 17px;
+      }
+      .box {
+        height: 10rem;
+        width: 10rem;
+        background-color: red;
+      }
+      .text {
+        color: #fff;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p class="text">hello rem</p>
+    </div>
+
+    <script>
+      // 获取视窗宽度
+      let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      console.log(htmlWidth);
+
+      // 获取视窗高度
+      let htmlDom = document.getElementsByTagName('html')[0];
+      htmlDom.style.fontSize = htmlWidth / 10 + "px";
+    </script>
+  </body>
+</html>

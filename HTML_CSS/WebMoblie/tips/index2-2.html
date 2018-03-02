@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>Rem</title>
+    <style>
+      html {
+        font-size: 17px;
+      }
+      .box {
+        height: 10rem;
+        width: 10rem;
+        background-color: red;
+      }
+      .text {
+        color: #fff;
+        font-size: 16px;
+      }
+      @media screen and (max-width: 320px) {
+        html {
+          font-size: 24px;
+        }
+      }
+      @media screen and (max-width: 360px) and (min-width: 321px) {
+        html {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p class="text">hello rem</p>
+    </div>
+  </body>
+</html>

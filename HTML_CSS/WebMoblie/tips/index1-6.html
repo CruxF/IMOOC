@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MediaQuery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100%;
+        background-color: red;
+      }
+      .inner:nth-child(1) {
+        background-color: red;
+      }
+      .inner:nth-child(2) {
+        background-color: blue;
+      }
+      .inner:nth-child(3) {
+        background-color: yellow;
+      }
+      .inner:nth-child(4) {
+        background-color: green;
+      }
+      @media screen and (max-width: 320px) {
+        .inner {
+          height: 100px;
+          width: 25%;
+          float: left;
+        }
+      }
+      @media screen and (min-width: 321px) {
+        .inner {
+          height: 100px;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inner"></div>
+      <div class="inner"></div>
+      <div class="inner"></div>
+      <div class="inner"></div>
+    </div>
+  </body>
+</html>
