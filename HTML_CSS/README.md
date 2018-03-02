@@ -249,7 +249,9 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/DomBase/index.html)<br><br>
 
 
+# 12、WebMobile => 移动web开发适配秘籍Rem
 
+适合入门响应式设计和简单的移动端适配，学习了这门课程，我记录了一些课程的笔记，以及最后案例是如何开发出来的详细步骤，[请点击这里](https://github.com/CruxF/IMOOC/issues/3)
 
 
 
