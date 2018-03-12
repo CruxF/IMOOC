@@ -106,13 +106,13 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(5)(content, options);
+var update = __webpack_require__(7)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {
-	module.hot.accept("!!./node_modules/_css-loader@0.28.10@css-loader/index.js!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./index.scss", function() {
-		var newContent = require("!!./node_modules/_css-loader@0.28.10@css-loader/index.js!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./index.scss");
+	module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./index.scss", function() {
+		var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./index.scss");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 
@@ -141,19 +141,41 @@ if(false) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(7);
-exports = module.exports = __webpack_require__(4)(false);
+var escape = __webpack_require__(4);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
 // module
-exports.push([module.i, "html {\n  background-color: #f8f8f8; }\n\n.header {\n  height: 1.06667rem;\n  width: 100%;\n  background-color: #6170b1;\n  padding-left: 0.85333rem; }\n  .header .header-item {\n    list-style-type: none;\n    float: left;\n    color: #D1DFB7;\n    font-size: 0.42667rem;\n    margin-right: 0.53333rem;\n    line-height: 1.06667rem; }\n    .header .header-item:nth-child(2) {\n      color: #fff;\n      font-size: 0.45333rem; }\n\n.banner-content {\n  position: relative; }\n  .banner-content .banner {\n    display: block;\n    width: 100%;\n    height: 5.86667rem; }\n  .banner-content .banner-title {\n    position: absolute;\n    left: 0.4rem;\n    bottom: 0.4rem;\n    font-size: 0.48rem;\n    color: #FFFFFF;\n    font-family: \"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif; }\n\n.news-content .news-item {\n  height: 2.4rem;\n  padding-left: 0.4rem;\n  padding-right: 0.4rem;\n  width: 100%;\n  box-sizing: border-box; }\n\n.news-content .item-inner {\n  position: relative;\n  overflow: hidden;\n  height: 100%;\n  border-bottom: 0.02667rem solid #e5e5e5; }\n\n.news-content .news-img {\n  float: left;\n  margin-top: 0.26667rem;\n  display: block;\n  width: 2.53333rem;\n  height: 1.86667rem;\n  margin-right: 0.4rem; }\n\n.news-content .news-title {\n  color: #404040;\n  font-size: 0.4rem;\n  margin-top: 0.42667rem;\n  line-height: 0.53333rem; }\n\n.news-content .time {\n  color: #888;\n  font-size: 0.32rem;\n  position: absolute;\n  left: 2.93333rem;\n  bottom: 0.45333rem; }\n\n.news-content .num {\n  position: absolute;\n  color: #888;\n  font-size: 0.32rem;\n  right: 0.10667rem;\n  bottom: 0.45333rem; }\n  .news-content .num:before {\n    content: ' ';\n    display: block;\n    position: absolute;\n    width: 0.34667rem;\n    height: 0.34667rem;\n    background-size: contain;\n    top: 0rem;\n    left: -0.45333rem;\n    background-image: url(" + escape(__webpack_require__(8)) + "); }\n", ""]);
+exports.push([module.i, "html {\n  background-color: #f8f8f8; }\n\n.header {\n  height: 1.06667rem;\n  width: 100%;\n  background-color: #6170b1;\n  padding-left: 0.85333rem;\n  box-sizing: border-box; }\n  .header .header-item {\n    list-style-type: none;\n    float: left;\n    color: #D1DFB7;\n    font-size: 0.42667rem;\n    margin-right: 0.53333rem;\n    line-height: 1.06667rem; }\n    .header .header-item:nth-child(2) {\n      color: #fff;\n      font-size: 0.45333rem; }\n\n.banner-content {\n  position: relative; }\n  .banner-content .banner {\n    display: block;\n    width: 100%;\n    height: 5.86667rem; }\n  .banner-content .banner-title {\n    position: absolute;\n    left: 0.4rem;\n    bottom: 0.4rem;\n    font-size: 0.48rem;\n    color: #FFFFFF;\n    font-family: \"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif; }\n\n.news-content .news-item {\n  height: 2.4rem;\n  padding-left: 0.4rem;\n  padding-right: 0.4rem;\n  width: 100%;\n  box-sizing: border-box; }\n\n.news-content .item-inner {\n  position: relative;\n  overflow: hidden;\n  height: 100%;\n  border-bottom: 0.02667rem solid #e5e5e5; }\n\n.news-content .news-img {\n  float: left;\n  margin-top: 0.26667rem;\n  display: block;\n  width: 2.53333rem;\n  height: 1.86667rem;\n  margin-right: 0.4rem; }\n\n.news-content .news-title {\n  color: #404040;\n  font-size: 0.4rem;\n  margin-top: 0.42667rem;\n  line-height: 0.53333rem; }\n\n.news-content .time {\n  color: #888;\n  font-size: 0.32rem;\n  position: absolute;\n  left: 2.93333rem;\n  bottom: 0.45333rem; }\n\n.news-content .num {\n  position: absolute;\n  color: #888;\n  font-size: 0.32rem;\n  right: 0.10667rem;\n  bottom: 0.45333rem; }\n  .news-content .num:before {\n    content: ' ';\n    display: block;\n    position: absolute;\n    width: 0.34667rem;\n    height: 0.34667rem;\n    background-size: contain;\n    top: 0rem;\n    left: -0.45333rem;\n    background-image: url(" + escape(__webpack_require__(6)) + "); }\n", ""]);
 
 // exports
 
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
+}
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports) {
 
 /*
@@ -235,7 +257,13 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAnklEQVQ4je2TsQ2DQBRDPQIjMAojsEFuBDYIne3q2IQRWCEjMAIbJM1dFH0BoY5iyc29/61f+AAAJJPt+6dJdigi2UVu+1ZhkvQgOQavkiZJE8k18rKTUB8QlHNuJG2StpxzE/l77ygAAOoFe+xSwCX2D/iZgK9l2VGp+AiSben9M3iRNBcvkZf/0e6FAwBs93XYdn84eCbbg+3hbOYFCJL8fjqq1EcAAAAASUVORK5CYII="
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -301,7 +329,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(6);
+var	fixUrls = __webpack_require__(8);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -617,7 +645,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 
@@ -710,34 +738,6 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
-    }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
-}
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAnklEQVQ4je2TsQ2DQBRDPQIjMAojsEFuBDYIne3q2IQRWCEjMAIbJM1dFH0BoY5iyc29/61f+AAAJJPt+6dJdigi2UVu+1ZhkvQgOQavkiZJE8k18rKTUB8QlHNuJG2StpxzE/l77ygAAOoFe+xSwCX2D/iZgK9l2VGp+AiSben9M3iRNBcvkZf/0e6FAwBs93XYdn84eCbbg+3hbOYFCJL8fjqq1EcAAAAASUVORK5CYII="
 
 /***/ })
 /******/ ]);

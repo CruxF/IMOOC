@@ -12,6 +12,7 @@ html {
   width: 100%;
   background-color: #6170b1;
   padding-left: px2rem(32px);
+  box-sizing: border-box;
   .header-item {
     list-style-type: none;
     float: left;
