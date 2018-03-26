@@ -22,7 +22,7 @@
     name: 'App',
     data() {
       return {
-        title: "这是一个清单",
+        title: "TWO TODO",
         items: Store.fetch() == null ? [] : Store.fetch(),
         newItem: '',
         childWords: ''
@@ -60,6 +60,19 @@
 </script>
 
 <style scoped="scoped">
+	body {
+    font-family: "微软雅黑";
+  }
+  #app {
+    border-color: transparent;
+    margin-top: 20px;
+    width: 500px;
+  }
+  #add-input {
+    width: 450px;
+    height: 35px;
+    padding: 0 5px;
+  }
   .finished {
     text-decoration: line-through;
   }
