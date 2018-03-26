@@ -1,31 +1,97 @@
-### 说明
-自定义事件：
-Vue实例实现了一个自定义事件接口，用于在组件树中通信。这个事件系统独立于原生DOM事件，用法也不同。每个Vue实例都是一个事件触发器。
-使用$on()监听事件；
-使用$emit()在它上面触发事件；
-使用$dispatch()派发事件，事件沿着父链冒泡；(在vue2.0中被弃用)
-使用$broadcast()广播事件，事件向下传导给所有的后代(在vue2.0中被弃用)
+# 前言
 
-注意：不同于DOM事件，Vue事件在冒泡过程中第一次触发回到之后自动停止冒泡，除非回调明确返回true。
+为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
-# vbase
 
-> A Vue.js project
+# 1、VueBase => Vue.js入门基础
 
-## Build Setup
+这是慕课网一门古老的Vue入门课程，然而在里面能够学习的东东还是十分多的，比如数据绑定，组件传参和localstorage等。下面引出三道基础的Vue面试题：
 
-``` bash
-# install dependencies
-npm install
+- v-if和v-show的区别是什么？
+- v-html和v-text的区别是什么？
+- 父子组件如何进行传值？
 
-# serve with hot reload at localhost:8080
-npm run dev
+以上三个问题我都记录在了[前端开发面试题大合集](https://github.com/CruxF/Blog/issues/4)，有需要的可以来看看。
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+### 开发步骤以及其他
+
+**环境准备**
+
+我的是：node -v(8.10.0)、npm-v(5.7.1)、webpack -v（3.10.0）
+
+**[脚手架搭建](http://www.cnblogs.com/fengxiongZz/p/7994448.html)**
+
+**功能实现**
+
+1、localstorage：简单谈一下我对这个功能实现的流程，如有错误的希望能及时告知。首先，通过点击事件addNew()把数据push进了对象items中；然后vue中的监听器侦测到items对象的数据变化，于是调用了外部对象Store的save方法，将数据存储到了本地；最后调用Store对象中的fetch()方法，将数据显示出来。
+
+2、父子组件传值和自定义事件：对这两个功能的实现理解还不是很透彻，下面贴核心代码让大家研究研究先。
 ```
+父组件.vue
+<template>
+  <div id="app">
+    <ComponentA msgfromfather="父亲的值" v-on:child-tell-me-something="listenToMyBoy"></ComponentA>
+  </div>
+</template>
+<script>
+  //导入组件
+  import ComponentA from './componentA';
+  export default {
+    name: 'App',
+    data() {
+      return {
+        childWords: ''
+      }
+    },
+    methods: {
+      listenToMyBoy(msg) {
+        console.log(msg);
+        this.childWords = msg;
+      }
+    },
+    //注册组件
+    components: {
+      ComponentA
+    }
+  }
+</script>
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+子组件.vue
+<template>
+  <div class="hello">
+    <h1>{{message}}</h1>
+    <button v-on:click="onClickMe">点击我！</button>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        message: "hello vuee"
+      }
+    },
+    //父子组件传值
+    props: ['msgfromfather'],
+    methods: {
+      onClickMe() {
+        console.log(this.msgfromfather);
+        this.$emit('child-tell-me-something',this.message);
+      }
+    }
+  }
+</script>
+```
+以上就是关于第一个todoList的简单分析，功能实现难度不大。最最让我崩溃的是根据课程实现的第二个todoList，发现很多难以理解的bug，[问题描述]()，具体的可以下载我的代码运行进行查看即可。
+
+**下载运行方式一**
+- 将我的整个项目下载到本地：git clone https://github.com/cruxf/IMOOC.git
+- 然后进入到这个项目中
+- 安装依赖包：npm install
+- 运行：npm run dev
+
+**下载运行方式二**
+- 已经搭建好vue-cli
+- 将[src目录]()下的所有代码copy即可
+- 运行：npm run dev
+
