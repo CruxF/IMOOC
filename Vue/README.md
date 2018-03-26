@@ -16,13 +16,14 @@
 
 ### 开发步骤以及其他
 
-**环境准备**
+<br>
+**一：环境准备**
 
 我的是：node -v(8.10.0)、npm-v(5.7.1)、webpack -v（3.10.0）
 
-**[脚手架搭建](http://www.cnblogs.com/fengxiongZz/p/7994448.html)**
+**二：[脚手架搭建](http://www.cnblogs.com/fengxiongZz/p/7994448.html)**
 
-**功能实现**
+**三：功能实现**
 
 1、localstorage：简单谈一下我对这个功能实现的流程，如有错误的希望能及时告知。首先，通过点击事件addNew()把数据push进了对象items中；然后vue中的监听器侦测到items对象的数据变化，于是调用了外部对象Store的save方法，将数据存储到了本地；最后调用Store对象中的fetch()方法，将数据显示出来。
 
@@ -82,7 +83,7 @@
   }
 </script>
 ```
-以上就是关于第一个todoList的简单分析，功能实现难度不大。最最让我崩溃的是根据课程实现的第二个todoList，发现很多难以理解的bug，[问题描述]()，具体的可以下载我的代码运行进行查看即可。
+以上就是关于第一个todoList的简单分析，功能实现难度不大。最最让我崩溃的是根据课程实现的第二个todoList，发现很多难以理解的bug，[问题描述](https://github.com/CruxF/IMOOC/blob/master/Vue/VueBase/%E9%97%AE%E9%A2%98%E5%8F%91%E7%8E%B0.txt)，具体的可以下载我的代码运行进行查看即可。
 
 **下载运行方式一**
 - 将我的整个项目下载到本地：git clone https://github.com/cruxf/IMOOC.git
@@ -92,6 +93,6 @@
 
 **下载运行方式二**
 - 已经搭建好vue-cli
-- 将[src目录]()下的所有代码copy即可
+- 将[src目录](https://github.com/CruxF/IMOOC/tree/master/Vue/VueBase/src)下的所有代码copy即可
 - 运行：npm run dev
 
