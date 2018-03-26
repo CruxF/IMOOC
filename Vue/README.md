@@ -86,7 +86,7 @@
 以上就是关于第一个todoList的简单分析，功能实现难度不大。最最让我崩溃的是根据课程实现的第二个todoList，发现很多难以理解的bug，[问题描述](https://github.com/CruxF/IMOOC/blob/master/Vue/VueBase/%E9%97%AE%E9%A2%98%E5%8F%91%E7%8E%B0.txt)，具体的可以下载我的代码运行进行查看即可。
 
 **下载运行方式一**
-- 将我的整个项目下载到本地：git clone https://github.com/cruxf/IMOOC.git
+- 将我的整个项目下载到本地：`git clone https://github.com/cruxf/IMOOC.git`
 - 然后进入到这个项目中
 - 安装依赖包：npm install
 - 运行：npm run dev
