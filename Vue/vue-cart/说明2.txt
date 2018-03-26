@@ -1,0 +1,67 @@
+开发步骤：一步步，稳扎稳打。
+
+训练方法：先看js代码，然后想html代码该如何编写；然后反过来，先看html代码，再考虑js代码该如何编写；最后js代码和html代码一块想
+
+1、展示所有配送地址
+var vm = new Vue({
+  el: ".container",
+  data: {
+    addressList: []
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      this.getAddressList();
+    });
+  },
+  methods: {
+    getAddressList: function () {
+      var _this = this;
+      this.$http.get("data/address.json").then(function (response) {
+        var res = response.data;
+        if (res.status == "0") {
+          _this.addressList = res.result;
+        }
+      });
+    }
+  }
+})
+
+
+2、过滤显示的数据的数目
+computed: {
+    filterAddress: function() {
+      return this.addressList.slice(0, 3);
+    }
+  },
+
+
+3、加载更多
+<a class="addr-more-btn up-down-btn" href="javascript:" @click="(limitNum == 3) ? limitNum=addressList.length : limitNum=3">
+
+
+4、选中样式的切换
+<li v-for="(item,index) in filterAddress" v-bind:class="{'check': index == currentIndex}" @click="currentIndex=index">
+
+5、设置默认地址
+setDefault: function(addressId) {
+  this.addressList.forEach(function (address, index) {
+    if (address.addressId == addressId) {
+      address.isDefault = true;
+    }
+    else {
+      address.isDefault = false;
+    }
+  });
+}
+
+6、配送方式
+<li v-bind:class="{'check': shippingMethod == 1}" @click="shippingMethod = 1">
+  <div class="name">标准配送</div>
+  <div class="price">Free</div>
+</li>
+<li v-bind:class="{'check': shippingMethod == 2}" @click="shippingMethod = 2">
+  <div class="name">高级配送</div>
+  <div class="price">180</div>
+</li>
+
+
