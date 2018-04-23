@@ -5,10 +5,10 @@
     <ul>
       <li v-for="(item,index) in lists">
         <span class="Linput">
-          <input type="checkbox" @click="itemCheck(item)"/>
+          <input type="checkbox" @click="itemCheck(item)" />
         </span>
         <span class="item-label" v-bind:class="{'line-through':item.checked}">{{index+1}}.{{item.values}}</span>
-        <span class="item-delete" v-if="item.checked" @click="deleteClick(item)">已完成,点击删除</span><br>
+        <span class="item-delete" v-if="item.checked" @click="deleteClick(index)">已完成,点击删除</span><br>
         <span class="item-status" v-if="!item.checked">未完成</span><br>
       </li>
     </ul>
@@ -24,7 +24,7 @@
         title: "ONE TODO",
         lists: Store.fetch() == null ? [] : Store.fetch(),
         newItem: '',
-        checked:''
+        ischecked: true
       }
     },
     watch: {
@@ -39,15 +39,15 @@
       addNew() {
         this.lists.push({
           values: this.newItem,
-          checked: false
+          checked: false,
         });
         this.newItem = '';
       },
       itemCheck(item) {
         item.checked = !item.checked;
       },
-      deleteClick(item) {
-        this.lists.splice(item, 1);
+      deleteClick(index) {
+        this.lists.splice(index, 1);
       }
     }
   }
@@ -60,9 +60,10 @@
   #app {
     border-color: transparent;
     margin-top: 20px;
+    width: 500px;
   }
   #add-input {
-    width: 500px;
+    width: 450px;
     height: 35px;
     padding: 0 5px;
   }
@@ -71,7 +72,7 @@
     padding: 0;
   }
   li {
-    width: 500px;
+    width: 450px;
   }
   .Linput {
     float: left;
@@ -79,6 +80,7 @@
     line-height: 25px;
     width: 60px;
     border: 1px solid #ccc;
+    margin-left: 18px;
   }
   .item-label {
     float: left;

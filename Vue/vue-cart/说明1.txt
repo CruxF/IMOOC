@@ -1,0 +1,112 @@
+遇到的坑
+1、尽量使用CDN来获取最新的资源版本好，否则坑死你。比如利用vue-resource获取json资源的时候，因为版本不同，得到数据的方式也不同。
+vue-resource地址：https://github.com/pagekit/vue-resource
+
+训练方法：
+1、一步步来，首先根据以下代码来编写HTML代码，通过以下代码需要完成的事情有渲染商品信息、商品金额、商品数量以及总金额
+var vm = new Vue({
+  el: "#app",
+  data: {
+    totalMoney: 0,
+    productList: []
+  },
+  filters: {
+
+  },
+  mounted: function () {
+    this.cartView();
+  },
+  methods: {
+    cartView: function () {
+      var _this = this;
+      this.$http.get("data/cartData.json", {"id": 123}).then(function (res) {
+        _this.productList = res.body.result.list;
+      });
+    }
+  }
+})
+
+
+2、格式化金额
+步骤一：定义一个局部过滤器
+  filters: {
+		formatMoney: function(value) {
+      return "¥" + value.toFixed(2);
+    }
+  }
+  步骤二：在HTML文件中使用它，不会的请查阅相关资料
+
+或者是可以定义一个全局过滤器，然后在HTML代码调用它，
+如何调用它的方法最好查阅相关资料，当然也可以查看源码
+Vue.filter('money', function(value, type) {
+  return "¥" + value.toFixed(2) + type;
+})
+
+
+3、单件商品金额计算和单选全选功能
+单件商品金额计算
+changeMoney:function (product,way) {
+    if(way>0){
+    	product.productQuantity++;
+    }else{
+    	product.productQuantity--;
+    	if(product.productQuantity<1){
+    		product.productQuantity = 1;
+    	}
+    }
+}
+单选功能（稍微有点复杂，可以多听，多练几遍）
+【分析】
+v-bind:class="{'check': item.checked}"含义是当item.checked为真的时候，check这个类名
+会被附加，即页面最终渲染会是class="item-check-btn check"；
+selectedProduct: function (item) {
+    if (typeof item.checked == 'undefined') {
+        //全局注册checked属性
+        // Vue.set(item, "checked", true);
+        //局部注册checked属性
+        this.$set(item, "checked", true);
+      } else {
+        item.checked = !item.checked;
+    }
+}
+
+全选和取消全选（核心代码）
+checkAll: function (flag) {
+  this.checkAllFlag = flag;
+  var _this = this;
+  this.productList.forEach(function (item, index) {
+    if (typeof item.checked == 'undefined') {
+      _this.$set(item, "checked", flag);
+    } else {
+      item.checked = flag;
+    }
+  });
+  this.calcTotalPrice();
+},
+
+
+4、商品总金额计算和删除功能实现
+//金额总计函数
+calcTotalPrice: function () {
+  var _this = this;
+  this.totalMoney = 0;
+  this.productList.forEach(function (item, index) {
+    if (item.checked) {
+      _this.totalMoney += item.productPrice * item.productQuantity;
+  }
+});
+}
+
+//删除商品
+delConfirm: function (item) {
+  this.delFlag = true;
+  //保存获取到的对象
+  this.curProduct = item;
+},
+delProduct: function () {
+	//获取对象的索引值
+  var index = this.productList.indexOf(this.curProduct);
+  //从对象组的当前索引值开始删除，删除一个元素
+  this.productList.splice(index, 1);
+  this.delFlag = false;
+}

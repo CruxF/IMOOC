@@ -1,6 +1,6 @@
 # 前言
 
-为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+为了优化大家的阅读体验，强烈建议先安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
 # 1、page=>分页页码制作

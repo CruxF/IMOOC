@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'todos-vuejs';
+const STORAGE_KEY = '';
 
 export default {
   fetch() {
