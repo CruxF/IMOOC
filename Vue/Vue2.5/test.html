@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <input v-model="inputValue" />
+      <button @click="handleSubmit()">提交</button>
+
+      <ul>
+        <!--调用子组件-->
+        <todo-item v-for="(item,index) of list" :key="index" :content="item" :index="index" @delete="handleDelete(index)">
+        </todo-item>
+      </ul>
+    </div>
+
+    <script>
+      //子组件(全局)
+      Vue.component('todo-item', {
+        props: ['content', 'index'],
+        template: '<li @click="handleClick()">{{content}}</li>',
+        methods: {
+          handleClick() {
+            //发布订阅模式
+            this.$emit('delete', this.index);
+          }
+        }
+      })
+      //父组件
+      new Vue({
+        el: "#root",
+        data: {
+          inputValue: '',
+          list: []
+        },
+        methods: {
+          handleSubmit() {
+            this.list.push(this.inputValue);
+            this.inputValue = '';
+          },
+          handleDelete(index) {
+            this.list.splice(index, 1);
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
