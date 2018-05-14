@@ -22,7 +22,7 @@
     name: 'App',
     data() {
       return {
-        title: "TWO TODO",
+        title: "TWO TODO<span>Vue</span>",
         items: Store.fetch() == null ? [] : Store.fetch(),
         newItem: '',
         childWords: ''

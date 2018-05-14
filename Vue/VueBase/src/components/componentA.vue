@@ -16,7 +16,7 @@
     props: ['msgfromfather'],
     methods: {
       onClickMe() {
-        //console.log(this.msgfromfather)
+        console.log(this.msgfromfather);
         this.$emit('child-tell-me-something',this.message);
       }
     }
