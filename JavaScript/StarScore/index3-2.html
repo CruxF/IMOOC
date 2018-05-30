@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>星级评分基本</title>
+    <style>
+      body, ul, li {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .rating {
+        width: 190px;
+        height: 32px;
+        margin: 100px auto;
+      }
+      .rating-item {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: url(img/star.png) no-repeat;
+        cursor: pointer;
+      }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <ul class="rating" id="rating">
+      <li class="rating-item" title="十分不好"></li>
+      <li class="rating-item" title="不好"></li>
+      <li class="rating-item" title="一般"></li>
+      <li class="rating-item" title="好"></li>
+      <li class="rating-item" title="很好"></li>
+    </ul>
+
+    <script>
+      // 设置需要点亮的星星数量
+      var num = 2;
+      // 获取到DOM元素
+      var $rating = $('#rating')
+      var $item = $rating.find('.rating-item');
+
+      // 初始点亮的星星数量的函数
+      var lightOn = function(num) {
+        $item.each(function(index) {
+          if(index < num) {
+            $(this).css('background-position', '0 -40px');
+          } else {
+            $(this).css('background-position', '0 0');
+          }
+        })
+      }
+
+      // 调用点亮星星函数，传入参数
+      lightOn(num);// 动态改变点亮星星的数量
+      $item.on('mouseover', function() {
+        lightOn($(this).index() + 1);
+      }).on('click', function() {
+        num = $(this).index() + 1;
+      });
+      $rating.on('mouseout', function() {
+        lightOn(num);
+      })
+    </script>
+  </body>
+</html>

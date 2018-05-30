@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>模板方法模式的栗子</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+      // 构造一个叫Coffee的函数
+      var Coffee = function() {}
+
+      // 在构造函数的原型上增加方法
+      // 什么是原型？原型就是实例化对象上的一个对象
+      Coffee.prototype.boilWater = function() {
+        console.log("把水煮沸");
+      };
+      Coffee.prototype.brewCoffee = function() {
+        console.log("用沸水冲泡咖啡");
+      };
+      Coffee.prototype.pourInCup = function() {
+        console.log("把咖啡倒进杯子");
+      };
+      Coffee.prototype.addSugarAndMilk = function() {
+        console.log("加糖和牛奶");
+      };
+      Coffee.prototype.init = function() {
+        this.boilWater();
+        this.brewCoffee();
+        this.pourInCup();
+        this.addSugarAndMilk();
+      };
+
+      // 实例化一个coffee对象，调用对象上的init()方法
+      var coffee = new Coffee();
+      coffee.init();
+
+      console.log("******另一个构造函数开始******")
+
+      // 构造一个叫tea的函数
+      var Tea = function() {}
+
+      // 在构造函数的原型上增加方法
+      Tea.prototype.boilWater = function() {
+        console.log("把水煮沸");
+      };
+      Tea.prototype.steepTea = function() {
+        console.log("用沸水浸泡茶叶");
+      };
+      Tea.prototype.pourInCup = function() {
+        console.log("把茶水倒进杯子");
+      };
+      Tea.prototype.addLemon = function() {
+        console.log("加柠檬");
+      };
+      Tea.prototype.init = function() {
+        this.boilWater();
+        this.steepTea();
+        this.pourInCup();
+        this.addLemon();
+      }
+
+      // 实例化一个tea对象，并调用对象上的init()方法
+      var tea = new Tea();
+      tea.init();
+
+      console.log("******合并两个构造函数开始******");
+
+      // 创建一个俗称父类的构造函数Beverage
+      var Beverage = function() {}
+
+      // 在构造函数的原型上增加方法
+      Beverage.prototype.boilWater = function() {
+        console.log("把水煮沸");
+      };
+      Beverage.prototype.brew = function() {
+        throw new Error("子类必须重写该方法");
+      };
+      Beverage.prototype.pourInCup = function() {
+        throw new Error("子类必须重写该方法");
+      };
+      Beverage.prototype.addCondiments = function() {
+        throw new Error("子类必须重写该方法");
+      };
+      Beverage.prototype.customerWantsCondiments = function() {
+        return true;
+      };
+      Beverage.prototype.init = function() {
+        this.boilWater();
+        this.brew();
+        this.pourInCup();
+        if(this.customerWantsCondiments()) {
+          this.addCondiments();
+        }
+      }
+
+      // 创建一个Coffee构造函数
+      var Coffee = function() {};
+      // 使该构造函数继承Beverage这个父类
+      Coffee.prototype = new Beverage();
+      // 重写父类的方法
+      Coffee.prototype.brew = function() {
+        console.log("用沸水冲泡咖啡");
+      };
+      Coffee.prototype.pourInCup = function() {
+        console.log("把咖啡倒进杯子");
+      };
+      Coffee.prototype.addCondiments = function() {
+        console.log("加糖和牛奶");
+      };
+      // 实例化一个coffee对象，调用对象上的init()方法
+      var coffee = new Coffee();
+      coffee.init();
+
+      console.log("^-^-^-^-^-^-^-^")
+
+      // 创建一个Tea构造函数
+      var Tea = function() {};
+      // 使该构造函数继承Beverage这个父类
+      Tea.prototype = new Beverage();
+      // 重写父类的方法
+      Tea.prototype.brew = function() {
+        console.log("用沸水浸泡茶叶");
+      };
+      Tea.prototype.pourInCup = function() {
+        console.log("把茶水倒进杯子");
+      };
+      Tea.prototype.addCondiments = function() {
+        console.log("加柠檬");
+      };
+      Tea.prototype.customerWantsCondiments = function() {
+        return false;
+        // return window.confirm("请问需要加调料吗？");
+      };
+
+      // 实例化一个tea对象，并调用对象上的init()方法           
+      var tea = new Tea();
+      tea.init();
+    </script>
+  </body>
+</html>

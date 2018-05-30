@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>星级评分静态模板</title>
+    <style>
+      body, ul, li {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .rating {
+        width: 190px;
+        height: 32px;
+        margin: 100px auto;
+      }
+      .rating-item {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: url(img/star.png) no-repeat;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="rating" id="rating">
+      <li class="rating-item" title="十分不好"></li>
+      <li class="rating-item" title="不好"></li>
+      <li class="rating-item" title="一般"></li>
+      <li class="rating-item" title="好"></li>
+      <li class="rating-item" title="很好"></li>
+    </ul>
+  </body>
+</html>
