@@ -1,6 +1,6 @@
 # 前言
 
-为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+由于这会是一篇很长的课程学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
 # 1、RegExp => [JavaScript正则表达式](https://www.imooc.com/learn/706)
@@ -121,7 +121,7 @@ function $(id) {
 
 下面正式开始对一些代码的分析，我分析代码的思路一般是这样的：顺着数据（参数）的流向，一步一步的使用console.log()进行分析。<br>
 
-程序开始执行的代码：`ratingfn.initfn('#rating', 2);`，当你们知道在JavaScript中，函数为一等公民时，那么就能够知道虽然ratingfn是被定义的一个立即执行函数的名称，但是此时ratingfn代表的却是一个对象，调用了它的内部return出来的这个initfn函数；initfn代表的是立即执行函数中init这个初始方法。<br>
+程序开始执行的代码：`rating.initfn('#rating', 2);`，当你们知道在JavaScript中，函数为一等公民时，那么就能够知道虽然rating是被定义好的一个立即执行函数的名称，但是此时rating代表的却是一个对象，调用了它的内部return出来的这个initfn函数；initfn代表的是立即执行函数中init这个初始函数。<br>
 
 接着传入的数据流向了下面这段代码：
 ```
@@ -140,7 +140,7 @@ var init = function(el, num) {
   });
 };
 ```
-el代表的就是传入进来的id值#rating，在执行鼠标事件之前，调用了外部函数lightOn，并且传入相关的参数。希望在鼠标事件中，你们能够理解jQuery事件委托的写法，在这不说明，毕竟语法清晰易懂。下面来看看lightOn的代码：
+el代表的就是传入进来的id值#rating，在执行鼠标事件之前，调用了外部函数lightOn，并且传入相关的参数。在鼠标事件中，希望你们能够理解jQuery事件委托的写法，在这不说明，毕竟语法清晰易懂。下面来看看lightOn的代码：
 ```
 var lightOn = function($item, num) {
   $item.each(function(index) {
@@ -154,8 +154,25 @@ var lightOn = function($item, num) {
 ```
 同样清晰易懂，$item代表的是传入进来的以类名为rating-item的一个集合，num就是传入进来的要被点亮的星星数量。<br>
 
+最后我们来看一下将rating函数以插件的方式进行调用的核心代码：
+```
+$.fn.extend({
+  ratingStar: function(num) {
+    return this.each(function() {
+      init(this, num)
+    })
+  }
+})
+```
+不知道你们有没有想过，为什么要把一个jQuery函数封装成插件形式给外部调用？目前我认为的原因是：保证函数内部代码的安全；提高代码的复用性；使外部调用函数更加简洁方便。<br>
 
+瞎扯了这么多，现在我们先分析一下`$.fn.extend`是什么意思。从字面理解就是扩展$.fn的方法，通过查阅资料可知`$.fn =  jQuery.fn = jQuery.prototype = 原型`，因此`$.fn.extend`的意思就是在jQuery原型上扩展了一个方法，从下面可知，这个方法能够从外部接收一个参数，名称叫ratingStar。<br>
 
+ratingStar方法中return的第一个this代表的是一个数组，这个数组到底是啥我也是很懵逼；第二个this代表的是传入进来的id值#ratingTwo。插件的调用方式如下：
+```
+// 插件式调用
+$('#ratingTwo').ratingStar(4);
+```
 
 
 
