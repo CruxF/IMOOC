@@ -101,11 +101,13 @@ function $(id) {
 
 由于这门课程是层层深入的，因此为了更好的去剖析和理解代码，我也将课程每个章节的源码独立开了，下面是我对每个章节代码的理解与分析，如有不当，希望指出。<br>
 
-**1、章节3-1：** 创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面是这个课程章节的源码和演示。<br>
+**1、章节3-1：**<br> 
+创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面是这个课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-1.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-1.html)<br><br>
 
-**2、章节3-2：** 这节课程代码很容易理解，毕竟是面向结构编程的。首先我们需要明白什么是jQuery对象？什么DOM对象？简单的来说jQuery对象与DOM对象是不一样的，大概就是：jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。具体有以下区别：
+**2、章节3-2：**<br> 
+这节课程代码很容易理解，毕竟是面向结构编程的。首先我们需要明白什么是jQuery对象？什么DOM对象？简单的来说jQuery对象与DOM对象是不一样的，大概就是：jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。具体有以下区别：
 - （1）通过jQuery方法包装后的对象，是一个类数组对象。它与DOM对象完全不同，唯一相似的是它们都能操作DOM。
 - （2）通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。
 
@@ -115,7 +117,8 @@ function $(id) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-2.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-2.html)<br><br>
 
-**3、章节3-4：** 从这个章节开始，干货就满满了，下面稍微提一下我认为比较重要和有用的几个方面。
+**3、章节3-4：**<br> 
+从这个章节开始，干货就满满了，下面稍微提一下我认为比较重要和有用的几个方面。
 - 为了避免全局变量的污染，使用立即执行函数形成了一个单独的作用域，封装了一些外部无法读取的私有变量。虽然ES6规范出来了，使得JavaScript有了块作用域，以及let和const关键字能够解决全局变量带来的问题，但是这个知识点仍然是有用的。
 - 使用事件委托减少访问DOM的次数，从而减少浏览器的重绘和重排，提高程序的性能。什么是事件委托？其中的原理是什么？在[这篇文章中](https://www.cnblogs.com/liugang-vip/p/5616484.html)讲解的十分详细。
 
@@ -179,7 +182,8 @@ $('.rating').ratingStar(4);
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-4.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-4.html)<br><br>
 
-**4、章节4-3：** 在这章节中，老师讲了关于设计模式和JavaScript原型的知识，都是成为一个高级开发者的重点和难点啊，下面是我原封不动摘抄的内容。<br>
+**4、章节4-3：**<br> 
+在这章节中，老师讲了关于设计模式和JavaScript原型的知识，都是成为一个高级开发者的重点和难点啊，下面是我原封不动摘抄的内容。<br>
 
 什么是设计模式？
 - 大白话：当封装一个函数时，你是在复用代码；而当使用一个设计模式时，你是在复用他人的经验。
@@ -205,7 +209,8 @@ $('.rating').ratingStar(4);
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-3.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-3.html)<br><br>
 
-**5、章节4-5：** 这个章节要说的东西太多了，因此我在这里分为两部分，第一部分讲述的是如何利用原型实现整颗星的展示方式，第二部分讲述的是如何制作类似分页功能的过程，下面来看下第一部分代码的实现思路，分析过程依然是跟着数据流向走。
+**5、章节4-5：**<br> 
+这个章节要说的东西太多了，因此我在这里分为两部分，第一部分讲述的是如何利用原型实现整颗星的展示方式，第二部分讲述的是如何制作类似分页功能的过程，下面来看下第一部分代码的实现思路，分析过程依然是跟着数据流向走。
 
 数据首先从这段代码中进入：
 ```
@@ -329,9 +334,117 @@ $('#rating').on('select', function(e, num, total) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-5.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-5.html)<br><br>
 
+**6、章节4-6：**<br> 
+该怎么说这个章节的代码，说简单也不是很简单，说困难也不是很困难，我的内心对这一节的代码也是很疑惑的（后来再看一遍视频懂了^-^）。不管这么多了，先说一下我比较理解的代码，在这一节中主要添加的是实现半颗星星的实现方法，下面来看页面载入的初始代码：
+```
+LightHalf.prototype.lightOn = function(num) {
+  var count = parseInt(num);
+  var isHalf = count !== num;
+  this.$item.each(function(index) {
+    if(index < count) {
+      $(this).css('background-position', '0 -40px');
+    } else {
+      $(this).css('background-position', '0 0');
+    }
+  });
+  if(isHalf) {
+    this.$item.eq(count).css('background-position', '0 -80px')
+  }
+};
+```
+这个方法实现的就是当传入值num不为整数的时候，那么就通过调整雪碧图的background-position把半颗星显示出来即可，没啥好说的，略微简单。<br>
 
+接下来看一下鼠标事件代码：
+```
+LightHalf.prototype.bindEvent = function() {
+  var self = this;
+  var itemLength = self.$item.length;
+  self.$el.on('mousemove', '.rating-item', function(e) {
+    var $this = $(this);
+    var num = 0;
+    if(e.pageX - $this.offset().left < $this.width() / 2) {
+      self.add = 0.5;
+    } else {
+      self.add = 1;
+    }
+    num = $this.index() + self.add;
+    self.lightOn(num);
+  }).on('click', '.rating-item', function() {
+    self.opts.num = $(this).index() + self.add;
+  }).on('mouseout', function() {
+    self.lightOn(self.opts.num);
+  });
+};
+```
+此时，要把mouseover事件换成mousemove事件，原因是前者只执行鼠标移入的那一次事件，而后者是随时监听鼠标在星星区域移动的位置而执行相应的程序。代码中e.pageX代表的是鼠标距离浏览器窗口最左边的距离，$this.offset().left代表的是当前星星容器左侧距离浏览器最左边窗口的距离，$this.width()代表的是整个星星容器的宽度。动手画个图，然后利用数学思维和空间思维稍微一想，就能明白了上述代码的含义。<br>
 
+让我一开始感到迷糊和疑惑的是下面一段代码：
+```
+// 默认参数
+var defaults = {
+  mode: 'LightEntire',
+  num: 0,
+  readOnly: false,
+  select: function() {},
+  chosen: function() {}
+};
 
+var mode = {
+  'LightEntire': LightEntire,
+  'LightHalf': LightHalf
+}
+
+// 创建初始方法
+var init = function(el, options) {
+  options = $.extend({}, defaults, options);
+  if(!mode[options.mode]) {
+    options.mode = 'LightEntire';
+  }
+  new mode[options.mode](el, options).init();
+};
+```
+mode到底是个啥玩意啊！！！？？一开始十分痛苦，想不出所以然，mode简直让人傻傻分不清楚；后来再看几次视频，豁然开朗，终于得知这段代码的奥义，也明白了老师实在是皮的很。<br>
+
+一切的分析从这段代码开始：
+```
+var init = function(el, options) {
+  options = $.extend({}, defaults, options);
+  if(!mode[options.mode]) {
+    options.mode = 'LightEntire';
+  }
+  new mode[options.mode](el, options).init();
+};
+```
+这么mode，看着实在是让人神经混乱，还好我理清了。这行代码`mode[options.mode]`中，第一个mode代表的是var mode = {}这个对象，第二mode代表的是传递过来的mode值。由于在var mode = {}对象中，字符串'LightEntire'映射的是LightEntire这个构造函数，字符串'LightHalf'映射的是LightHalf这个构造函数，于是我们便能得知：当传入进来的mode值为LightHalf，那么mode[LightHalf]就映射到了LightHalf这个构造函数中，同理传入进来的mode值为LightEntire，那么mode[LightEntire]就映射到了LightEntire这个构造函数中。假如传入值既不为LightEntire也不为LightHalf，那么就默认将options.mode值设为LightEntire。<br>
+
+如果还是很迷糊，那么将最开始的一段代码这么改造即可：
+```
+// 默认参数
+var defaults = {
+  mode: 'LightEntire',
+  num: 0,
+  readOnly: false,
+  select: function() {},
+  chosen: function() {}
+};
+
+var modeValue = {
+  'LightEntire': LightEntire,
+  'LightHalf': LightHalf
+}
+
+// 创建初始方法
+var init = function(el, options) {
+  options = $.extend({}, defaults, options);
+  if(!modeValue[options.mode]) {
+    options.mode = 'LightEntire';
+  }
+  new modeValue[options.mode](el, options).init();
+};
+```
+是不是马上就明白过来了呢？好了，这个章节的代码分析就到这，下面是这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-6.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-6.html)<br><br>
 
 
 
