@@ -166,7 +166,7 @@ $.fn.extend({
 ```
 不知道你们有没有想过，为什么要把一个jQuery函数封装成插件形式给外部调用？目前我认为的原因是：保证函数内部代码的安全；提高代码的复用性；使外部调用函数更加简洁方便。<br>
 
-瞎扯了这么多，现在我们先分析一下`$.fn.extend`是什么意思。从字面理解就是扩展$.fn的方法，通过查阅资料可知`$.fn =  jQuery.fn = jQuery.prototype = 原型`，因此`$.fn.extend`的意思就是在jQuery原型上扩展了一个方法，从下面可知，这个方法能够从外部接收一个参数，名称叫ratingStar。<br>
+瞎扯了这么多，现在我们先分析一下`$.fn.extend`是什么意思。从字面理解就是扩展$.fn的方法，通过查阅资料得知`$.fn =  jQuery.fn = jQuery.prototype = 原型`，因此`$.fn.extend`的意思就是在jQuery原型上扩展了一个方法，从下面可知，这个方法能够从外部接收一个参数，名称叫ratingStar。<br>
 
 ratingStar方法中return的第一个this代表的是一个数组，这个数组到底是啥我也是很懵逼，老师说这两个this都代表的是传入进来的值，因为传入值可能是个类，所以会有多个，因此才写了each遍历，额，更懵逼了；第二个this代表的是传入进来的值。下面我们来测试一下老师说的this代表的值，测试方法很简单，将插件式调用那块的传入值修改为class名即可：
 ```
@@ -201,9 +201,47 @@ $('.rating').ratingStar(4);
 - 觉得好多模式长得都一样，困惑，但深知误用之害，使用时犹豫；
 - 灵活的运用模式，甚至不用具体的某种模式也能设计出优秀的代。
 
-关于原型和原型链的知识，这里有一篇我有史以来看过最好的解读，[传送门](https://github.com/mqyqingfeng/Blog/issues/2)，下面是这个课程章节的源码和演示（F12）。<br>
+关于原型和原型链的知识，这里有一篇我有史以来看过最好的解读，[传送门](https://github.com/mqyqingfeng/Blog/issues/2)，下面是这个课程章节的源码和演示（记得F12看效果）。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-3.html)<br>
-[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-3.html)<br><br
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-3.html)<br><br>
+
+**5、章节4-5：** 这个章节要说的东西太多了，因此我在这里分为两部分，第一部分讲述的是如何利用原型实现整颗星的展示方式，第二部分讲述的是如何制作类似分页功能的过程，下面来看下第一部分代码的实现思路，分析过程依然是跟着数据流向走。
+
+数据首先从这段代码中进入：
+```
+rating.initfn('#rating', {
+  num: 3,
+});
+```
+以上各个值代表什么之前有说明，在这里不进行重复。<br>
+
+接着数据就来到了这段代码：
+```
+var init = function(el, options) {
+  options = $.extend({}, defaults, options);
+  new LightEntire(el, options).init()
+};
+```
+其中el代表的是传入过来的id或者class，options代表的是传递过来的对象。然而第二个options代表的又是什么呢？首先我们需要知道$.extend()能够合并对象，并且后一个对象中的属性值会覆盖掉前一个对象中同名属性的值，defaults是一个定义了默认值的对象。那么由此可知这一行代码`$.extend({}, defaults, options);`的意思就很明确了，就是把options对象和defaults对象进行合并，然后将合并后的属性值放到前面的空对象中。因此，第二个options代表的就是由传入对象和默认对象合并之后的一个对象。最后再把el和options以参数的方式赋给LightEntire这个构造函数，这个构造函数又调用了它内部的init()方法。<br>
+
+然后数据来到LightEntire这个构造函数中：
+```
+var LightEntire = function(el, options) {
+  this.$el = $(el);
+  this.$item = this.$el.find('.rating-item');
+  this.opts = options;
+};
+```
+以上代码都很容易理解，各个值代表什么一眼就能发现，如果很迷糊，你们可以自己使用console.log()测试各个值到底是啥。<br>
+
+最后数据就来到了构造函数中的init方法上：
+```
+LightEntire.prototype.init = function() {
+  this.lightOn(this.opts.num);
+  this.bindEvent();
+};
+```
+总之，第一部分的代码很容易理解。仔细+认真跟着老师的思路、跟着数据的流动走，那么就能够快速的理清自己的头绪。下面来看第二部分代码的分析。
 
 
 
