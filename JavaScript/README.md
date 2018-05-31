@@ -93,6 +93,41 @@ function $(id) {
 # 6、BinaryTree => [JavaScript实现二叉树算法](https://www.imooc.com/learn/888)
 
 根据该课程，我写了一篇文章，那里有比较详细的笔记，[点击我呀](https://github.com/CruxF/IMOOC/issues/2)，由于在最后小游戏制作过程中，老师貌似少录制了一节课程，导致小游戏运行不起来。最后，我在问答区找到了一份能够跑起来的代码，并将它copy下来，[可点击这里进行查看](https://github.com/CruxF/IMOOC/blob/master/JavaScript/BinaryTree/index01.html?1519633599043)，可点击下方按钮查看运行效果。
-[点击我呀](https://cruxf.github.io/IMOOC/JavaScript/BinaryTree/index01.html)
+[点击我呀](https://cruxf.github.io/IMOOC/JavaScript/BinaryTree/index01.html)<br><br>
+
+# 7、StarScore => [星级评分原理和实现(上)](https://www.imooc.com/learn/842)
+
+这是十分优秀与高级的一门课程，干货满满。讲师在课程中分享了众多JavaScript开发的重点与难点，如果你们非要认为这是jQuery的知识点而不是JS的，那我也无法可说了。<br>
+
+由于这门课程是层层深入的，因此为了更好的去剖析和理解代码，我也将课程每个章节的源码独立开了，下面是我对每个章节代码的理解与分析，如有不当，希望指出。<br>
+
+1、章节3-1：创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-1.html)<br><br>
+
+2、章节3-2：这节课程代码很容易理解，毕竟是面向结构编程的。首先我们需要明白什么是jQuery对象？什么DOM对象？简单的来说jQuery对象与DOM对象是不一样的，大概就是：jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。具体有以下区别：
+- （1）通过jQuery方法包装后的对象，是一个类数组对象。它与DOM对象完全不同，唯一相似的是它们都能操作DOM。
+- （2）通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。
+
+在lightOn函数中，遍历了以类名为`rating-item`的一个集合，当集合中某些元素的下标（index）小于num，那么就设置当前元素的css中的background-position，$(this)代表的是当前类名为`rating-item`的元素。<br>
+
+在鼠标移入、点击和移出事件中的代码也十分容易理解，明白`$(this).index()`为当前元素的下标（下标从0开始），以及知道num是个全局变量即可，下面这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-2.html)<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
