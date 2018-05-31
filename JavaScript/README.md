@@ -291,11 +291,43 @@ rating.initfn('#rating', {
 第二种实现分页效果方法的核心代码：
 ```
 // 方法实现代码
-
+LightEntire.prototype.bindEvent = function() {
+  var self = this;
+  var itemLength = self.$item.length;
+  
+  self.$el.on('mouseover', '.rating-item', function() {
+    var num = $(this).index() + 1;
+    self.lightOn(num);
+    self.$el.trigger('select', [num, itemLength]);
+  }).on('click', '.rating-item', function() {
+    self.opts.num = $(this).index() + 1;
+    self.$el.trigger('chosen', [self.opts.num, itemLength]);
+  }).on('mouseout', function() {
+    self.lightOn(self.opts.num);
+  });
+};
 
 // 调用方法传参
+rating.initfn('#rating', {
+  num: 4
+});
+$('#rating').on('select', function(e, num, total) {
+  console.log(num + '/' + total);
+}).on('chosen', function(e, num, total) {
+  console.log(num + '/' + total);
+});
 ```
+这种实现方式就有意思了，主要看这行代码：`self.$el.trigger('select', [num, itemLength])`，其中的原理是这样的：当鼠标事件发生的时候，trigger()这个方法能够向外部发布一个自定义事件select，同时传入相关的参数。最后外部开开心心的执行那个自定义select事件就可以了：
+```
+$('#rating').on('select', function(e, num, total) {
+  console.log(num + '/' + total);
+})
+```
+这种方式有个专业名词，就是发布订阅模式。意思就是一方发布一个事件，另一方订阅（执行）该事件。<br>
 
+这个章节的代码就分析到这，下面是这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-5.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-5.html)<br><br>
 
 
 
