@@ -24,7 +24,7 @@
         cursor: pointer;
       }
     </style>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   <body>
     <ul class="rating" id="rating">
@@ -54,7 +54,8 @@
       }
 
       // 调用点亮星星函数，传入参数
-      lightOn(num);// 动态改变点亮星星的数量
+      lightOn(num);
+      // 动态改变点亮星星的数量
       $item.on('mouseover', function() {
         lightOn($(this).index() + 1);
       }).on('click', function() {
