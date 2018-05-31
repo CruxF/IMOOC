@@ -446,7 +446,10 @@ var init = function(el, options) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-6.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-6.html)<br><br>
 
+**7、章节4-7：**<br> 
+这章节的代码真的是十分迷糊啊，完全讲不清，虽然自己懂得大概的实现思路，代码也看得懂，但是就是讲不清楚，脑子一团浆糊，看来还是由于JS功底不够扎实啊。下面贴课程章节的源码和演示谢罪。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-7.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-7.html)<br><br>
 
-
-
+**7、章节4-8：**<br> 
 
