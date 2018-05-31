@@ -3,7 +3,7 @@
 为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
-# 1、RegExp => JavaScript正则表达式
+# 1、RegExp => [JavaScript正则表达式](https://www.imooc.com/learn/706)
 
 这是非常好的一门入门正则表达式的课程，但是总感觉少了点什么。后来想了想，少的东西应该是一些案例的训练，为此我额外写了篇博文，以此来更好的学习和进阶JavaScript正则表达式，[点我呀](https://github.com/CruxF/Blog/issues/3)<br>
 
@@ -11,7 +11,7 @@
 [什么乱七八糟呀](https://github.com/CruxF/IMOOC/blob/master/JavaScript/RegExp/%E8%AF%B4%E6%98%8E.txt)<br>
 
 
-# 2、ProgressBar => 常用的网页加载进度条
+# 2、ProgressBar => [常用的网页加载进度条](https://www.imooc.com/learn/858)
 
 #### 或许有用的网站
 1、[免费的gif动画下载](https://icons8.com/preloaders);<br>
@@ -52,7 +52,7 @@
 [案例演示](https://cruxf.github.io/IMOOC/JavaScript/ProgressBar/Demo5.html)<br><br>
 
 
-# 3、DelaBlog => CSS3扁平化博客之文章页及常用组件
+# 3、DelaBlog => [CSS3扁平化博客之文章页及常用组件](https://www.imooc.com/learn/598)
 
 该课程是一个系列的，之前的源码和分析在这里——[《HTML5和CSS3扁平化风格博客》](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS)。相比于之前的课程，增加了蒙层、侧边栏弹出、回到顶部效果，以及一个博文页面。<br>
 
@@ -62,7 +62,7 @@
 [案例演示](https://cruxf.github.io/IMOOC/JavaScript/DelaBlog/index.html)<br><br>
 
 
-# 4、Popup => 弹出层效果
+# 4、Popup => [弹出层效果](https://www.imooc.com/learn/58)
 
 一大早看了这门课程，也是醉了，如果现在你用该方式去开发一个网站，估计会被同事揍得不要不要的。该课程的缺陷很多，首先，在表现与结构分离的今天，这显然是不合适的；接着，代码风格很混乱；然后就是明明十分简单的一件事情，可能为了凑时间，硬是搞得很复杂，并且有很多代码明显的不合理。<br>
 
@@ -70,7 +70,7 @@
 [案例演示](https://cruxf.github.io/IMOOC/JavaScript/Popup/index.html)<br><br>
 
 
-# 5、TabCar => Tab选项卡切换效果
+# 5、TabCar => [Tab选项卡切换效果](https://www.imooc.com/learn/176)
 
 课程的JavaScript部分有很多亮点，比如一开始就使用一个$()封装了频繁用到的documen.getElementById()。
 ```
@@ -90,9 +90,44 @@ function $(id) {
 7、[编程练习二效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/test02.html)<br>
 8、[编程练习三效果](https://cruxf.github.io/IMOOC/JavaScript/TabCar/test03.html)<br><br>
 
-# 6、BinaryTree => JavaScript实现二叉树算法
+# 6、BinaryTree => [JavaScript实现二叉树算法](https://www.imooc.com/learn/888)
 
 根据该课程，我写了一篇文章，那里有比较详细的笔记，[点击我呀](https://github.com/CruxF/IMOOC/issues/2)，由于在最后小游戏制作过程中，老师貌似少录制了一节课程，导致小游戏运行不起来。最后，我在问答区找到了一份能够跑起来的代码，并将它copy下来，[可点击这里进行查看](https://github.com/CruxF/IMOOC/blob/master/JavaScript/BinaryTree/index01.html?1519633599043)，可点击下方按钮查看运行效果。
-[点击我呀](https://cruxf.github.io/IMOOC/JavaScript/BinaryTree/index01.html)
+[点击我呀](https://cruxf.github.io/IMOOC/JavaScript/BinaryTree/index01.html)<br><br>
+
+# 7、StarScore => [星级评分原理和实现(上)](https://www.imooc.com/learn/842)
+
+这是十分优秀与高级的一门课程，干货满满。讲师在课程中分享了众多JavaScript开发的重点与难点，如果你们非要认为这是jQuery的知识点而不是JS的，那我也无法可说了。<br>
+
+由于这门课程是层层深入的，因此为了更好的去剖析和理解代码，我也将课程每个章节的源码独立开了，下面是我对每个章节代码的理解与分析，如有不当，希望指出。<br>
+
+1、章节3-1：创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-1.html)<br><br>
+
+2、章节3-2：这节课程代码很容易理解，毕竟是面向结构编程的。首先我们需要明白什么是jQuery对象？什么DOM对象？简单的来说jQuery对象与DOM对象是不一样的，大概就是：jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。具体有以下区别：
+- （1）通过jQuery方法包装后的对象，是一个类数组对象。它与DOM对象完全不同，唯一相似的是它们都能操作DOM。
+- （2）通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。
+
+在lightOn函数中，遍历了以类名为`rating-item`的一个集合，当集合中某些元素的下标（index）小于num，那么就设置当前元素的css中的background-position，$(this)代表的是当前类名为`rating-item`的元素。<br>
+
+在鼠标移入、点击和移出事件中的代码也十分容易理解，明白`$(this).index()`为当前元素的下标（下标从0开始），以及知道num是个全局变量即可，下面这个课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-2.html)<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
