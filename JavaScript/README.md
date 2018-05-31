@@ -452,4 +452,16 @@ var init = function(el, options) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-7.html)<br><br>
 
 **7、章节4-8：**<br> 
+一脸懵逼，老师能力杠杠的，自己还是个小弱鸡，只能默默努力，只能默默贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-8.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-8.html)<br><br>
+
+**8、章节5-1：**<br> 
+和前面两个章节比起来，这节就十分简单了，只要修改HTML结构和CSS代码即可，看一遍视频就能懂，思路不过就是改变了图片的引用地址，没啥好说的，下面贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index5-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index5-1.html)<br>
+
+虽然被这门课程折磨的不要不要的，可是我依然会选择继续观看该课程的下个系列，加油！<br><br>
+
+
 
