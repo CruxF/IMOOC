@@ -117,9 +117,42 @@ function $(id) {
 
 **3、章节3-4：** 从这个章节开始，干货就满满了，下面稍微提一下我认为比较重要和有用的几个方面。
 - 为了避免全局变量的污染，使用立即执行函数形成了一个单独的作用域，封装了一些外部无法读取的私有变量。虽然ES6规范出来了，使得JavaScript有了块作用域，以及let和const关键字能够解决全局变量带来的问题，但是这个知识点仍然是有用的。
-- 使用事件委托减少访问DOM的次数，从而减少浏览器的重绘和重排，提高程序的性能。什么是事件委托？其中的原理是什么？在[这篇文章中](https://www.cnblogs.com/liugang-vip/p/5616484.html)讲解的十分详细
+- 使用事件委托减少访问DOM的次数，从而减少浏览器的重绘和重排，提高程序的性能。什么是事件委托？其中的原理是什么？在[这篇文章中](https://www.cnblogs.com/liugang-vip/p/5616484.html)讲解的十分详细。
 
+下面正式开始对一些代码的分析，我分析代码的思路一般是这样的：顺着数据（参数）的流向，一步一步的使用console.log()进行分析。<br>
 
+程序开始执行的代码：`ratingfn.initfn('#rating', 2);`，当你们知道在JavaScript中，函数为一等公民时，那么就能够知道虽然ratingfn是被定义的一个立即执行函数的名称，但是此时ratingfn代表的却是一个对象，调用了它的内部return出来的这个initfn函数；initfn代表的是立即执行函数中init这个初始方法。<br>
+
+接着传入的数据流向了下面这段代码：
+```
+var init = function(el, num) {
+  var $rating = $(el);
+  var $item = $rating.find('.rating-item');
+  // 调用lightOn函数，并传入参数
+  lightOn($item, num);
+  // 事件绑定(将子元素的事件委托给父元素处理)
+  $rating.on('mouseover', '.rating-item', function() {
+    lightOn($item, $(this).index() + 1);
+  }).on('click', '.rating-item', function() {
+    num = $(this).index() + 1;
+  }).on('mouseout', function() {
+    lightOn($item, num);
+  });
+};
+```
+el代表的就是传入进来的id值#rating，在执行鼠标事件之前，调用了外部函数lightOn，并且传入相关的参数。希望在鼠标事件中，你们能够理解jQuery事件委托的写法，在这不说明，毕竟语法清晰易懂。下面来看看lightOn的代码：
+```
+var lightOn = function($item, num) {
+  $item.each(function(index) {
+    if(index < num) {
+      $(this).css('background-position', '0 -40px');
+    } else {
+      $(this).css('background-position', '0 0');
+    }
+  })
+}
+```
+同样清晰易懂，$item代表的是传入进来的以类名为rating-item的一个集合，num就是传入进来的要被点亮的星星数量。<br>
 
 
 
