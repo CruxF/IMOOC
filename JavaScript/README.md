@@ -232,7 +232,7 @@ var LightEntire = function(el, options) {
   this.opts = options;
 };
 ```
-以上代码都很容易理解，各个值代表什么一眼就能发现，如果很迷糊，你们可以自己使用console.log()测试各个值到底是啥。<br>
+以上代码都很容易理解，各个值代表什么一眼就能发现，如果还是很迷糊，你们可以自己使用console.log()测试各个值到底是啥。<br>
 
 最后数据就来到了构造函数中的init方法上：
 ```
@@ -241,7 +241,8 @@ LightEntire.prototype.init = function() {
   this.bindEvent();
 };
 ```
-总之，第一部分的代码很容易理解。仔细+认真跟着老师的思路、跟着数据的流动走，那么就能够快速的理清自己的头绪。下面来看第二部分代码的分析。<br>
+总之，第一部分的代码很容易理解。仔细+认真跟着老师的思路、跟着数据的流动走，那么就能够快速的理清自己的头绪。下面来看第二部分代码的分析。<br><br>
+
 
 第二部分代码和第一部分的代码大部分类似，数据的流向也是一样，不同的是在bindEvent()这个方法中增加了很多处理。首先看这么一段代码：
 ```
@@ -281,6 +282,20 @@ rating.initfn('#rating', {
   }
 });
 ```
+其他的不说，最核心、最主要和最优美的是这行代码：`(typeof self.opts.select === 'function') && self.opts.select.call(this, num, itemLength)`，这行代码的首先判断了传入值select值是否为一个函数，如果是的话则执行opts对象中select()这个方法，如果否的则不执行。为什么会这样？看一下JavaScript中的规则即可：
+- && 操作符特点：逻辑运算表达式中只要一个是false就取false的值，都是true取后面，都是false取前面。
+- || 操作符特点：逻辑运算表达式中只要一个是true就取true的值，都是true取前面，都是false取后面。
+
+因为只要传入对象中含有select这个值，那么`self.opts.select.call(this, num, itemLength)`就为true，所以只要判断`(typeof self.opts.select === 'function')`为true，那么这代码`self.opts.select.call(this, num, itemLength)`就会被执行，其中call的作用是强制把this的作用域绑定到了当前调用者的位置上。<br>
+
+第二种实现分页效果方法的核心代码：
+```
+// 方法实现代码
+
+
+// 调用方法传参
+```
+
 
 
 
