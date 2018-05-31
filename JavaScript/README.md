@@ -241,7 +241,47 @@ LightEntire.prototype.init = function() {
   this.bindEvent();
 };
 ```
-总之，第一部分的代码很容易理解。仔细+认真跟着老师的思路、跟着数据的流动走，那么就能够快速的理清自己的头绪。下面来看第二部分代码的分析。
+总之，第一部分的代码很容易理解。仔细+认真跟着老师的思路、跟着数据的流动走，那么就能够快速的理清自己的头绪。下面来看第二部分代码的分析。<br>
+
+第二部分代码和第一部分的代码大部分类似，数据的流向也是一样，不同的是在bindEvent()这个方法中增加了很多处理。首先看这么一段代码：
+```
+if(!this.opts.readOnly) {
+  this.bindEvent();
+}
+```
+这段代码的作用就是判断是否需要动态修改点亮星星的数量，readOnly值的真假我们能够自行设置。<br>
+
+接着我们来看第一种实现分页效果方法的核心代码：
+```
+// 方法实现代码
+LightEntire.prototype.bindEvent = function() {
+  var self = this;
+  var itemLength = self.$item.length;
+  
+  self.$el.on('mouseover', '.rating-item', function() {
+    var num = $(this).index() + 1;
+    self.lightOn(num);
+    (typeof self.opts.select === 'function') && self.opts.select.call(this, num, itemLength);
+  }).on('click', '.rating-item', function() {
+    self.opts.num = $(this).index() + 1;
+    (typeof self.opts.chosen === 'function') && self.opts.chosen.call(this, self.opts.num, itemLength);
+  }).on('mouseout', function() {
+    self.lightOn(self.opts.num);
+  });
+};
+
+// 调用方法传参
+rating.initfn('#rating', {
+  num: 4,
+  select: function(num, total) {
+    console.log(num + '/' + total);
+  },
+  chosen: function(num, total) {
+    console.log(num + '/' + total);
+  }
+});
+```
+
 
 
 
