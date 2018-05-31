@@ -101,7 +101,7 @@ function $(id) {
 
 由于这门课程是层层深入的，因此为了更好的去剖析和理解代码，我也将课程每个章节的源码独立开了，下面是我对每个章节代码的理解与分析，如有不当，希望指出。<br>
 
-**1、章节3-1：** 创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面这个课程章节的源码和演示。<br>
+**1、章节3-1：** 创建HTML结构和填写CSS样式。看到很多人对讲师没有提供背景图而发牢骚，此时我只能说：要么智商需要充值，要么就是不善思考。在截图软件遍布的时代，居然还不能在获得网页上的一张图片，也是让人匪夷所思。在课程章节2-1中，1:42处，可以利用QQ、微信或者其他软件将背景图截取下来，这么做需要修改的东西仅仅是CSS代码中width、height和background-position属性值，下面是这个课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-1.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-1.html)<br><br>
 
@@ -111,7 +111,7 @@ function $(id) {
 
 记得刚开始的时候要将经常使用到的元素用一个变量缓存起来，以此来提高网站的性能。在lightOn函数中，遍历了以类名为`rating-item`的一个集合，当集合中某些元素的下标（index）小于num，那么就设置当前元素的css中的background-position，$(this)代表的是当前类名为`rating-item`的元素。<br>
 
-在鼠标移入、点击和移出事件中的代码也十分容易理解，明白`$(this).index()`为当前元素的下标（下标从0开始），以及知道num是个全局变量即可，下面这个课程章节的源码和演示。<br>
+在鼠标移入、点击和移出事件中的代码也十分容易理解，明白`$(this).index()`为当前元素的下标（下标从0开始），以及知道num是个全局变量即可，下面是这个课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-2.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-2.html)<br><br>
 
@@ -168,14 +168,14 @@ $.fn.extend({
 
 瞎扯了这么多，现在我们先分析一下`$.fn.extend`是什么意思。从字面理解就是扩展$.fn的方法，通过查阅资料可知`$.fn =  jQuery.fn = jQuery.prototype = 原型`，因此`$.fn.extend`的意思就是在jQuery原型上扩展了一个方法，从下面可知，这个方法能够从外部接收一个参数，名称叫ratingStar。<br>
 
-ratingStar方法中return的第一个this代表的是一个数组，这个数组到底是啥我也是很懵逼，老师说这两个this都代表的是传入进来的值，因为传入值可能是个类，所以会有多个，因此才写了each遍历，额，更懵逼了；第二个this代表的是传入进来的id值#ratingTwo。下面我们来测试一下老师说的this代表的值，测试方法很简单，将插件式调用那块的传入值修改为class名即可：
+ratingStar方法中return的第一个this代表的是一个数组，这个数组到底是啥我也是很懵逼，老师说这两个this都代表的是传入进来的值，因为传入值可能是个类，所以会有多个，因此才写了each遍历，额，更懵逼了；第二个this代表的是传入进来的值。下面我们来测试一下老师说的this代表的值，测试方法很简单，将插件式调用那块的传入值修改为class名即可：
 ```
 // rating.initfn('#rating', 2);
 // rating.initfn('#ratingOne', 3);
 // 插件式调用
 $('.rating').ratingStar(4);
 ```
-果然，老师说的没错啊！牛逼的老师，牛逼的JS，你们也会很牛逼的，加油！下面这个课程章节的源码和演示。<br>
+果然，老师说的没错啊！牛逼的老师，牛逼的JS，你们也会很牛逼的，加油！下面是这个课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index3-4.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index3-4.html)<br><br>
 
@@ -201,7 +201,9 @@ $('.rating').ratingStar(4);
 - 觉得好多模式长得都一样，困惑，但深知误用之害，使用时犹豫；
 - 灵活的运用模式，甚至不用具体的某种模式也能设计出优秀的代。
 
-
+关于原型和原型链的知识，这里有一篇我有史以来看过最好的解读，[传送门](https://github.com/mqyqingfeng/Blog/issues/2)，下面是这个课程章节的源码和演示（F12）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-3.html)<br><br
 
 
 
