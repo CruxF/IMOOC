@@ -415,7 +415,7 @@ var init = function(el, options) {
   new mode[options.mode](el, options).init();
 };
 ```
-这么mode，看着实在是让人神经混乱，还好我理清了。这行代码`mode[options.mode]`中，第一个mode代表的是var mode = {}这个对象，第二mode代表的是传递过来的mode值。由于在var mode = {}对象中，字符串'LightEntire'映射的是LightEntire这个构造函数，字符串'LightHalf'映射的是LightHalf这个构造函数，于是我们便能得知：当传入进来的mode值为LightHalf，那么mode[LightHalf]就映射到了LightHalf这个构造函数中，同理传入进来的mode值为LightEntire，那么mode[LightEntire]就映射到了LightEntire这个构造函数中。假如传入值既不为LightEntire也不为LightHalf，那么就默认将options.mode值设为LightEntire。<br>
+这么多mode，看着实在是让人神经混乱，还好我理清了。这行代码`mode[options.mode]`中，第一个mode代表的是var mode = {}这个对象，第二mode代表的是传递过来的mode值。由于在var mode = {}对象中，字符串'LightEntire'映射的是LightEntire这个构造函数，字符串'LightHalf'映射的是LightHalf这个构造函数，于是我们便能得知：当传入进来的mode值为LightHalf，那么mode[LightHalf]就映射到了LightHalf这个构造函数中，同理传入进来的mode值为LightEntire，那么mode[LightEntire]就映射到了LightEntire这个构造函数中。假如传入值既不为LightEntire也不为LightHalf，那么就默认将options.mode值设为LightEntire。<br>
 
 如果还是很迷糊，那么将最开始的一段代码这么改造即可：
 ```
@@ -447,7 +447,49 @@ var init = function(el, options) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-6.html)<br><br>
 
 **7、章节4-7：**<br> 
-这章节的代码真的是十分迷糊啊，完全讲不清，虽然自己懂得大概的实现思路，代码也看得懂，但是就是讲不清楚，脑子一团浆糊，看来还是由于JS功底不够扎实啊。下面贴课程章节的源码和演示谢罪。<br>
+~~这章节的代码真的是十分迷糊啊，完全讲不清，虽然自己懂得大概的实现思路，代码也看得懂，但是就是讲不清楚，脑子一团浆糊，看来还是由于JS功底不够扎实啊。下面贴课程章节的源码和演示谢罪。<br>
+
+本来这节的分析是已经放弃了，然而在看老师下一个课程的时候，发现这节的没搞懂，接下来有很多章节的知识点都无法明白，于是又再次逼自己回来重新看一遍。现在已经有些思路，下面做简单的一些分析。<br>
+
+这章节的代码精髓首先是抽象出一个父类，这个父类的特点就是含有实现整颗星星和实现半颗星星的共有方法和属性，其中需要明白的是在bindEvent()这个方法中，`self.select(e,$this)`实现的就是返回self.add这个值让lightOn()判断是到底显示整颗星还是半颗星。下面看重点代码段分析：
+```
+// 点亮半颗星星
+var LightHalf = function(el, options) {
+  Light.call(this, el, options);
+  this.selectEvent = 'mousemove';
+};
+extend(LightHalf, Light);
+LightHalf.prototype.lightOn = function(num) {
+  var count = parseInt(num);
+  var isHalf = count !== num;
+  Light.prototype.lightOn.call(this, count);
+  if(isHalf) {
+    // 获取当前的星星位置，让它变成半星
+    this.$item.eq(count).css('background-position', '0 -80px')
+  }
+};
+LightHalf.prototype.select = function(e, $this) {
+  if(e.pageX - $this.offset().left < $this.width() / 2) {
+    this.add = 0.5;
+  } else {
+    this.add = 1;
+  }
+};
+```
+为什么要贴这段代码，因为这一段代码搞明白了，那么就能理解子类继承父类的流程。首先子类继承父类的属性：`Light.call(this, el, options);`，call的作用是让this强制绑定LightEntire这个子类对象，` this.selectEvent = 'mousemove';`是覆盖父类的一个属性。<br>
+
+接下来是子类继承父类中所有的方法：`extend(LightHalf, Light);`，重写了父类lightOn()这个方法中的部分代码，实现显示半颗星的功能。现在问题来了，既然在外部已经继承了父类的所有方法，为什么还要在内部重新继承一次：`Light.prototype.lightOn.call(this, count);`？我个人的理解是为了让this强制绑定子类对象。接着在子类中完全重写select()这个方法即可。<br>
+
+最后就是继承方法的解析，有点绕，真不好说：
+```
+var extend = function(subClass, superClass) {
+  var F = function() {};
+  F.prototype = superClass.prototype;
+  subClass.prototype = new F();
+  subClass.prototype.constructor = subClass;
+};
+```
+首先分析下两个参数和一个变量代表的是什么。subClass代表的是传入进来的子类构造函数，superClass代表的是传入进来的父类构造函数，F代表的是一个空的构造函数。接下来，求你们看[这篇文章](https://github.com/mqyqingfeng/Blog/issues/2)吧，我就不在这里误人子弟了。下面贴课程章节的源码和演示：<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-7.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-7.html)<br><br>
 
