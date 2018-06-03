@@ -494,8 +494,30 @@ var extend = function(subClass, superClass) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-7.html)<br><br>
 
 **7、章节4-8：**<br> 
-一脸懵逼，老师能力杠杠的，自己还是个小弱鸡，只能默默努力，只能默默贴上课程章节的源码和演示。<br>
-[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-8.html)<br>
+~~一脸懵逼，老师能力杠杠的，自己还是个小弱鸡，只能默默努力，只能默默贴上课程章节的源码和演示。 
+
+重新分析还是之前的原因，编程啊，果然是不能偷懒的，不然结下的苦果会无边无际。好了，废话不多说，下面开始进行核心代码分析：
+```
+// 创建初始方法
+var init = function(el, option) {
+  var $el = $(el);
+  var rating = $el.data('ratingData');
+  var options = $.extend({}, defaults, typeof option === 'object' && option);
+  if(!mode[options.mode]) {
+    options.mode = 'LightEntire';
+  }
+  if(!rating) {
+    $el.data('ratingData', (rating = new mode[options.mode](el, options)));
+    rating.init();
+  }
+  if(typeof option === 'string') {
+    rating[option]();
+  }
+};
+```
+以上代码有所改动，为了更好的分析，将课程的rating变量更换为ratingData变量。这样代码之间逻辑就很清晰了，首先我们需要明白在jQuery中data() 方法是向被选元素附加数据，或者从被选元素获取数据。那么我们就能知道这行代码`$el.data('ratingData', (rating = new mode[options.mode](el, options)));`的目的是将创建的LightEntire实例或者LightHalf实例保存在ratingData变量中，假如在开始并没有取到ratingData变量的值，那么那行代码就会被执行从而向ratingData变量中存放一个实例对象，这么来写其实为了程序的调用中最好只有一个实例。<br>
+
+接下来就是判断的传递过来option是否为一个字符串，如果是的话则执行`rating[option]();`方法，这行代码其实等同于`rating.unbindEvent()`。这样来写，是不是整个逻辑就变得清晰很多？之前思路一直卡在这里，也是不知道为什么，休息几天再仔细研究了一下代码马上就发现了奥秘的所在。下面贴课程章节的源码和演示：<br>[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScore/index4-8.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScore/index4-8.html)<br><br>
 
 **8、章节5-1：**<br> 
