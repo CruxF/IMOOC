@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>策略模式展示</title>
+  </head>
+  <body>
+
+    <script>
+      // 第一种实现思路
+      var calculateBonusOne = function(level, salary) {
+        if(level === 'S') {
+          return salary * 4;
+        }
+        if(level === 'A') {
+          return salary * 3;
+        }
+        if(level === 'B') {
+          return salary * 2;
+        }
+        if(level === 'C') {
+          return salary * 1;
+        }
+      };
+      console.log(calculateBonusOne('S', 8000));
+
+      // 第二种实现思路
+      var performanceS = function(salary) {
+        return salary * 4;
+      };
+      var performanceA = function(salary) {
+        return salary * 3;
+      };
+      var performanceB = function(salary) {
+        return salary * 2;
+      };
+      var performanceC = function(salary) {
+        return salary * 1;
+      };
+      var calculateBonusTwo = function(level, salary) {
+        if(level === 'S') {
+          return performanceS(salary);
+        }
+        if(level === 'A') {
+          return performanceA(salary);
+        }
+        if(level === 'B') {
+          return performanceB(salary);
+        }
+        if(level === 'C') {
+          return performanceC(salary);
+        }
+      };
+      console.log(calculateBonusTwo('S', 6000));
+
+      // 第三种实现思路
+      var strategies = {
+        S: function(salary) {
+          return salary * 4;
+        },
+        A: function(salary) {
+          return salary * 3;
+        },
+        B: function(salary) {
+          return salary * 2;
+        },
+        C: function(salary) {
+          return salary * 1;
+        }
+      };
+      var calculateBonusThree = function(level, salary) {
+        return strategies[level](salary);
+      }
+      console.log(calculateBonusThree('S', 4000));
+    </script>
+  </body>
+</html>

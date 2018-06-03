@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>星级评分之第五种实现方式</title>
+    <style>
+      body, ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+      .rating, .rating-display {
+        background: url(img/twoStar.jpg) repeat-x;
+      }
+      .rating {
+        position: relative;
+        width: 300px;
+        margin: 100px auto;
+      }
+      .rating-display {
+        width: 112px;
+        height: 56px;
+        background-position: 0 -56px;
+      }
+      .rating-mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      .rating-item {
+        display: block;
+        float: left;
+        width: 56px;
+        height: 56px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rating" class="rating">
+      <div class="rating-display"></div>
+      <ul class="rating-mask">
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+      </ul>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>星级评分之第五种实现方式</title>
+    <style>
+      body, ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+      .rating, .rating-display {
+        background: url(img/twoStar.jpg) repeat-x;
+      }
+      .rating {
+        position: relative;
+        width: 300px;
+        margin: 100px auto;
+      }
+      .rating-display {
+        width: 112px;
+        height: 56px;
+        background-position: 0 -56px;
+      }
+      .rating-mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      .rating-item {
+        display: block;
+        float: left;
+        width: 56px;
+        height: 56px;
+        cursor: pointer;
+      }
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="rating" class="rating">
+      <!--<div class="rating-display"></div>
+      <ul class="rating-mask">
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+        <li class="rating-item"></li>
+      </ul>-->
+    </div>
+
+    <script>
+      var ratingfn = (function() {
+        // 评分
+        var Rating = function(el, optios) {
+          this.$el = $(el);
+          this.opts = $.extend({}, Rating.DEFAULTS, optios);
+
+          this.itemWidth = 60;
+          this.displayWidth = this.opts.num * this.itemWidth;
+        };
+        Rating.DEFAULTS = {
+          total: 5,
+          num: 2,
+          readOnly: false,
+          select: function() {},
+          chosen: function() {}
+        };
+        Rating.prototype.init = function() {
+          this.buildHTML();
+          this.setCSS();
+          if(!this.opts.readOnly) {
+            this.bindEvent();
+          }
+        };
+        Rating.prototype.buildHTML = function() {
+          var html = '';
+          html += '<div class="rating-display"></div><ul class="rating-mask">';
+          for(var i = 0; i < this.opts.total; i++) {
+            html += '<li class="rating-item"></li>';
+          }
+          html += '</ul>';
+          this.$el.html(html);
+        };
+        Rating.prototype.setCSS = function() {
+          this.$el.width(this.opts.total * this.itemWidth);
+          this.$display = this.$el.find('.rating-display');
+          this.$display.width(this.displayWidth);
+          this.$el.find('.rating-item').width(this.itemWidth);
+        };
+        Rating.prototype.bindEvent = function() {
+          var self = this;
+          self.$el.on('mouseover', '.rating-item', function() {
+            var count = $(this).index() + 1;
+            self.$display.width(count * self.itemWidth);
+
+            (typeof self.opts.select === 'function') && self.opts.select.call(this, count, self.opts.total);
+
+            self.$el.trigger('select', [count, self.opts.total]);
+          }).on('click', '.rating-item', function() {
+            var count = $(this).index() + 1;
+            self.displayWidth = count * self.itemWidth;
+
+            (typeof self.opts.select === 'function') && self.opts.select.call(this, count, self.opts.total);
+
+            self.$el.trigger('chosen', [count, self.opts.total])
+          }).on('mouseout', function() {
+            self.$display.width(self.displayWidth);
+          });
+        };
+        var init = function(el, option) {
+          new Rating(el, option).init();
+        };
+
+        return {
+          initfn: init
+        };
+      })();
+
+      ratingfn.initfn('#rating', {
+        total: 8,
+        num: 3,
+        readOnly: false,
+        select: function(count, total) {
+          console.log(this);
+          console.log(count + '/' + total);
+        },
+        chosen: function(count, total) {
+          console.log(this);
+          console.log(count + '/' + total);
+        }
+      })
+    </script>
+  </body>
+</html>
