@@ -553,11 +553,21 @@ var init = function(el, option) {
   background: url(img/twoStar.jpg) repeat-x 0 -56px;
 }
 ```
-当我们的鼠标的移动到某个子元素时，该子元素的长度发生变化，同时位置也变化了，因此鼠标滑动星星出现的功能就这么实现了，接下来贴上课程章节的源码和演示。<br>
-[我是源码1](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-1.html)<br>
+当我们的鼠标的移动到某个子元素时，该子元素的长度发生变化，同时所有子元素的位置也变化了，因此鼠标滑动星星出现的功能就这么实现了，接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-1.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-1.html)<br><br>
 
 **4、章节2-3：** <br>
+
+
+**5、章节3-2：** <br>
+这个章节代码很简单，就是搭建一个显示星星的大概结构和样式。主要思路就是：在类名为rating的父容器中创建两个子容器，一个子容器通过控制长度来达到显示星星数目的功能，因为这个容器的background-position已经设置好，只要设置该容器的长度就就能够达到显示N个星星的目的，另一个子容器的目的是为了接下来对含有星星背景图的子容器的长度进行控制。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-2.html)<br><br>
+
+
+
+
 
 
 
