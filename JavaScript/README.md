@@ -743,6 +743,43 @@ var Rating = function(el, optios) {
 - 增大了程序弹性，能够轻易修改参数和复用代码
 - 减少代码数量
 - 新增功能代码的时候不会对原有的代码进行破坏
+- 性能算是比较好
+
+体会到了策略模式的优雅，那么下面再来看看这个章节的核心代码：
+```
+// 策略模式
+var strategies = {
+  entire: function() {
+    return 1;
+  },
+  half: function() {
+    return 2;
+  },
+  quarter: function() {
+    return 4;
+  }
+}
+var Rating = function(el, optios) {
+  this.$el = $(el);
+  this.opts = $.extend({}, Rating.DEFAULTS, optios);
+  if(!strategies[this.opts.mode]) {
+    this.opts.mode = 'entire';
+  };
+  this.ratio = strategies[this.opts.mode]();
+  this.opts.total *= this.ratio;
+  this.opts.num *= this.ratio;
+  this.itemWidth = 60 / this.ratio;
+  this.displayWidth = this.opts.num * this.itemWidth;
+};
+```
+是不是感觉很熟悉？如果不是的话，那么一定是没有好好看老师的视频或者没有看我之前的分析。多余的话就不说啦，下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-6-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-6-2.html)<br><br>
+
+**尾声** <br>
+总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获慢慢，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+
+
 
 
 
