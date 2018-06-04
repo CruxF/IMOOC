@@ -528,4 +528,12 @@ var init = function(el, option) {
 虽然被这门课程折磨的不要不要的，可是我依然会选择继续观看该课程的下个系列，加油！<br><br>
 
 
+# 8、StarScoreTwo => [星级评分原理和实现(下)](https://www.imooc.com/learn/848)
+
+这门课程的总结还是按照之前的方式来进行，分成一个个章节，逐步分析与理解，下面开始进入正文。<br>
+
+**1、1-2章节：** <br>
+这个章节老师为我们演示了使用CSS实现选择星级的大概思路：首先在一个大容器里设置背景图片，接着设置五个独立的小容器，当鼠标滑过每个小容器的时候，都为这五个小容器添加星级背景图（background），并且设置背景图的位置（background-position）。这一章节的核心就是z-index这个属性，它的作用是：设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。因此当鼠标滑过那五个小容器的时候，大容器中所有内容都会被盖在了下面。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-2.html)<br>
 
