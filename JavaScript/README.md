@@ -655,4 +655,94 @@ var Rating = function(el, optios) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-5.html)<br><br>
 
 **8、章节3-6：** <br>
+在这节课程中老师讲了一个JS开发模式，那就是策略模式。
+- 策略模式：定义一系列的算法，一个个封装起来，并且可以相互替换。
+- [更多详解](https://baike.baidu.com/item/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/646307?fr=aladdin)
+
+为了更好的理解策略模式，下面来看一大段代码：
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>策略模式展示</title>
+  </head>
+  <body>
+
+    <script>
+      // 第一种实现思路
+      var calculateBonusOne = function(level, salary) {
+        if(level === 'S') {
+          return salary * 4;
+        }
+        if(level === 'A') {
+          return salary * 3;
+        }
+        if(level === 'B') {
+          return salary * 2;
+        }
+        if(level === 'C') {
+          return salary * 1;
+        }
+      };
+      console.log(calculateBonusOne('S', 8000));
+
+      // 第二种实现思路
+      var performanceS = function(salary) {
+        return salary * 4;
+      };
+      var performanceA = function(salary) {
+        return salary * 3;
+      };
+      var performanceB = function(salary) {
+        return salary * 2;
+      };
+      var performanceC = function(salary) {
+        return salary * 1;
+      };
+      var calculateBonusTwo = function(level, salary) {
+        if(level === 'S') {
+          return performanceS(salary);
+        }
+        if(level === 'A') {
+          return performanceA(salary);
+        }
+        if(level === 'B') {
+          return performanceB(salary);
+        }
+        if(level === 'C') {
+          return performanceC(salary);
+        }
+      };
+      console.log(calculateBonusTwo('S', 6000));
+
+      // 第三种实现思路
+      var strategies = {
+        S: function(salary) {
+          return salary * 4;
+        },
+        A: function(salary) {
+          return salary * 3;
+        },
+        B: function(salary) {
+          return salary * 2;
+        },
+        C: function(salary) {
+          return salary * 1;
+        }
+      };
+      var calculateBonusThree = function(level, salary) {
+        return strategies[level](salary);
+      }
+      console.log(calculateBonusThree('S', 4000));
+    </script>
+  </body>
+</html>
+```
+第三种实现方式就是使用了策略模式，相对其他两种实现方式，有以下几个优点：
+- 增大了程序弹性，能够轻易修改参数和复用代码
+- 减少代码数量
+- 新增功能代码的时候不会对原有的代码进行破坏
+
+
 
