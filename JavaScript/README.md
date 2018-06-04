@@ -557,6 +557,7 @@ var init = function(el, option) {
 [我是源码1](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-1.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-1.html)<br><br>
 
+**4、章节2-3：** <br>
 
 
 
