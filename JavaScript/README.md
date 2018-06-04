@@ -532,8 +532,35 @@ var init = function(el, option) {
 
 这门课程的总结还是按照之前的方式来进行，分成一个个章节，逐步分析与理解，下面开始进入正文。<br>
 
-**1、1-2章节：** <br>
+**1、章节1-2：** <br>
 这个章节老师为我们演示了使用CSS实现选择星级的大概思路：首先在一个大容器里设置背景图片，接着设置五个独立的小容器，当鼠标滑过每个小容器的时候，都为这五个小容器添加星级背景图（background），并且设置背景图的位置（background-position）。这一章节的核心就是z-index这个属性，它的作用是：设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。因此当鼠标滑过那五个小容器的时候，大容器中所有内容都会被盖在了下面。接下来贴上课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-2.html)<br>
-[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-2.html)<br><br>
+
+**2、章节1-3：** <br>
+这个章节内容挺绕的，实现了鼠标点击保存星星点亮数目的功能。如果是CSS和HTML基础不过关的话会看晕，实现的核心就是利用到了锚点这一块的知识，无论是使用:target伪类，还是使用了overflow: hidden;都与锚点逃脱不了关系，具体的实现过程不说了，不仅是因为很基础很简单，其实说起来真的是绕。接下来贴上课程章节的源码和演示。<br>
+[我是源码1](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-3-1.html)<br>
+[我是源码2](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-3-2.html)<br>
+[我是效果2](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-3-2.html)<br><br>
+
+**3、章节2-1：** <br>
+这个章节的内容可有意思了，当鼠标移到子元素上的时候，全部子元素的位置都移动到最左边，并且让星星出现，请看下面这段代码：
+```
+.rating-item:hover {
+  left: 0;
+  z-index: 2;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+```
+当我们的鼠标的移动到某个子元素时，该子元素的长度发生变化，同时位置也变化了，因此鼠标滑动星星出现的功能就这么实现了，接下来贴上课程章节的源码和演示。<br>
+[我是源码1](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-1.html)<br><br>
+
+
+
+
+
+
+
 
