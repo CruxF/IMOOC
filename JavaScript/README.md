@@ -565,9 +565,32 @@ var init = function(el, option) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-2.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-2.html)<br><br>
 
+**6、章节3-3：** <br>
+可能和之前的分析有关，这个章节的代码莫名觉得十分容易理解。之前重复的不再进行分析，下面说一下核心的两段代码：
+```
+Rating.prototype.buildHTML = function() {
+  var html = '';
+  html += '<div class="rating-display"></div><ul class="rating-mask">';
+  for(var i = 0; i < this.opts.total; i++) {
+    html += '<li class="rating-item"></li>';
+  }
+  html += '</ul>';
+  this.$el.html(html);
+};
+```
+这段代母实现的就是根据this.opts.total的值动态增加HTML结构。html() 方法返回或设置被选元素的内容，在这段代码中就是返回动态增加的HTML结构。<br>
 
-
-
+```
+Rating.prototype.setCSS = function() {
+  this.$el.width(this.opts.total * this.itemWidth);
+  this.$display = this.$el.find('.rating-display');
+  this.$display.width(this.displayWidth);
+  this.$el.find('.rating-item').width(this.itemWidth);
+};
+```
+这段代码实现的就是设置父容器的宽度，和设置子容器的宽度。鼠标事件是定义在另一个容器中，实现的控制父容器的宽度和子容器的宽度。剩下的难点之前都有说明与分析，就不再重复了，接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-3.html)<br><br>
 
 
 
