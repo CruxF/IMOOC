@@ -633,9 +633,26 @@ Rating.prototype.setCSS = function() {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-3.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-3.html)<br><br>
 
+**7、章节3-4：** <br>
+这章节的代码没啥好说的，其中的原理和实现过程前面都有提到，几乎是一毛一样的（其实就是），下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-4.html)<br><br>
 
+**8、章节3-5：** <br>
+这章节的代码只要搞清楚下面一段即可：
+```
+var Rating = function(el, optios) {
+  this.$el = $(el);
+  this.opts = $.extend({}, Rating.DEFAULTS, optios);
+  this.opts.total *= 2;
+  this.opts.num *= 2;
+  this.itemWidth = 60 / 2;
+  this.displayWidth = this.opts.num * this.itemWidth;
+};
+```
+为啥total和num都要乘以2？因为这是为了实现显示半颗星星的功能，由于容纳星星的子容器itemWidth值缩小了一半，那么和itemWidth值相关的变量就得全部增加一半，记得联系全文的代码哦。不多说了，下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-5.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-5.html)<br><br>
 
-
-
-
+**8、章节3-6：** <br>
 
