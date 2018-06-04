@@ -558,7 +558,48 @@ var init = function(el, option) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-1.html)<br><br>
 
 **4、章节2-3：** <br>
+这个章节的代码十分绕，一不小心就要晕，我们一点点来分析，首先看一下点击保存点亮星星的代码：
+```
+input:checked + .rating-item {
+  left: 0;
+  z-index: 1;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+.rating-item-3:hover, #rating-3:checked + .rating-item {
+  width: 170px;
+}
+```
+鼠标滑过事件在上一节代码中有讲解，在此不说明。上面那段代码的含义就是：单选按钮被点击，那么单选按钮的下一个类名为.rating-item的元素的left值为0，同时背景图位置为`background: url(img/twoStar.jpg) repeat-x 0 -56px;`，接着就是单选按钮的下一个类名为.rating-item的元素的宽度改变，从而达到显示几颗星星的效果。<br>
 
+为了实现保存点亮星星后，鼠标滑动还是能够选择点亮的星星，那么各个元素间的层级关系就要设置的合理，下面看代码：
+```
+.rating:hover .rating-item {
+  background-image: none;
+}
+.rating-item {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  width: 70px;
+  height: 56px;
+}
+.rating-item:hover {
+  left: 0;
+  z-index: 2;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px !important;
+}
+input:checked + .rating-item {
+  left: 0;
+  z-index: 1;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+input:checked + .rating-item ~ .rating-item {
+  z-index: 0;
+}
+```
+其中的逻辑关系不是很复杂，大家细细体会下吧，不说明啦，会绕晕你们。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-3html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-3html)<br><br>
 
 **5、章节3-2：** <br>
 这个章节代码很简单，就是搭建一个显示星星的大概结构和样式。主要思路就是：在类名为rating的父容器中创建两个子容器，一个子容器通过控制长度来达到显示星星数目的功能，因为这个容器的background-position已经设置好，只要设置该容器的长度就就能够达到显示N个星星的目的，另一个子容器的目的是为了接下来对含有星星背景图的子容器的长度进行控制。接下来贴上课程章节的源码和演示。<br>
