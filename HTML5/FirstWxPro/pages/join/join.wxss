@@ -1,0 +1,37 @@
+page{
+  background: #f3f3f3;
+}
+.banner{
+  display: block;
+  width: 100%;
+  height: 340rpx;
+}
+.block{
+  background: #fff;
+  margin-top: 15rpx;
+}
+.block-title{
+  position: relative;
+  font-size: 35rpx;
+  line-height: 1.5;
+  color: #2e5e86;
+  padding: 0 20rpx;
+  text-indent: 40rpx;
+}
+.block-title::after{
+  position: absolute;
+  left: 20rpx;
+  top: 10rpx;
+  content: "";
+  width: 12rpx;
+  height: 40rpx;
+  background: #2e5e86;
+}
+.block-desc{
+  display: block;
+  color: #666;
+  line-height: 1.6;
+  font-size: 25rpx;
+  padding: 0 30rpx 30rpx;
+  margin-top: 20rpx;
+}

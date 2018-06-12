@@ -1,0 +1,11 @@
+<image class="banner" src="/images/home3.jpg"></image>
+
+<view class='block' wx:for="{{joinList}}" wx:key="">
+  <view class='block-title'>{{item.proName}}</view>
+  <text class='block-desc'>{{item.proDesc}}</text>
+</view>
+
+<view class='footer'>
+  <!-- 绑定一个点击事件 -->
+  <button bindtap='tell'>拨打NBA官方热线</button>
+</view>
