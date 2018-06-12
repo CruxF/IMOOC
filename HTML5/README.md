@@ -9,10 +9,10 @@
 
 起步过于简单，在这不说明，请直接到[官方网站](https://developers.weixin.qq.com/miniprogram/dev/)开启自己的小程序之旅，下面整理一些自己认为重要的知识点。<br>
 
-#### 1、全局配置文件
+### 1、全局配置文件
 app.json文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等，具体的请[点击这里](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)<br>
 
-#### 2、swiper组件的使用
+### 2、swiper组件的使用
 [这个组件](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html?search-key=swiper)是比较常用的，说它比较重要，不仅仅是因为它的常用性，也因为它的栗子有十分好的借鉴性。<br>
 
 结构代码<br>
@@ -133,7 +133,7 @@ Page({
 <view class='pro-item' wx:for="{{proList}}" wx:key=""></view>
 ```
 
-#### 4、组件之间的三种传值方式
+### 4、组件之间的三种传值方式
 一说到组件传值，相信有经验的开发人员都知道它的重要性，下面简单的来看看三种传值方式的代码。<br>
 
 第一种：全局传值<br>
@@ -219,7 +219,7 @@ Page({
 })
 ```
 
-#### 5、基础库兼容
+### 5、基础库兼容
 这个东西其实也不是太重要，知道有个玩意，以及如何去判断和解决就行，下面看代码：
 ```
 Page({
@@ -251,8 +251,8 @@ Page({
 })
 ```
 
-#### 尾声
-以上就是我所做的一些终结，有疑问的可以加我慕课账号（Zz皓）私信聊。
+### 尾声
+以上就是我所做的一些总结，有疑问的可以加我慕课账号（Zz皓）私信聊。
 
 
 
