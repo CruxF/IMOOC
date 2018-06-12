@@ -528,4 +528,258 @@ var init = function(el, option) {
 虽然被这门课程折磨的不要不要的，可是我依然会选择继续观看该课程的下个系列，加油！<br><br>
 
 
+# 8、StarScoreTwo => [星级评分原理和实现(下)](https://www.imooc.com/learn/848)
+
+这门课程的总结还是按照之前的方式来进行，分成一个个章节，逐步分析与理解，下面开始进入正文。<br>
+
+**1、章节1-2：** <br>
+这个章节老师为我们演示了使用CSS实现选择星级的大概思路：首先在一个大容器里设置背景图片，接着设置五个独立的小容器，当鼠标滑过每个小容器的时候，都为这五个小容器添加星级背景图（background），并且设置背景图的位置（background-position）。这一章节的核心就是z-index这个属性，它的作用是：设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。因此当鼠标滑过那五个小容器的时候，大容器中所有内容都会被盖在了下面。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-2.html)<br><br>
+
+**2、章节1-3：** <br>
+这个章节内容挺绕的，实现了鼠标点击保存星星点亮数目的功能。如果是CSS和HTML基础不过关的话会看晕，实现的核心就是利用到了锚点这一块的知识，无论是使用:target伪类，还是使用了overflow: hidden;都与锚点逃脱不了关系，具体的实现过程不说了，不仅是因为很基础很简单，其实说起来真的是绕。接下来贴上课程章节的源码和演示。<br>
+[我是源码1](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-3-1.html)<br>
+[我是源码2](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index1-3-2.html)<br>
+[我是效果2](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index1-3-2.html)<br><br>
+
+**3、章节2-1：** <br>
+这个章节的内容可有意思了，当鼠标移到子元素上的时候，全部子元素的位置都移动到最左边，并且让星星出现，请看下面这段代码：
+```
+.rating-item:hover {
+  left: 0;
+  z-index: 2;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+```
+当我们的鼠标的移动到某个子元素时，该子元素的长度发生变化，同时所有子元素的位置也变化了，因此鼠标滑动星星出现的功能就这么实现了，接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-1.html)<br><br>
+
+**4、章节2-3：** <br>
+这个章节的代码十分绕，一不小心就要晕，我们一点点来分析，首先看一下点击保存点亮星星的代码：
+```
+input:checked + .rating-item {
+  left: 0;
+  z-index: 1;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+.rating-item-3:hover, #rating-3:checked + .rating-item {
+  width: 170px;
+}
+```
+鼠标滑过事件在上一节代码中有讲解，在此不说明。上面那段代码的含义就是：单选按钮被点击，那么单选按钮的下一个类名为.rating-item的元素的left值为0，同时背景图位置为`background: url(img/twoStar.jpg) repeat-x 0 -56px;`，接着就是单选按钮的下一个类名为.rating-item的元素的宽度改变，从而达到显示几颗星星的效果。<br>
+
+为了实现保存点亮星星后，鼠标滑动还是能够选择点亮的星星，那么各个元素间的层级关系就要设置的合理，下面看代码：
+```
+.rating:hover .rating-item {
+  background-image: none;
+}
+.rating-item {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  width: 70px;
+  height: 56px;
+}
+.rating-item:hover {
+  left: 0;
+  z-index: 2;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px !important;
+}
+input:checked + .rating-item {
+  left: 0;
+  z-index: 1;
+  background: url(img/twoStar.jpg) repeat-x 0 -56px;
+}
+input:checked + .rating-item ~ .rating-item {
+  z-index: 0;
+}
+```
+其中的逻辑关系不是很复杂，大家细细体会下吧，不说明啦，会绕晕你们。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index2-3html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index2-3html)<br><br>
+
+**5、章节3-2：** <br>
+这个章节代码很简单，就是搭建一个显示星星的大概结构和样式。主要思路就是：在类名为rating的父容器中创建两个子容器，一个子容器通过控制长度来达到显示星星数目的功能，因为这个容器的background-position已经设置好，只要设置该容器的长度就就能够达到显示N个星星的目的，另一个子容器的目的是为了接下来对含有星星背景图的子容器的长度进行控制。接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-2.html)<br><br>
+
+**6、章节3-3：** <br>
+可能和之前的分析有关，这个章节的代码莫名觉得十分容易理解。之前重复的不再进行分析，下面说一下核心的两段代码：
+```
+Rating.prototype.buildHTML = function() {
+  var html = '';
+  html += '<div class="rating-display"></div><ul class="rating-mask">';
+  for(var i = 0; i < this.opts.total; i++) {
+    html += '<li class="rating-item"></li>';
+  }
+  html += '</ul>';
+  this.$el.html(html);
+};
+```
+这段代母实现的就是根据this.opts.total的值动态增加HTML结构。html() 方法返回或设置被选元素的内容，在这段代码中就是返回动态增加的HTML结构。<br>
+
+```
+Rating.prototype.setCSS = function() {
+  this.$el.width(this.opts.total * this.itemWidth);
+  this.$display = this.$el.find('.rating-display');
+  this.$display.width(this.displayWidth);
+  this.$el.find('.rating-item').width(this.itemWidth);
+};
+```
+这段代码实现的就是设置父容器的宽度，和设置子容器的宽度。鼠标事件是定义在另一个容器中，实现的控制父容器的宽度和子容器的宽度。剩下的难点之前都有说明与分析，就不再重复了，接下来贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-3.html)<br><br>
+
+**7、章节3-4：** <br>
+这章节的代码没啥好说的，其中的原理和实现过程前面都有提到，几乎是一毛一样的（其实就是），下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-4.html)<br><br>
+
+**8、章节3-5：** <br>
+这章节的代码只要搞清楚下面一段即可：
+```
+var Rating = function(el, optios) {
+  this.$el = $(el);
+  this.opts = $.extend({}, Rating.DEFAULTS, optios);
+  this.opts.total *= 2;
+  this.opts.num *= 2;
+  this.itemWidth = 60 / 2;
+  this.displayWidth = this.opts.num * this.itemWidth;
+};
+```
+为啥total和num都要乘以2？因为这是为了实现显示半颗星星的功能，由于容纳星星的子容器itemWidth值缩小了一半，那么和itemWidth值相关的变量就得全部增加一半，记得联系全文的代码哦。不多说了，下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-5.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-5.html)<br><br>
+
+**8、章节3-6：** <br>
+在这节课程中老师讲了一个JS开发模式，那就是策略模式。
+- 策略模式：定义一系列的算法，一个个封装起来，并且可以相互替换。
+- [更多详解](https://baike.baidu.com/item/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/646307?fr=aladdin)
+
+为了更好的理解策略模式，下面来看一大段代码：
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>策略模式展示</title>
+  </head>
+  <body>
+
+    <script>
+      // 第一种实现思路
+      var calculateBonusOne = function(level, salary) {
+        if(level === 'S') {
+          return salary * 4;
+        }
+        if(level === 'A') {
+          return salary * 3;
+        }
+        if(level === 'B') {
+          return salary * 2;
+        }
+        if(level === 'C') {
+          return salary * 1;
+        }
+      };
+      console.log(calculateBonusOne('S', 8000));
+
+      // 第二种实现思路
+      var performanceS = function(salary) {
+        return salary * 4;
+      };
+      var performanceA = function(salary) {
+        return salary * 3;
+      };
+      var performanceB = function(salary) {
+        return salary * 2;
+      };
+      var performanceC = function(salary) {
+        return salary * 1;
+      };
+      var calculateBonusTwo = function(level, salary) {
+        if(level === 'S') {
+          return performanceS(salary);
+        }
+        if(level === 'A') {
+          return performanceA(salary);
+        }
+        if(level === 'B') {
+          return performanceB(salary);
+        }
+        if(level === 'C') {
+          return performanceC(salary);
+        }
+      };
+      console.log(calculateBonusTwo('S', 6000));
+
+      // 第三种实现思路
+      var strategies = {
+        S: function(salary) {
+          return salary * 4;
+        },
+        A: function(salary) {
+          return salary * 3;
+        },
+        B: function(salary) {
+          return salary * 2;
+        },
+        C: function(salary) {
+          return salary * 1;
+        }
+      };
+      var calculateBonusThree = function(level, salary) {
+        return strategies[level](salary);
+      }
+      console.log(calculateBonusThree('S', 4000));
+    </script>
+  </body>
+</html>
+```
+第三种实现方式就是使用了策略模式，相对其他两种实现方式，有以下几个优点：
+- 增大了程序弹性，能够轻易修改参数和复用代码
+- 减少代码数量
+- 新增功能代码的时候不会对原有的代码进行破坏
+- 性能算是比较好
+
+体会到了策略模式的优雅，那么下面再来看看这个章节的核心代码：
+```
+// 策略模式
+var strategies = {
+  entire: function() {
+    return 1;
+  },
+  half: function() {
+    return 2;
+  },
+  quarter: function() {
+    return 4;
+  }
+}
+var Rating = function(el, optios) {
+  this.$el = $(el);
+  this.opts = $.extend({}, Rating.DEFAULTS, optios);
+  if(!strategies[this.opts.mode]) {
+    this.opts.mode = 'entire';
+  };
+  this.ratio = strategies[this.opts.mode]();
+  this.opts.total *= this.ratio;
+  this.opts.num *= this.ratio;
+  this.itemWidth = 60 / this.ratio;
+  this.displayWidth = this.opts.num * this.itemWidth;
+};
+```
+是不是感觉很熟悉？如果不是的话，那么一定是没有好好看老师的视频或者没有看我之前的分析。多余的话就不说啦，下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/StarScoreTwo/index3-6-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-6-2.html)<br><br>
+
+**尾声** <br>
+总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获慢慢，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+
+
+
+
 
