@@ -14,6 +14,7 @@ app.json文件用来对微信小程序进行全局配置，决定页面文件的
 
 #### 2、swiper组件的使用
 [这个组件](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html?search-key=swiper)是比较常用的，说它比较重要，不仅仅是因为它的常用性，也因为它的栗子有十分好的借鉴性。<br>
+
 结构代码<br>
 ```
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true">
@@ -24,6 +25,7 @@ app.json文件用来对微信小程序进行全局配置，决定页面文件的
   </block>
 </swiper>
 ```
+
 脚本代码<br>
 ```
 Page({
@@ -41,7 +43,7 @@ Page({
   }
 })
 ```
-说这个组件的使用具有借鉴性是因为将属性和属性值完全分离了来进行管理，在一定程度上来说，这是十分好的一种方式，结构代码和脚本代码分离。<br>
+说这个组件的使用具有借鉴性是因为将属性和属性值完全分离了来进行管理，在一定程度上来说，这是十分好的一种方式，结构代码和脚本代码分离便于管理和维护。<br>
 
 #### 3、调用数据的三种方式
 在小程序中，一共有三种调用数据的方式，其中一种是调用后台数据，另外两种是调用本地数据，现在我们先来看一看最简单的本地数据调用方式：
@@ -131,9 +133,126 @@ Page({
 <view class='pro-item' wx:for="{{proList}}" wx:key=""></view>
 ```
 
+#### 4、组件之间的三种传值方式
+一说到组件传值，相信有经验的开发人员都知道它的重要性，下面简单的来看看三种传值方式的代码。<br>
 
+第一种：全局传值<br>
+```
+// 步骤一：在全局脚本文件中定义数据
+App({
+  globalData: {
+    userInfo: null,
+    userName: '全局变量传值',
+  }
+})
 
+// 步骤二：获取应用实例，不然无法调用全局变量
+const app = getApp()
 
+// 步骤三：调用全局变量
+Page({
+  data: {
+  
+  },
+  onLoad: function (options) {
+    console.log(app.globalData.userName);
+  },
+})
+```
+
+第二种：url传值
+```
+// 步骤一：使用关键字bindtap绑定一个点击事件方法，data-index是传入一个值
+<image class="btn-detail" src='/images/btn_detail.png' bindtap='toDetail' data-index='{{index}}'></image>
+
+// 步骤二：在脚本文件中定义这个方法（方法并不是定义在一个methods集合中的）
+Page({
+  data: {},
+  onLoad: function () {},
+  toDetail: function(e){
+    // index代表的遍历对象的下标
+    var index = e.currentTarget.dataset.index;
+    var proList = this.data.proList;
+    var title = proList[index].proName;
+    wx.navigateTo({
+      url: '/pages/detail/detail?title='+title,
+    })
+  }
+})
+
+// 步骤三：在detail组件的脚本文件中接收title这个传入过来的值
+Page({
+  data: {},
+  onLoad: function (options) {
+    console.log(options.title);
+  },
+})
+```
+
+第三种：setStorageSync传值
+```
+// 步骤一：使用关键字bindtap绑定一个点击事件方法，data-index是传入一个值
+<image class="btn-detail" src='/images/btn_detail.png' bindtap='toDetail' data-index='{{index}}'></image>
+
+// 步骤二：在脚本文件中定义这个方法（方法并不是定义在一个methods集合中的）
+Page({
+  data: {},
+  onLoad: function () {},
+  toDetail: function(e){
+    var index = e.currentTarget.dataset.index;
+    var proList = this.data.proList;
+    var title = proList[index].proName;
+    wx.setStorageSync('titleName', title);
+    wx.navigateTo({
+      url: '/pages/detail/detail',
+    })
+  }
+})
+
+// 步骤三：在detail组件的脚本文件中使用wx.getStorageSync接收titleName这个传入过来的值
+Page({
+  data: {},
+  onLoad: function (options) {
+    var titlen = wx.getStorageSync('titleName');
+    console.log(titlen);
+  },
+})
+```
+
+#### 5、基础库兼容
+这个东西其实也不是太重要，知道有个玩意，以及如何去判断和解决就行，下面看代码：
+```
+Page({
+  data: {},
+  onLoad: function () {},
+  // copy事件
+  copy: function(){
+    // 检测版本是否具备wx.setClipboardData这个API
+    if (wx.setClipboardData){
+      wx.setClipboardData({
+        // 复制的内容，可以设置为动态的数据
+        data: '232323232',
+        success: function (res) {
+          // 模态框
+          wx.showModal({
+            title: '复制成功',
+            content: '内容已经复制成功！',
+          })
+        }
+      })
+    }
+    else{
+      wx.showModal({
+        title: '提示',
+        content: '您的微信版本太低，请升级',
+      })
+    }
+  }
+})
+```
+
+#### 尾声
+以上就是我所做的一些终结，有疑问的可以加我慕课账号（Zz皓）私信聊。
 
 
 
