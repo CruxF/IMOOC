@@ -252,7 +252,7 @@ Page({
 ```
 
 ### 尾声
-以上就是我所做的一些总结，有疑问的可以加我慕课账号（Zz皓）私信聊。
+以上就是我所做的一些总结，源码都在[这里](https://github.com/CruxF/IMOOC/tree/master/HTML5/FirstWxPro?1528811143397)，有疑问的可以加我慕课账号（Zz皓）私信聊。
 
 
 
