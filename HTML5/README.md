@@ -219,6 +219,51 @@ Page({
 })
 ```
 
+#### 组件传值的应用场景
+关于组件传值的应用，老师在视频中并没有给出，自己瞎琢磨出一个栗子，记住：**在真正开发中，千万别这么用。** 这个栗子的作用是让我们对组件的传值有一个大概的应用场景，下面请看代码实现：
+```
+// 数据接收方
+Page({
+  data: {
+    iskebi: false,
+    iszhan: false,
+    isqiao: false,
+    isgeli: false
+  },
+  onLoad: function (options) {
+    
+  },
+  onReady: function () {
+    var titlee = wx.getStorageSync('titleName');
+    console.log(titlee);
+    if (titlee == '科比·布莱恩特') {
+      this.setData({iskebi: true});
+    } else if (titlee == '勒布朗·詹姆斯'){
+      this.setData({ iszhan: true });
+    } else if (titlee == '迈克尔·乔丹') {
+      this.setData({ isqiao: true });
+    } else{
+      this.setData({ isgeli: true });
+    }
+  }
+})
+
+// 数据显示层
+<view wx:if="{{iskebi}}">
+  我是科比的球迷
+</view>
+<view wx:if="{{iszhan}}">
+  我是詹姆斯的球迷
+</view>
+<view wx:if="{{isqiao}}">
+  我是乔丹的球迷
+</view>
+<view wx:if="{{isgeli}}">
+  我是格里芬的球迷
+</view>
+```
+
+
 ### 5、基础库兼容
 这个东西其实也不是太重要，知道有个玩意，以及如何去判断和解决就行，下面看代码：
 ```
