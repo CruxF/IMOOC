@@ -1,8 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-// 使用第二种方式调用数据之前，得输入一个对象，只能用相对路径
-var proListData = require("../../data/proList.js");
 
 Page({
   data: {
@@ -19,13 +17,6 @@ Page({
     proList: null,
   },
   onLoad: function () {
-    this.setData({
-      test: '01',
-    })
-    //第二种调用数据方式，调用本地分离出去的数据
-    // this.setData({
-    //   proList: proListData.proList
-    // });
     this.getProList();
   },
   // 定义点击事件
@@ -34,11 +25,9 @@ Page({
     var index = e.currentTarget.dataset.index;
     var proList = this.data.proList;
     var title = proList[index].proName;
-    // 第三种传值方式
     wx.setStorageSync('titleName', title);
-    // 第一种传值方式，点击后的跳转路径
     wx.navigateTo({
-      url: '/pages/detail/detail?title='+title,
+      url: '/pages/detail/detail',
     })
   },
   // API请求方法
