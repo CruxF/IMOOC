@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>图片加载之无序加载</title>
+    <style>
+      .box {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .box .btn {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 0 10px;
+        margin-right: 50px;
+        color: #333;
+      }
+      .box .btn:hover {
+        background-color: #eee;
+      }
+      .box a {
+        text-decoration: none;
+      }
+      .box img {
+        height: 80vh;
+        width: 90vw;
+      }
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #eee;
+        text-align: center;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!--内容展示区域-->
+    <div class="box">
+      <img id="img" src="" alt="" title="" />
+      <p>
+        <a href="javascript:void()" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:void()" class="btn" data-control="nex">下一页</a>
+      </p>
+    </div>
+    <!--内容加载页区域-->
+    <div class="loading">
+      <p class="progress">0%</p>
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      // 定义一个图片数组
+      var images = [{
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading01.jpg?raw=true',
+        name: '无敌美少女一号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading02.jpg?raw=true',
+        name: '无敌美少女二号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading03.jpg?raw=true',
+        name: '无敌美少女三号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading04.jpg?raw=true',
+        name: '无敌美少女四号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading05.jpg?raw=true',
+        name: '无敌美少女五号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading06.jpg?raw=true',
+        name: '无敌美少女六号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading07.jpg?raw=true',
+        name: '无敌美少女七号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading08.jpg?raw=true',
+        name: '无敌美少女八号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading09.jpg?raw=true',
+        name: '无敌美少女九号'
+      }, {
+        url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading10.jpg?raw=true',
+        name: '无敌美少女十号'
+      }];
+      // 获取图片数组的长度
+      var index = 0;
+      var len = images.length;
+      var count = 0;
+      var $progress = $('.progress');
+      // 遍历数组,i代表的是数组下标，src代表的是对应数组下标的对象或者属性值
+      $.each(images, function(i, src) {
+        var imgObj = new Image();
+        $(imgObj).on('load error', function() {
+          $progress.html(Math.round((count + 1) / len * 100) + '%');
+          if(count >= len - 1) {
+            $('.loading').hide();
+          }
+          count++;
+        });
+        imgObj.src = src.url;
+      });
+      // 定义点击事件
+      $('.btn').on('click', function() {
+        if($(this).data('control') === 'prev') {
+          index = Math.max(0, --index);
+        } else {
+          index = Math.min(len - 1, ++index);
+        }
+        document.title = (index + 1) + '/' + len;
+        $('#img').attr({
+          'src': images[index].url,
+          'title': images[index].name,
+          'alt': images[index].name
+        });
+      })
+      // 为初始页面赋值
+      document.title = (index + 1) + '/' + len;
+      $('#img').attr({
+        'src': images[index].url,
+        'title': images[index].name,
+        'alt': images[index].name
+      });
+    </script>
+  </body>
+</html>

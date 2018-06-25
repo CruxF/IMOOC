@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>图片加载之无序加载</title>
+    <style>
+      .box {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .box .btn {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 0 10px;
+        margin-right: 50px;
+        color: #333;
+      }
+      .box .btn:hover {
+        background-color: #eee;
+      }
+      .box a {
+        text-decoration: none;
+      }
+      .box img {
+        height: 80vh;
+        width: 90vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img id="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529926189440&di=489d5cb49c7111725028ea4e1d08ec94&imgtype=0&src=http%3A%2F%2Fpic36.nipic.com%2F20131209%2F7487939_011710947000_2.jpg" alt="" title="" />
+
+      <p>
+        <a href="javascript:void()" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:void()" class="btn" data-control="nex">下一页</a>
+      </p>
+    </div>
+  </body>
+</html>
