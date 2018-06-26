@@ -777,7 +777,37 @@ var Rating = function(el, optios) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-6-2.html)<br><br>
 
 **尾声** <br>
-总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获慢慢，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获满满，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+
+
+# 9、ImgPreloading => [图片预加载](https://www.imooc.com/learn/502)
+
+依然是Alex Wang讲师的课程，亮点十足，干货满满。这门课程的总结还是按照之前的方式来进行，分成一个个章节，逐步分析与理解，下面开始进入正文。<br>
+
+**1、章节2-1：** <br>
+这节课的代码没啥好解读的，跟着老师敲就对了。不过我自己修改了部分CSS代码，为了页面更合理与美观，下面直接贴上课程章节的源码和演示（有点H，慎点）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-1.html)<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
