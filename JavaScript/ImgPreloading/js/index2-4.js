@@ -2,20 +2,21 @@
 (function($) {
   function PreLoad(imgs, options) {
     this.imgs = (typeof imgs === 'string') ? [imgs] : imgs;
-    this.opts = $.extend({}, Preload.DEFAULTS, options);
+    this.opts = $.extend({}, PreLoad.DEFAULTS, options);
     this._unoredered();
   }
-  Preload.DEFAULTS = {
+  PreLoad.DEFAULTS = {
     // 每一张图片加载完毕后执行
     each: null,
     // 所有图片加载完毕后执行
     all: null
   };
-  Preload.prototype._unoredered = function() {
+  // 无序加载
+  PreLoad.prototype._unoredered = function() {
     var imgs = this.imgs;
     var opts = this.opts;
     var count = 0;
-    var len = imgs.length
+    var len = imgs.length;
     $.each(imgs, function(i, src) {
       if(typeof src != 'string') {
         return
