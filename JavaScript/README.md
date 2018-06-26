@@ -850,7 +850,7 @@ $.each(images, function(i, src) {
   imgObj.src = src.url;
 });
 ```
-这段代码的作用很明显，就是每遍历一次images数组，就创建一个img元素，并将图片的数据保存下来。同时发生变化的还有遮罩层的文字以及遮罩效果，都是挺容易理解的，不细说了，关于Image()函数的更多知识点可以[点击这里](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLImageElement/Image)。下面直接贴上课程章节的源码和演示（通过与章节2-2的效果对比一下，就能体会到图片预加载的魔力了）。<br>
+这段代码的作用很明显，就是每遍历一次images数组，就创建一个img元素，并将图片的数据保存下来。同时发生变化的还有遮罩层的文字以及遮罩效果，这些代码在每一张图片加载的时候运行，都是挺容易理解的，不细说了，关于Image()函数的更多知识点可以[点击这里](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLImageElement/Image)。下面直接贴上课程章节的源码和演示（通过与章节2-2的效果对比一下，就能体会到图片预加载的魔力了）。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-3.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-3.html)<br><br>
 
