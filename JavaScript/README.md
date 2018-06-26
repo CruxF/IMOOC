@@ -777,7 +777,93 @@ var Rating = function(el, optios) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/StarScoreTwo/index3-6-2.html)<br><br>
 
 **尾声** <br>
-总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获慢慢，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+总算是实打实的把这两门课程实打实的看下来了、分析下来了，真的是收获满满，虽然让自己现在盲敲一遍肯定是不行的，但是至少明白了JavaScript原型的强大以及各种前端开发需要注意的地方。love这位讲师，下面还是会继续看他的其他视频，不断学习，不断总结。<br><br>
+
+
+# 9、ImgPreloading => [图片预加载](https://www.imooc.com/learn/502)
+
+依然是Alex Wang讲师的课程，亮点十足，干货满满。这门课程的总结还是按照之前的方式来进行，分成一个个章节，逐步分析与理解，下面开始进入正文。<br>
+
+**1、章节2-1：** <br>
+这节课的代码没啥好解读的，跟着老师敲就对了。不过我自己修改了部分CSS代码，为了页面更合理与美观，下面直接贴上课程章节的源码和演示（有点H，慎点）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-1.html)<br><br>
+
+**2、章节2-2：** <br>
+从这节课程开始，正式进入了精髓的部分。首先说一下调用jQuery的两种方式：第一种方式是下载jQuery源码到本地项目中，然后引用；第二种是通过CDN引用，不过需要注意的是，如果要在github进行效果演示，传输协议必须为https，而不能为http，比如：
+```
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+```
+
+和课程稍有不同的是，我定义了一个图片数组，数组内是N个对象，每个对象中存储了图片的地址和标题的值，我认为这样是比较合理的，下面请看代码：
+```
+var images = [{
+  url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading01.jpg?raw=true',
+  name: '无敌美少女一号'
+}, {
+  url: 'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading02.jpg?raw=true',
+  name: '无敌美少女二号'
+}];
+```
+
+在点击事件中，如果鼠标点击了data-control的值为prev，则表示是上一张，此时的index需要做减法运算。在这一步中有一个简便的计算方式，请看下面代码
+```
+$('.btn').on('click', function() {
+  if($(this).data('control') === 'prev') {
+    // 第一种实现方法
+    index--;
+    if(index < 0) {
+      index = 0;
+    }
+    // 第二种实现方法,Math.max()的作用是返回内部的最大值
+    index = Math.max(0, --index);
+  } else {
+    index = Math.min(len - 1, ++index);
+  }
+  // 更改网页标题
+  document.title = (index + 1) + '/' + len;
+  // 更改图片src、title和alt的值
+  $('#img').attr({
+    'src': images[index].url,
+    'title': images[index].name,
+    'alt': images[index].name
+  });
+})
+```
+在这节课中，我对讲师的源码也有所改动，为的就是让代码更加的合理。在接下来的演示中你会发现图片的预加载会是多么的重要<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-2.html)<br><br>
+
+**3、章节2-3：** <br>
+这节课程的核心代码是下面那一段
+```
+// 遍历数组,i代表的是数组下标，src代表的是对应数组下标的对象或者属性值
+$.each(images, function(i, src) {
+  var imgObj = new Image();
+  $(imgObj).on('load error', function() {
+    $progress.html(Math.round((count + 1) / len * 100) + '%');
+    if(count >= len - 1) {
+      $('.loading').hide();
+    }
+    count++;
+  });
+  imgObj.src = src.url;
+});
+```
+这段代码的作用很明显，就是每遍历一次images数组，就创建一个img元素，并将图片的数据保存下来。同时发生变化的还有遮罩层的文字以及遮罩效果，这些代码在每一张图片加载的时候运行，都是挺容易理解的，不细说了，关于Image()函数的更多知识点可以[点击这里](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLImageElement/Image)。下面直接贴上课程章节的源码和演示（通过与章节2-2的效果对比一下，就能体会到图片预加载的魔力了）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-3.html)<br><br>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
