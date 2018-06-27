@@ -854,11 +854,33 @@ $.each(images, function(i, src) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-3.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-3.html)<br><br>
 
-
-
-
-
-
+**4、章节2-4：** <br>
+为什么要把核心代码封装成一个插件呢？无非是这三个原因：代码复用性、代码安全性、代码维护性。首先我们来看一下数据的进入口：
+```
+// 调用插件
+$.preload(imgs, {
+  // 实现遍历的功能
+  each: function(count) {
+    $progress.html(Math.round((count + 1) / len * 100) + '%');
+  },
+  // 实现隐藏遮罩层的功能
+  all: function() {
+    $('.loading').hide();
+  }
+})
+```
+因为在插件中，使用了$.extend()在jQuery原型中定义了preload这个方法，所以我们能够在外部调用这个方法，并传入相应的参数。在上述代码中，preload方法里传入了两个参数，一个为imgs数组，另一个为对象，对象里面又包含了each函数和all函数。接着数据就进入到了插件内部，执行了这段代码：
+```
+$.extend({
+  preload: function(imgs, opts) {
+    new PreLoad(imgs, opts);
+  }
+});
+```
+上诉代码实例化PreLoad构造函数之后，那么就能够执行其原型上的方法_unoredered，关于插件里的一些方法说明，在我上面两篇《星级评分原理》都有十分详细的解释，而且源码中也有相关的注释，因此不再说明了。下面直接贴上课程章节的源码和演示。<br>
+[我是结构源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-4.html)<br>
+[我是插件源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/js/index2-4.js)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-4.html)<br><br>
 
 
 
