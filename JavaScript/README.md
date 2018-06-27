@@ -922,6 +922,39 @@ JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个�
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-3.html)<br><br>
 
 **8、章节3-4：** <br>
+这节课程实现的有序预加载图片，关于有序和无序之间的区别，我想对比下相互之间的核心代码应该很容易就能理解：
+```
+// 有序预加载
+function load() {
+  var imgObj = new Image();
+  $(imgObj).on('load error', function() {
+    if(count >= len) {
+      // 所有图片加载完毕
+    } else {
+      load();
+    }
+    count++;
+  });
+  imgObj.src = imgs[count];
+}
+load();
+
+// 无序预加载
+$.each(images, function(i, src) {
+  var imgObj = new Image();
+  $(imgObj).on('load error', function() {
+    $progress.html(Math.round((count + 1) / len * 100) + '%');
+    if(count >= len - 1) {
+      $('.loading').hide();
+    }
+    count++;
+  });
+  imgObj.src = src.url;
+});
+```
+从代码结构就能够看出来，有序预加载必定是加载完一张图片之后才能对下一张图片进行加载；无序预加载是加载完全部图片之后才隐藏遮罩层显示第一张图片。下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-4.html)<br><br>
 
 
 
