@@ -2,11 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>图片加载之无序加载</title>
+    <title>图片预加载之有序加载</title>
     <style>
+      a {
+        text-decoration: none;
+      }
       .box {
         text-align: center;
-        margin-top: 20px;
+      }
+      .box img {
+        height: 80vh;
+        width: 90vw;
       }
       .box .btn {
         display: inline-block;
@@ -18,49 +24,22 @@
         margin-right: 50px;
         color: #333;
       }
-      .box .btn:hover {
+      .btn:hover {
         background-color: #eee;
-      }
-      .box a {
-        text-decoration: none;
-      }
-      .box img {
-        height: 80vh;
-        width: 90vw;
-      }
-      .loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background-color: #eee;
-        text-align: center;
-        font-size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
     </style>
   </head>
   <body>
-    <!--内容展示区域-->
     <div class="box">
-      <img id="img" src="" alt="" title="" />
+      <img id="img" src="" title="" alt="" />
       <p>
         <a href="javascript:void(0);" class="btn" data-control="prev">上一页</a>
-        <a href="javascript:void(0);" class="btn" data-control="nex">下一页</a>
+        <a href="javascript:void(0);" class="btn" data-control="next">下一页</a>
       </p>
-    </div>
-    <!--内容加载页区域-->
-    <div class="loading">
-      <p class="progress">0%</p>
     </div>
 
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="js/index2-4.js"></script>
     <script>
-      // 定义一个图片数组
       var imgs = [
         'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading01.jpg?raw=true',
         'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading02.jpg?raw=true',
@@ -73,35 +52,37 @@
         'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading09.jpg?raw=true',
         'https://github.com/CruxF/IMOOC/blob/master/ProImages/ImgPreloading10.jpg?raw=true'
       ];
-      // 获取图片数组的长度
-      var index = 0;
       var len = imgs.length;
-      var $progress = $('.progress');
-
-      // 调用插件
-      $.preload(imgs, {
-      	// 实现遍历的功能
-        each: function(count) {
-          $progress.html(Math.round((count + 1) / len * 100) + '%');
-        },
-        // 实现隐藏遮罩层的功能
-        all: function() {
-          $('.loading').hide();
-        }
-      })
-      // 定义点击事件
+      var count = 0;
+      var index = 0;
+      // 有序预加载
+      function load() {
+        var imgObj = new Image();
+        $(imgObj).on('load error', function() {
+          if(count >= len) {
+            // 所有图片加载完毕
+          } else {
+            load();
+          }
+          count++;
+        });
+        imgObj.src = imgs[count];
+      }
+      // 调用函数
+      load();
+      // 鼠标点击事件
       $('.btn').on('click', function() {
-        if('prev' === $(this).data('control')) {
+        if($(this).data('control') === 'prev') {
           index = Math.max(0, --index);
         } else {
-          index = Math.min(len - 1, ++index)
+          index = Math.min(len - 1, ++index);
         }
         document.title = (index + 1) + '/' + len;
-        $("#img").attr('src', imgs[index]);
-      })
+        $('#img').attr('src', imgs[index])
+      });
       // 为初始页面赋值
       document.title = (index + 1) + '/' + len;
-      $("#img").attr('src', imgs[index]);
+      $('#img').attr('src', imgs[index])
     </script>
   </body>
 </html>

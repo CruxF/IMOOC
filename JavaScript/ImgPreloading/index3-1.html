@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>图片预加载之无序加载——QQ表情</title>
+    <style>
+      body, p, ul, li {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #eee;
+      }
+      a {
+        text-decoration: none;
+      }
+      li {
+        list-style: none;
+      }
+      .box {
+        margin: 150px 0 0 200px;
+      }
+      #face-btn {
+        display: block;
+        background-image: url(img/face.png);
+        background-repeat: no-repeat;
+        background-position: -7px -6px;
+        text-indent: 22px;
+        color: #333;
+        height: 23px;
+        width: 60px;
+      }
+      #face-btn:hover {
+        background-position: -7px -37px;
+      }
+      .panel {
+        width: 390px;
+        padding: 2px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+      }
+      .loading {
+        display: none;
+        text-align: center;
+      }
+      .list li {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #fff;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .list li:hover {
+        border-color: #06c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <a href="javascript:void(0)" id="face-btn">表情</a>
+      <div class="panel">
+        <p class="loading">表情加载中，请稍后....</p>
+        <ul class="list">
+          <li><img src="img/1.gif" alt="" /></li>
+          <li><img src="img/2.gif" alt="" /></li>
+          <li><img src="img/3.gif" alt="" /></li>
+          <li><img src="img/4.gif" alt="" /></li>
+          <li><img src="img/5.gif" alt="" /></li>
+          <li><img src="img/6.gif" alt="" /></li>
+          <li><img src="img/7.gif" alt="" /></li>
+          <li><img src="img/8.gif" alt="" /></li>
+          <li><img src="img/9.gif" alt="" /></li>
+          <li><img src="img/10.gif" alt="" /></li>
+          <li><img src="img/11.gif" alt="" /></li>
+          <li><img src="img/12.gif" alt="" /></li>
+          <li><img src="img/13.gif" alt="" /></li>
+          <li><img src="img/14.gif" alt="" /></li>
+          <li><img src="img/15.gif" alt="" /></li>
+          <li><img src="img/16.gif" alt="" /></li>
+          <li><img src="img/17.gif" alt="" /></li>
+          <li><img src="img/18.gif" alt="" /></li>
+          <li><img src="img/19.gif" alt="" /></li>
+          <li><img src="img/20.gif" alt="" /></li>
+          <li><img src="img/21.gif" alt="" /></li>
+          <li><img src="img/22.gif" alt="" /></li>
+          <li><img src="img/23.gif" alt="" /></li>
+          <li><img src="img/24.gif" alt="" /></li>
+          <li><img src="img/25.gif" alt="" /></li>
+          <li><img src="img/26.gif" alt="" /></li>
+          <li><img src="img/27.gif" alt="" /></li>
+          <li><img src="img/28.gif" alt="" /></li>
+          <li><img src="img/29.gif" alt="" /></li>
+          <li><img src="img/30.gif" alt="" /></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

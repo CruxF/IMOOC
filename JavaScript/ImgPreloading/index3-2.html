@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>图片预加载之无序加载——QQ表情</title>
+    <style>
+      body, p, ul, li {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #eee;
+      }
+      a {
+        text-decoration: none;
+        outline: none;
+      }
+      li {
+        list-style: none;
+      }
+      .box {
+        margin: 150px 0 0 200px;
+      }
+      #face-btn {
+        display: block;
+        background-image: url(img/face.png);
+        background-repeat: no-repeat;
+        background-position: -7px -6px;
+        text-indent: 22px;
+        color: #333;
+        height: 23px;
+        width: 60px;
+      }
+      #face-btn:hover {
+        background-position: -7px -37px;
+      }
+      .panel {
+        display: none;
+        width: 390px;
+        padding: 2px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+      }
+      .loading {
+        text-align: center;
+      }
+      .list li {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #fff;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .list li:hover {
+        border-color: #06c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <a href="javascript:void(0)" id="face-btn">表情</a>
+      <div class="panel">
+        <p class="loading">表情加载中，请稍后....</p>
+        <ul class="list">
+          <li>
+            <img src="" alt="" title="" />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index2-4.js"></script>
+    <script>
+      var $btn = $('#face-btn');
+      var $panel = $('.panel');
+      var imgs = [];
+      for(var i = 0; i < 75; i++) {
+        imgs[i] = 'img/' + (i + 1) + '.gif';
+      }
+      var len = imgs.length;
+      $btn.on('click', function(e) {
+        // 解决事件冒泡
+        e.stopPropagation();
+        $panel.show();
+        $.preload(imgs, {
+          all: function() {
+            var htmlValue = '';
+            htmlValue += '<ul class="list">';
+            for(var i = 0; i < len; i++) {
+              htmlValue += '<li><img src="' + imgs[i] + '" alt=""></li>';
+            }
+            htmlValue += '</ul>';
+            setTimeout(function() {
+              $panel.html(htmlValue);
+            }, 2000);
+          }
+        })
+      })
+      $(document).on('click', function() {
+        $panel.hide();
+      })
+    </script>
+  </body>
+</html>

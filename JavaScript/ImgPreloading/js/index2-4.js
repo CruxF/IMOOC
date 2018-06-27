@@ -11,17 +11,19 @@
     // 所有图片加载完毕后执行
     all: null
   };
-  // 无序加载
+  // 无序加载方法
   PreLoad.prototype._unoredered = function() {
     var imgs = this.imgs;
     var opts = this.opts;
     var count = 0;
     var len = imgs.length;
+    // 遍历图片数组
     $.each(imgs, function(i, src) {
       if(typeof src != 'string') {
         return
       }
       var imgObj = new Image();
+      // 每张图片加载的时候执行的代码
       $(imgObj).on('load error', function() {
         opts.each && opts.each(count);
         if(count >= len - 1) {
