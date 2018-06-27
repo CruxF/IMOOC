@@ -887,9 +887,34 @@ $.extend({
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-1.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-1.html)<br><br>
 
+**6、章节3-2：** <br>
+讲师还是那么的皮，命名总是会让人感到云里雾里。下面来看这节课程的核心代码：
+```
+$btn.on('click', function(e) {
+  // 解决事件冒泡
+  e.stopPropagation();
+  $panel.show();
+  // 调用插件
+  $.preload(imgs, {
+    all: function() {
+      var htmlValue = '';
+      htmlValue += '<ul class="list">';
+      for(var i = 0; i < len; i++) {
+        htmlValue += '<li><img src="' + imgs[i] + '" alt=""></li>';
+      }
+      htmlValue += '</ul>';
+      setTimeout(function() {
+        $panel.html(htmlValue);
+      }, 2000);
+    }
+  })
+})
+```
+JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个事件会从具体的元素向上一级元素传递，上一级元素又会向上上级元素传递，直到传递到了根元素。在调用插件传递数据的时候，在插件内部，每遍历一次imgs数组，那么就会加载一次传递过过来的all()方法，事已至此，代码执行流程已经很清晰。需要注意的是`opts.each()`中的each()方法根本就不是jQuery中的each()方法，讲师的命名方式，实在是坑到我了。
 
-
-
+下面贴课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-2.html)<br><br>
 
 
 
