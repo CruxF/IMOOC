@@ -882,8 +882,10 @@ $.extend({
 [我是插件源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/js/index2-4.js)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-4.html)<br><br>
 
-
-
+**5、章节3-1：** <br>
+这节课程在代码上没啥好说的，其他要说明的就是评论区的两件事情：1、能够通过屏幕截图将按钮图片截取下来；2、QQ表情gif图已经有人分享出来了。关于素材的问题，就有了很好的解决，接下来要记住的就是这段很实用的代码：`li*30>img[src="img/$.gif"]`，能快速生成30行`<li><img src="img/(1-30).gif" alt="" /></li>`代码，需要注意的是，这种语法编辑器能够支持。下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-1.html)<br><br>
 
 
 
