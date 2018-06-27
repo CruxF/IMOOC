@@ -952,15 +952,18 @@ $.each(images, function(i, src) {
   imgObj.src = src.url;
 });
 ```
-从代码结构就能够看出来，有序预加载必定是加载完一张图片之后才能对下一张图片进行加载；无序预加载是加载完全部图片之后才隐藏遮罩层显示第一张图片。下面直接贴上课程章节的源码和演示。<br>
+从代码结构就能够看出来，有序预加载必定是加载完一张图片之后才能对下一张图片进行加载；无序预加载是加载完全部图片之后才隐藏遮罩层显示第一张图片，下面直接贴上课程章节的源码和演示。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-4.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-4.html)<br><br>
 
+**9、章节4-1：** <br>
+有了之前课程章节的基础，我想这节课程的代码不用解释大家也相当清楚了，下面直接贴上课程章节的源码和演示。<br>
+[我是结构源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index4-1.html)<br>
+[我是插件源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/js/index4-1.js)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index4-1.html)<br><br>
 
-
-
-
-
+**尾声** <br>
+看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？
 
 
 
