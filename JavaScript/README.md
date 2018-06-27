@@ -916,5 +916,21 @@ JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个�
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-2.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-2.html)<br><br>
 
+**7、章节3-3：** <br>
+这节课程代码没啥好说的，下面直接贴上课程章节的源码和演示（我没有涉H，别瞎说啊）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-3.html)<br><br>
+
+**8、章节3-4：** <br>
+
+
+
+
+
+
+
+
+
+
 
 
