@@ -854,15 +854,116 @@ $.each(images, function(i, src) {
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-3.html)<br>
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-3.html)<br><br>
 
+**4、章节2-4：** <br>
+为什么要把核心代码封装成一个插件呢？无非是这三个原因：代码复用性、代码安全性、代码维护性。首先我们来看一下数据的进入口：
+```
+// 调用插件
+$.preload(imgs, {
+  // 实现遍历的功能
+  each: function(count) {
+    $progress.html(Math.round((count + 1) / len * 100) + '%');
+  },
+  // 实现隐藏遮罩层的功能
+  all: function() {
+    $('.loading').hide();
+  }
+})
+```
+因为在插件中，使用了$.extend()在jQuery原型中定义了preload这个方法，所以我们能够在外部调用这个方法，并传入相应的参数。在上述代码中，preload方法里传入了两个参数，一个为imgs数组，另一个为对象，对象里面又包含了each函数和all函数。接着数据就进入到了插件内部，执行了这段代码：
+```
+$.extend({
+  preload: function(imgs, opts) {
+    new PreLoad(imgs, opts);
+  }
+});
+```
+上诉代码实例化PreLoad构造函数之后，那么就能够执行其原型上的方法_unoredered，关于插件里的一些方法说明，在我上面两篇《星级评分原理》都有十分详细的解释，而且源码中也有相关的注释，因此不再说明了。下面直接贴上课程章节的源码和演示。<br>
+[我是结构源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index2-4.html)<br>
+[我是插件源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/js/index2-4.js)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index2-4.html)<br><br>
 
+**5、章节3-1：** <br>
+这节课程在代码上没啥好说的，其他要说明的就是评论区的两件事情：1、能够通过屏幕截图将按钮图片截取下来；2、QQ表情gif图已经有人分享出来了。关于素材的问题，就有了很好的解决，接下来要记住的就是这段很实用的代码：`li*30>img[src="img/$.gif"]`，能快速生成30行`<li><img src="img/(1-30).gif" alt="" /></li>`代码，需要注意的是，这种语法编辑器能够支持。下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-1.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-1.html)<br><br>
 
+**6、章节3-2：** <br>
+讲师还是那么的皮，命名总是会让人感到云里雾里。下面来看这节课程的核心代码：
+```
+$btn.on('click', function(e) {
+  // 解决事件冒泡
+  e.stopPropagation();
+  $panel.show();
+  // 调用插件
+  $.preload(imgs, {
+    all: function() {
+      var htmlValue = '';
+      htmlValue += '<ul class="list">';
+      for(var i = 0; i < len; i++) {
+        htmlValue += '<li><img src="' + imgs[i] + '" alt=""></li>';
+      }
+      htmlValue += '</ul>';
+      setTimeout(function() {
+        $panel.html(htmlValue);
+      }, 2000);
+    }
+  })
+})
+```
+JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个事件会从具体的元素向上一级元素传递，上一级元素又会向上上级元素传递，直到传递到了根元素。在调用插件传递数据的时候，在插件内部，每遍历一次imgs数组，那么就会加载一次传递过过来的all()方法，事已至此，代码执行流程已经很清晰。需要注意的是`opts.each()`中的each()方法根本就不是jQuery中的each()方法，讲师的命名方式，实在是坑到我了。
 
+下面贴课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-2.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-2.html)<br><br>
 
+**7、章节3-3：** <br>
+这节课程代码没啥好说的，下面直接贴上课程章节的源码和演示（我没有涉H，别瞎说啊）。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-3.html)<br><br>
 
+**8、章节3-4：** <br>
+这节课程实现的有序预加载图片，关于有序和无序之间的区别，我想对比下相互之间的核心代码应该很容易就能理解：
+```
+// 有序预加载
+function load() {
+  var imgObj = new Image();
+  $(imgObj).on('load error', function() {
+    if(count >= len) {
+      // 所有图片加载完毕
+    } else {
+      load();
+    }
+    count++;
+  });
+  imgObj.src = imgs[count];
+}
+load();
 
+// 无序预加载
+$.each(images, function(i, src) {
+  var imgObj = new Image();
+  $(imgObj).on('load error', function() {
+    $progress.html(Math.round((count + 1) / len * 100) + '%');
+    if(count >= len - 1) {
+      $('.loading').hide();
+    }
+    count++;
+  });
+  imgObj.src = src.url;
+});
+```
+从代码结构就能够看出来，有序预加载必定是加载完一张图片之后才能对下一张图片进行加载；无序预加载是加载完全部图片之后才隐藏遮罩层显示第一张图片，下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index3-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index3-4.html)<br><br>
 
+**9、章节4-1：** <br>
+有了之前课程章节的基础，我想这节课程的代码不用解释大家也相当清楚了，下面直接贴上课程章节的源码和演示。<br>
+[我是结构源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/index4-1.html)<br>
+[我是插件源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/ImgPreloading/js/index4-1.js)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index4-1.html)<br><br>
 
-
+**尾声** <br>
+看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？
 
 
 
