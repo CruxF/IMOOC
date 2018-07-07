@@ -257,7 +257,60 @@ checkAll: function (flag) {
 
 对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)。下面简单分析下业务逻辑的代码。
 
+该demo的主要业务在于todo.vue这个组件，而这个组件中又包含了两个子组件，下面是todo.vue组件的结构组成代码
+```
+<template>
+  <section class="real-app">
+    <input type="text" class="add-input" autofocus="autofocus" placeholder="接下去要做什么？" @keyup.enter="addTodo">
+    <item :todo="todo" v-for="todo in filteredTodos" :key="todo.id" @del="deleteTodo" />
+    <tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearAllCompleted="clearAllCompleted" />
+  </section>
+</template>
+```
 
+我们先分析一下input元素到底做了什么。它的作用很简单，就是按下回车键（enter）的时候往一个数组里面添加数据，这个数据是一个对象，里面包含了三个属性，分别是id、content和completed，下面来看核心代码
+```
+addTodo(e) {
+  this.todos.unshift({
+    id: id++,
+    content: e.target.value.trim(),
+    completed: false
+  })
+  e.target.value = ''
+}
+```
+
+接下来就是item这个组件，比较简单。它的作用是接收todo.vue这个父组件传过来的数据，然后呈现出这些数据。通过v-model指令在input元素中特性更改todo.completed这个值是为true还是为false，从而达到样式的改变。并且在这个子组件中，当我们点击删除的时候，会派发一个事件到父组件，同时传递参数。下面请看核心代码
+```
+<template>
+  <div :class="['todo-item', todo.completed ? 'completed' : '']">
+    <input type="checkbox" class="toggle" v-model="todo.completed">
+    <label>{{todo.content}}</label>
+    <button class="destory" @click="deleteTodo"></button>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      todo: {
+        type: Object,
+        required: true,
+      }
+    },
+    methods: {
+      deleteTodo() {
+        this.$emit('del', this.todo.id)
+      }
+    }
+  }
+</script>
+```
+
+
+
+
+[点我查看效果](https://cruxf.github.io/IMOOC/Vue/JokcyVueTodo/index.html)
 
 
 
