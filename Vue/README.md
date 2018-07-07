@@ -253,9 +253,9 @@ checkAll: function (flag) {
 
 ## 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
 
-这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
+这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么多的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
 
-对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)。下面简单分析下业务逻辑的代码。
+对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)，以及一些相关webpack[配置文件的注释](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/webpack.config.js)。下面简单分析下业务逻辑的代码。
 
 **todo组件**
 该demo的主要业务在于todo.vue这个组件，而这个组件中又包含了两个子组件，下面是todo.vue组件的结构组成代码
