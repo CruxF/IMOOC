@@ -309,6 +309,91 @@ addTodo(e) {
 </script>
 ```
 
+对于在父组件中的这个计算属性也不得不看，属于重点内容。可能看视频会挺懵的，但是换成下面那种写法应该很好理解
+```
+computed: {
+  filteredTodos() {
+    if(this.filter === 'all') {
+      return this.todos
+    }
+    const completed = (this.filter === 'completed')
+    return this.todos.filter(function(Obj) {
+      return completed === Obj.completed
+    })
+  }
+},
+```
+当filter的值等于all的时候，那么就向item组件传递所有数据；当filter的值等于completed的时候，那么就向item组件传递已经完成的数据。其中在过滤函数（filter）中，Obj代表的是todos这个数组对象。<br>
+
+继续item组件派发出来的一个删除事件，直接看源码
+```
+deleteTodo(id) {
+  this.todos.splice(this.todos.findIndex(function(Obj) {
+    return Obj.id === id
+  }), 1)
+},
+```
+即当子组件item中的deleteTodo方法被触发的时候，那么在父组件todo中这个del事件就会被触发，那么父组件中的这个deleteTodo方法就会被执行，删除对应的数据。<br>
+
+
+**tabs组件**
+这个组件是最为复杂的组件，同时也是最重要的，父组件todo向这个子组件中传递了两个参数todos[]数组和filter状态码。下面请看代码
+```
+<template>
+  <div class="helper">
+    <span class="left">{{unFinishedTodoLength}} items left</span>
+    <span class="tabs">
+      <span
+        v-for="state in states"
+        :key="state"
+        :class="[state, filter === state ? 'actived' : '']"
+        @click="toggleFilter(state)"
+      >
+        {{state}}
+      </span>
+    </span>
+    <span class="clear" @click="clearAllCompleted">Clear Completed</span>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    filter: {
+      type: String,
+      required: true,
+    },
+    todos: {
+      type: Array,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      states: ['all', 'active', 'completed']
+    }
+  },
+  computed: {
+    unFinishedTodoLength() {
+      return this.todos.filter(function(Obj){
+      	return !Obj.completed
+      }).length
+    }
+  },
+  methods: {
+    clearAllCompleted() {
+      this.$emit('clearAllCompleted')
+    },
+    toggleFilter(state) {
+      this.$emit('toggle', state)
+    }
+  }
+}
+</script>
+```
+关于删除和遍历数据的解读，应该是没必要了。因为和之前的解读类似，下面具体来解析下当点击了active按钮，数据的改变流程
+
+
 
 
 
