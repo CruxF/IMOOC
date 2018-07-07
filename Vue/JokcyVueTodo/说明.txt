@@ -1,0 +1,116 @@
+前端的价值
+1、搭建前端工程
+2、网络优化（HTTP的理解）
+3、API定制
+4、node.js层
+
+
+初始化一个项目
+npm init
+
+
+需要安装的东西
+npm install webpack@3.10.0 -g(全局安装webpack)
+npm install webpack --save-dev(局部安装webpack，并且默认是安装最新版本)
+npm install css-loader
+npm install vue-template-compiler
+npm install vue
+npm install vue-loader
+
+
+vue中render函数
+render方法的实质就是生成template模板，通过调用一个方法来生成，而这个方法是通过render方法的参数传递给他的。
+
+
+vue中$mount()
+Vue 的$mount()为手动挂载，在项目中可用于延时挂载（例如在挂载之前要进行一些其他操作、判断等），
+之后要手动挂载上,new Vue时，el和$mount并没有本质上的不同。
+
+
+一个配置的含义
+"build": "webpack --config webpack.config.js"
+以上配置的意义是强制终端在执行npm run build的时候调用的是本地安装的webpak，而不是全局的webpack，
+并且在执行npm run build命令的时候，会执行webpack.config.js文件
+
+
+loader配置说明
+loader: 'css-loader'，这个只是帮我们处理CSS文件。以下写法能帮我们把CSS样式插到HTML结构中
+use: [
+  'style-loader',
+  'css-loader'
+]
+(记得事先得：npm install style-loader)
+
+
+一段配置代码的解析(记得事先得：npm install file-loader url-loader，其中file-loader是帮助读取到图片文件，url-loader是处理图片文件)
+{
+  test: /\.(gif|jpg|jpeg|svg)$/,
+  use: [{
+    loader: 'url-loader',
+    options: {
+    limit: 1024 ,
+    name: '[name]-aa.[ext]'
+  }
+}
+以上代码的含义就是使用url-loader来处理后缀名为.gif、.jpg、.jpeg、.svg的文件，
+将其转化为base64代码，直接写在js文件里面，而不用生成一个新的文件。
+使用对象的写法是为了配置url-loader的一些选项。limit:1024的含义就是当图片小于1024kb的时候，
+转化为base64代码，减少了HTTP请求。name配置的含义是定义输出文件的名字】
+(配置里面的name是原来图片的名字，ext是转化后的后缀名)
+可以使用下面两段代码来进行测试
+body {
+  color: blue;
+  background-image: url(../images/bg.jpg);
+}
+
+// 由于vue组件不能直接挂载到HTML文件中，因此就需要以下操作
+import Vue from 'vue'
+import App from './app.vue'
+import './assets/styles/test.css'
+import './assets/images/bg.jpg'
+const root = document.createElement('div')
+document.body.appendChild(root)
+new Vue({
+  // 将app.vue组件挂载到HTML文件中
+  render: (h) => h(App)
+}).$mount(root)
+使用命令：npm run build，将可以在dist目录下看到一张转化后的图片(bg-aa.jpg)
+
+webpack强大的地方之一就是能够处理任何的依赖文件，比如在CSS文件中定义的图片，webpack也会
+使用配置好的url-loader将其进行处理。
+
+
+CSS预处理器(使用stylus)
+安装：npm install stylus stylus-loader
+配置：
+{
+  test: /\.styl/,
+  use: ['style-loader', 'css-loader', 'stylus-loader']
+},
+
+
+使用npm安装依赖包的细节
+1、npm install webapck --save-dev：表示安装的webpack只在开发环境(dev)中使用，
+项目发布之后就不会用到，简写方式为npm i webapck -D。
+2、npm install vue --save：表示安装的vue在开发环境和正式环境中都会被用到，简写方式为
+npm i vue -S
+
+
+webpack-dev-server的配置和使用
+安装：npm i webpack-dev-server
+配置："dev": "webpack-dev-server --config webpack.config.js"
+通过以上的配置，那么使用命令npm run dev也能够实现打包项目，并且它是开发模式打包项目
+
+
+如何分辨是在开发环境还是正式环境
+步骤一： cnpm i cross-env
+步骤二：为了能够在不同的平台都运行webpack.config.js文件，我们需要在package.json中这么配置
+"build": "cross-env NODE_ENV=production webpack --config webpack.config.js", 
+"dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js"
+步骤三：配置webpack.config.js文件
+
+
+如何让打包好的js文件自动包含到HTML文件中
+步骤一：cnpm install html-webpack-plugin(可能需要用到管理员权限)
+
+
