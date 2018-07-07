@@ -3,9 +3,9 @@
 为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
-# 1、VueBase => Vue.js入门基础
+# 1、VueBase => [Vue.js入门基础](https://www.imooc.com/learn/694)
 
-这是慕课网一门古老的[Vue入门课程](https://www.imooc.com/learn/694)，然而在里面能够学习的东东还是十分多的，比如数据绑定，组件传参和localstorage等。下面引出三道基础的Vue面试题：
+这是慕课网一门古老的Vue入门课程，然而在里面能够学习的东东还是十分多的，比如数据绑定，组件传参和localstorage等。下面引出三道基础的Vue面试题：
 
 - v-if和v-show的区别是什么？
 - v-html和v-text的区别是什么？
@@ -97,11 +97,11 @@
 - 运行：npm run dev
 
 
-# 2、vue-cart => 实现购物车和地址选配功能
+# 2、vue-cart => [使用Vue2.0实现购物车和地址选配功能](https://www.imooc.com/learn/796)
 
 ### 前言
 
-该案例来源于慕课网的教程[使用vue2.0实现购物车和地址选配功能](https://www.imooc.com/learn/796)。根据这门课程，做了一些总结和分析，进一步提升自己的vue使用水平。<br>
+该案例来源于慕课网的教程，根据这门课程，做了一些总结和分析，进一步提升自己的vue使用水平。<br>
 
 在文件夹目录中，[cart.html](https://github.com/CruxF/Vue-base/blob/master/vue-cart/cart.html)和[address](https://github.com/CruxF/Vue-base/blob/master/vue-cart/address.html)为原始代码，没有做过任何的修改，可以在充分理解该门课程下，自己动手实现一遍案例中的功能。因为vue-resource已经不被推荐使用，于是我用了axios替代了vue-resource来获取json中的数据。<br>
 
@@ -226,9 +226,9 @@ checkAll: function (flag) {
 费了好长段时间，终于分析完了，[点击查看演示](https://cruxf.github.io/Vue-base/vue-cart/cart01.html)。之前断断续续看了几遍视频，却总是不明就里，原来是过于浮躁，急于求成，导致浪费很多时间。其实对于技术，我现在才明白：不努力去理解代码，那么敲再多、敲再久能力也不会有任何的提高。<br><br>
 
 
-# 3、Vue2.5 => Vue2.5入门基础
+# 3、Vue2.5 => [Vue2.5入门基础](https://www.imooc.com/learn/694)
 
-这是慕课网的课程，详情请戳[Vue2.5入门](https://www.imooc.com/learn/694)，非常好的一门课程，让我对Vue基础且重要的某些知识有了进一步的认识与理解，在[这份源码中](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5?1524482350894&1524482361361)，[test.html](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5/test.html)是使用最原始的方式进行编写的，粘贴复制能够直接运行，剩下的就是通过vue-cli来实现的，至于该如何运行vue-cli构建的项目呢，大家自行上网百度一下，下面请看我的一些总结。
+这是慕课网非常好的一门课程，让我对Vue基础且重要的某些知识有了进一步的认识与理解，在[这份源码中](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5?1524482350894&1524482361361)，[test.html](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5/test.html)是使用最原始的方式进行编写的，粘贴复制能够直接运行，剩下的就是通过vue-cli来实现的，至于该如何运行vue-cli构建的项目呢，大家自行上网百度一下，下面请看我的一些总结。
 
 #### 1、TodoList增加功能实现思路
 由于数据是从一个数组里面遍历出来的，因此我们一开始就能够确定的就是需要定义一个数组和一个数据。那么该如何将每一条数据增加进数组里面然后再遍历出来呢？从这里我们就可以想到需要定义一个触发增加的事件（键盘事件或者鼠标事件），这个事件的内部逻辑很简单，就是获得页面双向绑定的数据，然后将该数据增加到数组中，这么一想，整个实现流程就很明朗了。
@@ -251,7 +251,9 @@ checkAll: function (flag) {
 [戳这里查看演示](https://cruxf.github.io/IMOOC/Vue/Vue2.5/test.html)<br><br>
 
 
-## 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
+# 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
+
+### 前言
 
 这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么多的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
 
