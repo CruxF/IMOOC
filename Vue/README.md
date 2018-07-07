@@ -248,7 +248,7 @@ checkAll: function (flag) {
 当子组件某个事件被触发时，那么子组件内部就会发布一个自定义事件和相对应的参数；此时父组件监听(也称为订阅)子组件自定义的事件，当该自定义事件被触发的时候,则在父组件里调用一个方法，实现删除的功能。
 
 **备注**：如果不在子组件添加对应的参数index，那么结果会是如何呢？如果在模板中这么定义:@delete="handleDelete()"会发生什么情况呢？为什么？该如何修改才能达到这么定义:@delete="handleDelete"的效果？
-[戳这里查看演示](https://cruxf.github.io/IMOOC/Vue/Vue2.5/test.html)
+[戳这里查看演示](https://cruxf.github.io/IMOOC/Vue/Vue2.5/test.html)<br><br>
 
 
 ## 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
