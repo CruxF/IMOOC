@@ -255,9 +255,9 @@ checkAll: function (flag) {
 
 这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么多的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
 
-对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)，以及一些相关webpack[配置文件的注释](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/webpack.config.js)。下面简单分析下业务逻辑的代码。
+对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)，以及一些相关webpack[配置文件的注释](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/webpack.config.js)。下面简单分析下业务逻辑的代码。<br>
 
-**todo组件**
+**todo组件**<br>
 该demo的主要业务在于todo.vue这个组件，而这个组件中又包含了两个子组件，下面是todo.vue组件的结构组成代码
 ```
 <template>
@@ -281,7 +281,8 @@ addTodo(e) {
 }
 ```
 
-**item组件**
+
+**item组件**<br>
 接下来就是item这个组件，比较简单。它的作用是接收todo.vue这个父组件传过来的数据，然后呈现出这些数据，记得这些数据是来自`v-for="todo in filteredTodos"`这里。通过v-model指令在input元素中特性更改todo.completed这个值是为true还是为false，从而达到样式的改变。并且在这个子组件中，当我们点击删除的时候，会派发一个事件到父组件，同时传递参数。下面请看核心代码
 ```
 <template>
@@ -323,7 +324,7 @@ computed: {
   }
 },
 ```
-当filter的值等于all的时候，那么就向item组件传递所有数据；当filter的值等于completed的时候，那么就向item组件传递已经完成的数据。其中在过滤函数（filter）中，Obj代表的是todos这个数组对象。<br>
+当filter的值等于all的时候，那么就向item组件传递所有数据；当filter的值等于completed的时候，那么就向item组件传递已经完成的数据。其中在过滤函数（filter）中，Obj代表的是todos这个数组对象。<br><br>
 
 继续item组件派发出来的一个删除事件，直接看源码
 ```
@@ -336,7 +337,7 @@ deleteTodo(id) {
 即当子组件item中的deleteTodo方法被触发的时候，那么在父组件todo中这个del事件就会被触发，那么父组件中的这个deleteTodo方法就会被执行，删除对应的数据。<br>
 
 
-**tabs组件**
+**tabs组件**<br>
 这个组件是最为复杂的组件，同时也是最重要的，父组件todo向这个子组件中传递了两个参数todos[]数组和filter状态码。下面请看代码
 ```
 <template>
@@ -391,9 +392,9 @@ export default {
 }
 </script>
 ```
-关于删除和遍历数据的解读，应该是没必要了。因为和之前的解读类似，下面具体来解析下当点击了active按钮，数据的改变流程
-1、在子组件中点击active这个按钮，那么子组件的toggleFilter方法被调用，state值（active）被派发出去；
-2、在父组件中，监听到子组件的事件被触发，那么父组件的toggleFilter被调用，父组件的filter值被赋值为‘actibve’；
+关于删除和遍历数据的解读，应该是没必要了。因为和之前的解读类似，下面具体来解析下当点击了active按钮，数据的改变流程<br>
+1、在子组件中点击active这个按钮，那么子组件的toggleFilter方法被调用，state值（active）被派发出去；<br>
+2、在父组件中，监听到子组件的事件被触发，那么父组件的toggleFilter被调用，父组件的filter值被赋值为‘actibve’；<br>
 3、在父组件中的计算属性内，`const completed = (this.filter === 'completed')`为false，那么在这段代码中
 ```
 const completed = (this.filter === 'completed')
@@ -401,8 +402,8 @@ return this.todos.filter(function(Obj) {
   return completed === Obj.completed
 })
 ```
-什么时候`completed === Obj.completed`为ture呢，就是当父组件内todos数组对象中completed为fase的时候，也就是任务没被完成的状态。我知道本意不是这样的，但是大概意思就是那样，可以把state值为completed代入再重新捋一捋思路，那么应该就清晰明了。下面是该项目的运行效果
-[点我查看效果](https://cruxf.github.io/IMOOC/Vue/JokcyVueTodo/index.html)
+什么时候`completed === Obj.completed`为ture呢，就是当父组件内todos数组对象中completed为fase的时候，也就是任务没被完成的状态。我知道本意不是这样的，但是大概意思就是那样，可以把state值为completed代入再重新捋一捋思路，那么应该就清晰明了。下面是该项目的运行效果<br>
+[点我查看效果](https://cruxf.github.io/IMOOC/Vue/JokcyVueTodo/index.html)<br>
 
 ### 尾声
 讲师实在是牛批的不行，佩服，同时也感谢他带我跨进了一道门，代码，真的是有意思。<br><br>
