@@ -392,12 +392,22 @@ export default {
 </script>
 ```
 关于删除和遍历数据的解读，应该是没必要了。因为和之前的解读类似，下面具体来解析下当点击了active按钮，数据的改变流程
-
-
-
-
-
+1、在子组件中点击active这个按钮，那么子组件的toggleFilter方法被调用，state值（active）被派发出去；
+2、在父组件中，监听到子组件的事件被触发，那么父组件的toggleFilter被调用，父组件的filter值被赋值为‘actibve’；
+3、在父组件中的计算属性内，`const completed = (this.filter === 'completed')`为false，那么在这段代码中
+```
+const completed = (this.filter === 'completed')
+return this.todos.filter(function(Obj) {
+  return completed === Obj.completed
+})
+```
+什么时候`completed === Obj.completed`为ture呢，就是当父组件内todos数组对象中completed为fase的时候，也就是任务没被完成的状态。我知道本意不是这样的，但是大概意思就是那样，可以把state值为completed代入再重新捋一捋思路，那么应该就清晰明了。下面是该项目的运行效果
 [点我查看效果](https://cruxf.github.io/IMOOC/Vue/JokcyVueTodo/index.html)
+
+### 尾声
+讲师实在是牛批的不行，佩服，同时也感谢他带我跨进了一道门，代码，真的是有意思。<br><br>
+
+
 
 
 
