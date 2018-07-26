@@ -251,7 +251,17 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 # 12、WebMobile => 移动web开发适配秘籍Rem
 
-适合入门响应式设计和简单的移动端适配，学习了这门课程，我记录了一些课程的笔记，以及最后案例是如何开发出来的详细步骤，[请点击这里](https://github.com/CruxF/IMOOC/issues/3)
+这是一节适合入门响应式设计和简单的移动端适配的课程。学习了这门课程，我记录了一些课程的笔记，以及最后案例是如何开发出来的详细步骤，[请点击这里](https://github.com/CruxF/IMOOC/issues/3)<br>
+
+如果想直接看效果的话，那么[点我呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebMoblie/index.html)<br><br>
+
+
+# 13、PositionDemo => [Css定位position](https://www.imooc.com/learn/931)
+
+这是一门十分基础的课程，但是却是相当重要。要想正确完美的布局网页内容，这是必须要掌握的知识，为此我特意花了些时间做了相关的笔记，进一步巩固自己的基础知识，[这是笔记传送门](https://github.com/CruxF/IMOOC/issues/6)<br>
+
+然后就是根据课程最后一节内容，自己捣鼓了一个小demo出来，有兴趣的话可以[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/PositionDemo/index.html)<br><br>
+
 
 
 
