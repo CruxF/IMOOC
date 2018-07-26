@@ -3,9 +3,9 @@
 为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
-# 1、VueBase => Vue.js入门基础
+# 1、VueBase => [Vue.js入门基础](https://www.imooc.com/learn/694)
 
-这是慕课网一门古老的[Vue入门课程](https://www.imooc.com/learn/694)，然而在里面能够学习的东东还是十分多的，比如数据绑定，组件传参和localstorage等。下面引出三道基础的Vue面试题：
+这是慕课网一门古老的Vue入门课程，然而在里面能够学习的东东还是十分多的，比如数据绑定，组件传参和localstorage等。下面引出三道基础的Vue面试题：
 
 - v-if和v-show的区别是什么？
 - v-html和v-text的区别是什么？
@@ -97,11 +97,11 @@
 - 运行：npm run dev
 
 
-# 2、vue-cart => 实现购物车和地址选配功能
+# 2、vue-cart => [使用Vue2.0实现购物车和地址选配功能](https://www.imooc.com/learn/796)
 
 ### 前言
 
-该案例来源于慕课网的教程[使用vue2.0实现购物车和地址选配功能](https://www.imooc.com/learn/796)。根据这门课程，做了一些总结和分析，进一步提升自己的vue使用水平。<br>
+该案例来源于慕课网的教程，根据这门课程，做了一些总结和分析，进一步提升自己的vue使用水平。<br>
 
 在文件夹目录中，[cart.html](https://github.com/CruxF/Vue-base/blob/master/vue-cart/cart.html)和[address](https://github.com/CruxF/Vue-base/blob/master/vue-cart/address.html)为原始代码，没有做过任何的修改，可以在充分理解该门课程下，自己动手实现一遍案例中的功能。因为vue-resource已经不被推荐使用，于是我用了axios替代了vue-resource来获取json中的数据。<br>
 
@@ -226,9 +226,9 @@ checkAll: function (flag) {
 费了好长段时间，终于分析完了，[点击查看演示](https://cruxf.github.io/Vue-base/vue-cart/cart01.html)。之前断断续续看了几遍视频，却总是不明就里，原来是过于浮躁，急于求成，导致浪费很多时间。其实对于技术，我现在才明白：不努力去理解代码，那么敲再多、敲再久能力也不会有任何的提高。<br><br>
 
 
-# 3、Vue2.5 => Vue2.5入门基础
+# 3、Vue2.5 => [Vue2.5入门基础](https://www.imooc.com/learn/694)
 
-这是慕课网的课程，详情请戳[Vue2.5入门](https://www.imooc.com/learn/694)，非常好的一门课程，让我对Vue基础且重要的某些知识有了进一步的认识与理解，在[这份源码中](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5?1524482350894&1524482361361)，[test.html](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5/test.html)是使用最原始的方式进行编写的，粘贴复制能够直接运行，剩下的就是通过vue-cli来实现的，至于该如何运行vue-cli构建的项目呢，大家自行上网百度一下，下面请看我的一些总结。
+这是慕课网非常好的一门课程，让我对Vue基础且重要的某些知识有了进一步的认识与理解，在[这份源码中](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5?1524482350894&1524482361361)，[test.html](https://github.com/CruxF/IMOOC/tree/master/Vue/Vue2.5/test.html)是使用最原始的方式进行编写的，粘贴复制能够直接运行，剩下的就是通过vue-cli来实现的，至于该如何运行vue-cli构建的项目呢，大家自行上网百度一下，下面请看我的一些总结。
 
 #### 1、TodoList增加功能实现思路
 由于数据是从一个数组里面遍历出来的，因此我们一开始就能够确定的就是需要定义一个数组和一个数据。那么该如何将每一条数据增加进数组里面然后再遍历出来呢？从这里我们就可以想到需要定义一个触发增加的事件（键盘事件或者鼠标事件），这个事件的内部逻辑很简单，就是获得页面双向绑定的数据，然后将该数据增加到数组中，这么一想，整个实现流程就很明朗了。
@@ -248,14 +248,167 @@ checkAll: function (flag) {
 当子组件某个事件被触发时，那么子组件内部就会发布一个自定义事件和相对应的参数；此时父组件监听(也称为订阅)子组件自定义的事件，当该自定义事件被触发的时候,则在父组件里调用一个方法，实现删除的功能。
 
 **备注**：如果不在子组件添加对应的参数index，那么结果会是如何呢？如果在模板中这么定义:@delete="handleDelete()"会发生什么情况呢？为什么？该如何修改才能达到这么定义:@delete="handleDelete"的效果？
-[戳这里查看演示](https://cruxf.github.io/IMOOC/Vue/Vue2.5/test.html)
+[戳这里查看演示](https://cruxf.github.io/IMOOC/Vue/Vue2.5/test.html)<br><br>
 
 
-## 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
+# 4、JokcyVueTodo => [Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)
 
-这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
+### 前言
 
-对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)。下面简单分析下业务逻辑的代码。
+这节课程，该怎么说呢？该如何说呢？讲师为我打开了一扇门，一扇何为架构师的门。讲师真的是能力超群，我看了好几遍，依然觉得懵逼，其中蕴含的编程思想和思维逻辑真的是能让人大脑炸裂，仅仅是一个小demo，就包含这么多的精华和亮点，不敢想象，要是一个项目，该是一副怎样的情景，自己还是太菜了，需好好努力。
+
+对于课程中webpack相关配置，我完全不知道如何说起，这是一个webpack基础的问题，同时也是你的架构能力和编程经验的问题，所以暂时不说先，如果非要扯一点的话，那么请看我的一些杂乱无章的[笔记](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/%E8%AF%B4%E6%98%8E.txt)，以及一些相关webpack[配置文件的注释](https://github.com/CruxF/IMOOC/blob/master/Vue/JokcyVueTodo/webpack.config.js)。下面简单分析下业务逻辑的代码。<br>
+
+**todo组件**<br>
+该demo的主要业务在于todo.vue这个组件，而这个组件中又包含了两个子组件，下面是todo.vue组件的结构组成代码
+```
+<template>
+  <section class="real-app">
+    <input type="text" class="add-input" autofocus="autofocus" placeholder="接下去要做什么？" @keyup.enter="addTodo">
+    <item :todo="todo" v-for="todo in filteredTodos" :key="todo.id" @del="deleteTodo" />
+    <tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearAllCompleted="clearAllCompleted" />
+  </section>
+</template>
+```
+
+我们先分析一下input元素到底做了什么。它的作用很简单，就是按下回车键（enter）的时候往一个数组里面添加数据，这个数据是一个对象，里面包含了三个属性，分别是id、content和completed，下面来看核心代码
+```
+addTodo(e) {
+  this.todos.unshift({
+    id: id++,
+    content: e.target.value.trim(),
+    completed: false
+  })
+  e.target.value = ''
+}
+```
+
+
+**item组件**<br>
+接下来就是item这个组件，比较简单。它的作用是接收todo.vue这个父组件传过来的数据，然后呈现出这些数据，记得这些数据是来自`v-for="todo in filteredTodos"`这里。通过v-model指令在input元素中特性更改todo.completed这个值是为true还是为false，从而达到样式的改变。并且在这个子组件中，当我们点击删除的时候，会派发一个事件到父组件，同时传递参数。下面请看核心代码
+```
+<template>
+  <div :class="['todo-item', todo.completed ? 'completed' : '']">
+    <input type="checkbox" class="toggle" v-model="todo.completed">
+    <label>{{todo.content}}</label>
+    <button class="destory" @click="deleteTodo"></button>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      todo: {
+        type: Object,
+        required: true,
+      }
+    },
+    methods: {
+      deleteTodo() {
+        this.$emit('del', this.todo.id)
+      }
+    }
+  }
+</script>
+```
+
+对于在父组件中的这个计算属性也不得不看，属于重点内容。可能看视频会挺懵的，但是换成下面那种写法应该很好理解
+```
+computed: {
+  filteredTodos() {
+    if(this.filter === 'all') {
+      return this.todos
+    }
+    const completed = (this.filter === 'completed')
+    return this.todos.filter(function(Obj) {
+      return completed === Obj.completed
+    })
+  }
+},
+```
+当filter的值等于all的时候，那么就向item组件传递所有数据；当filter的值等于completed的时候，那么就向item组件传递已经完成的数据。其中在过滤函数（filter）中，Obj代表的是todos这个数组对象。<br><br>
+
+继续item组件派发出来的一个删除事件，直接看源码
+```
+deleteTodo(id) {
+  this.todos.splice(this.todos.findIndex(function(Obj) {
+    return Obj.id === id
+  }), 1)
+},
+```
+即当子组件item中的deleteTodo方法被触发的时候，那么在父组件todo中这个del事件就会被触发，那么父组件中的这个deleteTodo方法就会被执行，删除对应的数据。<br>
+
+
+**tabs组件**<br>
+这个组件是最为复杂的组件，同时也是最重要的，父组件todo向这个子组件中传递了两个参数todos[]数组和filter状态码。下面请看代码
+```
+<template>
+  <div class="helper">
+    <span class="left">{{unFinishedTodoLength}} items left</span>
+    <span class="tabs">
+      <span
+        v-for="state in states"
+        :key="state"
+        :class="[state, filter === state ? 'actived' : '']"
+        @click="toggleFilter(state)"
+      >
+        {{state}}
+      </span>
+    </span>
+    <span class="clear" @click="clearAllCompleted">Clear Completed</span>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    filter: {
+      type: String,
+      required: true,
+    },
+    todos: {
+      type: Array,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      states: ['all', 'active', 'completed']
+    }
+  },
+  computed: {
+    unFinishedTodoLength() {
+      return this.todos.filter(function(Obj){
+      	return !Obj.completed
+      }).length
+    }
+  },
+  methods: {
+    clearAllCompleted() {
+      this.$emit('clearAllCompleted')
+    },
+    toggleFilter(state) {
+      this.$emit('toggle', state)
+    }
+  }
+}
+</script>
+```
+关于删除和遍历数据的解读，应该是没必要了。因为和之前的解读类似，下面具体来解析下当点击了active按钮，数据的改变流程<br>
+1、在子组件中点击active这个按钮，那么子组件的toggleFilter方法被调用，state值（active）被派发出去；<br>
+2、在父组件中，监听到子组件的事件被触发，那么父组件的toggleFilter被调用，父组件的filter值被赋值为‘actibve’；<br>
+3、在父组件中的计算属性内，`const completed = (this.filter === 'completed')`为false，那么在这段代码中
+```
+const completed = (this.filter === 'completed')
+return this.todos.filter(function(Obj) {
+  return completed === Obj.completed
+})
+```
+什么时候`completed === Obj.completed`为ture呢，就是当父组件内todos数组对象中completed为fase的时候，也就是任务没被完成的状态。我知道本意不是这样的，但是大概意思就是那样，可以把state值为completed代入再重新捋一捋思路，那么应该就清晰明了。下面是该项目的运行效果<br>
+[点我查看效果](https://cruxf.github.io/IMOOC/Vue/JokcyVueTodo/index.html)<br>
+
+### 尾声
+讲师实在是牛批的不行，佩服，同时也感谢他带我跨进了一道门，代码，真的是有意思。<br><br>
 
 
 
