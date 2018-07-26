@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      html, body, ul {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        list-style: none;
+      }
+      span {
+        display: block;
+      }
+      .nav {
+        width: 100px;
+        height: auto;
+        margin: 100px auto;
+      }
+      .first-ul li {
+        background-color: brown;
+        text-align: center;
+        color: #fff;
+        display: block;
+        border-bottom: 1px solid #ccc;
+        line-height: 40px;
+      }
+      .first-ul li:hover {
+        cursor: pointer;
+        color: darkgreen;
+      }
+      .first-ul li:hover .second-ul {
+        display: block;
+        cursor: pointer;
+        opacity: .8;
+      }
+      .second-ul {
+        display: none;
+        position: relative;
+      }
+      .second-ul li {
+        background-color: burlywood;
+        color: black;
+        text-align: left;
+        border-bottom: 1px solid rosybrown;
+        padding-left: 5px;
+      }
+      .second-ul li:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+      .second-ul li:hover .third-ul{
+      	display: block;
+        cursor: pointer;
+        opacity: .8;
+      }
+      .third-ul {
+      	display: none;
+      	position: absolute;
+      	left: 100px;
+      	top: 0;
+      }
+      .third-ul li {
+      	background-color: cornflowerblue;
+        color: black;
+        text-align: center;
+        border-bottom: 1px solid rosybrown;
+        width: 100px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <ul class="first-ul">
+        <li>
+          <span>服装</span>
+          <ul class="second-ul">
+            <li>
+              <span>T恤</span>
+              <ul class="third-ul">
+                <li>短T</li>
+                <li>长T</li>
+                <li>杀马特T</li>
+              </ul>
+            </li>
+            <li><span>衬衫</span></li>
+            <li><span>毛衣</span></li>
+            <li><span>牛仔裤</span></li>
+          </ul>
+        </li>
+        <li>
+          <span>家电</span>
+          <ul class="second-ul">
+            <li><span>电视机</span></li>
+            <li><span>洗衣机</span></li>
+            <li><span>空调</span></li>
+            <li><span>油烟机</span></li>
+          </ul>
+        </li>
+        <li>
+          <span>汽车</span>
+          <ul class="second-ul">
+            <li><span>宝马</span></li>
+            <li><span>奔驰</span></li>
+            <li><span>吉利</span></li>
+            <li><span>法拉利</span></li>
+          </ul>
+        </li>
+        <li>
+          <span>运动器材</span>
+        </li>
+        <li>
+          <span>鞋子</span>          
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
