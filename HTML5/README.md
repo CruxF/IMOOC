@@ -364,7 +364,9 @@ Page({
 这个章节是实现小鱼身体逐渐变白的功能，思路也之前小鱼摆尾、小鱼眨眼一样，通过每一帧的变化来改变图片，核心代码为[main1-4.js]()和[baby1-4.js]()。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-4.html)<br><br>
 
-
+### 章节2-1
+这个章节实现大鱼接近小鱼而改变小鱼身体颜色的功能，代码简单，容易理解，核心代码为[main2-1.js]()和[collision2-1.js]()。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-1.html)<br><br>
 
 
 
