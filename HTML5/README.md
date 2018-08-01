@@ -372,7 +372,9 @@ Page({
 这个章节实现了大鱼的尾巴摆动功能，跟小鱼摆尾实现思路一样，具体分析看核心代码[main2-2.js]()和[mom2-2.js]()就好了。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-2.html)<br><br>
 
-
+### 章节2-3
+这个章节实现了大鱼眨眼睛的功能，完全是小鱼眨眼睛的翻版，具体分析看核心代码[main2-3.js]()和[mom2-3.js]()就好了。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-3.html)<br><br>
 
 
 
