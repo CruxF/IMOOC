@@ -333,6 +333,24 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-8.html)<br><br>
 
 ### 章节2-9
+该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为main2-9.js、collision2-9.js和fruit2-9.js，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-9.html)<br><br>
+
+### 章节2-10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
