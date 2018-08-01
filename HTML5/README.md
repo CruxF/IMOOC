@@ -337,12 +337,15 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-9.html)<br><br>
 
 ### 章节2-10
+该章节代码作用十分简单明了，只有一行，目的就是解决切换网页的时候deltaTime变量无限变大。只要加这么一行代码`if(deltaTime > 40) deltaTime = 40`，该问题就得到了解决，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-10.html)<br><br>
 
+### 章节2-11
+最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为main2-11.js和baby2-11.js，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-11.html)<br><br>
 
-
-
-
-
+### 尾声
+经过之前一段十分困难的代码分析过程，现在面对这种程度的课程不会感到有太大的压力。然而在这学习的过程中还是发现了自己技术上的不足和思维上的短板，接下来得好好加油了。
 
 
 
