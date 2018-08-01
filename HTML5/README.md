@@ -360,7 +360,9 @@ Page({
 这个章节是实现小鱼眨眼睛的功能，思路和实现鱼尾摆动一样，核心代码为[main1-3.js]()和[baby1-3.js]()，解析都在源码的注释中，好好读，认真读，下面请直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-3.html)<br><br>
 
-
+### 章节1-4
+这个章节是实现小鱼身体逐渐变白的功能，思路也之前小鱼摆尾、小鱼眨眼一样，通过每一帧的变化来改变图片，核心代码为[main1-4.js]()和[baby1-4.js]()。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-4.html)<br><br>
 
 
 
