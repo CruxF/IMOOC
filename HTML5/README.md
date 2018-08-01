@@ -299,20 +299,30 @@ Page({
 ### 尾声
 以上就是我所做的一些总结，源码都在[这里](https://github.com/CruxF/IMOOC/tree/master/HTML5/FirstWxPro?1528811143397)，有疑问的可以加我慕课账号（Zz皓）私信聊。<br><br>
 
-
+ 
 # 2、H5Game => [H5小游戏-爱心鱼（上）](https://www.imooc.com/learn/515)
 
 就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力根本看不太明白其中的代码精髓，只能略尽微薄之力将课程章节代码进行整理一番，让有缘人更好的去品位这门课程，下面进入正文。<br>
 
 ### 章节2-1
 该章节代码作用就是绘制动画的背景图片，为了更好的管理代码，采用了模块化的开发方式，核心主要是main2-1.js代码和background2-1.js代码。要看懂这两份代码不难，难的地方是理解gameloop()这个函数发挥的作用，这个我也不太懂，下面直接看该章节的代码效果<br>
-[点击查看效果](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-1.html)<br><br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-1.html)<br><br>
 
 ### 章节2-3
 该章节代码的作用是绘制静态海葵，在这份的源码中，主要的是main2-3.js代码和ane2-3.js，内部我做了大量的注释，这有可能会帮助到你更好的理解这节课程内容。下面我们一起来看看该章节的代码效果<br>
-[点击查看效果](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-3.html)<br><br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-3.html)<br><br>
 
 ### 章节2-4
+该章节代码作用是绘制由海葵产出的果实，核心代码是ane2-3.js、main2-4.js和fruit2-4.js，还是和上面两个章节一样，在代码内部做了大量的注释，有兴趣的请前往进行查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-4.html)<br><br>
+
+### 其他
+由于接下来的
+
+
+
+
+
 
 
 
