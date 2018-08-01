@@ -316,10 +316,13 @@ Page({
 该章节代码作用是绘制由海葵产出的果实，核心代码是ane2-3.js、main2-4.js和fruit2-4.js，还是和上面两个章节一样，在代码内部做了大量的注释，有兴趣的请前往进行查看，下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-4.html)<br><br>
 
-### 其他
-由于接下来的
+### 章节2-5
+该章节代码挺容易理解的，就是改变果实的高度、隐藏果实以及改变果实的大小，核心代码只有一个fruit2-5.js，和之前一样，分析都在内部代码的注释中，请前往查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-5.html)<br><br>
 
-
+### 章节2-6
+该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-6.html)<br><br>
 
 
 
