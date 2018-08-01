@@ -302,38 +302,38 @@ Page({
  
 # 2、H5Game => [H5小游戏-爱心鱼（上）](https://www.imooc.com/learn/515)
 
-就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力根本看不太明白其中的代码精髓，只能略尽微薄之力将课程章节代码进行整理一番，让有缘人更好的去品位这门课程，下面进入正文。<br>
+就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力对这种程度的课程还是没有办法进行更好的解读，只是心理上不会感到太大的压力，只能略尽微薄之力将课程章节代码进行整理一番，增加了大量的代码注释，让有缘人更好的去品位这门课程，下面进入正文。<br>
 
 ### 章节2-1
-该章节代码作用就是绘制动画的背景图片，为了更好的管理代码，采用了模块化的开发方式，核心主要是main2-1.js代码和background2-1.js代码。要看懂这两份代码不难，难的地方是理解gameloop()这个函数发挥的作用，这个我也不太懂，下面直接看该章节的代码效果<br>
+该章节代码作用就是绘制动画的背景图片，为了更好的管理代码，采用了模块化的开发方式，核心主要是[main2-1.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-1.js)代码和[background2-1.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/background2-1.js)代码。要看懂这两份代码不难，难的地方是理解gameloop()这个函数发挥的作用，这个我也不太懂，下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-1.html)<br><br>
 
 ### 章节2-3
-该章节代码的作用是绘制静态海葵，在这份的源码中，主要的是main2-3.js代码和ane2-3.js，内部我做了大量的注释，这有可能会帮助到你更好的理解这节课程内容。下面我们一起来看看该章节的代码效果<br>
+该章节代码的作用是绘制静态海葵，在这份的源码中，主要的是[main2-3.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-3.js)代码和[ane2-3.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/ane2-3.js)，内部我做了大量的注释，这有可能会帮助到你更好的理解这节课程内容。下面我们一起来看看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-3.html)<br><br>
 
 ### 章节2-4
-该章节代码作用是绘制由海葵产出的果实，核心代码是ane2-3.js、main2-4.js和fruit2-4.js，还是和上面两个章节一样，在代码内部做了大量的注释，有兴趣的请前往进行查看，下面直接看该章节的代码效果<br>
+该章节代码作用是绘制由海葵产出的果实，核心代码是[ane2-3.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/ane2-3.js)、[main2-4.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-4.js)和[fruit2-4.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-4.js)，还是和上面两个章节一样，在代码内部做了大量的注释，有兴趣的请前往进行查看，下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-4.html)<br><br>
 
 ### 章节2-5
-该章节代码挺容易理解的，就是改变果实的高度、隐藏果实以及改变果实的大小，核心代码只有一个fruit2-5.js，和之前一样，分析都在内部代码的注释中，请前往查看，下面直接看该章节的代码效果<br>
+该章节代码挺容易理解的，就是改变果实的高度、隐藏果实以及改变果实的大小，核心代码只有一个[fruit2-5.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-5.js)，和之前一样，分析都在内部代码的注释中，请前往查看，下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-5.html)<br><br>
 
 ### 章节2-6
-该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果<br>
+该章节代码作用是不断重复且随机绘制果实，核心代码为[fruit2-6.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-6.js)，分析都在内部代码的注释中。下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-6.html)<br><br>
 
 ### 章节2-7
-该章节代码作用是绘制大鱼，在这节课程中很多人无法显示绘制出来的大鱼，也没有代码错误，经过我一番研究发现，原来问题出现在mian.js这个文件中，我们需要先执行这段代码`ctx1.clearRect(0, 0, canWidth, canHeight)`，再来执行`mom.draw()`。原因在该节课程的问答中有提到，有兴趣的可以前往观看。这个章节的核心代码为main2-7.js和mom2-7.js，具体分析同样在内部代码的注释中，下面请看该章节的代码效果<br>
+该章节代码作用是绘制大鱼，在这节课程中很多人无法显示绘制出来的大鱼，也没有代码错误，经过我一番研究发现，原来问题出现在mian.js这个文件中，我们需要先执行这段代码`ctx1.clearRect(0, 0, canWidth, canHeight)`，再来执行`mom.draw()`。原因在该节课程的问答中有提到，有兴趣的可以前往观看。这个章节的核心代码为[main2-7.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-7.js)和[mom2-7.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/mom2-7.js)，具体分析同样在内部代码的注释中，下面请看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-7.html)<br><br>
 
 ### 章节2-8
-该章节代码作用是让大鱼跟着鼠标的移动而移动，其中有很多封装好的方法，涉及到算法，这个是我目前的弱点，因此就不细说了，以免误人子弟。不过我仍然在核心代码main2-8.js和mom2-8.js中做了大量的注释，有兴趣的请前往查看，下面直接看该章节的代码效果<br>
+该章节代码作用是让大鱼跟着鼠标的移动而移动，其中有很多封装好的方法，涉及到算法，这个是我目前的弱点，因此就不细说了，以免误人子弟。不过我仍然在核心代码[main2-8.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-8.js)和[mom2-8.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/mom2-8.js)中做了大量的注释，有兴趣的请前往查看，下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-8.html)<br><br>
 
 ### 章节2-9
-该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为main2-9.js、collision2-9.js和fruit2-9.js，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
+该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为[main2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-9.js)、[collision2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/collision2-9.js)和[fruit2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-9.js)，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-9.html)<br><br>
 
 ### 章节2-10
@@ -341,7 +341,7 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-10.html)<br><br>
 
 ### 章节2-11
-最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为main2-11.js和baby2-11.js，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果
+最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为[main2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-11.js)和[baby2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/baby2-11.js)，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-11.html)<br><br>
 
 ### 尾声
