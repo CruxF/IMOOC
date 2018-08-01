@@ -1,4 +1,4 @@
-var babyObj = function() {
+﻿var babyObj = function() {
   this.x
   this.y
   this.angle
@@ -11,7 +11,7 @@ babyObj.prototype.init = function() {
   this.x = canWidth * 0.5 - 50
   // this.y = 350
   this.y = canHeight * 0.5 + 50
-  // 大鱼初始角度为0
+  // 小鱼初始角度为0
   this.angle = 0
   this.babyEye.src = './img/babyEye0.png'
   this.babyBody.src = './img/babyFade0.png'
@@ -22,7 +22,7 @@ babyObj.prototype.draw = function() {
   // (this.x - mom.x)*0.98 + mom.x
   this.x = lerpDistance(mom.x, this.x, 0.98)
   this.y = lerpDistance(mom.y, this.y, 0.98)
-  // 实现大鱼头部转弯
+  // 实现小鱼头部转弯
   var deltaY = mom.y - this.y
   var deltaX = mom.x - this.x
   // atan2()方法可返回数字的反正切值,返回的值表示坐标（x，y）与 X轴之间的角度的弧度。
