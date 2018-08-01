@@ -9,10 +9,10 @@
 
 起步过于简单，在这不说明，请直接到[官方网站](https://developers.weixin.qq.com/miniprogram/dev/)开启自己的小程序之旅，下面整理一些自己认为重要的知识点。<br>
 
-### 1、全局配置文件
+### 全局配置文件
 app.json文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等，具体的请[点击这里](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)<br>
 
-### 2、swiper组件的使用
+### swiper组件的使用
 [这个组件](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html?search-key=swiper)是比较常用的，说它比较重要，不仅仅是因为它的常用性，也因为它的栗子有十分好的借鉴性。<br>
 
 结构代码<br>
@@ -45,7 +45,7 @@ Page({
 ```
 说这个组件的使用具有借鉴性是因为将属性和属性值完全分离了来进行管理，在一定程度上来说，这是十分好的一种方式，结构代码和脚本代码分离便于管理和维护。<br>
 
-### 3、调用数据的三种方式
+### 调用数据的三种方式
 在小程序中，一共有三种调用数据的方式，其中一种是调用后台数据，另外两种是调用本地数据，现在我们先来看一看最简单的本地数据调用方式：
 ```
 // 定义本地脚本数据
@@ -133,7 +133,7 @@ Page({
 <view class='pro-item' wx:for="{{proList}}" wx:key=""></view>
 ```
 
-### 4、组件之间的三种传值方式
+### 组件之间的三种传值方式
 一说到组件传值，相信有经验的开发人员都知道它的重要性，下面简单的来看看三种传值方式的代码。<br>
 
 第一种：全局传值<br>
@@ -264,7 +264,7 @@ Page({
 ```
 
 
-### 5、基础库兼容
+### 基础库兼容
 这个东西其实也不是太重要，知道有个玩意，以及如何去判断和解决就行，下面看代码：
 ```
 Page({
@@ -297,7 +297,62 @@ Page({
 ```
 
 ### 尾声
-以上就是我所做的一些总结，源码都在[这里](https://github.com/CruxF/IMOOC/tree/master/HTML5/FirstWxPro?1528811143397)，有疑问的可以加我慕课账号（Zz皓）私信聊。
+以上就是我所做的一些总结，源码都在[这里](https://github.com/CruxF/IMOOC/tree/master/HTML5/FirstWxPro?1528811143397)，有疑问的可以加我慕课账号（Zz皓）私信聊。<br><br>
+
+ 
+# 2、H5Game => [H5小游戏-爱心鱼（上）](https://www.imooc.com/learn/515)
+
+就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力根本看不太明白其中的代码精髓，只能略尽微薄之力将课程章节代码进行整理一番，让有缘人更好的去品位这门课程，下面进入正文。<br>
+
+### 章节2-1
+该章节代码作用就是绘制动画的背景图片，为了更好的管理代码，采用了模块化的开发方式，核心主要是main2-1.js代码和background2-1.js代码。要看懂这两份代码不难，难的地方是理解gameloop()这个函数发挥的作用，这个我也不太懂，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-1.html)<br><br>
+
+### 章节2-3
+该章节代码的作用是绘制静态海葵，在这份的源码中，主要的是main2-3.js代码和ane2-3.js，内部我做了大量的注释，这有可能会帮助到你更好的理解这节课程内容。下面我们一起来看看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-3.html)<br><br>
+
+### 章节2-4
+该章节代码作用是绘制由海葵产出的果实，核心代码是ane2-3.js、main2-4.js和fruit2-4.js，还是和上面两个章节一样，在代码内部做了大量的注释，有兴趣的请前往进行查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-4.html)<br><br>
+
+### 章节2-5
+该章节代码挺容易理解的，就是改变果实的高度、隐藏果实以及改变果实的大小，核心代码只有一个fruit2-5.js，和之前一样，分析都在内部代码的注释中，请前往查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-5.html)<br><br>
+
+### 章节2-6
+该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-6.html)<br><br>
+
+### 章节2-7
+该章节代码作用是绘制大鱼，在这节课程中很多人无法显示绘制出来的大鱼，也没有代码错误，经过我一番研究发现，原来问题出现在mian.js这个文件中，我们需要先执行这段代码`ctx1.clearRect(0, 0, canWidth, canHeight)`，再来执行`mom.draw()`。原因在该节课程的问答中有提到，有兴趣的可以前往观看。这个章节的核心代码为main2-7.js和mom2-7.js，具体分析同样在内部代码的注释中，下面请看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-7.html)<br><br>
+
+### 章节2-8
+该章节代码作用是让大鱼跟着鼠标的移动而移动，其中有很多封装好的方法，涉及到算法，这个是我目前的弱点，因此就不细说了，以免误人子弟。不过我仍然在核心代码main2-8.js和mom2-8.js中做了大量的注释，有兴趣的请前往查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-8.html)<br><br>
+
+### 章节2-9
+该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为main2-9.js、collision2-9.js和fruit2-9.js，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-9.html)<br><br>
+
+### 章节2-10
+该章节代码作用十分简单明了，只有一行，目的就是解决切换网页的时候deltaTime变量无限变大。只要加这么一行代码`if(deltaTime > 40) deltaTime = 40`，该问题就得到了解决，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-10.html)<br><br>
+
+### 章节2-11
+最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为main2-11.js和baby2-11.js，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-11.html)<br><br>
+
+### 尾声
+经过之前一段十分困难的代码分析过程，现在面对这种程度的课程不会感到有太大的压力。然而在这学习的过程中还是发现了自己技术上的不足和思维上的短板，接下来得好好加油了。
+
+
+
+
+
+
+
 
 
 
