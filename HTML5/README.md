@@ -376,6 +376,22 @@ Page({
 这个章节实现了大鱼眨眼睛的功能，完全是小鱼眨眼睛的翻版，具体分析看核心代码[main2-3.js]()和[mom2-3.js]()就好了。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-3.html)<br><br>
 
+### 章节2-4
+这个章节实现了大鱼吃果实后的分数计算功能，思路不是很复杂，首先创建一个存储分数的[data2-4.js]()文件，接着在[collision2-4.js]()文件计算分数，最后在[main2-4.js]()文件中将即时计算的游戏分数绘制出来。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-4.html)<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
