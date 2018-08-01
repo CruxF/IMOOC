@@ -368,6 +368,10 @@ Page({
 这个章节实现大鱼接近小鱼而改变小鱼身体颜色的功能，代码简单，容易理解，核心代码为[main2-1.js]()和[collision2-1.js]()。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-1.html)<br><br>
 
+### 章节2-2
+这个章节实现了大鱼的尾巴摆动功能，跟小鱼摆尾实现思路一样，具体分析看核心代码[main2-2.js]()和[mom2-2.js]()就好了。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-2.html)<br><br>
+
 
 
 
