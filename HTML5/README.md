@@ -333,7 +333,7 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-8.html)<br><br>
 
 ### 章节2-9
-该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为[main2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-9.js)、[collision2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/collision2-9.js和[fruit2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-9.js)，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
+该章节代码作用是创建大鱼吃掉果实的方法，挺容易理解的，核心代码为[main2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-9.js)、[collision2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/collision2-9.js)和[fruit2-9.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/fruit2-9.js)，同样的，具体分析在内部代码的注释中。下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-9.html)<br><br>
 
 ### 章节2-10
@@ -341,7 +341,7 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-10.html)<br><br>
 
 ### 章节2-11
-最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为[main2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-11.js)和[baby2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/baby2-11.js)，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果
+最后一个章节，代码的作用是绘制小鱼，思路和绘制大鱼的思路一致，核心代码为[main2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-11.js)和[baby2-11.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/baby2-11.js)，具体分析在内部代码的注释中，并不是太难理解，慢慢消化，搞清楚每个方法的作用以及代码的逻辑即可。下面直接看最后一个章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-11.html)<br><br>
 
 ### 尾声
