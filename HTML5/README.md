@@ -324,9 +324,15 @@ Page({
 该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-6.html)<br><br>
 
+### 章节2-7
+该章节代码作用是绘制大鱼，在这节课程中很多人无法显示绘制出来的大鱼，也没有代码错误，经过我一番研究发现，原来问题出现在mian.js这个文件中，我们需要先执行这段代码`ctx1.clearRect(0, 0, canWidth, canHeight)`，再来执行`mom.draw()`。原因在该节课程的问答中有提到，有兴趣的可以前往观看。这个章节的核心代码为main2-7.js和mom2-7.js，具体分析同样在内部代码的注释中，下面请看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-7.html)<br><br>
 
+### 章节2-8
+该章节代码作用是让大鱼跟着鼠标的移动而移动，其中有很多封装好的方法，涉及到算法，这个是我目前的弱点，因此就不细说了，以免误人子弟。不过我仍然在核心代码main2-8.js和mom2-8.js中做了大量的注释，有兴趣的请前往查看，下面直接看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-8.html)<br><br>
 
-
+### 章节2-9
 
 
 
