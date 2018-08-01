@@ -1,12 +1,18 @@
 var can1
 var can2
+
 var canWidth
 var canHeight
+
 var ctx1
 var ctx2
-var lastTime // 上一帧的时间
-var deltaTime // 两帧间隔的时间
+
+// 上一帧的时间
+var lastTime
+// 两帧间隔的时间
+var deltaTime
 var bgPic = new Image()
+
 var ane
 var fruit
 // 页面加载后执行game方法
@@ -25,11 +31,16 @@ function init() {
   ctx1 = can1.getContext('2d')
   can2 = document.getElementById('canvas2')
   ctx2 = can2.getContext('2d')
+  
   bgPic.src = './img/background.jpg'
   canWidth = can1.width
   canHeight = can1.height
+  
+  // 创建海葵对象并调用海葵对象init()方法
   ane = new aneObj()
   ane.init()
+  
+  // 创建果实对象并调用果实对象init()方法
   fruit = new fruitObj()
   fruit.init()
 }
