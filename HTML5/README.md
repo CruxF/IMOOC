@@ -321,7 +321,7 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-5.html)<br><br>
 
 ### 章节2-6
-该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果
+该章节代码作用是不断重复且随机绘制果实，核心代码为fruit2-6.js，分析都在内部代码的注释中。下面直接看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-6.html)<br><br>
 
 
