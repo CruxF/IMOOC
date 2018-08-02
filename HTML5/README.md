@@ -389,10 +389,12 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-6.html)<br><br>
 
 ### 章节2-7
-这个章节实现了当小鱼死亡后的种种事件，代码很简单，主要流程为首先在[data2-7.js]()文件中定义游戏状态变量和游戏结束提示文字；接着在[baby2-7.js]()文件中改变游戏状态；然后在[collision2-7.js]()文件中定义当游戏状态为“结束”时，相关事件不触发；最后就是在[main2-7.js]()文件中定义当游戏结束时画布内的大鱼和小鱼停止游动。下面直接看代码
+这个章节实现了当小鱼死亡后的种种事件，代码很简单，主要流程为首先在[data2-7.js]()文件中定义游戏状态变量和游戏结束提示文字；接着在[baby2-7.js]()文件中改变游戏状态；然后在[collision2-7.js]()文件中定义当游戏状态为“结束”时，相关事件不触发；最后就是在[main2-7.js]()文件中定义当游戏结束时画布内的大鱼和小鱼停止游动。下面直接看代码<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-7.html)<br><br>
 
-
+### 章节3-1
+这个章节主要是实现大鱼吃果实动画效果的前期，思路很容易理解，就是当大鱼碰到果实的时候触发waveObj对象的born方法，与之有关的代码文件为[main3-1.js]()、[wave3-1.js]()和[collision3-1.js]()。下面直接看代码效果，记得打开控制台~<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-1.html)<br><br>
 
 
 
