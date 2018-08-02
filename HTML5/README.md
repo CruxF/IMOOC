@@ -396,7 +396,9 @@ Page({
 这个章节主要是实现大鱼吃果实动画效果的前期，思路很容易理解，就是当大鱼碰到果实的时候触发waveObj对象的born方法，与之有关的代码文件为[main3-1.js]()、[wave3-1.js]()和[collision3-1.js]()。下面直接看代码效果，记得打开控制台~<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-1.html)<br><br>
 
-
+### 章节3-2
+这个章节实现了大鱼吃到果实后圈圈散开的效果，实现思路是这样滴：首先在[collision3-2.js]文件中传入当前果实的x和y轴的坐标，然后在[wave3-2.js]文件中接收到果实坐标，并且根据坐标位置绘制出一个变化的圈圈。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-2.html)<br><br>
 
 
 
