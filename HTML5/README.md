@@ -417,8 +417,10 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-6.html)<br><br>
 
 ### 章节3-7
+这个章节。。。不行了，撑不住了，不懂是啥玩意了，还出现了严重bug：果实数量不断累加，分数暴涨。不分析了，头疼，下面请直接看这份有严重bug的代码<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-7.html)<br><br>
 
-
+### 章节3-8
 
 
 
