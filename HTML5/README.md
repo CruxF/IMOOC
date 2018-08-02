@@ -421,7 +421,8 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-7.html)<br><br>
 
 ### 章节3-8
-
+这个章节实现漂浮物摇摆效果，实现思路和**章节3-6** 差不多，在这就不多说了。然而问题是上一节的bug依然没有得到解决，好桑心......下面直接看有重大bug的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-8.html)<br><br>
 
 
 
