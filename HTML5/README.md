@@ -380,6 +380,9 @@ Page({
 这个章节实现了大鱼吃果实后的分数计算功能，思路不是很复杂，首先创建一个存储分数的[data2-4.js]()文件，接着在[collision2-4.js]()文件计算分数，最后在[main2-4.js]()文件中将即时计算的游戏分数绘制出来。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-4.html)<br><br>
 
+### 章节2-5
+这个章节实现了大鱼吃果实身体变化的功能，认认真真看到这里的童鞋相信都能够很轻松的理解讲师的思路了，千变一律先在[main2-5.js]()文件中用数组存储大鱼身体变化的图片列表，接着在[collision2-5.js]()文件中对该数组的下标进行计算，最后在[mom2-5.js]()文件中绘制出大鱼身体。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-5.html)<br><br>
 
 
 
