@@ -404,6 +404,22 @@ Page({
 这个章节只不过是稍微让让大鱼吃果实散发出来的圈圈样式变得更加好看些，没有什么逻辑方面的，直接看[wave3-3.js]()源码就好。下面我们来看该章节的代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-3.html)<br><br>
 
+### 章节3-4
+这个章节是实现大鱼喂小鱼吃果实的效果前期，实现思路完全和大鱼吃果实的一毛一样，在这就不说什么了，具体解析都在[main3-4.js]()和[halo3-4.js]()文件中。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-4.html)<br><br>
+
+### 章节3-5
+
+
+
+
+
+
+
+
+
+
+
 
 
 
