@@ -397,10 +397,12 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-1.html)<br><br>
 
 ### 章节3-2
-这个章节实现了大鱼吃到果实后圈圈散开的效果，实现思路是这样滴：首先在[collision3-2.js]文件中传入当前果实的x和y轴的坐标，然后在[wave3-2.js]文件中接收到果实坐标，并且根据坐标位置绘制出一个变化的圈圈。下面直接看代码效果<br>
+这个章节实现了大鱼吃到果实后圈圈散开的效果，实现思路是这样滴：首先在[collision3-2.js]()文件中传入当前果实的x和y轴的坐标，然后在[wave3-2.js]()文件中接收到果实坐标，并且根据坐标位置绘制出一个变化的圈圈。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-2.html)<br><br>
 
-
+### 章节3-3
+这个章节只不过是稍微让让大鱼吃果实散发出来的圈圈样式变得更加好看些，没有什么逻辑方面的，直接看[wave3-3.js]()源码就好。下面我们来看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-3.html)<br><br>
 
 
 
