@@ -409,7 +409,8 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-4.html)<br><br>
 
 ### 章节3-5
-
+这个章节实现了大鱼喂小鱼果实的效果，实现思路其实就是**章节3-2** 的翻版，[collision3-5.js]()文件传参数，[halo3-5.js]()文件接收参数并绘制效果。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-5.html)<br><br>
 
 
 
