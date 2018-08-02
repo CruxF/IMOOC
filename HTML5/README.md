@@ -412,7 +412,9 @@ Page({
 这个章节实现了大鱼喂小鱼果实的效果，实现思路其实就是**章节3-2** 的翻版，[collision3-5.js]()文件传参数，[halo3-5.js]()文件接收参数并绘制效果。下面直接看代码效果<br>
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-5.html)<br><br>
 
-
+### 章节3-6
+这个章节实现了海葵摆动效果，看得迷迷糊糊的，不是太明白，估计是对贝赛尔曲线这个玩意理解的并不是很充分，这个缺板得找个时间补上去。现在留一份充满注释的核心源码[ane3-6.js]()给有缘人。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-6.html)<br><br>
 
 
 
