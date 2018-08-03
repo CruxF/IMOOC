@@ -425,7 +425,8 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-8.html)<br><br>
 
 ### 尾声
-MMP的，经过好几个小时的排查，终于解决了章节3-7和章节3-8的bug，那就是在main.js文件中不能先执行fruit.draw()，然后再执行fruitMonitor()。正确的方式是要把两者的执行顺序调换过来。导致bug出现的原因看源码[fruit3-7.js]()应该能略知一二。然而让我摸不着头脑的是：同样的main.js代码结构，为啥在章节3-7之前就没有出现这个bug？？？？
+MMP的，经过好几个小时的排查，终于解决了章节3-7和章节3-8的bug，那就是在main.js文件中不能先执行fruit.draw()，然后再执行fruitMonitor()。正确的方式是要把两者的执行顺序调换过来。导致bug出现的原因看源码[fruit3-7.js]()应该能略知一二。然而让我摸不着头脑的是：同样的main.js代码结构，为啥在章节3-7之前就没有出现这个bug？？？？做游戏果然难度大.....得加油了，骚年！下面请看最后正常的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index.html)<br><br>
 
 
 
