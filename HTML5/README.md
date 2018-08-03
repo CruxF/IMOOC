@@ -1,6 +1,6 @@
 # 前言
 
-由于这会是一篇很长的课程学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+由于这会是一篇很长的课程学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)，还有就是有问题尽量慕课里面私信给我，Issues就别提了<br>
 
 
 # 1、FirstWxPro => [入门微信小程序](https://www.imooc.com/learn/974)
@@ -302,7 +302,7 @@ Page({
  
 # 2、H5Game => [H5小游戏-爱心鱼（上）](https://www.imooc.com/learn/515)
 
-就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力对这种程度的课程还是没有办法进行更好的解读，只是心理上不会感到太大的压力，只能略尽微薄之力将课程章节代码进行整理一番，增加了大量的代码注释，让有缘人更好的去品位这门课程，下面进入正文。<br>
+就是这门课程，让我下定决心好好研读一下《JavaScript数据结构与算法》。以我现在的功力对这种程度的课程还是没有办法进行更好的解读，只是心理上不会感到太大的压力，只能略尽微薄之力将课程章节代码进行整理一番，增加了大量的代码注释，让有缘人更好的去品位这门课程，下面进入正文。<br><br>
 
 ### 章节2-1
 该章节代码作用就是绘制动画的背景图片，为了更好的管理代码，采用了模块化的开发方式，核心主要是[main2-1.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/main2-1.js)代码和[background2-1.js](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5Game/js/background2-1.js)代码。要看懂这两份代码不难，难的地方是理解gameloop()这个函数发挥的作用，这个我也不太懂，下面直接看该章节的代码效果<br>
@@ -345,13 +345,88 @@ Page({
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5Game/index2-11.html)<br><br>
 
 ### 尾声
-经过之前一段十分困难的代码分析过程，现在面对这种程度的课程不会感到有太大的压力。然而在这学习的过程中还是发现了自己技术上的不足和思维上的短板，接下来得好好加油了。
+经过之前一段十分困难的代码分析过程，现在面对这种程度的课程不会感到有太大的压力。然而在这学习的过程中还是发现了自己技术上的不足和思维上的短板，接下来得好好加油了。<br><br>
 
 
+# 3、H5GameNext => [H5小游戏-爱心鱼（下）](https://www.imooc.com/learn/516)
 
+这门课程是上一门的后续，相关的代码和思路都被继续延续下来了。趁热打铁，接下来请看我对这门课程的章节分析。<br><br>
 
+### 章节1-2
+这个章节主要是实现小鱼的尾巴摆动的功能，核心代码为[main1-2.js]()和[baby1-2.js]()，解析都在源码的注释中，大家都懂得，就不多说了，下面请直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-2.html)<br><br>
 
+### 章节1-3
+这个章节是实现小鱼眨眼睛的功能，思路和实现鱼尾摆动一样，核心代码为[main1-3.js]()和[baby1-3.js]()，解析都在源码的注释中，好好读，认真读，下面请直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-3.html)<br><br>
 
+### 章节1-4
+这个章节是实现小鱼身体逐渐变白的功能，思路也之前小鱼摆尾、小鱼眨眼一样，通过每一帧的变化来改变图片，核心代码为[main1-4.js]()和[baby1-4.js]()。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index1-4.html)<br><br>
+
+### 章节2-1
+这个章节实现大鱼接近小鱼而改变小鱼身体颜色的功能，代码简单，容易理解，核心代码为[main2-1.js]()和[collision2-1.js]()。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-1.html)<br><br>
+
+### 章节2-2
+这个章节实现了大鱼的尾巴摆动功能，跟小鱼摆尾实现思路一样，具体分析看核心代码[main2-2.js]()和[mom2-2.js]()就好了。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-2.html)<br><br>
+
+### 章节2-3
+这个章节实现了大鱼眨眼睛的功能，完全是小鱼眨眼睛的翻版，具体分析看核心代码[main2-3.js]()和[mom2-3.js]()就好了。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-3.html)<br><br>
+
+### 章节2-4
+这个章节实现了大鱼吃果实后的分数计算功能，思路不是很复杂，首先创建一个存储分数的[data2-4.js]()文件，接着在[collision2-4.js]()文件计算分数，最后在[main2-4.js]()文件中将即时计算的游戏分数绘制出来。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-4.html)<br><br>
+
+### 章节2-5
+这个章节实现了大鱼吃果实身体变化的功能，认认真真看到这里的童鞋相信都能够很轻松的理解讲师的思路了，千变一律先在[main2-5.js]()文件中用数组存储大鱼身体变化的图片列表，接着在[collision2-5.js]()文件中对该数组的下标进行计算，最后在[mom2-5.js]()文件中绘制出大鱼身体。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-5.html)<br><br>
+
+### 章节2-6
+这个章节实现了游戏分数的基本计算功能，逻辑很清晰，就是先在[data2-6.js]()文件中定义一个分数累加的方法，接着在[collision2-6.js]()文件中执行这个方法，最后为了优化性能，将分数绘制的代码移到了[main2-6.js]()这个文件中。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-6.html)<br><br>
+
+### 章节2-7
+这个章节实现了当小鱼死亡后的种种事件，代码很简单，主要流程为首先在[data2-7.js]()文件中定义游戏状态变量和游戏结束提示文字；接着在[baby2-7.js]()文件中改变游戏状态；然后在[collision2-7.js]()文件中定义当游戏状态为“结束”时，相关事件不触发；最后就是在[main2-7.js]()文件中定义当游戏结束时画布内的大鱼和小鱼停止游动。下面直接看代码<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index2-7.html)<br><br>
+
+### 章节3-1
+这个章节主要是实现大鱼吃果实动画效果的前期，思路很容易理解，就是当大鱼碰到果实的时候触发waveObj对象的born方法，与之有关的代码文件为[main3-1.js]()、[wave3-1.js]()和[collision3-1.js]()。下面直接看代码效果，记得打开控制台~<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-1.html)<br><br>
+
+### 章节3-2
+这个章节实现了大鱼吃到果实后圈圈散开的效果，实现思路是这样滴：首先在[collision3-2.js]()文件中传入当前果实的x和y轴的坐标，然后在[wave3-2.js]()文件中接收到果实坐标，并且根据坐标位置绘制出一个变化的圈圈。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-2.html)<br><br>
+
+### 章节3-3
+这个章节只不过是稍微让让大鱼吃果实散发出来的圈圈样式变得更加好看些，没有什么逻辑方面的，直接看[wave3-3.js]()源码就好。下面我们来看该章节的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-3.html)<br><br>
+
+### 章节3-4
+这个章节是实现大鱼喂小鱼吃果实的效果前期，实现思路完全和大鱼吃果实的一毛一样，在这就不说什么了，具体解析都在[main3-4.js]()和[halo3-4.js]()文件中。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-4.html)<br><br>
+
+### 章节3-5
+这个章节实现了大鱼喂小鱼果实的效果，实现思路其实就是**章节3-2** 的翻版，[collision3-5.js]()文件传参数，[halo3-5.js]()文件接收参数并绘制效果。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-5.html)<br><br>
+
+### 章节3-6
+这个章节实现了海葵摆动效果，看得迷迷糊糊的，不是太明白，估计是对贝赛尔曲线这个玩意理解的并不是很充分，这个缺板得找个时间补上去。现在留一份充满注释的核心源码[ane3-6.js]()给有缘人。下面直接看代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-6.html)<br><br>
+
+### 章节3-7
+这个章节。。。不行了，撑不住了，不懂是啥玩意了，还出现了严重bug：果实数量不断累加，分数暴涨。不分析了，头疼，下面请直接看这份有严重bug的代码<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-7.html)<br><br>
+
+### 章节3-8
+这个章节实现漂浮物摇摆效果，实现思路和**章节3-6** 差不多，在这就不多说了。然而问题是上一节的bug依然没有得到解决，好桑心......下面直接看有重大bug的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index3-8.html)<br><br>
+
+### 尾声
+MMP的，经过好几个小时的排查，终于解决了章节3-7和章节3-8的bug，那就是在main.js文件中不能先执行fruit.draw()，然后再执行fruitMonitor()。正确的方式是要把两者的执行顺序调换过来。导致bug出现的原因看源码[fruit3-7.js]()应该能略知一二。然而让我摸不着头脑的是：同样的main.js代码结构，为啥在章节3-7之前就没有出现这个bug？？？？做游戏果然难度大.....得加油了，骚年！下面请看最后正常的代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index.html)<br><br>
 
 
 
