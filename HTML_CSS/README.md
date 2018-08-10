@@ -263,6 +263,12 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 然后就是根据课程最后一节内容，自己捣鼓了一个小demo出来，有兴趣的话可以[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/PositionDemo/index.html)<br><br>
 
 
+# 14、[如何用CSS进行网页布局](https://www.imooc.com/learn/57)
+
+
+
+
+
 
 
 
