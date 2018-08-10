@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>三列左右固定布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      div {
+        text-align: center;
+        line-height: 50px;
+      }
+      .left {
+        width: 240px;
+        height: 600px;
+        background: #ccc;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .main {
+        height: 600px;
+        margin: 0 240px;
+        background: #9CF;
+      }
+      .right {
+        height: 600px;
+        width: 240px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #FCC;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">left</div>
+    <div class="main">main</div>
+    <div class="right">right</div>
+  </body>
+</html>
+
+<!--
+	这个布局思想跟上一节有异曲同工之意，都是利用到了绝对定位的特点。
+	关于定位这块的内容其实是很重要的，大家务必搞得明明白白，必须得
+	理解各个定位的特点和定位时候参照的是哪些对象。
+-->

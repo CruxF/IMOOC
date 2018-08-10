@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>二列居中自适应布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: bold
+      }
+      div {
+        text-align: center;
+        line-height: 50px
+      }
+      .main {
+        width: 80%;
+        height: 600px;
+        margin: 0 auto
+      }
+      .left {
+        width: 20%;
+        height: 600px;
+        background: #ccc;
+        float: left
+      }
+      .right {
+        width: 80%;
+        height: 600px;
+        background: #FCC;
+        float: right
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>
+
+<!--
+	二列居中自适应布局一般情况下也是有两种实现方式，存在的特点就是宽度是相对于浏览器窗口的宽度，能动态变化的
+-->

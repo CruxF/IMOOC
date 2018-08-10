@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>二列居中布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      div {
+        text-align: center;
+        line-height: 50px;
+        margin: 0;
+      }
+      .main {
+        width: 980px;
+        height: 600px;
+        margin: 0 auto;
+      }
+      .left {
+        width: 300px;
+        height: 600px;
+        background: #ccc;
+        /*float: left;*/
+        display: inline-block;
+      }
+      .right {
+        width: 660px;
+        height: 600px;
+        background: #FCC;
+        /*float: right;*/
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>
+
+<!--
+	二列居中布局一般情况下有两种实现方式，第一种是利用浮动的特性，脱离文档流布局；
+	第二种是使用display: inline-block的特性，基于文档流布局
+-->

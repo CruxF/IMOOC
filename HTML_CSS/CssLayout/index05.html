@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>二列自适应布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      div {
+        text-align: center;
+        line-height: 50px;
+        margin: 0;
+      }
+      .left {
+        width: 20%;
+        height: 600px;
+        background: #ccc;
+        /*float: left;*/
+        display: inline-block;
+      }
+      .right {
+        width: 80%;
+        height: 600px;
+        background: #FCC;
+        /*float: right;*/
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">left</div><div class="right">right</div>
+  </body>
+</html>
+
+<!--
+	这个二列自适应布局相对于二列居中自适应布局不同点就在于：1、少了个父元素；2、由于没有一个拥有宽度和设置margin属性的父元素，
+	自然也就不能居中了。并且除了使用浮动的特性可以这样布局，使用display: inline-block;一样能达到同样的效果，需要注意的就
+	是元素之间由于空格所带来的影响。
+-->

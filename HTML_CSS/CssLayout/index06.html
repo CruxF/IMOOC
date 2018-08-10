@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>三列自适应布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      div {
+        text-align: center;
+        line-height: 50px;
+      }
+      .box-first{
+      	position: relative;
+      }
+      .left {
+        width: 20%;
+        height: 600px;
+        background: #ccc;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .main {
+        height: 600px;
+        margin: 0 20%;
+        background: #9CF;
+      }
+      .right {
+        height: 600px;
+        width: 20%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #FCC;
+      }
+      .box-two {
+      	margin-top: 20px;
+      	overflow: hidden;
+      }
+      .two-left {
+      	width: 30%;
+      	height: 200px;
+      	background-color: greenyellow;
+      	float: left;
+      }
+      .two-right {
+      	width: 30%;
+      	height: 200px;
+      	background-color: brown;
+      	float: right;
+      }
+      .two-main {
+      	width: 70%;
+      	height: 200px;
+      	background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-first">
+      <div class="left">left</div>
+      <div class="main">main</div>
+      <div class="right">right</div>
+    </div>
+    <div class="box-two">
+    	<div class="two-left">two-left</div>      
+      <div class="two-right">two-right</div>
+      <div class="two-main">two-main</div>
+    </div>
+  </body>
+</html>
+
+<!--
+	这种三列自适应方式一般有两种方式，一种是通过绝对定位的特性，脱离文档流布局；
+	另外一种是通过浮动的特性，脱离文档流布局。使用浮动布局得注意元素之间顺序，这涉及
+	到了浏览器渲染的问题，有兴趣的可以上网了解一下。
+-->

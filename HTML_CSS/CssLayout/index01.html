@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>一列固定布局</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px
+      }
+      div {
+        text-align: center;
+        font-weight: bold
+      }
+      .head, .main, .footer {
+        width: 960px;
+        margin: 0 auto
+      }
+      .head {
+        height: 100px;
+        background: #ccc
+      }
+      .main {
+        height: 600px;
+        background: #FCC
+      }
+      .footer {
+        height: 50px;
+        background: #9CF
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">head</div>
+    <div class="main">main</div>
+    <div class="footer">footer</div>
+  </body>
+</html>
+
+<!--
+	一列固定布局是元素宽高定死，并且基于文档流布局，基于文档流的特点就是各个元素按照本身默认的特性来进行布局，
+	比如块级元素的特定是独占一行，能设置宽高；内联元素是不独占一行，能并排显示，不能设置宽高。
+	还有一种比较特殊的元素是块状内联元素，既不独占一行，也能设置宽高，能通过display属性设置
+	任何元素为块状内联元素。
+-->
