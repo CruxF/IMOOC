@@ -263,7 +263,46 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 然后就是根据课程最后一节内容，自己捣鼓了一个小demo出来，有兴趣的话可以[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/PositionDemo/index.html)<br><br>
 
 
-# 14、[如何用CSS进行网页布局](https://www.imooc.com/learn/57)
+# 14、CssLayout => [如何用CSS进行网页布局](https://www.imooc.com/learn/57)
+
+这是一门十分古老且基础的课程，里面有很多东西都淘汰掉了，比如DW这款编辑器，以及HTML4版本的语法。大家学习的时候希望能够根据最新开发规范进行编程，下面是简单做的一些总结。<br>
+
+### 一列固定布局
+一列固定布局是元素宽高定死，并且基于文档流布局，基于文档流的特点就是各个元素按照本身默认的特性来进行布局，比如块级元素的特定是独占一行，能设置宽高；内联元素是不独占一行，能并排显示，不能设置宽高。还有一种比较特殊的元素是块状内联元素，既不独占一行，也能设置宽高，能通过display属性设置任何元素为块状内联元素。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index01.html)<br><br>
+
+### 一列自适应布局
+一列自适应布局是不定死宽高，宽高能够随着浏览器窗口的改变而改变的，也是基于文档流布局。挺容易理解和明白的，下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index02.html)<br><br>
+
+### 二列居中布局
+二列居中布局一般情况下有两种实现方式，第一种是利用浮动的特性，脱离文档流布局；第二种是使用display: inline-block的特性，基于文档流布局，这种布局得注意空格所带来的影响。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index03.html)<br><br>
+
+### 二列居中自适应布局
+二列居中自适应布局一般情况下也是有两种实现方式，它的特点就是宽度为百分比，是相对于父级元素的宽度，能动态变化的。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index04.html)<br><br>
+
+### 二列自适应布局
+这个二列自适应布局相对于二列居中自适应布局不同点就在于：1、少了个父元素；2、由于没有一个拥有宽度和设置margin属性的父元素，自然也就不能居中了。并且除了使用浮动的特性可以这样布局，使用display: inline-block;一样能达到同样的效果，不过需要注意的就是元素之间由于空格所带来的影响。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index05.html)<br><br>
+
+### 三列自适应布局
+这种三列自适应方式一般有两种方式，一种是通过绝对定位的特性，脱离文档流布局；另外一种是通过浮动的特性，脱离文档流布局。使用浮动布局得注意元素之间顺序，这涉及到了浏览器渲染的问题，有兴趣的可以上网了解一下。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index06.html)<br><br>
+
+### 三列左右固定布局
+这个布局思想跟上一节有异曲同工之意，都是利用到了绝对定位的特点。关于定位这块的内容其实是很重要的，大家务必搞得明明白白，必须得理解各个定位的特点和定位时候参照的是哪些对象。之前我有整理过相关的知识，大家可以先过来看看[这是笔记传送门](https://github.com/CruxF/IMOOC/issues/6)，下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index07.html)<br><br>
+
+
+
+
+
+
+
+
+
 
 
 
