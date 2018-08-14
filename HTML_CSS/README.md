@@ -3,7 +3,7 @@
 为了优化大家的阅读体验，强烈建议先安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
-# 1、page=>分页页码制作
+# 1、page=>[分页页码制作](https://www.imooc.com/learn/15)
 
 该demo源自慕课网，看了老师的教程，自己重新实现了一遍，以下知识点对初入HTML和CSS的新手还是记一下比较好<br>
 
@@ -27,7 +27,7 @@
 [为分页页码插入小图标](https://cruxf.github.io/IMOOC/HTML_CSS/Page/case03.html)<br><br>
 
 
-# 2、Car=>帝都抢车位制作
+# 2、Car=>[帝都抢车位制作](https://www.imooc.com/learn/71)
 
 该课程给的源码其实是非常不科学的，哪有这样停车的？而且动画还完全没有实现好，一怒之下，自己花了几分钟修改了一下。<br>
 
@@ -43,7 +43,7 @@
 [使用http协议](https://cruxf.github.io/IMOOC/HTML_CSS/Car/index01.html)<br><br>
 
 
-# 3、BackTop=>回到顶部效果
+# 3、BackTop=>[回到顶部效果](https://www.imooc.com/learn/65)
 
 除了课程内的那套JavaScript实现方法，另外增加了jQuery的实现方法。实现过程中，小细节很多，主要是需要经常刻意训练自己的思维，毕竟这些业务的写法都差不多，不会变到哪里去的。一个词：“熟能生巧”，关于代码的一些分析都写成注释了。可以从下面的demo中进行查看：<br>
 
@@ -53,7 +53,7 @@
 [jQuery写法](https://cruxf.github.io/IMOOC/HTML_CSS/BackTop/index01.html)<br><br>
 
 
-# 4、Accordion=>手风琴效果
+# 4、Accordion=>[手风琴效果](https://www.imooc.com/learn/72)
 
 之前一直有怀疑自己：到底会不会CSS？今天终于确定下来了：根本就不会好吧:persevere:<br>
 
@@ -65,7 +65,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [自己demo](https://cruxf.github.io/IMOOC/HTML_CSS/Accordion/index01.html)<br><br>
 
 
-# 5、FormBea=>表单美化
+# 5、FormBea=>[表单美化](https://www.imooc.com/learn/42)
 
 该课程算是比较古老的，里面很多方法和技巧都已经过了时，不过还是有一些可取之处。看了那么多教学视频，也是第一次意识到，有时候思路跟着老师走容易走进一条死胡同，最好的办法就是取之精华，弃其糟粕，然后再按照自己思路实现一次。下面来看看我的代码和课程老师的代码：<br>
 
@@ -103,7 +103,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [点击查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/FormBea/select_finished01.html)<br><br>
 
 
-# 6、NavMenu=>导航条菜单的制作
+# 6、NavMenu=>[导航条菜单的制作](https://www.imooc.com/learn/6)
 
 课程虽然才短短二十几分钟，但是如果深入了解的话会发现非常多的知识点。包括CSS3的新属性、BFC概念、层级概念、盒子模型中的边框、定位布局、伪类以及伪元素、JavaScript中的定时器和jQuery中的API等，下面来看相关的demo：<br>
 
@@ -152,7 +152,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 这是一个很长的系列，希望大家有耐心的学下去，看下去，在开始实战练习之前，不妨先看看这篇博客：[浅谈websocket](https://github.com/CruxF/Blog/issues/2)<br>
 
-## 基础篇
+## [基础篇](https://www.imooc.com/learn/861)
 
 **1、websocket初体验：** <br>
 创建一个HTML文件，开始踏进websocket的大门，服务器使用的是官方所提供的，因此能够直接看到演示的效果(注意：留意同源策略问题)。<br>
@@ -196,14 +196,14 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 **注意：** 在开发程序之前，需要下载安装：npm install socket.io<br>
 
 
-## 单机篇
+## [单机篇](https://www.imooc.com/learn/882)
 
 虽然看着头晕啊，不过还是阻止不了我将源码弄到手:joy:，先放着再说，日后再来好好分析分析。<br>
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/WebSocket/singleTetris/single.html)<br>
 [我是源码](https://github.com/CruxF/IMOOC/tree/master/HTML_CSS/WebSocket/singleTetris)<br>
 
 
-# 8、PSD => 从PSD到HTML
+# 8、PSD => [从PSD到HTML](https://www.imooc.com/learn/668)
 
 **前言：** <br>
 有很多人反映素材下载了打不开，其实解决办法非常简单：将17193的包重命名为psd3.rar，将1e00a的包重命名为psd2.rar，然后选择两个文件同时“解压每个包到单独文件”，那么肯定有一个文件夹里面会有一张PSD稿（亲测有效）。问题轻松解决，想知道原理的去百度吧，别太懒了。<br>
@@ -219,7 +219,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [切图总结](https://github.com/CruxF/IMOOC/blob/master/HTML_CSS/PSD/%E8%AF%B4%E6%98%8E.txt)<br><br>
 
 
-# 9、EBusiness => 手把手教你实现电商网站开发
+# 9、EBusiness => [手把手教你实现电商网站开发](https://www.imooc.com/learn/100)
 
 这门课程我认为最能锻炼人的就是耐心与细心:joy:整个代码敲下来，难点并不是很多，甚至可以说是根本没有，浮动布局在如今几乎很少被使用到了，完全可以利用display:inline-block;来代替，并且还有最新的flex布局以及网格布局等。仔细去研究的话，还会发现很多不合理的地方，比如标签与标签之间的嵌套关系，繁多的div嵌套关系，我个人觉得缺陷有些大的就是各个模块之间的CSS没有将其独立，而且代码规范实在一般般，看得实在头疼，对于一门教学课程来说，这个缺陷实在是有点大。<br>
 
@@ -235,7 +235,7 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [7、注册](https://cruxf.github.io/IMOOC/HTML_CSS/EBusiness/register.html)<br><br>
 
 
-# 10、DelaBlog => HTML5和CSS3扁平化风格博客
+# 10、DelaBlog => [HTML5和CSS3扁平化风格博客](https://www.imooc.com/learn/445)
 
 这门课程最终实现的静态效果很喜欢，符合现代PC端简洁明了的静态网页风格。在课堂上老师说了一个非常正确的开发思路：首先考虑整体布局，接着再考虑样式细节。其实前端页面开发的基本套路就是这样的，只要你页面的结构和整体布局搭建好了，那么剩下的细节补充就容易多了，并且还能让人专注于某个小模块的开发。<br>
 
@@ -243,13 +243,13 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/DelaBlog/index.html)<br><br>
 
 
-# 11、DomBase => DOM探索之基础详解篇
+# 11、DomBase => [DOM探索之基础详解篇](https://www.imooc.com/learn/488)
 
 挺不错的一门课程，老师真的是功力深厚，学到了很多，同时也发现了一位大佬——[jaxil](https://github.com/jawil)。这位大佬的学习态度真的让人赞赏，并且他根据这门课程，认认真真的做了非常详细的总结，地址：[《DOM探索之基础详解篇》学习笔记 ](https://github.com/jawil/blog/issues/9)。站在大佬的肩膀上，我就不总结什么了，免得误人子弟，但是也不能什么也不留吧:joy:，下面给大家展示一下关于滑动门的效果，额外增加了动画。<br>
 [点我查看效果呀](https://cruxf.github.io/IMOOC/HTML_CSS/DomBase/index.html)<br><br>
 
 
-# 12、WebMobile => 移动web开发适配秘籍Rem
+# 12、WebMobile => [移动web开发适配秘籍Rem](https://www.imooc.com/learn/942)
 
 这是一节适合入门响应式设计和简单的移动端适配的课程。学习了这门课程，我记录了一些课程的笔记，以及最后案例是如何开发出来的详细步骤，[请点击这里](https://github.com/CruxF/IMOOC/issues/3)<br>
 
@@ -261,6 +261,59 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 这是一门十分基础的课程，但是却是相当重要。要想正确完美的布局网页内容，这是必须要掌握的知识，为此我特意花了些时间做了相关的笔记，进一步巩固自己的基础知识，[这是笔记传送门](https://github.com/CruxF/IMOOC/issues/6)<br>
 
 然后就是根据课程最后一节内容，自己捣鼓了一个小demo出来，有兴趣的话可以[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/PositionDemo/index.html)<br><br>
+
+
+# 14、CssLayout => [如何用CSS进行网页布局](https://www.imooc.com/learn/57)
+
+这是一门十分古老且基础的课程，里面有很多东西都淘汰掉了，比如DW这款编辑器，以及HTML4版本的语法。大家学习的时候希望能够根据最新开发规范进行编程，下面是简单做的一些总结。<br>
+
+### 一列固定布局
+一列固定布局是元素宽高定死，并且基于文档流布局，基于文档流的特点就是各个元素按照本身默认的特性来进行布局，比如块级元素的特定是独占一行，能设置宽高；内联元素是不独占一行，能并排显示，不能设置宽高。还有一种比较特殊的元素是块状内联元素，既不独占一行，也能设置宽高，能通过display属性设置任何元素为块状内联元素。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index01.html)<br><br>
+
+### 一列自适应布局
+一列自适应布局是不定死宽高，宽高能够随着浏览器窗口的改变而改变的，也是基于文档流布局。挺容易理解和明白的，下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index02.html)<br><br>
+
+### 二列居中布局
+二列居中布局一般情况下有两种实现方式，第一种是利用浮动的特性，脱离文档流布局；第二种是使用display: inline-block的特性，基于文档流布局，这种布局得注意空格所带来的影响。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index03.html)<br><br>
+
+### 二列居中自适应布局
+二列居中自适应布局一般情况下也是有两种实现方式，它的特点就是宽度为百分比，是相对于父级元素的宽度，能动态变化的。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index04.html)<br><br>
+
+### 二列自适应布局
+这个二列自适应布局相对于二列居中自适应布局不同点就在于：1、少了个父元素；2、由于没有一个拥有宽度和设置margin属性的父元素，自然也就不能居中了。并且除了使用浮动的特性可以这样布局，使用display: inline-block;一样能达到同样的效果，不过需要注意的就是元素之间由于空格所带来的影响。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index05.html)<br><br>
+
+### 三列自适应布局
+这种三列自适应方式一般有两种方式，一种是通过绝对定位的特性，脱离文档流布局；另外一种是通过浮动的特性，脱离文档流布局。使用浮动布局得注意元素之间顺序，这涉及到了浏览器渲染的问题，有兴趣的可以上网了解一下。下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index06.html)<br><br>
+
+### 三列左右固定布局
+这个布局思想跟上一节有异曲同工之意，都是利用到了绝对定位的特点。关于定位这块的内容其实是很重要的，大家务必搞得明明白白，必须得理解各个定位的特点和定位时候参照的是哪些对象。之前我有整理过相关的知识，大家可以先过来看看[这是笔记传送门](https://github.com/CruxF/IMOOC/issues/6)，下面直接看代码展示<br>
+[点击这里查看效果](https://cruxf.github.io/IMOOC/HTML_CSS/CssLayout/index07.html)<br><br>
+
+### 混合布局
+这种布局方式其实就是前面几种布局方式的结合体，看看课程源码就能够理解，在这里就不多说了。
+
+### 尾声
+如果你想使用一种十分好的布局技巧的话，那么我的这篇总结就不能错过[flexbox布局属性分析和小demo](https://github.com/CruxF/Blog/issues/9)<br>
+
+
+# 15、CssRadius => [CSS圆角进化论](https://www.imooc.com/learn/118)
+
+这节课程没什么可以学的，只是让我见识到了在2010年前网页开发流程到底是怎样的，用现在的目光去看，就一个词————苦逼。无论是编辑器、代码风格还是利用图片来实现圆角，都让人实实在在感受到了苦逼两个字，也让人感到时代的进步与发展之快，总之，学习吧，少年！即使现在努力学的东西未来会被时代抛弃。<br><br>
+
+
+
+
+
+
+
+
+
 
 
 
