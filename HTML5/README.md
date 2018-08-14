@@ -429,7 +429,9 @@ MMP的，经过好几个小时的排查，终于解决了章节3-7和章节3-8�
 [点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameNext/index.html)<br><br>
 
 
+# 4、H5GameGirl => [canvas实现星星闪烁特效](https://www.imooc.com/learn/338)
 
-
+同一个老师，同样的风格，由于在上面两节课程中我已经做了大量的讲解，因此这节课程的代码就不做过多的具体解释了，我把相关一些相关的代码说明都写到了源码中，有兴趣的可以来[这里看一看](https://github.com/CruxF/IMOOC/blob/master/HTML5/H5GameGirl)，下面直接看课程代码效果<br>
+[点击查看](https://cruxf.github.io/IMOOC/HTML5/H5GameGirl/starGirl.html)<br><br>
 
 
