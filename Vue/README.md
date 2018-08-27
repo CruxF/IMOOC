@@ -425,17 +425,67 @@ mobi：是Amazon Kindle的电子书格式<br><br>
 ### 笔记2：生成字体图标
 - 步骤一：进入网址https://icomoon.io/app/#/select, 然后跟着视频点击左上角新建一个图标集合(new empty set),接着点击图标集合的properties，进入里面再修改(Edit Metadata)集合信息
 - 步骤二：点击图标集合的Import to set导入svg文件，之后再选择全部(select all)
-- 步骤三：点击右下角的generate font，之后再点击download
+- 步骤三：点击右下角的generate font，之后再点击download<br>
 
 
 ### 笔记3：创建一个vue-cli项目
 由于我之前在本地中全局安装了webpack和[vue-cli](http://www.cnblogs.com/fengxiongZz/p/7994448.html)，因此初始化该项目我只要这么做即可
 ![](https://github.com/CruxF/IMOOC/ProImages/vueEbook_webpack.jpg)
 
+接着我们把这个项目拖进VScode编辑中，然后进入终端，运行npm run dev就将项目跑起来了。在vscode这个编辑中我们能够打开两个终端，这样是十分方便开发的。比如在打开项目服务器的同时也能够在另一个终端查看当前的IP地址。<br><br>
 
 
+### 笔记4：通过IP地址访问项目
+首先通过命令在终端查看到本地IP，接着在config文件夹中修改index.js文件的host为0.0.0.0，那么我们就能在浏览器通过下面那种方式访问了
+```
+http://192.168.0.***:8080/#/
+```
+
+### 笔记5：项目正式开始
+- 将电子书复制到static文件夹中
+- 下载sass依赖包npm install node-sass sass-loader --save-dev(这个可能需要管理员身份来进行安装)
+- 下载阅读引擎npm install epubjs --save
+- 将字体图标复制进来，导入项目中的文件包括一个css文件以及一个fonts字体文件夹，使用方法是在某个元素上添加定义好的类名)，记得css文件中的相关路径需要根据实际情况进行更改。<br>
 
 
+### 笔记6：rem的相关知识
+rem是CSS3新增的一个相对长度单位，rem的值相当于根元素font-size值的倍数，比如
+```
+1rem = 根元素font-size
+2rem = 根元素font-size * 2
+```
+
+我们通过DOMContentLoaded事件动态设置html根元素font-size，举个栗子，在APP.vue中做如下设置
+```
+<script>
+export default {
+  name: 'App'
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const html = document.querySelector('html')
+  let fontSize = window.innerWidth / 10
+  fontSize = fontSize > 50 ? 50 : fontSize
+  html.style.fontSize = fontSize + 'px'
+})
+</script>
+```
+注：当初始的HTML文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。<br><br>
+
+
+### 笔记7：写一个全局的px转rem的方法
+```
+@import 'reset';
+// 因为1rem = fontSize px,1px = (1/fontSize)rem，所以得以下代码
+$fonSize: 37.5;
+@function px2rem($px) {
+  @return ($px / $fonSize) + rem;
+}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
 
 
 
