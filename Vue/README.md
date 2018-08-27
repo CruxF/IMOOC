@@ -423,7 +423,7 @@ epub：全称是Electronic Publication，是一种电子出版物<br>
 mobi：是Amazon Kindle的电子书格式<br><br>
 
 ### 笔记2：生成字体图标
-- 步骤一：进入网址https://icomoon.io/app/#/select, 然后跟着视频点击左上角新建一个图标集合(new empty set),接着点击图标集合的properties，进入里面再修改(Edit Metadata)集合信息
+- 步骤一：进入[网址](https://icomoon.io/app/#/select), 然后跟着视频点击左上角新建一个图标集合(new empty set),接着点击图标集合的properties，进入里面再修改(Edit Metadata)集合信息
 - 步骤二：点击图标集合的Import to set导入svg文件，之后再选择全部(select all)
 - 步骤三：点击右下角的generate font，之后再点击download<br>
 
@@ -456,7 +456,7 @@ rem是CSS3新增的一个相对长度单位，rem的值相当于根元素font-si
 ```
 
 我们通过DOMContentLoaded事件动态设置html根元素font-size，举个栗子，在APP.vue中做如下设置
-```
+```js
 <script>
 export default {
   name: 'App'
@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ### 笔记7：写一个全局的px转rem的方法
-```
+```scss
 @import 'reset';
 // 因为1rem = fontSize px,1px = (1/fontSize)rem，所以得以下代码
 $fonSize: 37.5;
