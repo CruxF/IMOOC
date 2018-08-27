@@ -506,6 +506,7 @@ $fonSize: 37.5;
 - Book ==> Navigation(负责电子书的目录以及定位)
 
 以上的总结可以归为下列一张图
+![](https://github.com/CruxF/IMOOC/ProImages/vueEbook_epub.jpg)
 
 
 ### 笔记9：消除eslint语法规则
