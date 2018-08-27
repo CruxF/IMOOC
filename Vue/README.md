@@ -429,8 +429,8 @@ mobi：是Amazon Kindle的电子书格式<br><br>
 
 
 ### 笔记3：创建一个vue-cli项目
-由于我之前在本地中全局安装了webpack和vue-cli，因此初始化该项目我只要这么做即可
-
+由于我之前在本地中全局安装了webpack和[vue-cli](http://www.cnblogs.com/fengxiongZz/p/7994448.html)，因此初始化该项目我只要这么做即可
+![](https://github.com/CruxF/IMOOC/ProImages/vueEbook_webpack.jpg)
 
 
 
