@@ -503,7 +503,9 @@ $fonSize: 37.5;
 - epub格式的电子书 ==> Book(通过epub.js实例化了一个Book对象)
 - Book ==> Rendition(通过renderTo方法生成一个Rendition对象负责电子书的渲染) ==> Theme(负责电子书的样式和主题)
 - Book ==> Location(负责电子书位置定位)
-- Book ==> Navigation(负责电子书的目录以及定位)<br>
+- Book ==> Navigation(负责电子书的目录以及定位)
+
+以上的总结可以归为下列一张图
 
 
 ### 笔记9：消除eslint语法规则
@@ -532,7 +534,16 @@ rules: {
 ```
 
 
+### 笔记10、关于flex属性
+这个属性定义在子元素中，是flex-grow、flex-shrink、flex-basis这三个属性的缩写，默认值为“0 1 auto”。
+- flex-grow：它的作用是让子元素以几倍宽度拉伸，属性值的类型为number
+- flex-shrink：它的作用就是让子元素在页面缩小时宽度如何变化，属性值为number，默认值是1。
+当值为2时，说明页面缩小时，该子元素将相对缩小两倍；当值为0时，页面缩小时，该子元素宽度不会发生改变。
+- flex-basis：设置弹性盒元素的初始长度
+- 更多[flex布局知识](https://github.com/CruxF/Blog/issues/9)
 
+
+### 笔记11、父组件触发子组件方法的一种方式
 
 
 
