@@ -473,6 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ### 笔记7：写一个全局的px转rem的方法
+首先定好转换的规则
 ```scss
 @import 'reset';
 // 因为1rem = fontSize px,1px = (1/fontSize)rem，所以得以下代码
@@ -487,6 +488,15 @@ $fonSize: 37.5;
 }
 ```
 
+接着就在组件中进行调用即可
+```scss
+<style lang='scss' scoped>
+  @import '@/assets/styles/global.scss';
+  .mask {
+    height: px2rem(100);
+  }
+</style>
+```
 
 
 
