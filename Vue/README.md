@@ -523,7 +523,7 @@ export default {
 ```
 
 - 方式二：在.eslintrc.js文件中将该规则关闭掉(这个需要重新npm run dev才能生效)
-```
+```js
 rules: {
   // allow async-await
   'generator-star-spacing': 'off',
@@ -544,9 +544,92 @@ rules: {
 
 
 ### 笔记11、父组件触发子组件方法的一种方式
+通过ref这个关键字绑定了子组件这个对象。官方说法就是：ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。<br>
 
+由于我觉得这个知识点蛮重要的，栗子也很有代表性，于是就将其比较完整的记录下来，下面看父组件代码：
+```js
+<template>
+  <div class="ebook">
+    <div class="read-wrapper">
+      <div class="mask">
+        <div class="center" @click="toggleTitleAndMenu"></div>
+      </div>
+    </div>
+    <menu-bar :ifTitleAndMenuShow="ifTitleAndMenuShow" ref="menuBar">
+    </menu-bar>
+  </div>
+</template>
 
+<script>
+  import MenuBar from '@/components/MenuBar';
+  export default {
+    name: 'Ebook',
+    data() {
+      return {
+        ifTitleAndMenuShow: false
+      }
+    },
+    mounted() {
+      this.showEpub()
+    },
+    methods: {
+      // 菜单栏和底部导航栏的切换
+      toggleTitleAndMenu() {
+        this.ifTitleAndMenuShow = !this.ifTitleAndMenuShow
+        if(!this.ifTitleAndMenuShow) {
+          this.$refs.menuBar.hideSetting()
+        }
+      }
+    },
+    components: {
+      MenuBar
+    }
+  }
+</script>
+```
+下面继续来看子组件代码
+```js
+<template>
+  <div class="menubar">
+    <transition name="slide-up">
+      <div class="menu-wrapper" v-show="ifTitleAndMenuShow">
+        <div class="icon-wrapper" @click="showSetting">
+          <span class="icon-a icon">A</span>
+        </div>
+      </div>
+    </transition>
+    <transition name="slide-up">
+      <div class="setting-wrapper" v-show="ifSettingShow"></div>
+    </transition>
+  </div>
+</template>
 
+<script>
+  export default {
+    name: 'MenuBar',
+    props: {
+      ifTitleAndMenuShow: {
+        type: Boolean,
+        default: true
+      },
+      fontSizeList: Array
+    },
+    data() {
+      return {
+        ifSettingShow: false
+      }
+    },
+    methods: {
+      showSetting() {
+        this.ifSettingShow = true
+      },
+      hideSetting() {
+        this.ifSettingShow = false
+      }
+    }
+  }
+</script>
+```
 
 
 
