@@ -411,11 +411,25 @@ return this.todos.filter(function(Obj) {
 讲师实在是牛批的不行，佩服，同时也感谢他带我跨进了一道门，代码，真的是有意思。<br><br>
 
 
+# 5、VueEbook => [快速入门Web阅读器开发](https://www.imooc.com/learn/1038)
+
+很久没有看到这种有质量的课程啦，讲师的思路很清晰，其中关于编程的思想也有涉及到，总之一开口就能人觉得不简单。由于这不是一门Vue的基础课程，因此没有任何Vue基础或者是基础不牢固的可以先[来这里学习一波](https://github.com/CruxF/Vue-base/issues/1)。下面就是一些我做的简单笔记，有兴趣的可以看一看。<br><br>
+
+### 笔记1：阅读器工作原理简介
+各种格式(txt、pdf、epub、mobi...)的电子书  ==>  解析电子书(书名、作者、目录、封面、章节...)  ==> (通过阅读器引擎)  ==>  渲染  ==>  功能(字号、背景色、目录、书签、笔记...)<br>
+
+【注】<br>
+epub：全称是Electronic Publication，是一种电子出版物<br>
+mobi：是Amazon Kindle的电子书格式<br><br>
+
+### 笔记2：生成字体图标
+- 步骤一：进入网址https://icomoon.io/app/#/select, 然后跟着视频点击左上角新建一个图标集合(new empty set),接着点击图标集合的properties，进入里面再修改(Edit Metadata)集合信息
+- 步骤二：点击图标集合的Import to set导入svg文件，之后再选择全部(select all)
+- 步骤三：点击右下角的generate font，之后再点击download
 
 
-
-
-
+### 笔记3：创建一个vue-cli项目
+由于我之前在本地中全局安装了webpack和vue-cli，因此初始化该项目我只要这么做即可
 
 
 
