@@ -499,5 +499,59 @@ $fonSize: 37.5;
 ```
 
 
+### 笔记8：epubjs的核心工作原理解析
+- epub格式的电子书 ==> Book(通过epub.js实例化了一个Book对象)
+- Book ==> Rendition(通过renderTo方法生成一个Rendition对象负责电子书的渲染) ==> Theme(负责电子书的样式和主题)
+- Book ==> Location(负责电子书位置定位)
+- Book ==> Navigation(负责电子书的目录以及定位)<br>
+
+
+### 笔记9：消除eslint语法规则
+- 方式一：在组件内部定义，将某个出现警告的规则取消
+```js
+<script>
+/* eslint-disable space-before-function-paren */
+export default {
+  name: 'Ebook',
+  data () {
+    return {}
+  },
+}
+</script>
+```
+
+- 方式二：在.eslintrc.js文件中将该规则关闭掉(这个需要重新npm run dev才能生效)
+```
+rules: {
+  // allow async-await
+  'generator-star-spacing': 'off',
+  // allow debugger during development
+  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  'space-before-function-paren': 'off'
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
