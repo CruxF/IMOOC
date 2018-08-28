@@ -411,6 +411,229 @@ return this.todos.filter(function(Obj) {
 讲师实在是牛批的不行，佩服，同时也感谢他带我跨进了一道门，代码，真的是有意思。<br><br>
 
 
+# 5、VueEbook => [快速入门Web阅读器开发](https://www.imooc.com/learn/1038)
+
+很久没有看到这种有质量的课程啦，讲师的思路很清晰，其中关于编程的思想也有涉及到，总之一开口就能人觉得不简单。由于这不是一门Vue的基础课程，因此没有任何Vue基础或者是基础不牢固的可以先[来这里学习一波](https://github.com/CruxF/Vue-base/issues/1)。下面就是一些我做的简单笔记，有兴趣的可以看一看。<br><br>
+
+### 笔记1：阅读器工作原理简介
+各种格式(txt、pdf、epub、mobi...)的电子书  ==>  解析电子书(书名、作者、目录、封面、章节...)  ==> (通过阅读器引擎)  ==>  渲染  ==>  功能(字号、背景色、目录、书签、笔记...)<br>
+
+【注】<br>
+epub：全称是Electronic Publication，是一种电子出版物<br>
+mobi：是Amazon Kindle的电子书格式<br><br>
+
+### 笔记2：生成字体图标
+- 步骤一：进入[网址](https://icomoon.io/app/#/select), 然后跟着视频点击左上角新建一个图标集合(new empty set),接着点击图标集合的properties，进入里面再修改(Edit Metadata)集合信息
+- 步骤二：点击图标集合的Import to set导入svg文件，之后再选择全部(select all)
+- 步骤三：点击右下角的generate font，之后再点击download<br>
+
+
+### 笔记3：创建一个vue-cli项目
+由于我之前在本地中全局安装了webpack和[vue-cli](http://www.cnblogs.com/fengxiongZz/p/7994448.html)，因此初始化该项目我只要这么做即可
+![](https://github.com/CruxF/IMOOC/ProImages/vueEbook_webpack.jpg)
+
+接着我们把这个项目拖进VScode编辑中，然后进入终端，运行npm run dev就将项目跑起来了。在vscode这个编辑中我们能够打开两个终端，这样是十分方便开发的。比如在打开项目服务器的同时也能够在另一个终端查看当前的IP地址。<br><br>
+
+
+### 笔记4：通过IP地址访问项目
+首先通过命令在终端查看到本地IP，接着在config文件夹中修改index.js文件的host为0.0.0.0，那么我们就能在浏览器通过下面那种方式访问了
+```
+http://192.168.0.***:8080/#/
+```
+
+### 笔记5：项目正式开始
+- 将电子书复制到static文件夹中
+- 下载sass依赖包npm install node-sass sass-loader --save-dev(这个可能需要管理员身份来进行安装)
+- 下载阅读引擎npm install epubjs --save
+- 将字体图标复制进来，导入项目中的文件包括一个css文件以及一个fonts字体文件夹，使用方法是在某个元素上添加定义好的类名)，记得css文件中的相关路径需要根据实际情况进行更改。<br>
+
+
+### 笔记6：rem的相关知识
+rem是CSS3新增的一个相对长度单位，rem的值相当于根元素font-size值的倍数，比如
+```
+1rem = 根元素font-size
+2rem = 根元素font-size * 2
+```
+
+我们通过DOMContentLoaded事件动态设置html根元素font-size，举个栗子，在APP.vue中做如下设置
+```js
+<script>
+export default {
+  name: 'App'
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const html = document.querySelector('html')
+  let fontSize = window.innerWidth / 10
+  fontSize = fontSize > 50 ? 50 : fontSize
+  html.style.fontSize = fontSize + 'px'
+})
+</script>
+```
+注：当初始的HTML文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。<br><br>
+
+
+### 笔记7：写一个全局的px转rem的方法
+首先定好转换的规则
+```scss
+@import 'reset';
+// 因为1rem = fontSize px,1px = (1/fontSize)rem，所以得以下代码
+$fonSize: 37.5;
+@function px2rem($px) {
+  @return ($px / $fonSize) + rem;
+}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+接着就在组件中进行调用即可
+```scss
+<style lang='scss' scoped>
+  @import '@/assets/styles/global.scss';
+  .mask {
+    height: px2rem(100);
+  }
+</style>
+```
+
+
+### 笔记8：epubjs的核心工作原理解析
+- epub格式的电子书 ==> Book(通过epub.js实例化了一个Book对象)
+- Book ==> Rendition(通过renderTo方法生成一个Rendition对象负责电子书的渲染) ==> Theme(负责电子书的样式和主题)
+- Book ==> Location(负责电子书位置定位)
+- Book ==> Navigation(负责电子书的目录以及定位)
+
+以上的总结可以归为下列一张图
+![](https://github.com/CruxF/IMOOC/ProImages/vueEbook_epub.jpg)
+
+
+### 笔记9：消除eslint语法规则
+- 方式一：在组件内部定义，将某个出现警告的规则取消
+```js
+<script>
+/* eslint-disable space-before-function-paren */
+export default {
+  name: 'Ebook',
+  data () {
+    return {}
+  },
+}
+</script>
+```
+
+- 方式二：在.eslintrc.js文件中将该规则关闭掉(这个需要重新npm run dev才能生效)
+```js
+rules: {
+  // allow async-await
+  'generator-star-spacing': 'off',
+  // allow debugger during development
+  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  'space-before-function-paren': 'off'
+}
+```
+
+
+### 笔记10、关于flex属性
+这个属性定义在子元素中，是flex-grow、flex-shrink、flex-basis这三个属性的缩写，默认值为“0 1 auto”。
+- flex-grow：它的作用是让子元素以几倍宽度拉伸，属性值的类型为number
+- flex-shrink：它的作用就是让子元素在页面缩小时宽度如何变化，属性值为number，默认值是1。
+当值为2时，说明页面缩小时，该子元素将相对缩小两倍；当值为0时，页面缩小时，该子元素宽度不会发生改变。
+- flex-basis：设置弹性盒元素的初始长度
+- 更多[flex布局知识](https://github.com/CruxF/Blog/issues/9)
+
+
+### 笔记11、父组件触发子组件方法的一种方式
+通过ref这个关键字绑定了子组件这个对象。官方说法就是：ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。<br>
+
+由于我觉得这个知识点蛮重要的，栗子也很有代表性，于是就将其比较完整的记录下来，下面看父组件代码：
+```js
+<template>
+  <div class="ebook">
+    <div class="read-wrapper">
+      <div class="mask">
+        <div class="center" @click="toggleTitleAndMenu"></div>
+      </div>
+    </div>
+    <menu-bar :ifTitleAndMenuShow="ifTitleAndMenuShow" ref="menuBar">
+    </menu-bar>
+  </div>
+</template>
+
+<script>
+  import MenuBar from '@/components/MenuBar';
+  export default {
+    name: 'Ebook',
+    data() {
+      return {
+        ifTitleAndMenuShow: false
+      }
+    },
+    mounted() {
+      this.showEpub()
+    },
+    methods: {
+      // 菜单栏和底部导航栏的切换
+      toggleTitleAndMenu() {
+        this.ifTitleAndMenuShow = !this.ifTitleAndMenuShow
+        if(!this.ifTitleAndMenuShow) {
+          this.$refs.menuBar.hideSetting()
+        }
+      }
+    },
+    components: {
+      MenuBar
+    }
+  }
+</script>
+```
+下面继续来看子组件代码
+```js
+<template>
+  <div class="menubar">
+    <transition name="slide-up">
+      <div class="menu-wrapper" v-show="ifTitleAndMenuShow">
+        <div class="icon-wrapper" @click="showSetting">
+          <span class="icon-a icon">A</span>
+        </div>
+      </div>
+    </transition>
+    <transition name="slide-up">
+      <div class="setting-wrapper" v-show="ifSettingShow"></div>
+    </transition>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'MenuBar',
+    props: {
+      ifTitleAndMenuShow: {
+        type: Boolean,
+        default: true
+      },
+      fontSizeList: Array
+    },
+    data() {
+      return {
+        ifSettingShow: false
+      }
+    },
+    methods: {
+      showSetting() {
+        this.ifSettingShow = true
+      },
+      hideSetting() {
+        this.ifSettingShow = false
+      }
+    }
+  }
+</script>
+```
+
+
+
 
 
 
