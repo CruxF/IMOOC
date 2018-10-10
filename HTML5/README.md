@@ -16,7 +16,7 @@ app.json文件用来对微信小程序进行全局配置，决定页面文件的
 [这个组件](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html?search-key=swiper)是比较常用的，说它比较重要，不仅仅是因为它的常用性，也因为它的栗子有十分好的借鉴性。<br>
 
 结构代码<br>
-```
+```html
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true">
   <block wx:for="{{imgUrls}}" wx:key="">
     <swiper-item>
@@ -27,7 +27,7 @@ app.json文件用来对微信小程序进行全局配置，决定页面文件的
 ```
 
 脚本代码<br>
-```
+```js
 Page({
   data: {
     imgUrls: [
@@ -47,7 +47,7 @@ Page({
 
 ### 调用数据的三种方式
 在小程序中，一共有三种调用数据的方式，其中一种是调用后台数据，另外两种是调用本地数据，现在我们先来看一看最简单的本地数据调用方式：
-```
+```js
 // 定义本地脚本数据
 Page({
   data: {
@@ -67,7 +67,7 @@ Page({
 </block>
 ```
 第二种调用本地数据稍微复杂一些，它和Vue程序中调用json数据的方式完全不同，在小程序不能直接调用json文件中的数据，只能将数据保存在一个脚本文件中，然后将其exports出来，最后在需要调用数据的文件中导入，具体请看以下代码：
-```
+```js
 // 步骤一：分离数据，将数据定义在顶层的data目录下
 var joinList_data = [
   {
@@ -103,7 +103,7 @@ Page({
 </view>
 ```
 第三种数据调用方式最重要，因为那是必须会的，这种方式是从后台请求回来数据进行使用，具体方式请看以下代码：
-```
+```js
 Page({
   data: {
     proList: null,
@@ -137,7 +137,7 @@ Page({
 一说到组件传值，相信有经验的开发人员都知道它的重要性，下面简单的来看看三种传值方式的代码。<br>
 
 第一种：全局传值<br>
-```
+```js
 // 步骤一：在全局脚本文件中定义数据
 App({
   globalData: {
@@ -161,7 +161,7 @@ Page({
 ```
 
 第二种：url传值
-```
+```js
 // 步骤一：使用关键字bindtap绑定一个点击事件方法，data-index是传入一个值
 <image class="btn-detail" src='/images/btn_detail.png' bindtap='toDetail' data-index='{{index}}'></image>
 
@@ -190,7 +190,7 @@ Page({
 ```
 
 第三种：setStorageSync传值
-```
+```js
 // 步骤一：使用关键字bindtap绑定一个点击事件方法，data-index是传入一个值
 <image class="btn-detail" src='/images/btn_detail.png' bindtap='toDetail' data-index='{{index}}'></image>
 
@@ -221,7 +221,7 @@ Page({
 
 #### 组件传值的应用场景
 关于组件传值的应用，老师在视频中并没有给出，自己瞎琢磨出一个栗子，记住：**在真正开发中，千万别这么用。** 这个栗子的作用是让我们对组件的传值有一个大概的应用场景，下面请看代码实现：
-```
+```js
 // 数据接收方
 Page({
   data: {
@@ -266,7 +266,7 @@ Page({
 
 ### 基础库兼容
 这个东西其实也不是太重要，知道有个玩意，以及如何去判断和解决就行，下面看代码：
-```
+```js
 Page({
   data: {},
   onLoad: function () {},
