@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>慕课七夕主题</title>
+    <link rel="stylesheet" href="css/style3-3.css" />
+    <link rel="stylesheet" href="css/pageA3-1.css" />
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swipe2-3.js"></script>
+    <script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>    
+  </head>
+  <body>
+    <div id='content'>
+      <ul class='content-wrap'>
+        <li>
+          <div class="a_background">
+            <div class="a_background_top"></div>
+            <div class="a_background_middle"></div>
+            <div class="a_background_botton"></div>
+          </div>
+        </li>
+        <li> 页面2 </li>
+        <li> 页面3 </li>
+      </ul>
+      <div id="boy" class="charector"></div>
+    </div>
+    <div class="button">
+      <button>开始</button>
+    </div>
+    
+    <script type="text/javascript">
+	    $(function() {
+	      // 开始
+	      $("button:first").click(function() {
+	        // 10秒钟 ，走到0.5 也就是页面中间位置
+	        var distX = calculateDist('x', 0.5);
+	        var distY = calculateDist('y', 0.5);
+	        walkRun(10000, distX, distY);
+	      });
+	    })
+	  </script>
+	  <script type="text/javascript" src="js/qixi3-5.js" ></script>
+  </body> 
+</html>
