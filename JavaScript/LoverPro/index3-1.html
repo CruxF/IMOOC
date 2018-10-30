@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>慕课七夕主题</title>
+    <link rel="stylesheet" href="css/style3-1.css" />
+    <link rel="stylesheet" href="css/pageA3-1.css" />
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swipe2-3.js"></script>
+    <style type="text/css">
+      .charector {
+        width: 151px;
+        height: 291px;
+        background: url("http://img.mukewang.com/55ade248000198ae10550582.png") -0px -291px no-repeat;
+        position: absolute;
+        /* 设置一个元素的坐标 */
+        left: 6%;
+        top: 55%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='content'>
+      <ul class='content-wrap'>
+        <li>
+          <div class="a_background">
+            <div class="a_background_top"></div>
+            <div class="a_background_middle"></div>
+            <div class="a_background_botton"></div>
+          </div>
+        </li>
+        <li> 页面2 </li>
+        <li> 页面3 </li>
+      </ul>
+      <div id="boy" class="charector"></div>
+    </div>
+    <script type="text/javascript">
+      var swipe = Swipe($("#content"));
+      // 获取数据
+      var getValue = function (className) {
+        var $elem = $('' + className + '');
+        // 走路的路线坐标
+        return {
+          height: $elem.height(),
+          top: $elem.position().top
+        };
+      };
+      // 路的Y轴
+      var pathY = function () {
+        var data = getValue('.a_background_middle');
+        return data.top + data.height / 2;
+      }();
+      var $boy = $("#boy");
+      var boyHeight = $boy.height();
+      // 修正小男孩的正确位置
+      // 路的中间位置减去小孩的高度，25是一个修正值
+      $boy.css({
+        top: pathY - boyHeight + 25
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>慕课七夕主题</title>
+    <link rel="stylesheet" href="css/style2-3.css" />
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swipe2-3.js" ></script>
+  </head>
+  <body>
+    <div id='content'>
+      <ul class='content-wrap'>
+        <!-- 第一副画面 -->
+        <li> 页面1 </li>
+        <!-- 第二副画面 -->
+        <li> 页面2 </li>
+        <!-- 第三副画面 -->
+        <li> 页面3 </li>
+      </ul>
+      <div class="button">
+        <button>点击切换页面</button>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+      var swipe = Swipe($("#content"));
+      $('button').click(function () {
+        // 调用接口
+        swipe.scrollTo($("#content").width() * 2, 8000);
+      });
+    </script>
+  </body>
+</html>
