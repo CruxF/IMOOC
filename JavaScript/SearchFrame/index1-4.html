@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>必应搜索框</title>
+    <style>
+      body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .bg-div {
+        box-sizing: border-box;
+        background-image: url(img/river.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+      }
+      .search-box {
+      	position: absolute;
+      	top: 200px;
+      	left: 300px;
+      }
+      .logo {
+      	margin: -4px 18px 0 0;
+      	height: 53px;
+      	width: 107px;
+      	background-image: url(img/logo.png);
+      	float: left;
+      }
+      form {
+      	float: left;
+      	background-color: #fff;
+      	padding: 5px;
+      }
+      .search-input-text  {
+      	border: 0;
+      	float: left;
+      	height: 25px;
+      	line-height: 25px;
+      	outline: none;
+      	width: 350px;
+      }
+      .search-input-button {
+      	border: 0;
+      	background-image: url(img/search-button.png);
+      	width: 29px;
+      	height: 29px;
+      	float: left;
+      	cursor: pointer;
+      	outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-div">
+    	<div class="search-box">
+    		<div class="logo"></div>
+    	<form>
+    		<input type="text" class="search-input-text" />
+    		<input type="submit" value="" class="search-input-button" />
+    	</form>
+    	</div>
+    </div>
+  </body>
+</html>
