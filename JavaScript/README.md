@@ -1001,13 +1001,13 @@ $('#search_input').bind('keyup', function() {
 **步骤一：** [下载fiddler](https://www.telerik.com/download/fiddler)<br>
 **步骤二：** 安装好之后打开fiddler，点击Composer
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/2.jpg?raw=true)<br>
-**步骤三：** 配置好get请求地址为(http://api.bing.com/bing-search.html)，点击execute，出现一个404的文件
+**步骤三：** 配置好get请求地址为(`http://api.bing.com/bing-search.html`)，点击execute，出现一个404的文件
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/3.jpg?raw=true)<br>
 **步骤四：** 点击AutoResponder，再点击Enable rules和Unmatched requests passthrough，把404的文件拖到右边
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/4.jpg?raw=true)<br>
-**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：http://api.bing.com/bing-search.html， 然后点击Save
+**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：`http://api.bing.com/bing-search.html`， 然后点击Save
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/5.jpg?raw=true)<br>
-**步骤六：** 打开Chrome浏览器，输入地址：http://api.bing.com/bing-search.html， 假如你看到下面的场景说明已经成功一半了
+**步骤六：** 打开Chrome浏览器，输入地址：`http://api.bing.com/bing-search.html`， 假如你看到下面的场景说明已经成功一半了
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/6.jpg?raw=true)<br>
 **步骤七：** 此时看看fiddler中请求页面信息，把出现404的文件如法炮制的拖到右边进行规则配置
 ![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/7.jpg?raw=true)<br>
