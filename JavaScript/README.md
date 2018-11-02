@@ -923,7 +923,7 @@ JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个�
 
 **8、章节3-4：** <br>
 这节课程实现的有序预加载图片，关于有序和无序之间的区别，我想对比下相互之间的核心代码应该很容易就能理解：
-```
+```js
 // 有序预加载
 function load() {
   var imgObj = new Image();
@@ -963,10 +963,56 @@ $.each(images, function(i, src) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index4-1.html)<br><br>
 
 **尾声** <br>
-看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？
+看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？<br><br>
 
 
+# 10、SearchFrame => [搜索框制作](https://www.imooc.com/learn/21)
 
+一门历史悠久的课程，然而课程中亮点依然存在，尤其是讲师那封装代码的思想。在学习的过程中，我几乎解决了所有课程中一些不尽人意的地方，下面一起来看一下吧。<br>
+
+[章节1-3](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index1-3.html)、[章节1-4](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index1-4.html)和[章节2-2](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-2.html)由于都是简单的HTML与CSS代码，因此不做任何的讲解，大家点击看效果就好。<br>
+
+在**章节2-4** 中，我额外判断了当输入框没有内容的时候，那么下拉框就隐藏，挺简单的一段代码
+```js
+// 增加字符串长度判断
+$('#search_input').bind('keyup', function() {
+  if($('#search_input').val().length > 0) {
+    $('#search-suggest').show().css({
+      position: 'absolute',
+      top: $('#search-form').offset().top + $('#search-form').height() + 10,
+      left: $('#search-form').offset().left
+    });
+  } else {
+    $('#search-suggest').hide()
+  }
+})
+```
+下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-4.html)<br><br>
+
+
+**章节2-5和章节2-6** 其实讲到的重点就是ajax跨域的问题，由于这个自己目前也不是非常了解，所以暂时不说先，幸好的是jQuery中有解决跨域的方法，下面直接贴上2-6章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-6.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-6.html)<br><br>
+
+
+**章节2-7和章节2-8** 这两个章节代码并不难以理解，让新手或者说心浮气躁的人来说比较困难的是如何利用fiddler把本地文件放在`http://api.bing.com` 域名下，莫方，下面就让我手摸手教大家跨过这道门槛。<br>
+**步骤一：** [下载fiddler](https://www.telerik.com/download/fiddler)
+**步骤二：** 安装好之后打开fiddler，点击Composer
+**步骤三：** 配置好get请求地址为(http://api.bing.com/bing-search.html)，点击execute，出现一个404的文件
+**步骤四：** 点击AutoResponder，再点击Enable rules和Unmatched requests passthrough，把404的文件拖到右边
+**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：http://api.bing.com/bing-search.html，然后点击Save
+**步骤六：** 打开Chrome浏览器，输入地址：http://api.bing.com/bing-search.html，假如你看到下面的场景说明已经成功一半了
+**步骤七：** 此时看看fiddler中请求页面信息，把出现404的文件如法炮制的拖到右边进行规则配置
+**步骤八：** 和步骤五一样进行规则配置，最终配置完的页面如下图
+**步骤九：** 之后我们再刷新一次页面，完美展现，输入搜索的内容也能够出现相应的结果
+
+如果经过上面几步还没解决问题的话，请在慕课网私信我哈。下面直接贴上2-8章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-6.html)<br>
+
+
+话说章节
 
 
 
