@@ -998,29 +998,29 @@ $('#search_input').bind('keyup', function() {
 
 
 **章节2-7和章节2-8** 本课程的精髓就在这两个章节之中，得好好体会。这两个章节代码并不难以理解，让新手或者说心浮气躁的人来说比较困难的是如何利用fiddler把本地文件放在`http://api.bing.com` 域名下，莫方，下面就让我手摸手教大家跨过这道门槛。<br>
-**步骤一：** [下载fiddler](https://www.telerik.com/download/fiddler)
+**步骤一：** [下载fiddler](https://www.telerik.com/download/fiddler)<br>
 **步骤二：** 安装好之后打开fiddler，点击Composer
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/2.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/2.jpg?raw=true)<br>
 **步骤三：** 配置好get请求地址为(http://api.bing.com/bing-search.html)，点击execute，出现一个404的文件
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/3.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/3.jpg?raw=true)<br>
 **步骤四：** 点击AutoResponder，再点击Enable rules和Unmatched requests passthrough，把404的文件拖到右边
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/4.jpg?raw=true)
-**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：http://api.bing.com/bing-search.html，然后点击Save
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/5.jpg?raw=true)
-**步骤六：** 打开Chrome浏览器，输入地址：http://api.bing.com/bing-search.html，假如你看到下面的场景说明已经成功一半了
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/6.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/4.jpg?raw=true)<br>
+**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：http://api.bing.com/bing-search.html， 然后点击Save
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/5.jpg?raw=true)<br>
+**步骤六：** 打开Chrome浏览器，输入地址：http://api.bing.com/bing-search.html， 假如你看到下面的场景说明已经成功一半了
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/6.jpg?raw=true)<br>
 **步骤七：** 此时看看fiddler中请求页面信息，把出现404的文件如法炮制的拖到右边进行规则配置
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/7.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/7.jpg?raw=true)<br>
 **步骤八：** 和步骤五一样进行规则配置，最终配置完的页面如下图
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/8.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/8.jpg?raw=true)<br>
 **步骤九：** 之后我们再刷新一次页面，完美展现，输入搜索的内容也能够出现相应的结果
-![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/9.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/9.jpg?raw=true)<br>
 
 如果经过上面几步还没解决问题的话，请在慕课网私信我哈。下面直接贴上2-8章节的源码。<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-8.html)<br>
 
 
-话说[章节3-2](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-2.html)、[章节3-3](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-3.html)和[章节3-4](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-4.html)[章节3-5](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-5.html)[章节3-6](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-6.html)一样是由于都为简单的HTML与CSS代码，因此不做任何的讲解，大家点击看效果就好。不过在门课程倒是发现一篇很好的[关于BFC解读的手记](https://www.imooc.com/article/9723)，还有就是需要看源码的[请点击这里哇](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame)<br>
+话说[章节3-2](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-2.html)、[章节3-3](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-3.html)和[章节3-4](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-4.html)[章节3-5](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-5.html)[章节3-6](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-6.html)一样是由于都为简单的HTML与CSS代码，因此不做任何的讲解，大家点击看效果就好。不过在门课程倒是发现一篇很好的[关于BFC解读的手记](https://www.imooc.com/article/9723)，还有就是需要看源码的[请点击这里哇](https://github.com/CruxF/IMOOC/tree/master/JavaScript/SearchFrame?1541175622979)<br>
 
 **章节3-7** 唉，讲师太不小心，明明我是会给课程打9.9分的，因为最后一节造成了很大的bug，并且写法并不是那么优雅，所以只能说这是门不那么尽人意的课程，然而为了不让喜欢慕课网的小伙伴失望，我自己手写了一份能跑的代码，希望你们能看上眼。
 下面直接贴上源码和演示。<br>
