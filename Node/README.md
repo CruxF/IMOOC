@@ -39,11 +39,44 @@ CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程�
 ![](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseOne/imgs/%E6%A8%A1%E5%9D%97%E7%9A%84%E6%B5%81%E7%A8%8B.jpg?raw=true)<br><br>
 
 ### exports和module.exports的区别
+两者的作用都是将文件模块的方法和属性暴露给require返回的对象进行调用。但是二者存在本质的区别：exports的属性和方法都可以被module.exports替代，反过来则不行。它们之间还有以下的不同点
+- module.exports方法还可以单独返回一个数据类型，而exports只能返回一个object对象，因此，当我们需要返回一个数组、字符串、数字等类型的时候，就必须使用module.exports
+- 当在exports前面使用了moudle.exports，那么exports的任何方法和属性都会失效，请看下面案例代码
+```js
+index.js文件模块
+module.exports = 'exports的属性和方法将被忽视！'
+exports.name = '我无法被调用'
+exports.showName = function () {
+  console.log('我也无法被调用')
+}
+console.log('内部module.exports值被调用：' + module.exports)
 
+// 调用index.js文件模块
+var Book = require('./index.js')
+console.log('调用Book：' + Book)
+console.log('调用Book中的name：' + Book.name)
+console.log('调用Book中的showName()：' + Book.showName())
+```
+<br><br>
 
+### [URL和URI的区别](https://blog.csdn.net/simplebam/article/details/72644094)
+不粘贴复制了，大家点击标题进去看看我认为比较容易理解的文章。<br><br>
 
+### Node中的[url模块](http://nodejs.cn/api/url.html)以及[url.parse()方法](http://nodejs.cn/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
+记得是有写代码的，然而却找不到了，所以大家还是去官网查看相关的知识吧。<br><br>
 
-
+### Node中[queryString参数处理](http://nodejs.cn/api/querystring.html)小利器
+在命令行中进入node环境，然后分别输入以下命令
+- querystring.stringify({name:'scott',course:['jade','node'],from:''})
+- querystring.stringify({name:'scott',course:['jade','node'],from:''},',')
+- querystring.stringify({name:'scott',course:['jade','node'],from:''},',',':')
+- querystring.parse('name=scott&course=jade&course=node&from=')
+- querystring.parse('name=scott,course=jade,course=node,from=')
+- querystring.parse('name=scott,course=jade,course=node,from=',',')
+- querystring.parse('name:scott,course:jade,course:node,from:')
+- querystring.parse('name:scott,course:jade,course:node,from:',',',':')
+- querystring.escape('哈哈')
+- querystring.unescape('%E5%93%88%E5%93%88')<br><br>
 
 
 
