@@ -25,7 +25,9 @@ Node.js大部分基本模块都用JavaScript语言编写。在Node.js出现之�
 CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程正式登上舞台。根据CommonJS规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。<br>
 
 模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象。加载模块使用require方法，该方法读取一个文件并执行，返回文件内部的module.exports对象。课程对commonjs的解读以及和Node之间的关系浓缩在了下面两张图里
+图一
 ![](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseOne/imgs/commonjs%E8%A7%84%E8%8C%83.jpg?raw=true)
+图二
 ![](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseOne/imgs/Node%E4%B8%8ECommonjs%E8%A7%84%E8%8C%83%E7%9A%84%E5%85%B3%E7%B3%BB.jpg?raw=true)<br><br>
 
 ### 模块的分类
