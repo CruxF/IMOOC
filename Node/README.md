@@ -63,7 +63,7 @@ console.log('调用Book中的showName()：' + Book.showName())
 不粘贴复制了，大家点击标题进去看看我认为比较容易理解的文章。<br><br>
 
 ### Node中的[url模块](http://nodejs.cn/api/url.html)以及[url.parse()方法](http://nodejs.cn/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
-课程讲到的部分知识点尽在下图中。
+课程讲到的部分知识点尽在下图中。<br>
 ![](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseOne/imgs/ur.parse%E6%96%B9%E6%B3%95.jpg?raw=true)<br><br>
 
 ### Node中[queryString参数处理](http://nodejs.cn/api/querystring.html)小利器
