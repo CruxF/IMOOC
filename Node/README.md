@@ -117,29 +117,22 @@ console.log('调用Book中的showName()：' + Book.showName())
 [2、怎样理解阻塞非阻塞与同步异步的区别](https://blog.csdn.net/z69183787/article/details/52910484)<br><br>
 
 
-# NodeBaseTwo => [2、进击Node.js基础（二）](https://www.imooc.com/learn/637)
+# 2、NodeBaseTwo => [进击Node.js基础（二）](https://www.imooc.com/learn/637)
 接着上一个教学视频，这个进阶Node视频深度还是有的，讲的可以说都是重点知识，需要好好去掌握。<br>
 
 ### 章节1-2和章节1-3
-ES6里面定义了一个很重要的对象，那就是Promise，它解决了前端很多痛点问题，具体信息可以[点击这里查看](https://github.com/CruxF/Blog/issues/7)
-下面我们直接看源码(可以点击源码查看回调函数和Promise之间的差异在哪里)以及效果演示
+ES6里面定义了一个很重要的对象，那就是Promise，它解决了前端很多痛点问题，具体信息可以[点击这里查看](https://github.com/CruxF/Blog/issues/7)，下面我们直接看源码(可以点击源码查看回调函数和Promise之间的差异在哪里)以及效果演示<br>
 [我是源码](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseTwo/promise1-2)<br>
 [我是效果](https://cruxf.github.io/IMOOC/Node/NodeBaseTwo/promise1-2/ballTwo.html)<br><br>
 
 ### 章节1-4
-从其他人那里拉了一份能跑的源码过来，废了好大劲才明白了大概的执行过程(已经用console标注出来了)，并且做了大量的注释，
-有兴趣的可以[点击源码查看](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseTwo/promise_crawler)。
+从其他人那里拉了一份能跑的源码过来，废了好大劲才明白了大概的执行过程(已经用console标注出来了)，并且做了大量的注释，有兴趣的可以[点击源码查看](https://github.com/CruxF/IMOOC/blob/master/Node/NodeBaseTwo/promise_crawler)。
 
 ### 章节2-1
-Buffer概念：buffer缓冲，在nodejs里处理二进制的数据。为什么要有buffer呢，因为js的字符串是以utf-8的编码存储的，
-处理二进制的能力是很弱的，而网络层对于不同资源、文件的请求、响应都是用二进制这种方式进行交互的，
-所以nodejs就有一个接口来创建存放二进制数据的缓存区，并提供一些方法来对缓存区的数据进行进一步的处理。
-Buffer对象占用的内存空间是不计算在Node.js进程内存空间限制上的，因此，我们也常常会使用Buffer来存储需要占用大量内存的数据。
-Buffer在nodejs中是可以全局访问的，不需要require来加载。更多关于Buffer的知识请[点击这里](http://nodejs.cn/api/buffer.html#buffer_buffer)<br
+**Buffer概念：** buffer缓冲，在nodejs里处理二进制的数据。为什么要有buffer呢，因为js的字符串是以utf-8的编码存储的，处理二进制的能力是很弱的，而网络层对于不同资源、文件的请求、响应都是用二进制这种方式进行交互的，所以nodejs就有一个接口来创建存放二进制数据的缓存区，并提供一些方法来对缓存区的数据进行进一步的处理。Buffer对象占用的内存空间是不计算在Node.js进程内存空间限制上的，因此，我们也常常会使用Buffer来存储需要占用大量内存的数据。Buffer在nodejs中是可以全局访问的，不需要require来加载。更多关于Buffer的知识请[点击这里](http://nodejs.cn/api/buffer.html#buffer_buffer)<br>
 
 ### 章节2-2
-Buffer经常用来处理的是TCP/图像/文件/网络方面的事情，我们可以在node环境中使用命令Buffer查看其静态方法。还有一点就是，查看官方文档的时候
-很容易就能发现数组内的方法其实与Buffer的实例方法几乎是相同的。
+Buffer经常用来处理的是TCP/图像/文件/网络方面的事情，我们可以在node环境中使用命令Buffer查看其静态方法。还有一点就是，查看官方文档的时候很容易就能发现数组内的方法其实与Buffer的实例方法几乎是相同的。<br>
 - 验证Buffer实例在初始化时长度就被指定了
 ```js
 // 在node命令中分别输入
@@ -149,6 +142,7 @@ buf.write('hi imooc')
 buf.toString()
 buf.length
 ```
+
 一个小案例：批量操作图片，读取本地的一张图片，然后将其复制出来，并且把base64编码取到
 ```js
 var fs = require('fs')
@@ -208,8 +202,7 @@ fs.readFile('jinbohui.jpg', function(err, origin_buffer) {
 ```
 
 ### 章节2-3
-Stream：在上一节课程中，老师讲过buffer对象是来保存原始数据的，而Stream(流)对象是用来暂存和移动数据的，一般是和buffer结合起来用，更多相关知识请[点击这里](http://nodejs.cn/api/stream.html)。
-下面看一个简单的代码栗子
+Stream：在上一节课程中，老师讲过buffer对象是来保存原始数据的，而Stream(流)对象是用来暂存和移动数据的，一般是和buffer结合起来用，更多相关知识请[点击这里](http://nodejs.cn/api/stream.html)。下面看一个简单的代码栗子
 ```js
 var fs = require('fs')
 // 读取本地jinbohui.jpg文件
@@ -282,8 +275,7 @@ writeStream.on('drain', function() {
 ```
 
 ### 章节2-4
-stream的种类：Readable、Writable、Duplex、Transform，关于这四个种类的更多知识可以在[官方文档](http://nodejs.cn/api/stream.html)中好好阅读一下。
-小案例：请求一张图片的数据，在浏览器里面显示出来
+stream的种类：Readable、Writable、Duplex、Transform，关于这四个种类的更多知识可以在[官方文档](http://nodejs.cn/api/stream.html)中好好阅读一下。下面请看一个小案例：请求一张图片的数据，在浏览器里面显示出来
 ```js
 var http = require('http')
 var fs = require('fs')
