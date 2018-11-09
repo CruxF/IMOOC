@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Promise animation</title>
+    <style>
+      .ball {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        margin-bottom: 5px;
+      }
+      .ball1 {
+        background: red;
+      }
+      .ball2 {
+        background: yellow;
+      }
+      .ball3 {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball ball1" style="margin-left: 0"></div>
+    <div class="ball ball2" style="margin-left: 0"></div>
+    <div class="ball ball3" style="margin-left: 0"></div>
+
+    <script>
+      var ball1 = document.querySelector('.ball1')
+      var ball2 = document.querySelector('.ball2')
+      var ball3 = document.querySelector('.ball3')
+
+      function promiseAnimate(ball, distance) {
+        return new Promise((resolve, reject) => {
+          function _animate() {
+            setTimeout(() => {
+              var marginLeft = parseInt(ball.style.marginLeft, 10)
+              if(marginLeft === distance) {
+                // 执行回调函数，也就是让下一个小球开始运动
+                resolve()
+              } else {
+                if(marginLeft < distance) {
+                  marginLeft++
+                } else {
+                  marginLeft--
+                }
+                ball.style.marginLeft = marginLeft + 'px'
+                // 重复调用_animate函数
+                _animate()
+              }
+            }, 13);
+          }
+          // 激活_animate函数
+          _animate()
+        })
+      }
+
+      promiseAnimate(ball1, 100)
+        .then(() => {
+          return promiseAnimate(ball2, 200)
+        })
+        .then(() => {
+          return promiseAnimate(ball3, 300)
+        })
+        .then(() => {
+          return promiseAnimate(ball3, 150)
+        })
+        .then(() => {
+          return promiseAnimate(ball2, 150)
+        })
+        .then(() => {
+          return promiseAnimate(ball1, 150)
+        })
+    </script>
+  </body>
+</html>
