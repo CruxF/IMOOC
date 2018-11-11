@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')   
+    title 转义
+  body
+    h2 转义
+    - var data = 'text'
+    - var htmlData = '<script>console.log("<和>有可能会被转义")</script>'
+    p #{data}
+    p #{htmlData}
+    p !{htmlData}
+    p= data
+    p= htmlData
+    p!= htmlData
+    p \#{htmlData}
+    p \!{htmlData}
