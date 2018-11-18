@@ -1,6 +1,6 @@
 # 前言
 
-为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br><br>
 
 
 # 1、MongoDBase => [MongoDB入门篇](https://www.imooc.com/learn/295)
@@ -9,11 +9,11 @@
 
 ## 自已的安装配置流程(windows环境,mongoDB版本为4.0.4)
 步骤一：首先进入官网[下载页面](https://www.mongodb.com/download-center/community?jmp=nav)，在Download旁边的Package中选择MSI
-![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%B8%80.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%B8%80.jpg?raw=true)<br>
 步骤二：点击Download文件自动下载，然后再来看[这篇文章](https://blog.csdn.net/weixin_41226024/article/details/82857597?utm_source=blogxgwz3)，“查看服务”是打开电脑的“任务管理器”
-![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%BA%8C.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%BA%8C.jpg?raw=true)<br>
 步骤三：之后我们成功进入到这个页面后，那么就开始敲命令吧！
-![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%B8%89.jpg?raw=true)
+![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E6%AD%A5%E9%AA%A4%E4%B8%89.jpg?raw=true)<br>
 
 
 ## 章节 3-1 mongoDB的基本操作之数据写入和查询
@@ -32,7 +32,7 @@
 - db.数据表名.find().skip() : 跳过输出数据，比如skip(1)表示跳过前一条数据，skip(2)表示跳过前两条数据
 - db.数据表名.find().limit() : 限制输出数据的数量
 - db.数据表名.find().sort() : 排序输出数据，1为正序排序，-1为反序排序，比如sort({x:1})表示查询x键名，以正序的方式排序
-- db.数据表名.find().skip(2).limit(2).sort({x:-1}) : 查找数据表中以x为键名、跳过前两条、只输出两条的反序数据(好奇怪的返回数据啊！！！！)
+- db.数据表名.find().skip(2).limit(2).sort({x:-1}) : 查找数据表中以x为键名、跳过前两条、只输出两条的反序数据(好奇怪的返回数据啊！！！！)<br>
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%823-1(%E4%BA%8C).jpg?raw=true)
 
 
@@ -56,8 +56,8 @@
 ## 章节 3-5 mongoDB的基本操作之数据删除
 - db.数据表名.remove(要删除的键名与键值) : 删除对应的数据
 - db.数据表名.drop() : 删除对应的数据表
-- show tables : 查看数据表
-![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%823-5.jpg?raw=true)
+- show tables : 查看数据表<br>
+![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%823-5.jpg?raw=true)<br>
 
 
 ## 章节 3-6 mongoDB的基本操作之创建索引
@@ -68,32 +68,32 @@
 
 
 ## 章节 4-2 mongoDB的_id索引
-概念：_id索引是绝大多数集合默认建立的索引，对于每个插入的数据，MongoDB都会自动生成一条唯一的_id字段。
+- 概念：_id索引是绝大多数集合默认建立的索引，对于每个插入的数据，MongoDB都会自动生成一条唯一的_id字段。
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%824-2.jpg?raw=true)
 
 
 ## 章节 4-3 mongoDB的单键索引
-概念：单键索引是最普通的索引，与_id索引不同，单键索引不会自动创建<br>
+- 概念：单键索引是最普通的索引，与_id索引不同，单键索引不会自动创建<br>
 
-注意：从 mongoDB 3.0 开始，ensureIndex 被废弃，今后都仅仅是 createIndex 的一个别名。新版本的单键索引变为了db.数据表名.createIndex( { x: 1 } )
+- 注意：从 mongoDB 3.0 开始，ensureIndex 被废弃，今后都仅仅是 createIndex 的一个别名。新版本的单键索引变为了db.数据表名.createIndex( { x: 1 } )<br>
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%824-3.jpg?raw=true)
 
 
 ## 章节 4-4 mongoDB的多键索引
-概念：多键索引与单键索引创建形式相同，区别在于字段的值。
+- 概念：多键索引与单键索引创建形式相同，区别在于字段的值。
 - 单键索引：值为一个单一的值，例如字符串、数字或者日期
 - 多键索引：值具有多个记录，例如数组
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%824-4.jpg?raw=true)
 
 
 ## 章节 4-5 mongoDB的复合索引
-概念：当我们的查询条件不只有一个时，就需要建立复合索引，复合索引即同时对多个字段创建索引。
+- 概念：当我们的查询条件不只有一个时，就需要建立复合索引，复合索引即同时对多个字段创建索引。
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%824-5.jpg?raw=true)
 
 
 ## 章节 4-6 mongoDB的过期索引
-概念：是在一段时间后会过期的索引，在索引过期后，相应的数据会被删除，这适合存储一些在一段时间之后会失效的数据，比如用户的登录信息、存储的日志等。<br>
-限制：
+- 概念：是在一段时间后会过期的索引，在索引过期后，相应的数据会被删除，这适合存储一些在一段时间之后会失效的数据，比如用户的登录信息、存储的日志等。<br>
+- 限制：
 - 存储在过期索引字段的值必须是指定的时间类型，就是必须是ISODate或者ISODate数组，不能使用时间戳，否则不能被自动删除；
 - 如果指定了ISODate数组，则按照最小的时间进行删除；
 - 过期索引不能是符合索引；
@@ -102,7 +102,7 @@
 
 
 ## 章节 5-1 mongoDB的全文索引
-概念：对字符串与字符串数组创建全文可搜索的索引，适用情况比如是文章的作者、文章的标题或者文章的内容。
+概念：对字符串与字符串数组创建全文可搜索的索引，适用情况比如是文章的作者、文章的标题或者文章的内容。<br>
 
 
 ## 章节 5-2 mongoDB创建全文索引的方法
@@ -120,7 +120,7 @@
 
 
 ## 章节 5-4 mongoDB使用全文索引相似度查询
-使用$meta操作符:{score:{$meta:"textScore"}}，写在查询条件后面可以得到返回结果的相似度，与sort一起使用，可以达到很好的实用效果
+使用$meta操作符:{score:{$meta:"textScore"}}，写在查询条件后面可以得到返回结果的相似度，与sort一起使用，可以达到很好的实用效果<br>
 ![](https://github.com/CruxF/IMOOC/blob/master/MongoDB/MongoDBase/img/%E7%AB%A0%E8%8A%825-4.jpg?raw=true)
 
 
