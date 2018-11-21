@@ -486,6 +486,8 @@ script(src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js")
 直接看[最终效果的源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne)(2018年11月21日能跑通)，请忽略`chapter2-3`和`chapter3-2`这两个文件夹，因为那是章节2-3和章节3-2的源码，没必要去看。下面我们再来看看这门课程涉及到的其他知识点，然后慢慢分析每个功能点的实现过程。<br>
 
 ## 其他知识点
-
+[1、Express框架](http://www.runoob.com/nodejs/nodejs-express-framework.html)<br>
+[2、Mongoose对象模型工具基础入门](https://www.cnblogs.com/xiaohuochai/p/7215067.html?utm_source=itdadao&utm_medium=referral)<br>
+[3、Express 常用中间件 body-parser 实现解析](https://www.cnblogs.com/chyingp/p/nodejs-learning-express-body-parser.html)<br>
 
 
