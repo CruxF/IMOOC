@@ -471,8 +471,8 @@ app.get('/admin/list', function(req, res) {
 嘿嘿，听说有些童鞋的项目跑不起来，那么是时候试一试我的这一套源码了，请[点击这里喔](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne/chapter2-3)。有个小细节，就是head.jade中要先引入jQuery.js，然后在引入bootstrap.js，不然会报错，正确的顺序如下
 ```html
 link(href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet")
-script(src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js")
 script(src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js")
+script(src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js")
 ```
 <br>
 
