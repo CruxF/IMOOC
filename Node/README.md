@@ -1,6 +1,6 @@
 # 前言
 
-为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+由于这会是一篇十分长的学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
 # 1、NodeBaseOne => [进击Node.js基础（一）](https://www.imooc.com/learn/348)
@@ -402,6 +402,90 @@ rs.pipe(ts).pipe(ws)
 ```
 
 好了，到了这里对课程的初步总结也到此结束了，接下来就要好好通读一下Node官方文档以及开始利用Node+mongodb来搭建一个网站。<br><br>
+
+
+# 3、NodeMongoOne => [node+mongodb 建站攻略（一期）](https://www.imooc.com/learn/75)
+在学习这门课程需要先接触如下几门课程或者说是我的总结，不然直接上手这门课程的话会十分的懵逼<br>
+[1、进击Node.js基础（一）](https://www.imooc.com/learn/348)：这门课程总结我已经写好了，请往上翻；<br>
+[2、进击Node.js基础（二）](https://www.imooc.com/learn/637)：这门课程总结我已经写好了，请往上翻；<br>
+[3、带你学习Jade模板引擎](https://github.com/CruxF/IMOOC/tree/master/Tool?1542800929503)：嘿嘿，请直接来看我的总结，简单过一遍，敲一遍代码即可；<br>
+[4、MongoDB入门篇）](https://github.com/CruxF/IMOOC/tree/master/MongoDB?1542801005603)：这是必须要提前看的一门课程，怎么也得先把数据库服务给跑起来；<br>
+
+好了，下面我们正式开始一步步搭建起这个项目。<br>
+
+## 项目结构初始化
+首先我们创建一个项目目录，比如NodeMongoOne，然后在这个目录中进行如下操作，就安装下面几个就行了，听我的准没错
+- npm install express
+- npm install jade
+- npm install mongoose
+- npm install moment
+- npm install underscore<br>
+
+## 章节2-2
+假如上面的都安装成功了，那么只要编写如下js代码，以及课程中的jade文件代码，那么就能启动文件查看效果咯
+```js
+// 加载express模块
+var express = require('express')
+// 默认端口为3000，当然也可以命令行输入指定端口号：PORT=4000 node app.js
+var port = process.env.PORT || 3000
+// 启动一个web服务器
+var app = express()
+// 设置视图的根目录
+app.set('views', './views')
+// 设置默认的模板引擎
+app.set('view engine', 'jade')
+// 监听端口
+app.listen(port)
+// 打印日志
+console.log('imooc started on port ' + port)
+
+// express框架中的路由编写
+// 首页
+app.get('/', function(req, res) {
+  res.render('index', {
+    title: '电影网首页'
+  })
+})
+// 详情页
+app.get('/movie/:id', function(req, res) {
+  res.render('detail', {
+    title: '电影详情页'
+  })
+})
+// 电影录入页
+app.get('/admin/movie', function(req, res) {
+  res.render('admin', {
+    title: '电影录入页'
+  })
+})
+// 列表页
+app.get('/admin/list', function(req, res) {
+  res.render('list', {
+    title: '电影列表页'
+  })
+})
+```
+<br>
+
+## 章节2-3
+嘿嘿，听说有些童鞋的项目跑不起来，那么是时候试一试我的这一套源码了，请[点击这里喔](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne/chapter2-3)。有个小细节，就是head.jade中要先引入jQuery.js，然后在引入bootstrap.js，不然会报错，正确的顺序如下
+```html
+link(href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet")
+script(src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js")
+script(src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js")
+```
+<br>
+
+## 章节3-2
+我在这个章节卡了很久，不知道你们怎么样了，还好最终还是捣鼓了出来，下面谈一下我的开发步骤
+- 步骤一：安装好MongoDB，教程可以[点击这里](https://github.com/CruxF/IMOOC/tree/master/MongoDB?1542787633477)，最后能搞到如下图的结果就可以了<br>
+![](https://github.com/CruxF/IMOOC/blob/master/Node/NodeMongoOne/public/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%AF%E5%8A%A8%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%88%9B%E5%BB%BA.jpg?raw=true)
+- 步骤二：来[这copy源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne/chapter3-2)吧，课程中涉及到的版本问题有点多，一时也讲不清楚<br>
+
+## 章节4-2
+直接看[最终效果的源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne)(2018年11月21日能跑通)，请忽略`chapter2-3`和`chapter3-2`这两个文件夹，因为那是章节2-3和章节3-2的源码，没必要去看。下面我们再来看看这门课程涉及到的其他知识点，然后慢慢分析每个功能点的实现过程。<br>
+
+## 其他知识点
 
 
 
