@@ -483,7 +483,7 @@ script(src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"
 - 步骤二：来[这copy源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne/chapter3-2)吧，课程中涉及到的版本问题有点多，一时也讲不清楚<br>
 
 ## 章节4-2
-直接看[最终效果的源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne)(2018年11月21日能跑通)，请忽略`chapter2-3`和`chapter3-2`这两个文件夹，因为那是章节2-3和章节3-2的源码，没必要去看。下面我们再来看看这门课程涉及到的其他知识点，然后慢慢分析每个功能点的实现过程。<br>
+直接看[最终效果的源码](https://github.com/CruxF/IMOOC/tree/master/Node/NodeMongoOne)(2018年11月21日能跑通)，请忽略`chapter2-3`和`chapter3-2`这两个文件夹，因为那是章节2-3和章节3-2的源码，没必要去看。下面我们再来看看这门课程涉及到的其他知识点，然后慢慢分析一些功能点的实现过程。<br>
 
 ## 其他知识点
 [1、Express框架](http://www.runoob.com/nodejs/nodejs-express-framework.html)<br>
@@ -596,4 +596,43 @@ app.post('/admin/movie/new', function(req, res) {
   }
 })
 ```
-首先，路由处理代码会先获取上一个提交页面所带过来的id（`req.body.movie._id`）和movieObj对象（`req.body.movie`）。
+首先，路由处理代码会先获取上一个提交页面所带过来的id（`req.body.movie._id`）和movieObj对象（`req.body.movie`）。然后再根据id值的有无来进行数据的更新或者数据的新增，无论是数据更新还是新增，都会调用mongoose中的一个save方法
+```js
+MovieSchema.pre('save', function(next) {
+  // 判断数据是否为新增
+  if(this.isNew) {
+    this.meta.createAt = this.meta.updateAt = Date.now();
+  } else {
+    this.meta.updateAt = Date.now();
+  }
+  // 存储流程继续往前走
+  next();
+});
+```
+更新数据或者新增数据成功后，那么就执行路由重定向（`res.redirect('/movie/' + movie._id)`），跳转到电影详情页面。<br>
+
+
+## 数据更新功能实现
+先看看整个数据变动流程，首先是点击list页面中的修改按钮（`a(target="_blank",href="../admin/update/#{item._id}")  修改`），经过Express框架中路由处理，渲染了admin.jade文件中的内容，同时把查询到的数据带过去了
+```js
+app.get('/admin/update/:id', function(req, res) {
+  var id = req.params.id
+  if(id) {
+    Movie.findById(id, function(err, movie) {
+      res.render('admin', {
+        title: '数据已更新',
+        movie: movie
+      })
+    })
+  }
+})
+```
+当点击admin.jade页面中的录入，那么就进入了开始的那个路由中（/admin/movie/new）的判断，至此，一个数据更新和新增的循环结束。<br>
+
+## 尾声
+数据的查看和删除几乎都和上面的流程都差不多，不难理解，在这就不多说了，让我们直接开始下一个课程。<br><br>
+
+
+
+
+
