@@ -489,5 +489,111 @@ script(src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"
 [1、Express框架](http://www.runoob.com/nodejs/nodejs-express-framework.html)<br>
 [2、Mongoose对象模型工具基础入门](https://www.cnblogs.com/xiaohuochai/p/7215067.html?utm_source=itdadao&utm_medium=referral)<br>
 [3、Express 常用中间件 body-parser 实现解析](https://www.cnblogs.com/chyingp/p/nodejs-learning-express-body-parser.html)<br>
+[4、Underscore使用方法](https://blog.csdn.net/lybwwp/article/details/50833963)<br>
 
+## 数据录入功能实现
+我认为这个应该先分析的，毕竟得先有数据，那么其他功能才有实现的基础。好了，现在我们正式开始，先看下面这段代码
+```js
+app.get('/admin/movie', function(req, res) {
+  res.render('admin', {
+    title: '请录入视频~',
+    movie: {
+      title: "",
+      doctor: "",
+      country: "",
+      year: "",
+      poster: "",
+      flash: "",
+      summary: "",
+      language: ""
+    }
+  })
+})
+```
+这是Express框架的路由实现，当我们在浏览器输入地址`localhost:3000/admin/movie`时，那么就会渲染admin.jade文件中的内容，同时会把movie这个对象以及title这个字符串带过去进行绑定
+```html
+extend ../layout
 
+block content
+  .container
+    .row
+      form.form-horizontal(style="width:100%" method="post", action="/admin/movie/new")
+        //- 隐藏表单域，用来更新电影数据，存储电影ID
+        input(type="hidden", name="movie[_id]", value="#{movie._id}")        
+        .form-group
+          label.col-sm-2.control-label(for="inputTitle") 电影名称
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
+        .form-group
+          label.col-sm-2.control-label(for="inputDoctor") 电影导演
+          .col-sm-10
+            input#inputDoctor.form-control(type="text", name="movie[doctor]", value="#{movie.doctor}")
+        .form-group
+          label.col-sm-2.control-label(for="inputCountry") 国家
+          .col-sm-10
+            input#inputCountry.form-control(type="text", name="movie[country]", value="#{movie.country}")
+        .form-group
+          label.col-sm-2.control-label(for="inputLanguage") 语种
+          .col-sm-10
+            input#inputLanguage.form-control(type="text", name="movie[language]", value="#{movie.language}")
+        .form-group
+          label.col-sm-2.control-label(for="inputPoster") 海报地址
+          .col-sm-10
+            input#inputPoster.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+        .form-group
+          label.col-sm-2.control-label(for="inputFlash") 片源地址
+          .col-sm-10
+            input#inputFlash.form-control(type="text", name="movie[flash]", value="#{movie.flash}")
+        .form-group
+          label.col-sm-2.control-label(for="inputYear") 上映年代
+          .col-sm-10
+            input#inputYear.form-control(type="text", name="movie[year]", value="#{movie.year}")
+        .form-group
+          label.col-sm-2.control-label(for="inputSummary") 电影简介
+          .col-sm-10
+            textarea#inputSummary.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type="submit") 录入
+```
+当我们提交录入按钮时，那么就会跳到action那个地址（localhost:3000/admin/movie/new），下面来看/admin/movie/new路由处理代码
+```js
+app.post('/admin/movie/new', function(req, res) {
+  var id = req.body.movie._id
+  var movieObj = req.body.movie
+  var _movie
+  if(id !== 'undefined') {
+    Movie.findById(id, function(err, movie) {
+      if(err) {
+        console.log(err)
+      }
+      // 复制movieObj对象的所有属性到目标对象movie上，覆盖已有属性
+      _movie = _.extend(movie, movieObj)
+      _movie.save(function(err, movie) {
+        if(err) {
+          console.log(err)
+        }
+        res.redirect('/movie/' + movie._id)
+      })
+    })
+  } else {
+    _movie = new Movie({
+      doctor: movieObj.doctor,
+      title: movieObj.title,
+      country: movieObj.country,
+      language: movieObj.language,
+      year: movieObj.year,
+      poster: movieObj.poster,
+      summary: movieObj.summary,
+      flash: movieObj.flash
+    })
+    _movie.save(function(err, movie) {
+      if(err) {
+        console.log(err)
+      }
+      res.redirect('/movie/' + movie._id)
+    })
+  }
+})
+```
+首先，路由处理代码会先获取上一个提交页面所带过来的id（`req.body.movie._id`）和movieObj对象（`req.body.movie`）。
