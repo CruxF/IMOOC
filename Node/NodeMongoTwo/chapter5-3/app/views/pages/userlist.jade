@@ -1,0 +1,23 @@
+extend ../layout
+
+block content
+  .container
+    .row
+      table.table.table-hover.table-bordered
+        thead
+          tr
+            th(style="text-align:center") 名字
+            th 时间
+            th 查看
+            th 更新
+            th 删除
+            th 返回
+        tbody
+          each item in users
+           tr(class="item-id-#{item_id}")
+            td(style="text-align:center") #{item.name}
+            td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
+            td: a(target="_blank",href="#")  查看
+            td: a(target="_blank",href="#")  修改
+            td: button.btn.btn-danger.del(type="button",data-id="#")  删除
+            td: a.btn.btn-success(href="/")  返回首页

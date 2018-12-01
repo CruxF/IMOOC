@@ -1,0 +1,30 @@
+extends ../layout
+
+block content 
+  .container
+    .row
+      each cat in categories
+        .panel.panel-primary
+          .panel-heading
+            h3
+              a(href='/results?cat=#{cat._id}&p=0',style="color: #fff") #{cat.name}
+          .panel-body
+            if cat.movies && cat.movies.length > 0
+              each item in cat.movies
+                .col-md-2(style="text-align:center")
+                  .thumbnail
+                    a(href="/movie/#{item._id}")
+                      if item.poster.indexOf('http') > -1
+                        img(src="#{item.poster}", alt="#{item.title}", height="400px", width="300px")
+                      else
+                        img(src="/upload/#{item.poster}", alt="#{item.title}")
+                    .caption
+                      h5 《#{item.title}》
+                      p: a.btn.btn-primary(href="/movie/#{item._id}",role="button") 观看预告片          
+    .row
+      .col-md-3
+        p: a.btn.btn-warning(href="/admin/movie/new") 录入新电影
+    .row
+      .col-md-3(style="margin-bottom:100px")
+        p: a.btn.btn-warning(href="/admin/movie/list") 查看所有电影详情
+             

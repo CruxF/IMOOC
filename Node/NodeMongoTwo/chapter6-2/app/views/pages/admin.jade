@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/admin/movie", enctype="multipart/form-data")
+        .form-group
+          label.col-sm-2.control-label 豆瓣同步
+          .col-sm-10
+            input#douban.form-control(type="text")
+        if movie._id
+          input(type="hidden", name="movie[_id]", value=movie._id)
+        .form-group
+          label.col-sm-2.control-label(for="inputCategory") 电影分类
+          .col-sm-10
+            input#inputCategory.form-control(type="text", name="movie[categoryName]", value=movie.categoryName)
+        .form-group
+          label.col-sm-2.control-label 分类选择<br>
+          each cat in categories
+            label.radio-inline
+              if movie.category
+                input(type="radio", name="movie[category]", value=cat._id, checked=cat._id.toString()==movie.category.toString())
+              else
+                input(type="radio", name="movie[category]", value=cat._id)
+              | #{cat.name}
+        .form-group
+          label.col-sm-2.control-label(for="inputTitle") 电影名字
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[title]", value=movie.title)
+        .form-group
+          label.col-sm-2.control-label(for="inputDoctor") 电影导演
+          .col-sm-10
+            input#inputDoctor.form-control(type="text", name="movie[doctor]", value=movie.doctor)
+        .form-group
+          label.col-sm-2.control-label(for="inputCountry") 国家
+          .col-sm-10
+            input#inputCountry.form-control(type="text", name="movie[country]", value=movie.country)
+        .form-group
+          label.col-sm-2.control-label(for="inputLanguage") 语种
+          .col-sm-10
+            input#inputLanguage.form-control(type="text", name="movie[language]", value=movie.language)
+        .form-group
+          label.col-sm-2.control-label(for="inputPoster") 海报地址
+          .col-sm-10
+            input#inputPoster.form-control(type="text", name="movie[poster]", value=movie.poster)
+        .form-group
+          label.col-sm-2.control-label(for="uploadPoster") 海报上传
+          .col-sm-10
+            input#uploadPoster(type="file", name="uploadPoster")
+        .form-group
+          label.col-sm-2.control-label(for="inputFlash") 片源地址
+          .col-sm-10
+            input#inputFlash.form-control(type="text", name="movie[flash]", value=movie.flash)
+        .form-group
+          label.col-sm-2.control-label(for="inputYear") 上映年代
+          .col-sm-10
+            input#inputYear.form-control(type="text", name="movie[year]", value=movie.year)
+        .form-group
+          label.col-sm-2.control-label(for="inputSummary") 电影简介
+          .col-sm-10
+            textarea#inputSummary.form-control(type="text", name="movie[summary]")= movie.summary
+        .form-group(style="margin-bottom:60px")
+          .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type="submit") 录入
+  script(src='/js/admin.js')
