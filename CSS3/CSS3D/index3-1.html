@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    #my3dspace{
+        -webkit-perspective: 800;
+        -webkit-perspective-origin: 50% 50%;
+        overflow:hidden;
+    }
+    #pagegroup{
+      width:400px;
+      height:400px;
+      margin:0 auto;
+      -webkit-transform-style:preserve-3d;
+      position: relative;
+    }
+    .page{
+      width:360px;
+      height:360px;
+      padding:20px;
+      background-color: black;
+      color:white;
+      font-weight:bold;
+      font-size:360px;
+      line-height:360px;
+      text-align:center;
+      position:absolute;
+    }
+    #page1{
+      -webkit-transform-origin:bottom;
+      -webkit-transition: -webkit-transform 1s linear;
+    }
+    #page2,#page3,#page4,#page5,#page6{
+      -webkit-transform-origin:bottom;
+      -webkit-transition: -webkit-transform 1s linear;
+      -webkit-transform: rotateX(90deg);
+    }
+    #op{
+      text-align:center;
+      margin: 40px auto;
+    }
+    #op a {
+      color: brown;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="my3dspace">
+    <div id="pagegroup">
+      <div class="page" id="page1">1</div>
+      <div class="page" id="page2">2</div>
+      <div class="page" id="page3">3</div>
+      <div class="page" id="page4">4</div>
+      <div class="page" id="page5">5</div>
+      <div class="page" id="page6">6</div>
+    </div>
+  </div>
+  <div id="op">
+    <a href="javascript:next()">下一张</a>&nbsp;&nbsp;<a href="javascript:prev()">上一张</a>
+  </div>
+</body>
+</html>

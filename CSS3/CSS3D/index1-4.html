@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #wrapper {
+      width: 1024px;
+      margin: 0 auto;
+    }
+    .progress-bar {
+      height: 40px;
+      width: 40px;
+      background-color: #69c;
+    }
+    .progress-bar:hover {
+      width: 960px;
+    }
+    #bar1 {
+      -webkit-transition: width 5s linear;
+    }
+    #bar2 {
+      -webkit-transition: width 5s ease;
+    }
+    #bar3 {
+      -webkit-transition: width 5s ease-in;
+    }
+    #bar4 {
+      -webkit-transition: width 5s ease-out;
+    }
+    #bar5 {
+      -webkit-transition: width 5s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <p>linear：规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）</p>
+    <div class="progress-bar" id="bar1"></div>
+
+    <p>ease：规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）</p>
+    <div class="progress-bar" id="bar2"></div>
+
+    <p>ease-in：规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）</p>
+    <div class="progress-bar" id="bar3"></div>
+
+    <p>ease-out：规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）</p>
+    <div class="progress-bar" id="bar4"></div>
+
+    <p>ease-in-out：规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）</p>
+    <div class="progress-bar" id="bar5"></div>
+  </div>
+</body>
+
+</html>
