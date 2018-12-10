@@ -1028,4 +1028,16 @@ $('#search_input').bind('keyup', function() {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-7.html)<br><br>
 
 
+# 11、ShowHidden => [展开与收起效果](https://www.imooc.com/learn/90)
+相当简单的一门课程，一口气直接看完。这门课程不做什么讲解，下面直接看效果演示，部分源码含有讲解注释
+- [章节2-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index2-1.html)
+- [章节2-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index2-2.html)
+- [章节3-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index3-1.html)
+- [章节3-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index3-2.html)
+- [章节4-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index4-1.html)
+- [章节5-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index5-2.html)
+- [章节5-3](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index5-3.html)
+- [章节7-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index7-1.html)<br><br>
+
+
 
