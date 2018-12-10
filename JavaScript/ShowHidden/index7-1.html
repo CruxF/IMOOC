@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0 auto;
+      padding: 0;
+    }
+    #pn {
+      background-color: #ccc;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      padding: 5px;
+      box-sizing: border-box;
+      height: 300px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .content {
+      margin: 0 auto;
+      padding: 10px;
+      box-sizing: border-box;
+      width: 750px;
+      background-color: gray;
+      text-align: center;
+      height: 80px;
+      color: #fff;
+    }
+  </style>
+
+  <script>
+    var w = 0;
+    // 显示广告层
+    function addW() {
+      if(w<750) {
+        w += 5;
+        document.getElementById("pn").style.width = w + "px"
+      } else {
+        return false;
+      }
+      setTimeout('addW()', 30);
+    }
+    // 隐藏广告层
+    function subW() {
+      if(w>0) {
+        w -= 5;
+        document.getElementById('pn').style.width = w + 'px'
+      } else {
+        document.getElementById('pn').style.display = 'none'
+        return false
+      }
+      setTimeout('subW()', 30)
+    }
+
+    window.onload = function showAds() {
+      addW();
+      setTimeout('subW()', 5000)
+    }
+  </script>
+</head>
+<body>
+  <div id="pn">
+    <h1>欢迎来到慕课网</h1>
+    <h2>大幅广告</h2>
+  </div>
+  <div class="content">
+    <h3>慕课网欢迎你</h3>
+  </div>
+</body>
+</html>
