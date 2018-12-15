@@ -1040,4 +1040,13 @@ $('#search_input').bind('keyup', function() {
 - [章节7-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index7-1.html)<br><br>
 
 
+## 12、PageSpecial =>[网页定位导航特效](https://www.imooc.com/learn/56)
+姜维老师666，编程思维很强，不亏是架构师，我们来看看他的简介：
+> 资深UI 前端 架构，互联网行业折腾10余年，前后端开发、敏捷过程、项目管理经验丰富，负责过多个产品和技术团队，一直奋斗在Full Stack的道路上，爱技术，爱创业，爱一切新事物，玩过乐队，喜欢折腾！<br>
+
+下面我们一起来分析课程源代码
+
+### 章节4-3
+
+
 
