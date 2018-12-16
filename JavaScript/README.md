@@ -1049,4 +1049,7 @@ $('#search_input').bind('keyup', function() {
 ### 章节4-3
 
 
+# 13、LoverPro => [H5+JS+CSS3实现七夕言情](https://www.imooc.com/learn/453)
+
+
 
