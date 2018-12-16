@@ -51,18 +51,34 @@
   </style>
 
   <script type="text/javascript">
+    var nextId;
+    var prevId;
+    window.onload = function() {
+      nextId = document.getElementById("next")
+      prevId = document.getElementById("prev")
+    }
     var curIndex = 1;
     function next() {
-      if (curIndex == 6) return;
+      prevId.style.backgroundColor = "#fff"
+      if(curIndex == 5) {
+        nextId.style.backgroundColor = "#ccc"
+      } else if (curIndex == 6) {       
+        return
+      }
       var curPage = document.getElementById("page" + curIndex);
       curPage.style.webkitTransform = "rotateX(-90deg)";
       curIndex++;
       var nextPage = document.getElementById("page" + curIndex);
       nextPage.style.webkitTransform = "rotateX(0deg)";
     }
-
+    
     function prev() {
-      if (curIndex == 1) return;
+      nextId.style.backgroundColor = "#fff"
+      if(curIndex == 2) {
+        prevId.style.backgroundColor = "#ccc"
+      } else if (curIndex == 1) {       
+        return
+      }
       var curPage = document.getElementById("page" + curIndex);
       curPage.style.webkitTransform = "rotateX(90deg)";
       curIndex--;
@@ -85,7 +101,7 @@
   </div>
 
   <div id="op">
-    <a href="javascript:next()">下一张</a>&nbsp;&nbsp;<a href="javascript:prev()">上一张</a>
+    <a href="javascript:next()" id="next">下一张</a>&nbsp;&nbsp;<a href="javascript:prev()" id="prev">上一张</a>
   </div>
 </body>
 </html>
