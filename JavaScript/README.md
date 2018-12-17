@@ -1047,7 +1047,55 @@ $('#search_input').bind('keyup', function() {
 下面我们一起来分析课程源代码
 
 ### 章节4-3
+该章节课程讲到了定位的两种方法，一种是简单的a标签锚点方法，通过点击锚点，调到特定的位置，下面源码中current样式并不会因为跳转而改变
+```html
+<ul>
+  <li><a href="#item1">1F 男装</a></li>
+  <li><a href="#item2">2F 女装</a></li>
+  <li><a href="#item3" class="current">3F 美妆</a></li>
+  <li><a href="#item4">4F 数码</a></li>
+  <li><a href="#item5">5F 母婴</a></li>
+</ul>
 
+<div id="item1">
+  男装
+</div>
+```
+
+另外一种方式是通过监听浏览器的滚动事件和滚动高度来实现定位功能
+```js
+<script>
+  $(document).ready(function () {
+    // 滚动条发生滚动时，要获取相应的值
+    $(window).scroll(function () {
+      // 寻找到id为content区域所有类名为item的元素集合
+      var items = $("#content").find(".item");
+      var menu = $("#menu");
+      // 页面滚动条离顶部的距离
+      var top = $(document).scrollTop();
+      // 滚动条现在所在位置的item id
+      var currentId = ""; 
+      items.each(function () {
+        var m = $(this);
+        // m.offset().top代表每一个item的顶部距离滚动条顶部的位置，这是固定值
+        if (top > m.offset().top - 300) { // 减不减300其实都可以
+          currentId = "#" + m.attr("id");
+          // console.log(currentId)
+        } else {
+          return false;
+        }
+      });
+      // 给相应楼层的a设置current，取消其他链接的current
+      var currentLink = menu.find(".current");
+      // 当前currentId存在并且类名为currentLink的href的属性值不等于当前currentId值时
+      if (currentId && currentLink.attr("href") != currentId) {
+        currentLink.removeClass("current");
+        menu.find("[href=" + currentId + "]").addClass("current");
+      }
+    })
+  });
+</script>
+```
 
 # 13、LoverPro => [H5+JS+CSS3实现七夕言情](https://www.imooc.com/learn/453)
 
