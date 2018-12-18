@@ -1096,6 +1096,15 @@ $('#search_input').bind('keyup', function() {
   });
 </script>
 ```
+下面直接贴上源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/PageSpecial/index4-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/PageSpecial/index4-3.html)<br><br>
+
+### 尾声
+最后几个章节使用原生JavaScript实现该定位功能，其实思路是一致的，不同的只是在写法上，在这就不详细说明了，下面直接贴上源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/PageSpecial/index6-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/PageSpecial/index6-3.html)<br><br>
+
 
 # 13、LoverPro => [H5+JS+CSS3实现七夕言情](https://www.imooc.com/learn/453)
 
