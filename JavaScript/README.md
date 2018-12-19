@@ -1109,4 +1109,27 @@ $('#search_input').bind('keyup', function() {
 # 13、LoverPro => [H5+JS+CSS3实现七夕言情](https://www.imooc.com/learn/453)
 
 
+# 14、Countdown => [倒计时效果](https://www.imooc.com/learn/59)
+相当基础的一门课程，主要涉及到的是JavaScript的时间（Date）对象，我们熟记下列的对象方法即可
+- Date()返回当前的日期和时间
+- getDate() 查看Date对象并返回日期 （1-31）
+- getDay() 返回星期几（0-6） 
+- getHours() 返回小时数 （0-23）
+- getMinutes() 返回分钟数 （0-59）
+- getMonth() 返回月份值 (从0开始，＋1）
+- getSeconds() 返回秒数 
+- getTime()返回毫秒数
+- getYear() 返回年份，获得年最好用，getFullYear()方法来操作（完整格式 如2014）
+
+对了，忘记提一点就是：操作对象中的方法时，首先得先把这个对象创建（new Date()）出来。由于这门课程年代久远，其中的代码也有些许不合理，下面请看我的源码以及效果演示<br>
+[章节1-2源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index1-2.html)<br>
+[章节1-2演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index1-2.html)<br><br>
+[章节2-1源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index2-1.html)<br>
+[章节2-1演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index2-1.html)<br><br>
+[章节3-1源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index3-1.html)<br>
+[章节3-1演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index3-1.html)<br><br>
+
+
+
+
 
