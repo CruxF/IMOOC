@@ -19,6 +19,7 @@ React萌新不敢评论这门课程到底好不好，只是能确定的是自己
 - React是什么？以及为什么要学习React？还有就是React和Vue的优点分别是什么？大家可以[来这里](https://www.zhihu.com/question/301860721/answer/545031906)寻找答案<br>
 
 ## 准备开发环境
+- 配置好Node环境
 - 官方脚手架工具：create react app
 - 安装：npm install create-react-app -g
 - 创建项目：create-react-app 项目名<br>
@@ -33,6 +34,8 @@ class Welcome extends React.Component{
   }
 }
 export default Welcome
+
+// 备注：component组件的意思
 ```
 - 接着将该组件挂载到DOM节点上(index.js为主入口文件)
 ```js
@@ -48,6 +51,7 @@ serviceWorker.unregister();
 ```
 - 组件中的render方法代表的是这个组件最终显示出来的结果
 - 主入口文件中ReactDOM.render方法是能够把组件挂载到DOM节点上
+- 关于[serviceWorker.unregister()](https://blog.csdn.net/qq_17347575/article/details/80109046)的知识<br>
 
 ## JSX部分
 JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。可以理解为在JS中编写与XML类似的语言,一种定义带属性树结构（DOM结构）的语法，它的目的不是要在浏览器或者引擎中实现，它的目的是通过各种编译器将这些标记编译成标准的JS语言。简单总结如下：
@@ -58,7 +62,7 @@ JSX是React的核心组成部分，它使用XML标记的方式去直接声明界
 我们可以写出这样的代码
 ```js
 import React from 'react';
-class Welcome extends React.Component{
+class Welcome extends React.Component {
   render() {
     const todoList = ['hello','hi'];
     const isLogin = true
@@ -77,9 +81,10 @@ class Welcome extends React.Component{
 }
 export default Welcome
 ```
+<br>
 
 ## React的属性(Props)
-- 组件像一个函数一样，接收特定的输入(props)，产出特定的输出(React elements)，下面使用一个例子来更具体的说明，涉及到的主要是有三个文件，并且需要事先安装好：npm install bootstrap --save
+- 组件像一个函数一样，接收特定的输入(props)，产出特定的输出(React elements)，下面使用一个例子来更具体的说明，涉及到的主要是有三个文件，并且需要事先安装好bootstrap：npm install bootstrap --save
 ```js
 // index.js文件
 import React from 'react';
@@ -164,6 +169,7 @@ const NameCard = (props) => {
 }
 export default NameCard
 ```
+<br>
 
 ## React状态(State)
 在一个组件中，属性(props)的内容是不可变的，传入什么就是什么。然而，组件内部的数据是可以动态改变，this.setState()是更新state的唯一途径，下面看代码，引入部分请自行解决
@@ -178,7 +184,7 @@ class LikesButton extends React.Component{
     // 在JavaScript的类中是无法自动绑定this的，因此我们需要手动绑定
     this.increaseLikes = this.increaseLikes.bind(this)
   }
-  // 创建方法
+  // 点赞增加方法
   increaseLikes() {
     this.setState({
       likes: ++this.state.likes
@@ -236,7 +242,7 @@ class LikesButton extends React.Component{
 }
 export default LikesButton
 ```
-
+<br>
 
 ## React生命周期
 - 组件初始化
@@ -254,7 +260,8 @@ class DigitalClock extends React.Component{
       date: new Date()
     }
   }
-  // componentDidMount方法中的代码，是在组件已经完全挂载到网页上才会调用被执行，所以可以保证数据的加载
+  // componentDidMount方法中的代码，是在组件已经完全挂载到网页上才会调用被执行，
+  // 所以可以保证数据的加载。state每更新一次，那么组件也是会重新初始化一次。
   componentDidMount() {
     this.timer = setInterval(() => {
       this.setState({
@@ -280,6 +287,7 @@ class DigitalClock extends React.Component{
 }
 export default DigitalClock;
 ```
+<br>
 
 ## React表单(Forms)
 - 可控表单组件：在render()函数中设置了value的值是一个功能受限的组件，渲染出来的HTML元素始终保持value属性的值，即使用户输入也不会改变。优点是1、符合React单向数据流特性，即从state流向render输出的结果；2、数据存储在state中，便于访问和处理，在情况允许的条件下，我们应该优先考虑编写可控组件。下面看demo代码
@@ -294,11 +302,13 @@ class CommentBox extends React.Component{
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+  // 表单数据改变
   handleChange(event) {
     this.setState({
       value: event.target.value
     })
   }
+  // 表单数据提交
   handleSubmit(event) {
     alert(this.state.value)
     event.preventDefault()
@@ -353,7 +363,7 @@ class CommentBox extends React.Component{
 }
 export default CommentBox;
 ```
-
+<br>
 
 ## React的状态提升和单向数据流
 - React中的状态提升概括来说,就是将多个组件需要共享的状态提升到它们最近的父组件上.在父组件上改变这个状态然后通过props分发给子组件.
