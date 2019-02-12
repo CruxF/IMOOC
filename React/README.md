@@ -386,6 +386,7 @@ class App extends Component {
   }
   addComment(comment) {
     this.setState({
+      // ES6的解构赋值，经常不用会忘的那种
       comments: [...this.state.comments, comment]
     })
   }
@@ -461,8 +462,7 @@ class CommentBox extends React.Component{
 }
 export default CommentBox;
 ```
-关于最后老师留下的作业，我抄了问答区大佬的代码，各位可以到[源码]()里进行查看。
-
+关于最后老师留下的作业，我抄了问答区大佬们的代码，各位可以到[源码区](https://github.com/CruxF/IMOOC/tree/master/React/ReactInstance/src)里进行查看。<br>
 
 ## React中的Context
 - 简单说就是，当你不想在组件树中通过逐层传递props或者state的方式来传递数据时，可以使用Context来实现跨层级的组件数据传递。有篇文章讲的非常具体，十分建议[来这里看看](https://www.jianshu.com/p/eba2b76b290b)，下面小demo走起
@@ -493,6 +493,7 @@ class App extends Component {
     }
     this.changeTheme = this.changeTheme.bind(this)
   }
+  // 改变主题颜色
   changeTheme(theme) {
     this.setState({
       theme
@@ -549,3 +550,8 @@ const ThemedBar = ()=>{
 }
 export default ThemedBar;
 ```
+<br>
+
+# 尾声
+Context有点绕，暂时还不能太好理解，先整理这么多先，知识得一点点去消化。<br><br>
+
