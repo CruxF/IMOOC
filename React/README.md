@@ -20,8 +20,7 @@ React萌新不敢评论这门课程到底好不好，只是能确定的是自己
 
 ## 准备开发环境
 - 配置好Node环境
-- 官方脚手架工具：create react app
-- 安装：npm install create-react-app -g
+- 全局安装官方脚手架工具：npm install create-react-app -g
 - 创建项目：create-react-app 项目名<br>
 
 ## React第一个组件
