@@ -96,7 +96,8 @@ $p.html('您好！通过慕课网学习jQuery才是最佳的途径').css('color'
 
 通过以上的比较我们得知jQuery有如下的优点
 - 通过jQuery方法包装后的对象，是一个类数组对象。它与DOM对象完全不同，唯一相似的是它们都能操作DOM。
-- 通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。<br>
+- 通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。<br><br>
+
 
 #### jQuery对象转化成DOM对象
 jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包装处理，为的是提供更好更方便快捷的DOM处理与开发中经常使用的功能。我们使用jQuery的同时也能混合JavaScript原生代码一起使用。在很多场景中，我们需要jQuery与DOM能够相互的转换，它们都是可以操作的DOM元素，jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。转换的方式主要有以下两种
@@ -150,6 +151,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 ```
 <br>
 
+
 #### DOM对象转化成jQuery对象
 相比较jQuery转化成DOM，开发中更多的情况是把一个dom对象加工成jQuery对象。$(参数)是一个多功能的方法，通过传递不同的参数而产生不同的作用。如果传递给$(DOM)函数的参数是一个DOM对象，jQuery方法会把这个DOM对象给包装成一个新的jQuery对象。通过$(dom)方法将普通的dom对象加工成jQuery对象之后，我们就可以调用jQuery的方法了
 ```html
@@ -178,6 +180,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 ```
 <br>
 
+
 #### 通过id选择器改变元素样式
 ```html
 <!DOCTYPE html>
@@ -204,6 +207,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 ```
 <br>
 
+
 #### 通过类名选择器改变元素
 ```html
 <!DOCTYPE html>
@@ -229,6 +233,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 </html>
 ```
 <br>
+
 
 #### 通过元素选择器改变元素
 ```html
@@ -259,6 +264,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 </html>
 ```
 <br>
+
 
 #### jQuery选择器之层级选择器
 - 子选择器($('parent > child'))：选择所有指定parent元素中指定的child的直接子元素。
@@ -339,6 +345,7 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 ```
 <br>
 
+
 #### jQuery基本筛选选择器
 - $('element:first')：匹配第一个元素
 - $('element:last')：匹配最后一个元素
@@ -351,23 +358,261 @@ jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包
 - $('element:header')：选择所有标题元素，像h1，h2，h3等
 - $('element:lang(language)')：选择指定语言的所有元素
 - $('element:root')：选择该文档的根元素
-- $('element:animated')：选择所有正在执行动画效果的元素<br>
+- $('element:animated')：选择所有正在执行动画效果的元素<br><br>
+
 
 #### jQuery内容筛选选择器
 - $('element:contains(text)')：选择所有包含指定文本的元素
 - $('element:parent')：选择所有含有子元素或者文本的元素
 - $('element:empty')：选择所有没有子元素的元素(包含文本节点)
-- $('element:has(selector)')：选择元素中至少包含指定选择器的元素<br>
+- $('element:has(selector)')：选择元素中至少包含指定选择器的元素<br><br>
+
 
 #### jQuery可见性筛选选择器
 - $('element:visible')：选择所有显示的元素
-- $('element:hidden')：选择所有隐藏的元素
+- $('element:hidden')：选择所有隐藏的元素<br><br>
 
 
+剩下的选择器还有（自行网上搜索....）
+- jQuery属性筛选选择器
+- jQuery子元素筛选选择器
+- jQuery表单元素选择器
+- jQuery表单对象属性筛选选择器<br><br>
 
 
+#### jQuery元素属性的操作
+我们可以通过attr()方法来获取盒设置元素属性，使用removeAttr()删除元素中指定的属性，具体请看下面的代码
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      input {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        background: #bbffaa;
+        border: 1px solid #ccc;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>.attr()与.removeAttr()</h2>
+    <h3>.attr</h3>
+    <form>
+      <input type="text" value="设置value" />
+      <input type="text" value="获取value" />
+      <input type="text" value="回调拼接value" />
+      <input type="text" value="删除value" />
+    </form>
+
+    <script type="text/javascript">
+      //找到第一个input，通过attr设置属性value的值
+      $("input:first").attr("value", "这是重新设置的值");
+      //找到第二个input，通过attr获取属性value的值
+      $("input:eq(1)").attr("value");
+      //找到第三个input，通过使用一个函数来设置属性
+      //可以根据该元素上的其它属性值返回最终所需的属性值
+      //例如，我们可以把新的值与现有的值联系在一起：
+      $("input:eq(2)").attr("value", function(i, val) {
+        return "通过function设置" + val;
+      });
+      //找到第四个input，通过使用removeAttr删除属性，同时增加新属性placeholder
+      $("input:eq(3)").removeAttr("value").attr("placeholder","请输入关键词");
+    </script>
+  </body>
+</html>
+```
+<br>
 
 
+#### jQuery属性与样式之html()和text()
+两者的用法基本上都是类似的，先看html()的用法
+- html() 不传入值，就是获取集合中第一个匹配元素的HTML内容
+- html( htmlString )  设置每一个匹配元素的html内容
+- html( function(index, oldhtml) ) 用来返回设置HTML内容的一个函数
+
+text()的用法如下
+- text() 得到匹配元素集合中每个元素的合并文本，包括他们的后代
+- text( textString ) 用于设置匹配元素内容的文本
+- text( function(index, text) ) 用来返回设置文本内容的一个函数
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left {
+        width: auto;
+        height: 220px;
+      }
+      .left div {
+        width: 250px;
+        height: 170px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        background: #bbffaa;
+        border: 1px solid #ccc;
+      }
+      a,p {
+        display: block;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h3>.html()与.text()</h3>
+    <div class="left first-div">
+      <div class="div">
+        <a>:first-child</a>
+        <a>第二个元素</a>
+        <a>:last-child</a>
+      </div>
+      <div class="div">
+        <a>:first-child</a>
+        <a>第二个元素</a>
+        <a>:last-child</a>
+      </div>
+    </div>
+
+    <h4>显示通过html方法获取到的内容</h4>
+    <p></p>
+
+    <h4>显示通过text方法获取到的内容</h4>
+    <p></p>
+
+    <script type="text/javascript">
+      //显示出html方法获取到的内容
+      //.html()是整个html文档结构
+      $("p:first").text($(".first-div").html());
+      //显示出text方法获取到的内容
+      //.text()是文本内容的合集
+      $("p:last").text($(".first-div").text());
+
+      //通过.text()方法替换文本内容
+      $(".left a:eq(2)").text("替换第三个a元素的内容");
+      //通过.html()方法替换html结构
+      $(".left div:last").html("整个div的子节点都被替换了");
+      //通过.text()的回调，获取原本的内容，修改，在重新赋值
+      $(".left a:first").text(function(idnex, text) {
+        return "增加新的文本内容" + text;
+      });
+    </script>
+  </body>
+</html>
+```
+html()和text()的区别主要如下
+- html与.text的方法操作是一样，只是在具体针对处理对象不同
+- html处理的是元素内容，.text处理的是文本内容
+- html只能使用在HTML文档中，.text 在XML 和 HTML 文档中都能使用
+- 如果处理的对象只有一个子文本节点，那么html处理的结果与text是一样的
+- 火狐不支持innerText属性，用了类似的textContent属性，.text()方法综合了2个属性的支持，所以可以兼容所有浏览器<br><br>
+
+
+#### jQuery属性与样式之val()
+jQuery中有一个.val()方法主要是用于处理表单元素的值，比如 input, select 和 textarea。
+- val()无参数，获取匹配的元素集合中第一个元素的当前值
+- val( value )，设置匹配的元素集合中每个元素的值
+- val( function ) ，一个用来返回设置值的函数
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      p {
+        color: red;
+        margin: 4px;
+      }
+      b {
+        color: blue;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <select id="single">
+      <option>慕课网</option>
+      <option>博客园</option>
+    </select>
+    <select id="multiple" multiple="multiple">
+      <option selected="selected">imocc</option>
+      <option>慕课网</option>
+      <option selected="selected">博客园</option>
+    </select>
+    <input type="text" value="click a button" />
+    <p></p>
+    <span></span>
+
+    <script type="text/javascript">
+      //单个select，返回第一个
+      $("p").text($("#single").val());
+      //多个select被选择，返回["imocc", "博客园"]
+      $("span").text($("#multiple").val());
+      //选择一个表单，修改value的值
+      $("input[type='text']").val("修改表单的字段");
+    </script>
+  </body>
+</html>
+```
+<br>
+
+
+#### jQuery属性与样式之增加样式addClass()
+- addClass( className ) : 为每个匹配元素所要增加的一个或多个样式名
+- addClass( function(index, currentClass) ) : 这个函数返回一个或更多用空格隔开的要增加的样式名
+- 注意：addClass()方法不会替换一个样式类名。它只是简单的添加一个样式类名到元素上
+```html
+<p class="orgClass">
+$("p").addClass("newClass")
+```
+那么p元素的class实际上是 class="orgClass newClass"样式只会在原本的类上继续增加，通过空格分隔<br><br>
+
+
+#### jQuery属性与样式之删除样式removeClass()
+- removeClass( `[className ]` )：每个匹配元素移除的一个或多个用空格隔开的样式名
+- removeClass( function(index, class) ) ： 一个函数，返回一个或多个将要被移除的样式名
+- 注意：如果一个样式类名作为一个参数,只有这样式类会被从匹配的元素集合中删除 。 如果没有样式名作为参数，那么所有的样式类将被移除<br><br>
+
+
+#### jQuery属性与样式之切换样式toggleClass()
+在做某些效果的时候，可能会针对同一节点的某一个样式不断的切换，也就是addClass与removeClass的互斥切换，比如隔行换色效果。jQuery提供一个toggleClass方法用于简化这种互斥的逻辑，通过toggleClass方法动态添加删除Class，一次执行相当于addClass，再次执行相当于removeClass
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .change {
+        color: aqua;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h1>我是变色龙</h1>
+    <button id="btn">点击我呀</button>
+
+    <script type="text/javascript">
+      $('#btn').click(()=>{
+        $('h1').toggleClass('change')
+      })  
+    </script>
+  </body>
+</html>
+```
+<br>
 
 
 
