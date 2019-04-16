@@ -77,8 +77,8 @@
 ### 48、Vue2.5入门基础
 ### 49、Vue+Webpack打造todo应用
 ### 50、快速入门Web阅读器开发
-### 51、JS插件开发之——Tab选项卡（jQuery）
-### 52、全屏切换效果（jQuery）
-### 53、jQuery插件transform旋转焦点图（jQuery）
-### 54、基于实例的 React16 傻瓜课程（React）
-### 55、ajax跨域完全讲解（jQuery）
+### 51、JS插件开发之——Tab选项卡
+### 52、全屏切换效果
+### 53、jQuery插件transform旋转焦点图
+### 54、基于实例的 React16 傻瓜课程
+### 55、ajax跨域完全讲解
