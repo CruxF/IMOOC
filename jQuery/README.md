@@ -615,5 +615,384 @@ $("p").addClass("newClass")
 <br>
 
 
+# 5、jQuery基础（二）
+就不讲太多的无用话了，下面直接进入正题。<br><br>
 
+
+#### 原生js创建DOM节点及节点属性
+创建的流程比较简单，大体为：创建节点、添加节点的一些属性、加入到文档中
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left, .right {
+        width: 300px;
+        height: 120px;
+      }
+      .left div, .right div {
+        width: 100px;
+        height: 90px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>动态创建元素节点</h2>
+    <div class="left">
+      <div class="aaron">点击body区域会动态创建元素节点</div>
+    </div>
+
+    <script type="text/javascript">
+      var body = document.querySelector("body");
+      document.addEventListener("click", function() {
+        //创建2个div元素
+        var rightdiv = document.createElement("div");
+        var rightaaron = document.createElement("div");
+
+        //给2个div设置不同的属性
+        rightdiv.setAttribute("class", "right");
+        rightaaron.className = "aaron";
+        rightaaron.innerHTML = "动态创建DIV元素节点";
+
+        //2个div合并成包含关系
+        rightdiv.appendChild(rightaaron);
+
+        //绘制到页面body
+        body.appendChild(rightdiv);
+      }, false)
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery节点创建与属性的处理
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left, .right {
+        width: 300px;
+        height: 120px;
+      }
+      .left div, .right div {
+        width: 100px;
+        height: 90px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>动态创建元素节点</h2>
+    <button>点击通过jQuery动态创建元素节点</button>
+
+    <script type="text/javascript">
+      var $body = $("body");
+      $body.on("click", function() {
+        //通过jQuery生成div元素节点
+        var div = $("<div class='right'><div class='aaron'>动态创建DIV元素节点</div></div>");
+        $body.append(div);
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+
+#### DOM内部插入append()与appendTo()
+.append()和.appendTo()两种方法功能相同，主要的不同是内容和目标的位置不同
+- append()前面是被插入的对象，后面是要在对象内插入的元素内容
+- appendTo()前面是要插入的元素内容，而后面是被插入的对象
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn1">append()插入</button>
+    <button id="btn2">appendTo()插入</button>
+    <p class="testp">我是一个要被插的元素</p>
+    <p class="demop">我是另一个要被插的元素</p>
+
+    <script>
+      $("#btn1").on("click", () => {
+        $(".testp").append("<span>新增的内容</span>");
+      });
+      $("#btn2").on("click", () => {
+        $("<span>新增的内容</span>").appendTo(".demop");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+
+#### DOM外部插入after()与before()
+- after向元素的后边添加html代码，如果元素后面有元素了，那将后面的元素后移，然后将html代码插入
+- before向元素的前边添加html代码，如果元素前面有元素了，那将前面的元素前移，然后将html代码插
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn1">after()插入</button>
+    <button id="btn2">before()插入</button>
+    <hr>
+    <span class="testp">我是一个要被插的元素</span>
+
+    <script>
+      $("#btn1").on("click", () => {
+        $(".testp").after("<span>after插入</span>");
+      });
+      $("#btn2").on("click", () => {
+        $(".testp").before("<span>before插入</span>");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM内部插入prepend()与prependTo()
+- .prepend()方法将指定元素插入到匹配元素里面作为它的第一个子元素 (如果要作为最后一个子元素插入用.append())
+- .prependTo()和.prepend()实现同样的功能，主要的不同是语法，插入的内容和目标的位置不同
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn1">prepend()插入</button>
+    <button id="btn2">prependTo()插入</button>
+    <p class="testp">我是一个要被插的元素</p>
+    <p class="demop">我是另一个要被插的元素</p>
+
+    <script>
+      $("#btn1").on("click", () => {
+        $(".testp").prepend("<span>新增的内容</span>");
+      });
+      $("#btn2").on("click", () => {
+        $("<span>新增的内容</span>").prependTo(".demop");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+
+#### DOM外部插入insertAfter()与insertBefore()
+- .before()和.insertBefore()实现同样的功能。主要的区别是语法——内容和目标的位置。 对于before()选择表达式在函数前面，内容作为参数，而.insertBefore()刚好相反，内容在方法前面，它将被放在参数里元素的前面
+- .after()和.insertAfter() 实现同样的功能。主要的不同是语法——特别是（插入）内容和目标的位置。 对于after()选择表达式在函数的前面，参数是将要插入的内容。对于 .insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn1">insertAfter()插入</button>
+    <button id="btn2">insertBefore()插入</button>
+    <hr>
+    <span class="testp">我是一个要被插的元素</span>
+
+    <script>
+      $("#btn1").on("click", () => {
+        $("<span>insertAfter插入</span>").insertAfter(".testp");
+      });
+      $("#btn2").on("click", () => {
+        $("<span>insertBefore插入</span>").insertBefore(".testp");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM节点删除之empty()的基本用法
+empty 顾名思义，清空方法，但是与删除又有点不一样，因为它只移除了 指定元素中的所有子节点。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      .test {
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn">empty()删除</button>
+    <hr>
+    <div class="test">
+      <p>子元素一</p>
+      <p>子元素二</p>
+    </div>
+
+    <script>
+      $("#btn").on("click", () => {
+        $(".test").empty();
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM节点删除之remove()的有参用法和无参用法
+remove与empty一样，都是移除元素的方法，但是remove会将元素自身移除，同时也会移除元素内部的一切，包括绑定的事件及与该元素相关的jQuery数据。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      .test {
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn">remove()删除</button>
+    <hr>
+    <div class="test">
+      <p>子元素一</p>
+      <p>子元素二</p>
+    </div>
+
+    <script>
+      $("#btn").on("click", () => {
+        $(".test").remove();
+      });
+    </script>
+  </body>
+</html>
+```
+remove比empty好用的地方就是可以传递一个选择器表达式用来过滤将被移除的匹配元素集合，可以选择性的删除指定的节点。我们可以通过$()选择一组相同的元素，然后通过remove（）传递筛选的规则，从而这样处理
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      .test {
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn">remove()删除</button>
+    <hr>
+    <div class="test">
+      <p>子元素一</p>
+      <p>子元素二</p>
+    </div>
+
+    <script>
+      $("#btn").on("click", () => {
+        $("p").filter(":contains('二')").remove();
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM节点删除之保留数据的删除操作detach()
+如果我们希望临时删除页面上的节点，但是又不希望节点上的数据与事件丢失，并且能在下一个时间段让这个删除的节点显示到页面，这时候就可以使用detach方法来处理。detach从字面上就很容易理解，让一个web元素托管，即从当前页面中移除该元素，但保留这个元素的内存模型对象。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <button id="btn1">点击删除p元素</button>
+    <button id="btn2">点击增加p元素</button>
+    <hr />
+    <p>元素一</p>
+    <p>元素二</p>
+
+    <script>
+      $("p").on("click", (e) => {
+        alert(e.target.innerHTML)
+      })
+      var p;
+      $("#btn1").click(()=>{
+        if($("p").length>0){
+          p = $("p").detach()
+        }        
+      })
+      $("#btn2").click(()=>{
+        $("body").append(p)
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
 
