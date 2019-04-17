@@ -996,3 +996,95 @@ remove比empty好用的地方就是可以传递一个选择器表达式用来过
 ```
 <br>
 
+#### DOM拷贝clone()
+clone方法比较简单就是克隆节点，但是需要注意，如果节点有事件或者数据之类的其他处理，我们需要通过clone(ture)传递一个布尔值ture用来指定，这样不仅仅只是克隆单纯的节点结构，还要把附带的事件与数据给一并克隆了
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+    <style>
+      .left, .right {
+        width: 300px;
+        height: 120px;
+      }
+      .left div, .right div {
+        width: 100px;
+        height: 90px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+        background: #bbffaa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>通过clone克隆元素</h2>
+    <div class="left">
+      <div class="aaron1">点击,clone浅拷贝</div>
+      <div class="aaron2">点击,clone深拷贝,可以继续触发创建</div>
+    </div>
+    <script>
+      //只克隆节点
+      //不克隆事件
+      $(".aaron1").on("click", function() {
+        $(".left").append($(this).clone().css("color", "red"))
+      })
+      //克隆节点
+      //克隆事件
+      $(".aaron2").on("click", function() {
+        $(".left").append($(this).clone(true).css("color", "blue"))
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM替换replaceWith()和replaceAll()
+- .replaceWith( newContent )：用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合
+- .replaceAll( target ) ：用集合的匹配元素替换每个目标元素，.replaceAll()和.replaceWith()功能类似，但是目标和源相反
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <p>子元素一</p>
+      <p>子元素二</p>
+      <p>子元素三</p>
+    </div>
+    <button id="btn1">replaceWith()替换</button>
+    <button id="btn2">replaceAll()替换</button>
+    <script>
+      $("#btn1").on("click",()=>{
+        $("div > p:eq(1)").replaceWith("<p>被替换的子元素二</p>")
+      })
+      $("#btn2").click(()=>{
+        $("<p>被替换的子元素三</p>").replaceAll("div > p:eq(2)")
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM包裹wrap()方法
+如果要将元素用其他元素包裹起来，也就是给它增加一个父元素，针对这样的处理，JQuery提供了一个wrap方法
+- .wrap( wrappingElement )：在集合中匹配的每个元素周围包裹一个HTML结构
+- .wrap( function ) ：一个回调函数，返回用于包裹匹配元素的 HTML 内容或 jQuery 对象
+
+
+
+
+
+
