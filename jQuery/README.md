@@ -615,7 +615,7 @@ $("p").addClass("newClass")
 <br>
 
 
-# 5、jQuery基础（二）
+# 6、[jQuery基础（二）](https://www.imooc.com/learn/530)
 就不讲太多的无用话了，下面直接进入正题。<br><br>
 
 
