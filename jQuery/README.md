@@ -1656,6 +1656,580 @@ jQuery是一个合集对象，通过$()方法找到指定的元素合集后可�
 <br>
 
 
+# [jQuery基础(三)——事件篇](https://www.imooc.com/learn/429)
+前言就不说什么了，撸起袖子就是干呀<br><br>
+
+#### jQuery鼠标事件之click与dbclick事件
+用交互操作中，最简单直接的操作就是点击操作。jQuery提供了两个方法一个是click方法用于监听用户单击操作，另一个方法是dbclick方法用于监听用户双击操作。这两个方法的用法是类似的，下面以click()事件为例
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <p class="p1">指定触发绑定的事件内容</p>
+    <button>元素绑定事件,弹出回调中的this</button><br>
+    <button>指定触发绑定的事件</button>
+    <button>不同函数传递数据</button>
+
+    <script>
+      // 元素绑定事件,弹出回调中的this
+      $("button:first").click(function() {
+        alert(this)
+      })
+
+      // 指定触发绑定的事件
+      $(".p1").click(function(e){
+        alert(e.target.textContent)
+      })
+      $("button:eq(1)").click(function() {
+        $(".p1").click()
+      })
+
+      // 不同函数传递数据
+      function fn(e) {
+        alert(e.data)
+      }
+      $("button:last").click("传入的值", fn)
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之mousedown与mouseup事件
+用户交互操作中，最简单直接的操作就是点击操作，因此jQuery提供了一个mousedown的快捷方法可以监听用户鼠标按下的操作，与其对应的还有一个方法mouseup快捷方法可以监听用户鼠标弹起的操作。两种方法用法类似，下面以mousedown()为例
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <p class="p1">指定触发绑定的事件内容</p>
+    <button>弹出回调中的鼠标键</button><br>
+    <button>指定触发绑定的事件</button><br>
+    <button>不同函数传递数据</button>
+
+    <script>
+      // 元素绑定事件,弹出回调中的this
+      $("button:first").mousedown(function(e) {
+        alert(e.which)
+      })
+
+      // 指定触发绑定的事件
+      $(".p1").mousedown(function(e){
+        alert(e.target.textContent)
+      })
+      $("button:eq(1)").mousedown(function() {
+        $(".p1").mousedown()
+      })
+
+      // 不同函数传递数据
+      function fn(e) {
+        alert(e.data)
+      }
+      $("button:last").mousedown("传入的值", fn)
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之mousemove事件
+用交互操作中，经常需要知道用户是否有移动的操作。基于移动的机制可以做出拖动、拖拽一系列的效果出来。针对移动事件，jQuery提供了一个mousemove的快捷方法可以监听用户移动的的操作，mousemove事件触发需要以下几点：
+- mousemove事件是当鼠标指针移动时触发的，即使是一个像素
+- 如果处理器做任何重大的处理，或者如果该事件存在多个处理函数，这可能造成浏览器的严重的性能问题
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div {
+        width: 300px;
+        height: 80px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="left">
+      <div class="aaron1">
+        <p>鼠标在绿色区域移动触发mousemove</p>
+        <p>移动的X位置：</p>
+      </div>
+    </div>
+
+    <script>
+      //触发后修改内容
+      $(".aaron1").mousemove(function(e) {
+        $(this).find("p:last").html("移动的X位置：" + e.pageX);
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之mouseover与mouseout事件
+在学JS的时候，大家还记得有两个方法叫移入移出事件吗？onmouseover()与onmouseout()事件~jQuery当中同样提供了这样的事件来监听用户的移入移出操作，mouseover()与mouseout()事件，两者用法类似，下面一mouseover为例：
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left {
+        width: 500px;
+        height: 80px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        background: #bbffaa;
+      }
+      .right {
+        width: 500px;
+        height: 80px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        background: #bbffaa;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="left">
+      <div class="aaron1">
+        <p>鼠标移进此区域触发mouseover事件</p>
+        <p>进入元素内部,mouseover事件触发次数：</p>
+      </div>
+    </div>
+    <div class="right">
+      <div class="aaron1">
+        <p>鼠标移进此区域触发mouseover事件</p>
+        <p>进入元素内部,mouseover事件触发次数：</p>
+      </div>
+    </div>
+
+    <script>
+      // 绑定一个mouseover事件
+      var n = 0;
+      $(".left").mouseover(function(e) {
+        $(this)
+          .find("p:last")
+          .html("进入元素内部,mouseover事件触发次数：" + ++n);
+      });
+
+      // 不同函数传递数据
+      var j = 0;
+      function fn(e){
+        $(".right p:last").html('mouseover事件触发次数：' + (++j) + '传入数据为 ：'+ e.data)
+      }
+      $(".right").mouseover("data为慕课网", fn)
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之mouseenter与mouseleave事件
+用交互操作中，经常需要知道用户操作鼠标是否有移到元素内部或是元素外部，因此jQuery提供了一个mouseenter和mouseleave的快捷方法可以监听用户移动到内部的操作。mouseenter事件和mouseover的区别关键点就是：冒泡的方式处理问题，mouseover事件具有冒泡的特点。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div,
+      .right div {
+        width: 350px;
+        height: 150px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      p {
+        height: 50px;
+        border: 1px solid red;
+        margin: 30px;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>.mouseover()方法</h2>
+    <div class="left">
+      <div class="aaron1">
+        <p>鼠标离开此区域触发mouseover事件</p>
+        <a>mouseover事件触发次数：</a><br />
+        <a>mouseover冒泡事件触发次数：</a>
+      </div>
+    </div>
+
+    <h2>.mouseenter()方法</h2>
+    <div class="right">
+      <div class="aaron2">
+        <p>鼠标进入此区域触发mouseenter事件</p>
+        <a>mouseenter事件触发次数：</a><br />
+        <a>mouseenter冒泡事件触发次数：</a>
+      </div>
+    </div>
+    <br />
+
+    <script type="text/javascript">
+      // mouseover事件
+      var i = 0;
+      $(".aaron1 p").mouseover(function(e) {
+        $(".aaron1 a:first").html("mouseover事件触发次数：" + ++i);
+      });
+      var n = 0;
+      $(".aaron1").mouseover(function() {
+        $(".aaron1 a:last").html("mouseover冒泡事件触发次数：" + ++n);
+      });
+      // mouseenter事件
+      var j = 0;
+      $(".aaron2 p").mouseenter(function(e) {
+        $(".aaron2 a:first").html("mouseenter事件触发次数：" + ++j);
+      });
+
+      var m = 0;
+      $(".aaron2").mouseenter(function() {
+        $(".aaron2 a:last").html("mouseenter冒泡事件触发次数：" + ++m);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之hover事件
+学了mouseover、mouseout、mouseenter、mouseleave事件，也理解了四个事件的相同点与不同点，现在可以用来给元素做一个简单的切换效果。在元素上移进移出切换其换色，一般通过2个事件配合就可以达到，这里用mouseenter与mouseleave，这样可以避免冒泡问题
+```js
+$(ele).mouseenter(function () {
+  $(this).css("background", '#bbffaa');
+})
+$(ele).mouseleave(function () {
+  $(this).css("background", 'red');
+})
+```
+这样目的是达到了，代码稍微有点多，对于这样的简单逻辑jQuery直接提供了一个hover方法，可以便捷处理，只需要在hover方法中传递2个回调函数就可以了，不需要显示的绑定2个事件
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div>触发hover事件</div>
+
+    <script type="text/javascript">
+      $("div").hover(function(){
+        $(this).css("color", "red")
+      },function(){
+        $(this).css("color", "black")
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之focusin事件
+当一个元素，或者其内部任何一个元素获得焦点的时候，例如：input元素，用户在点击聚焦的时候，如果开发者需要捕获这个动作的时候，jQuery提供了一个focusin事件
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div,
+      .right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>.focusin()方法</h2>
+    <div class="left">
+      <div class="aaron">点击聚焦<br /><input type="text" /></div>
+    </div>
+    <div class="right">
+      <div class="aaron1">点击聚焦并传递参数<br /><input type="text" /></div>
+    </div>
+
+    <script>
+      // 给input元素增加一个边框
+      $("input:first").focusin(function() {
+        $(this).css("border", "2px solid blue");
+      })
+      // 不同函数传递数据
+      function fn(e) {
+        $(this).val(e.data);
+      }
+      $("input:last").focusin("慕课网", fn);
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery鼠标事件之focusout事件
+当一个元素，或者其内部任何一个元素失去焦点的时候，比如input元素，用户在点击失去焦的时候，如果开发者需要捕获这个动作，jQuery提供了一个focusout事件
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div,
+      .right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>.focusout()方法</h2>
+    <div class="left">
+      <div class="aaron">点击触发失去焦点<br><input type="text" /></div>
+    </div>
+    <div class="right">
+      <div class="aaron1">
+        点击触发失去焦点并传递参数<br><input type="text" />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // 给input元素增加一个边框
+      $("input:first").focusout(function() {
+        $(this).css("border", "2px solid blue");
+      });
+      // 不同函数传递数据
+      function fn(e) {
+        $(this).val(e.data);
+      }
+      function a() {
+        $("input:last").focusout("慕课网", fn);
+      }
+      a();
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery表单事件之blur与focus事件
+在之前学过了表单处理事件focusin事件与focusout事件，同样用于处理表单焦点的事件还有blur与focus事件，它们之间的本质区别：是否支持冒泡处理
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h4>.focusin与blur</h4>
+    <div class="left">
+      <div class="aaron">
+        点击触发焦点(无反应)：
+        <input type="text" />
+      </div>
+      <div class="aaron1">
+        点击触发焦点并冒泡：
+        <input type="text" />
+      </div>
+    </div>
+
+    <h4>.focusout与blur</h4>
+    <div class="right">
+      <div class="aaron3">
+        点击触发失去焦点(无反应)：
+        <input type="text" />
+      </div>
+      <div class="aaron4">
+        点击触发失去焦点并冒泡：
+        <input type="text" />
+      </div>
+    </div>
+    <script>
+      // .focusin与blur事件
+      $(".aaron").focus(function() {
+        $(this).css("border", "2px solid red");
+      });
+      $(".aaron1").focusin(function() {
+        $(this).find("input").val("冒泡捕获了focusin事件");
+      });
+
+      // .focusout与blur事件
+      $(".aaron3").blur(function() {
+        $(this).css("border", "2px solid red");
+      });
+      $(".aaron4").focusout(function() {
+        $(this).find("input").val("冒泡捕获了focusout事件").css("border", "2px solid red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery表单事件之change事件
+<input>元素，<textarea>和<select>元素的值都是可以发生改变的，开发者可以通过change事件去监听这些改变的动作
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 100%;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>input、textarea与select</h2>
+    <div class="left">
+      <div class="aaron">
+        input<br>
+        <input class="target1" type="text" value="监听input的改变" />
+      </div>
+      <div class="aaron1">
+        select<br>
+        <select class="target2">
+          <option value="option1" selected="selected">Option 1</option>
+          <option value="option2">Option 2</option>
+        </select>
+      </div>
+      <div class="aaron3">
+        textarea<br>
+        <textarea class="target3" rows="3" cols="20">多行的文本输入控件</textarea>
+      </div>
+    </div>
+    <h2>输出结果：<small id="result"></small></h2>
+
+    <script type="text/javascript">
+      //监听input值的改变
+      $(".target1").change(function(e) {
+        $("#result").html(e.target.value);
+      });
+      //监听select：
+      $(".target2").change(function(e) {
+        $("#result").html(e.target.value);
+      });
+      //监听textarea：
+      $(".target3").change(function(e) {
+        $("#result").html(e.target.value);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery表单事件之select事件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
