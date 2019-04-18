@@ -1082,6 +1082,581 @@ clone方法比较简单就是克隆节点，但是需要注意，如果节点有
 如果要将元素用其他元素包裹起来，也就是给它增加一个父元素，针对这样的处理，JQuery提供了一个wrap方法
 - .wrap( wrappingElement )：在集合中匹配的每个元素周围包裹一个HTML结构
 - .wrap( function ) ：一个回调函数，返回用于包裹匹配元素的 HTML 内容或 jQuery 对象
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <p>p元素一</p>
+    <p>p元素二</p>
+    <span>span元素一</span>
+    <span>span元素二</span>
+    <hr />
+    <button id="btn1">通过wrap方法给p元素增加父容器</button>
+    <button id="btn2">通过wrap回调方法给span元素增加父容器</button>
+    <script>
+      $("#btn1").click(() => {
+        $("p").wrap("<div></div>");
+      });
+      $("#btn2").on("click", () => {
+        $("span").wrap(() => {
+          return `<div class="test"></div>`;
+        });
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM包裹unwrap()方法
+我们可以通过wrap方法给选中元素增加一个包裹的父元素。相反，如果删除选中元素的父元素要如何处理 ?jQuery提供了一个unwrap()方法 ，作用与wrap方法是相反的。将匹配元素集合的父级元素删除，保留自身（和兄弟元素，如果存在）在原来的位置。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div><p>p元素一</p></div>
+    <div><p>p元素二</p></div>
+    <div><span>span元素一</span></div>
+    <div><span>span元素二</span></div>
+    <hr />
+    <button id="btn1">通过unwrap方法给p元素增加父容器</button>
+    <button id="btn2">通过unwrap回调方法给span元素增加父容器</button>
+    <script>
+      $("#btn1").click(() => {
+        $("p").unwrap("<div></div>");
+      });
+      $("#btn2").on("click", () => {
+        $("span").unwrap(() => {
+          return `<div></div>`;
+        });
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM包裹wrapAll()方法
+wrap是针对单个dom元素处理，如果要将集合中的元素用其他元素包裹起来，也就是给他们增加一个父元素，针对这样的处理，JQuery提供了一个wrapAll方法
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <p>p元素一</p>
+    <p>p元素二</p>
+    <span>span元素一</span>
+    <span>span元素二</span>
+    <hr />
+    <button id="btn1">通过wrapAll方法给p元素增加父容器</button>
+    <button id="btn2">通过wrapAll回调方法给span元素增加父容器</button>
+    <script>
+      // 最后的结构，2个P元素都增加了一个父div的结构
+      $("#btn1").click(() => {
+        $("p").wrapAll("<div></div>");
+      });
+      // 通过回调的方式可以单独处理每一个元素
+      $("#btn2").on("click", () => {
+        $("span").wrapAll(() => {
+          return `<div class="test"></div>`;
+        });
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### DOM包裹wrapInner()方法
+如果要将合集中的元素内部所有的子元素用其他元素包裹起来，并当作指定元素的子元素，针对这样的处理，JQuery提供了一个wrapInner方法
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <p>p元素一</p>
+    <p>p元素二</p>
+    <span>span元素一</span>
+    <span>span元素二</span>
+    <hr />
+    <button id="btn1">通过wrap方法给p元素增加父容器</button>
+    <button id="btn2">通过wrap回调方法给p元素增加父容器</button>
+    <script>
+      // p元素中内容也被包裹在了span标签内
+      $("#btn1").click(() => {
+        $("p").wrapInner("<span>被添加的子元素</span>");
+      });
+      // span元素中内容也被包裹在了i标签内
+      $("#btn2").on("click", () => {
+        $("span").wrapInner(() => {
+          return `<i class="test">被添加的子元素</i>`;
+        });
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之children()方法
+jQuery是一个合集对象，如果想快速查找合集里面的第一级子元素，此时可以用children()方法。这里需要注意：.children(selector) 方法是返回匹配元素集合中每个元素的所有子元素（仅儿子辈，这里可以理解为就是父亲-儿子的关系）
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <span>子元素一</span>
+      <span>子元素二</span>
+    </div>
+    <p>
+      <span>子元素一</span>
+      <span>子元素二</span>
+    </p>
+    <hr />
+    <button id="btn1">children()无参数</button>
+    <button id="btn2">children()有参数</button>
+    <script>
+      $("#btn1").click(() => {
+        $("div").children().css("color","red");
+      });
+      $("#btn2").on("click", () => {
+        $("p").children(":last").css("color", "blue");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之find()方法
+jQuery是一个合集对象，如果想快速查找DOM树中的这些元素的后代元素，此时可以用find()方法，这也是开发使用频率很高的方法。这里要注意 children与find方法的区别，children是父子关系查找，find是后代关系（包含父子关系）。find()方法要注意的知识点：
+- find是遍历当前元素集合中每个元素的后代。只要符合，不管是儿子辈，孙子辈都可以。
+- 与其他的树遍历方法不同，选择器表达式对于 .find() 是必需的参数。如果我们需要实现对所有后代元素的取回，可以传递通配选择器 '*'。
+- find只在后代中遍历，不包括自己。
+- 选择器 context 是由 .find() 方法实现的；因此，$('.item-ii').find('li') 等价于 $('li', '.item-ii')(找到类名为item-ii的标签下的li标签)。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <span>子元素一</span>
+      <span class="select">子元素二</span>
+      <span>子元素三</span>
+    </div>
+    <p>
+      <span>子元素一</span>
+      <span>子元素二</span>
+      <span>子元素三</span>
+    </p>
+    <hr />
+    <button>find()方法</button>
+    <button>find()方法</button>
+    <script>
+      $("button:first").click(() => {
+        $("div").find(".select").css("color","red");
+      });
+      $("button:last").on("click", () => {
+        $("p").find("span:first").css("color", "blue");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之parent()方法
+jQuery是一个合集对象，如果想快速查找合集里面的每一个元素的父元素（这里可以理解为就是父亲-儿子的关系），此时可以用parent()方法，因为是父元素，这个方法只会向上查找一级
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <span>子元素一</span>
+      <span class="select">子元素二</span>
+      <span>子元素三</span>
+    </div>
+    <p>
+      <span class="select">子元素一</span>
+      <span>子元素二</span>
+      <span>子元素三</span>
+    </p>
+    <hr />
+    <button>parent()方法无参数</button>
+    <button>parent()方法有参数</button>
+    <script>
+      $("button:first").click(() => {
+        $("span").parent().css("border","1px solid red");
+      });
+      $("button:last").on("click", () => {
+        $(".select").parent(":first").css("color", "blue");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之parents()方法
+jQuery是一个合集对象，如果想快速查找合集里面的每一个元素的所有祖辈元素，此时可以用parents()方法。其实也类似find与children的区别，parent只会查找一级，parents则会往上一直查到查找到祖先节点
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <p class="box-child">
+        <span>孙子元素</span>
+      </p>
+    </div>
+    <hr />
+    <button>parents()方法无参数</button>
+    <button>parents()方法有参数</button>
+    <script>
+      $("button:first").click(() => {
+        $("span").parents().css("border","1px solid black");
+      });
+      $("button:last").on("click", () => {
+        $("span").parents(".box").css("border", "1px solid red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之closest()方法
+以选定的元素为中心，往内查找可以通过find、children方法。如果往上查找，也就是查找当前元素的父辈祖辈元素，jQuery提供了closest()方法，这个方法类似parents但是又有一些细微的区别，属于使用频率很高的方法
+- 起始位置不同：.closest开始于当前元素 .parents开始于父元素
+- 遍历的目标不同：.closest要找到指定的目标，.parents遍历到文档根元素，closest向上查找，直到找到一个匹配的就停止查找，parents一直查找到根元素，并将匹配的元素加入集合
+- 结果不同：.closest返回的是包含零个或一个元素的jquery对象，parents返回的是包含零个或一个或多个元素的jquery对象
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <p class="box-child">
+        <span>孙子元素</span>
+      </p>
+    </div>
+    <hr />
+    <button>closest()方法</button>
+    <button>closest()方法</button>
+    <script>
+      $("button:first").click(() => {
+        let $p = $("p");
+        $("span").closest($p).css("border","1px solid black");
+      });
+      $("button:last").on("click", () => {
+        $("span").closest(".box").css("border", "1px solid red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之next()方法
+jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的后面同辈元素的元素集合，此时可以用next()方法
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <p class="box-child">
+        <span>孙子元素1</span>
+        <span>孙子元素2</span>
+      </p>
+      <div>兄弟元素1</div>
+      <div>兄弟元素2</div>
+    </div>
+    <hr />
+    <button>next()方法无参数</button>
+    <button>next()方法有参数</button>
+    <script>
+      $("button:first").click(() => {
+        $("p").next().css("border","1px solid blue");
+      });
+      $("button:last").on("click", () => {
+        $("p").next(":last").css("color", "red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之prev()方法
+jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的前面同辈元素的元素集合，此时可以用prev()方法
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <div>兄弟元素1</div>
+      <div>兄弟元素2</div>
+      <p class="box-child">
+        <span>孙子元素1</span>
+        <span>孙子元素2</span>
+      </p>
+      <div>兄弟元素1</div>
+      <div>兄弟元素2</div>
+    </div>
+    <hr />
+    <button>prev()方法无参数</button>
+    <button>prev()方法有参数</button>
+    <script>
+      $("button:first").click(() => {
+        $("p").prev().css("border","1px solid blue");
+      });
+      $("button:last").on("click", () => {
+        $("p").prev(":last").css("color", "red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之siblings()
+jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素的同辈元素，此时可以用siblings()方法
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <div>兄弟元素1</div>
+      <div>兄弟元素2</div>
+      <p class="box-child">
+        <span>孙子元素1</span>
+        <span>孙子元素2</span>
+      </p>
+      <div>兄弟元素1</div>
+      <div>兄弟元素2</div>
+    </div>
+    <hr />
+    <button>siblings()方法无参数</button>
+    <button>siblings()方法有参数</button>
+    <script>
+      $("button:first").click(() => {
+        $("p").siblings().css("border","1px solid blue");
+      });
+      $("button:last").on("click", () => {
+        $("p").siblings(":last").css("color", "red");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之add()方法
+jQuery是一个合集对象，通过$()方法找到指定的元素合集后可以进行一系列的操作。$()之后就意味着这个合集对象已经是确定的，如果后期需要再往这个合集中添加一新的元素要如何处理？jQuery为此提供add方法，用来创建一个新的jQuery对象 ，元素添加到匹配的元素集合中。.add()的参数可以几乎接受任何的$()，包括一个jQuery选择器表达式，DOM元素，或HTML片段引用。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+      .box-child {
+        padding: 10px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      内容
+    </div>
+    <div class="change"></div>
+    <hr />
+    <button>add()方法传递元素标签</button>
+    <button>add()方法传递html结构</button>
+    <script>
+      $("button:first").click(() => {
+        $(".box").add("p").css("border","1px solid blue");
+      });
+      // 整个HTML结构都变了
+      $("button:last").click(() => {
+        $(".box").add("<p>新的p元素</p>").appendTo(".change");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery遍历之each()
+jQuery是一个合集对象，通过$()方法找到指定的元素合集后可以进行一系列的操作。比如我们操作$("li").css('') 给所有的li设置style值，因为jQuery是一个合集对象，所以css方法内部就必须封装一个遍历的方法，被称为隐式迭代的过程。要一个一个给合集中每一个li设置颜色，这里方法就是each。.each() 方法就是一个for循环的迭代器，它会迭代jQuery对象合集中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)，所以大体上了解3个重点：
+- each是一个for循环的包装迭代器
+- each通过回调的方式处理，并且会有2个固定的实参，索引与元素
+- each回调方法中的this指向当前迭代的dom元素
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="box">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <div class="change">
+      <ul>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+      </ul>
+    </div>
+    <hr />
+    <button>each方法遍历元素</button>
+    <button>each方法回调判断</button>
+
+    <script>
+      $("button:first").click(function() {
+        $("li").each(function(index, element) {
+          $(this).css('border','1px solid red')
+        })
+      })
+      $("button:last").click(function() {
+        $("li").each(function(index, element) {
+          if(index%2==0){
+            $(this).css('color','blue')
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
+```
+<br>
+
+
+
 
 
 
