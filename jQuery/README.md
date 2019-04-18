@@ -2149,7 +2149,7 @@ $(ele).mouseleave(function () {
 <br>
 
 #### jQuery表单事件之change事件
-<input>元素，<textarea>和<select>元素的值都是可以发生改变的，开发者可以通过change事件去监听这些改变的动作
+`<input>`元素，`<textarea>`和`<select>`元素的值都是可以发生改变的，开发者可以通过change事件去监听这些改变的动作
 ```html
 <!DOCTYPE html>
 <html>
@@ -2215,13 +2215,573 @@ $(ele).mouseleave(function () {
 <br>
 
 #### jQuery表单事件之select事件
+当 `textarea` 或文本类型的 `input` 元素中的文本被选择时，会发生 `select` 事件。这个函数会调用执行绑定到select事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。select事件只能用于`<input>`元素与`<textarea>`元素
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 80px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+      select {
+        height: 100px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
 
+  <body>
+    <h2>input与textarea</h2>
+    <div class="left">
+      <h4>测试一</h4>
+      <div class="aaron">
+        选中文字<br>
+        <input type="text" value="慕课网" />
+      </div>
+      <button id="bt1">触发input元素的select事件</button>
 
+      <h4>测试二</h4>
+      <div class="aaron">
+        textarea<br>
+        <textarea rows="3" cols="20">用鼠标选中文字</textarea>
+      </div>
+    </div>
 
+    <script type="text/javascript">
+      // 监听input元素中value的选中
+      // 触发元素的select事件
+      $("input").select(function(e) {
+        alert(e.target.value);
+        e.preventDefault();
+      });
+      $("#bt1").click(function() {
+        $("input").select();
+      });
 
+      // 监听textarea元素中value的选中
+      $("textarea").select(function(e) {
+        alert(e.target.value);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
 
+#### jQuery表单事件之submit事件
+提交表单是一个最常见的业务需求，比如用户注册，一些信息的输入都是需要表单的提交。同样的有时候开发者需要在表单提交的时候过滤一些的数据、做一些必要的操作（例如：验证表单输入的正确性，如果错误就阻止提交，从新输入）此时可以通过submit事件，监听下提交表单的这个动作
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+      select {
+        height: 100px;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
 
+  <body>
+    <h2>submit</h2>
+    <div class="left">
+      <div class="aaron">
+        <form id="target1" action="test.html">
+          回车键或者点击提交表单<br>
+          <input type="text" value="输入新的值" />
+          <input type="submit" value="Go" />
+        </form>
+      </div>
+      <div class="aaron">
+        <form id="target2" action="destination.html">
+          回车键或者点击提交表单,禁止浏览器默认跳转<br>
+          <input type="text" value="输入新的值" />
+          <input type="submit" value="Go" />
+        </form>
+      </div>
+    </div>
 
+    <script type="text/javascript">
+      // 回车键或者点击提交表单
+      $("#target1").submit(function(e) {
+        alert("捕获提交表达动作,不阻止页面跳转");
+      });
+      // 回车键或者点击提交表单,禁止浏览器默认跳转
+      $("#target2").submit(function() {
+        alert("捕获提交表达动作,阻止页面跳转");
+        return false;
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery键盘事件之keydown()与keyup()事件
+鼠标有mousedown,mouseup之类的事件，这是根据人的手势动作分解的2个触发行为。相对应的键盘也有这类事件，将用户行为分解成2个动作，键盘按下与松手，针对这样的2种动作，jQuery分别提供了对应keydown与keyup方法来监听
+- keydown是在键盘按下就会触发
+- keyup是在键盘松手就会触发
+- 理论上它可以绑定到任何元素，但keydown/keyup事件只是发送到具有焦点的元素上，不同的浏览器中，可获得焦点的元素略有不同，但是表单元素总是能获取焦点，所以对于此事件类型表单元素是最合适的
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 600px;
+        height: 150px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      em {
+        font-weight: 900;
+        color: red;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>keydown()与keyup()事件</h2>
+    <div class="left">
+      <h4>测试一</h4>
+      <div class="aaron">
+        监听keydown输入<br> <input class="target1" type="text" value="" /><br />
+        按下显示输入的值<br><em></em>
+      </div>
+      <h4>测试二</h4>
+      <div class="aaron">
+        监听keyup输入<br><input class="target2" type="text" value="" /><br />
+        松手显示输入的值<br><em></em>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      //监听键盘按键
+      //获取输入的值
+      $(".target1").keydown(function(e) {
+        $("em:first").text(e.target.value);
+      });
+
+      //监听键盘按键
+      //获取输入的值
+      $(".target2").keyup(function(e) {
+        $("em:last").text(e.target.value);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery键盘事件之keypress()事件
+在input元素上绑定keydown事件会发现一个问题：每次获取的内容都是之前输入的，当前输入的获取不到<br>
+
+keydown事件触发在文字还没敲进文本框，这时如果在keydown事件中输出文本框中的文本，得到的是触发键盘事件前的文本，而keyup事件触发时整个键盘事件的操作已经完成，获得的是触发键盘事件后的文本<br>
+
+当浏览器捕获键盘输入时，还提供了一个keypress的响应，这个跟keydown是非常相似，这里使用请参考keydown这一节，具体说说不同点。keypress事件与keydown和keyup的主要区别
+- 只能捕获单个字符，不能捕获组合键
+- 无法响应系统功能键（如delete，backspace）
+- 不区分小键盘和主键盘的数字字符
+
+总而言之，KeyPress主要用来接收字母、数字等ANSI字符，而 KeyDown 和 KeyUP 事件过程可以处理任何不被 KeyPress 识别的击键。诸如：功能键（F1-F12）、编辑键、定位键以及任何这些键和键盘换档键的组合等。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 150px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      em {
+        font-weight: 900;
+        color: red;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>keypress()事件</h2>
+    <div class="left">
+      <div class="aaron">
+        监听keypress输入<br><input class="target1" type="text" value="" /><br />
+        输入中文测试，无法显示<br><em></em>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // 监听回车(enter)键盘按键
+      // 获取输入的值
+      $(".target1").keypress(function(e) {
+        $("em").text(e.target.value);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### on()的多事件绑定
+之前学的鼠标事件，表单事件与键盘事件都有个特点，就是直接给元素绑定一个处理函数，所有这类事件都是属于快捷处理。翻开源码其实可以看到，所有的快捷事件在底层的处理都是通过一个"on"方法来实现的。jQuery on()方法是官方推荐的绑定事件的一个方法。
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h4>测试一</h4>
+    <div class="left">
+      点击触发：on('click',fn)
+      <div id="test1"></div>
+    </div>
+    <script type="text/javascript">
+      // 事件绑定一
+      $("#test1").on("click", function(e) {
+        $(this).text("触发事件：" + e.type);
+      });
+    </script>
+
+    <h4>测试二</h4>
+    <div class="left">
+      点击触发：on('mousedown mouseup')
+      <div id="test2"></div>
+    </div>
+    <script type="text/javascript">
+      //多事件绑定一
+      $("#test2").on("mousedown mouseup", function(e) {
+        $(this).text("触发事件：" + e.type);
+      });
+    </script>
+
+    <h4>测试三</h4>
+    <div class="right">
+      点击触发：on(mousedown:fn1,mouseup:fn2)
+      <div id="test3"></div>
+    </div>
+    <script type="text/javascript">
+      //多事件绑定二
+      $("#test3").on({
+        mousedown: function(e) {
+          $(this).text("触发事件：" + e.type);
+        },
+        mouseup: function(e) {
+          $(this).text("触发事件：" + e.type);
+        }
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### on()的高级用法
+针对自己处理机制中，不仅有on方法，还有根据on演变出来的live方法(1.7后去掉了)，delegate方法等等。这些方法的底层实现部分 还是on方法，这是利用了on的另一个事件机制委托的机制衍变而来的
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div,.right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>on事件委托</h2>
+    <div class="left">
+      <div class="aaron">
+        <a>点击这里</a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // 给body绑定一个click事件
+      // 没有直接a元素绑定点击事件
+      // 通过委托机制，点击a元素的时候，事件触发
+      $("body").on("click", "a", function(e) {
+        alert(e.target.textContent);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### 卸载事件off()方法
+根据on绑定事件的一些特性，off方法也可以通过相应的传递组合的事件名，名字空间，选择器或处理函数来移除绑定在元素上指定的事件处理函数。当有多个过滤参数时，只有与这些参数完全匹配的事件处理函数才会被移除
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h4>测试一</h4>
+    <div class="left">
+      <div class="aaron">
+        点击触发
+        <span></span>
+      </div>
+    </div>
+    <button>点击删除mousedown事件</button>
+    <script type="text/javascript">
+      var n = 0;
+      //绑定事件
+      $(".aaron").on("mousedown mouseup", function(e) {
+        $("span").text("触发类型：" + e.type + ",次数" + ++n);
+      });
+      //删除事件
+      $("button:first").click(function() {
+        $(".aaron:first").off("mousedown");
+      });
+    </script>
+
+    <h4>测试</h4>
+    <div class="left">
+      <div class="aaron">
+        点击触发
+        <em></em>
+      </div>
+    </div>
+    <button>点击销毁所有事件off</button>
+    <script type="text/javascript">
+      var j = 0;
+      //绑定事件
+      $(".aaron:last").on("mousedown mouseup", function(e) {
+        $("em").text("触发类型:" + e.type + ",次数" + ++j);
+      });
+      //删除事件
+      $("button:last").click(function() {
+        $(".aaron:last").off();
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery事件对象的作用
+事件中的Event对象容易被初学者忽略掉，可能大多时候初学者不知道怎么去用它，但有些时候它还是非常有用的。<br>
+
+在不同浏览器之间事件对象的获取, 以及事件对象的属性都有差异。jQuery根据 W3C 标准规范了事件对象，所以在jQuery事件回调方法中获取到的事件对象是经过兼容后处理过的一个标准的跨浏览器对象<br>
+
+事件对象是用来记录一些事件发生时的相关信息的对象。事件对象只有事件发生时才会产生，并且只能是事件处理函数内部访问，在所有事件处理函数运行结束后，事件对象就被销毁<br>
+
+回到上面的问题，既然事件对象是跟当前触发元素息息相关的，所以我们就能从里面相关的信息，从事件对象中找到 event.target。target 属性可以是注册事件时的元素，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。简单来说：event.target代表当前触发事件的元素，可以通过当前元素对象的一系列属性来判断是不是我们想要的元素
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h3>事件委托，通过事件对象区别触发元素</h3>
+    <div class="left">
+      <div class="aaron">
+        <ul>
+          <li>点击：触发一</li>
+          <li>点击：触发二</li>
+          <li>点击：触发三</li>
+          <li>点击：触发四</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      //多事件绑定一
+      $("ul").on("click", function(e) {
+        alert("触发的元素是内容是: " + e.target.textContent);
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery事件对象的属性和方法
+事件对象的属于与方法有很多，但是我们经常用的只有那么几个
+- event.type：获取事件的类型
+- event.pageX和event.pageY：获取鼠标当前相对于页面的坐标
+- event.preventDefault()方法：阻止默认行为
+- event.stopPropagation()方法：阻止事件冒泡
+- event.which：获取在鼠标单击时，单击的是鼠标的哪个键
+- event.currentTarget: 在事件冒泡过程中的当前DOM元素
+- this和event.target的区别：js中事件是会冒泡的，所以this是可以变化的，但event.target不会变化，它永远是直接接受事件的目标DOM元素
+- .this和event.target都是dom对象：如果要使用jquey中的方法可以将他们转换为jquery对象。比如this和$(this)的使用、event.target和$(event.target)的使用
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h3>事件对象的属性与方法</h3>
+    <div class="left">
+      <div id="content">
+        外层div元素
+        <br />
+        <span style="background: silver;">内层span元素</span>
+        <br />
+        外层div元素
+      </div>
+      <br />
+      <div id="msg"></div>
+    </div>
+    <script type="text/javascript">
+      //为 <span> 元素绑定 click 事件
+      $("span").click(function() {
+        $("#msg").html($("#msg").html() + "<p>内层span元素被单击</p>");
+      });
+      //为 Id 为 content 的 <div> 元素绑定 click 事件
+      $("#content").click(function(event) {
+        $("#msg").html($("#msg").html() + "<p>外层div元素被单击</p>");
+        event.stopPropagation(); //阻止事件冒泡
+      });
+      //为 <body> 元素绑定 click 事件
+      $("body").click(function() {
+        $("#msg").html($("#msg").html() + "<p>body元素被单击</p>");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
 
 
 
