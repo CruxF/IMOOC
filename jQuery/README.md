@@ -1656,7 +1656,7 @@ jQuery是一个合集对象，通过$()方法找到指定的元素合集后可�
 <br>
 
 
-# [jQuery基础(三)——事件篇](https://www.imooc.com/learn/429)
+# 7、[jQuery基础(三)——事件篇](https://www.imooc.com/learn/429)
 前言就不说什么了，撸起袖子就是干呀<br><br>
 
 #### jQuery鼠标事件之click与dbclick事件
@@ -2885,7 +2885,7 @@ trigger事件是具有触发原生与自定义能力的，但是存在一个不�
 ```
 <br>
 
-# [jQuery基础(四)—动画篇](https://www.imooc.com/learn/430)
+# 8、[jQuery基础(四)—动画篇](https://www.imooc.com/learn/430)
 
 
 
