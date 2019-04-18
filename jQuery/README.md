@@ -50,7 +50,7 @@ ajax出现请求跨域错误问题,主要原因就是因为浏览器的“同源
 #### 尾声
 后面的章节与前端关系并不是太大，就此打住~<br><br>
 
-# 5、[jQuery基础（一）](https://www.imooc.com/code/8067)
+# 5、[jQuery基础（一）——样式篇](https://www.imooc.com/code/8067)
 $(document).ready 的作用是等页面的文档（document）中的节点都加载完毕后，再执行后续的代码，因为我们在执行代码的时候，可能会依赖页面的某一个元素，我们要确保这个元素真正的的被加载完毕后才能正确的使用。
 ```html
 <!DOCTYPE html>
@@ -615,7 +615,7 @@ $("p").addClass("newClass")
 <br>
 
 
-# 6、[jQuery基础（二）](https://www.imooc.com/learn/530)
+# 6、[jQuery基础（二)——DOM篇](https://www.imooc.com/learn/530)
 就不讲太多的无用话了，下面直接进入正题。<br><br>
 
 
@@ -2783,9 +2783,109 @@ keydown事件触发在文字还没敲进文本框，这时如果在keydown事件
 ```
 <br>
 
+#### jQuery自定义事件之trigger事件
+众所周知类似于mousedown、click、keydown等等这类型的事件都是浏览器提供的，通俗叫原生事件，这类型的事件是需要有交互行为才能被触发。如果不同用户交互是否能在某一时刻自动触发该事件呢？ 正常来说是不可以的，但是jQuery解决了这个问题，提供了一个trigger方法来触发浏览器事件。trigger除了能够触发浏览器事件，同时还支持自定义事件，并且自定义时间还支持传递参数
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
 
+  <body>
+    <button id="btn">页面加载触发自定义事件</button>
+    <button id="btn1">页面加载触发自定义事件并且传参</button>
+    <p id="test"></p>
 
+    <script>
+      $("#btn").on("testClick", function(){
+        alert("自定义事件触发")
+      })  
+      // 页面加载自动执行自定义事件testClick
+      $("#btn").trigger("testClick");
 
+      // 自定义事件并且传参
+      $("#btn1").bind("myClick", function (event, message1, message2) {
+        $("#test").append("<p>" + message1 + message2 + "</p>");
+      });
+      $("#btn1").trigger("myClick",["我的自定义","事件"]);
+    </script>
+  </body>
+</html>
+```
+<br>
+
+#### jQuery自定义事件之triggerHandler事件
+trigger事件还有一个特性：会在DOM树上冒泡，所以如果要阻止冒泡就需要在事件处理程序中返回false或调用事件对象中的.stopPropagation() 方法可以使事件停止冒泡<br>
+
+trigger事件是具有触发原生与自定义能力的，但是存在一个不可避免的问题： 事件对象event无法完美的实现，毕竟一个是浏览器给的，一个是自己模拟的。尽管 .trigger() 模拟事件对象，但是它并没有完美的复制自然发生的事件，若要触发通过 jQuery 绑定的事件处理函数，而不触发原生的事件，使用.triggerHandler() 来代替，triggerHandler与trigger的用法是一样的，重点看不同之处：<br>
+- triggerHandler不会触发浏览器的默认行为，.triggerHandler( "submit" )将不会调用表单上的.submit()
+- trigger() 会影响所有与 jQuery 对象相匹配的元素，而 .triggerHandler() 仅影响第一个匹配到的元素
+- 使用 .triggerHandler() 触发的事件，并不会在 DOM 树中向上冒泡。 如果它们不是由目标元素直接触发的，那么它就不会进行任何处理
+- 与普通的方法返回 jQuery 对象(这样就能够使用链式用法)相反，.triggerHandler() 返回最后一个处理的事件的返回值。如果没有触发任何事件，会返回 undefined
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+      .left div, .right div {
+        width: 500px;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .left div {
+        background: #bbffaa;
+      }
+      .right div {
+        background: yellow;
+      }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+  </head>
+
+  <body>
+    <h2>自定义事件triggerHandler</h2>
+    <div class="left">
+      <div id="accident">
+        <a>triggerHandler事件</a>
+        <input type="text" />
+      </div>
+      <button>事件冒泡,触发浏览器默认聚焦行为</button><br />
+      <button>不会冒泡，不触发浏览器默认聚焦行为</button>
+    </div>
+    <script type="text/javascript">
+      //给input绑定一个聚焦事件
+      $("input").on("focus", function(event, title) {
+        $(this).val(title);
+      });
+
+      $("#accident").on("click", function() {
+        alert("trigger触发的事件会在 DOM 树中向上冒泡");
+      });
+      //trigger触发focus
+      $("button:first").click(function() {
+        $("a").trigger("click");
+        $("input").trigger("focus");
+      });
+
+      //triggerHandler触发focus
+      $("button:last").click(function() {
+        $("a").triggerHandler("click");
+        $("input").triggerHandler("focus", "没有触发默认聚焦事件");
+      });
+    </script>
+  </body>
+</html>
+```
+<br>
+
+# [jQuery基础(四)—动画篇](https://www.imooc.com/learn/430)
 
 
 
