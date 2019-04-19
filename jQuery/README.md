@@ -5,7 +5,7 @@
 # 目录
 [1、TabCar => JS插件开发之——Tab选项卡](#tabcar)<br>
 [2、FullScreen => 全屏切换效果](#fullscreen)<br>
-[3、Transform => jQuery插件transform旋转焦点图](#Transform-=>-jQuery插件transform旋转焦点图)<br>
+[3、Transform => jQuery插件transform旋转焦点图](#transform-=>-jQuery插件transform旋转焦点图)<br>
 
 
 
