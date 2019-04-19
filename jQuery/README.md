@@ -2,6 +2,10 @@
 
 为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
+# 目录
+[1、JS插件开发之——Tab选项卡](#1、tabcar-=>-JS插件开发之——Tab选项卡)<br>
+[2、全屏切换效果](#2、fullscreen-=>-全屏切换效果)<br>
+
 
 # 1、TabCar => JS插件开发之——Tab选项卡
 
