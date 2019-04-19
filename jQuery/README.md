@@ -5,8 +5,8 @@
 # 目录
 [1、TabCar => JS插件开发之——Tab选项卡](#tabcar)<br>
 [2、FullScreen => 全屏切换效果](#fullscreen)<br>
-[3、Transform => jQuery插件transform旋转焦点图](#transform-=>-jQuery插件transform旋转焦点图)<br>
-
+[3、Transform => jQuery插件transform旋转焦点图](#transform)<br>
+[4、AjaxExplain => ajax跨域完全讲解](#ajaxexplain)
 
 
 # TabCar
@@ -29,12 +29,12 @@
 不管怎么说，还是一步步跟随老师的思路将代码敲了出来，并且还做了相关的[笔记](https://github.com/CruxF/IMOOC/blob/master/jQuery/FullScreen/%E8%AF%B4%E6%98%8E.txt)，同时又进一步增进了对插件开发的认知、对面向对象编程又增加一丝印象，相信不久的将来能独立开发出一款插件。在[源码](https://github.com/CruxF/IMOOC/tree/master/jQuery/FullScreen)里面，都是和之前一样，基本完全将每一章节的代码区分开来，而不是全部搅和在一起，在[最后的一份JS代码](https://github.com/CruxF/IMOOC/blob/master/jQuery/FullScreen/js/index2-5.js)中，使用ES6字符串模板，下面是最终的展示效果（注意：首次图片加载速度巨慢，请耐心等待）：<br>
 [案例展示效果](https://cruxf.github.io/IMOOC/jQuery/FullScreen/index2-5.html)<br><br>
 
-# Transform => jQuery插件transform旋转焦点图
+# Transform
 
 该课程的插件找不到:joy:，自已又开发不出类似的插件~-~。于是采用了这位大佬开发的[插件](https://github.com/baijunjie/jquery.animate)，源码基本和课程的一模一样，除了将transform()代替为css()，每一节课程的代码都是独立，因此可以非常好的看着源码跟着课程走，下面是最终代码的效果展示：
 [点我查看呀](https://cruxf.github.io/IMOOC/jQuery/Transform/index3-7.html)<br><br>
 
-# 4、AjaxExplain => [ajax跨域完全讲解](https://www.imooc.com/learn/947)
+# AjaxExplain
 这篇课程有点走错片场了，里面有很多知识涉及到后台java的，没想到却在jQuery课程中看到，不管这么多了，总之跨域无论是前端还是后台都是必须要懂的一个概念，所以好好总结一下对自己没有坏处。<br>
 
 #### 面试常问题：什么是ajax跨域问题？
