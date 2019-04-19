@@ -6,7 +6,11 @@
 [1、TabCar => JS插件开发之——Tab选项卡](#tabcar)<br>
 [2、FullScreen => 全屏切换效果](#fullscreen)<br>
 [3、Transform => jQuery插件transform旋转焦点图](#transform)<br>
-[4、AjaxExplain => ajax跨域完全讲解](#ajaxexplain)
+[4、AjaxExplain => ajax跨域完全讲解](#ajaxexplain)<br>
+[5、jQuery基础（一）——样式篇](#jquerystyle)<br>
+[6、jQuery基础（二)——DOM篇](#jquerydom)<br>
+[7、jQuery基础(三)——事件篇](#jqueryevent)<br>
+[8、jQuery基础(四)—动画篇](#jqueryanimation)<br>
 
 
 # TabCar
@@ -56,7 +60,7 @@ ajax出现请求跨域错误问题,主要原因就是因为浏览器的“同源
 #### 尾声
 后面的章节与前端关系并不是太大，就此打住~<br><br>
 
-# 5、[jQuery基础（一）——样式篇](https://www.imooc.com/code/8067)
+# jQueryStyle
 $(document).ready 的作用是等页面的文档（document）中的节点都加载完毕后，再执行后续的代码，因为我们在执行代码的时候，可能会依赖页面的某一个元素，我们要确保这个元素真正的的被加载完毕后才能正确的使用。
 ```html
 <!DOCTYPE html>
@@ -621,7 +625,7 @@ $("p").addClass("newClass")
 <br>
 
 
-# 6、[jQuery基础（二)——DOM篇](https://www.imooc.com/learn/530)
+# jQueryDOM
 就不讲太多的无用话了，下面直接进入正题。<br><br>
 
 
@@ -1662,7 +1666,7 @@ jQuery是一个合集对象，通过$()方法找到指定的元素合集后可�
 <br>
 
 
-# 7、[jQuery基础(三)——事件篇](https://www.imooc.com/learn/429)
+# jQueryEvent
 前言就不说什么了，撸起袖子就是干呀<br><br>
 
 #### jQuery鼠标事件之click与dbclick事件
@@ -2891,7 +2895,7 @@ trigger事件是具有触发原生与自定义能力的，但是存在一个不�
 ```
 <br>
 
-# 8、[jQuery基础(四)—动画篇](https://www.imooc.com/learn/430)
+# jQueryAnimation
 直接进入正题，不扯太多了<br>
 
 #### jQuery中隐藏元素的hide方法
