@@ -4,7 +4,7 @@
 
 # 目录
 [1、JS插件开发之——Tab选项卡](#1tabcar-=>-JS插件开发之——Tab选项卡)<br>
-[2、全屏切换效果](#2fullscreen-=>-全屏切换效果)<br>
+[2、全屏切换效果](#fullscreen)<br>
 
 
 # 1、TabCar => JS插件开发之——Tab选项卡
@@ -18,9 +18,9 @@
 4、[4-3切换功能实现](https://cruxf.github.io/IMOOC/jQuery/TabCar/index4-3.html)<br>
 5、[5-1自动切换](https://cruxf.github.io/IMOOC/jQuery/TabCar/index5-1.html)<br>
 6、[5-2默认显示第几个tab](https://cruxf.github.io/IMOOC/jQuery/TabCar/index5-2.html)<br>
-7、[6-1初始化函数和注册JQ方法](https://cruxf.github.io/IMOOC/jQuery/TabCar/index6-1.html)<br><br>
+7、[6-1初始化函数和注册JQ方法](https://cruxf.github.io/IMOOC/jQuery/TabCar/index6-1.html)2、FullScreen => 全屏切换效果<br><br>
 
-# 2、FullScreen => 全屏切换效果
+# fullscreen
 
 对这种插件开发的教程真是又爱又恨，爱是因为确实是能非常好的锻炼自己的编程思维，恨是因为目前来看真的真的很吃力，而且该课程的老师明显没有备好课，胡乱按照自己的思路讲了一串，最后居然出现了一堆bug，在调试的时候真的要崩溃。<br>
 
