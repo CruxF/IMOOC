@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/base/base",
+    "pages/cloud/cloud"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "云开发",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#E54847",
+    "list": [
+      {
+        "pagePath": "pages/base/base",
+        "text": "电影",
+        "iconPath": "images/film.png",
+        "selectedIconPath": "images/film-actived.png"
+      },
+      {
+        "pagePath": "pages/cloud/cloud",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-actived.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
