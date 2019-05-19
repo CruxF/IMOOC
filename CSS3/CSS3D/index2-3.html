@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    /* rotate变化 */
+    #experimentRotate{
+      -webkit-perspective: 800;
+      -webkit-perspective-origin: 50% 50%;
+      -webkit-transition: -webkit-transform 1s linear;
+      -webkit-transform-style:-webkit-preserve-3d;
+      text-align: center;
+    }
+    #blockRotate{
+      width:150px;
+      height:150px;
+      background-color: #69c;
+      margin:20px auto;
+    }
+    #opRotate{
+      margin:0 auto;
+      font-size:16px;
+      font-weight:bold;
+      width:800px;
+    }
+    #opRotate .range-control{
+      width:721px;
+    }
+
+    /* translate变化 */
+    #experiment{
+      -webkit-perspective: 800;
+      -webkit-perspective-origin: 50% 50%;
+      -webkit-transition: -webkit-transform 1s linear;
+      -webkit-transform-style:-webkit-preserve-3d;
+      text-align: center;
+    }
+    #block{
+      width:150px;
+      height:150px;
+      background-color: #69c;
+      margin:50px auto;
+    }
+    #op{
+      margin:0 auto;
+      font-size:16px;
+      font-weight:bold;
+      width:800px;
+    }
+    #op .range-control{
+      width:721px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    // rotate变化
+    function rotate() {
+      var x = document.getElementById("rotatex").value;
+      var y = document.getElementById("rotatey").value;
+      var z = document.getElementById("rotatez").value;
+      document.getElementById('blockRotate').style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" +
+        z + "deg)";
+      document.getElementById('degx-span').innerText = x;
+      document.getElementById('degy-span').innerText = y;
+      document.getElementById('degz-span').innerText = z;
+    }
+
+    // translate变化
+    function translateall(){
+      var x = document.getElementById("translatex").value;
+      var y = document.getElementById("translatey").value;
+      var z = document.getElementById("translatez").value;
+      document.getElementById('block').style.webkitTransform = "translateX("+x+"px) translateY("+y+"px) translateZ("+z+"px)";
+      document.getElementById('translatex-span').innerText = x;
+      document.getElementById('translatey-span').innerText = y;
+      document.getElementById('translatez-span').innerText = z;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- rotate变化 -->
+  <div id="experimentRotate">
+      <h3>rotate变化</h3>
+    <div id="blockRotate">
+    </div>
+  </div>
+  <div id="opRotate">
+    <p>rotate x: <span id="degx-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatex" value="0" class="range-control" onchange="rotate()" /><br />
+    <p>rotate y: <span id="degy-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatey" value="0" class="range-control" onchange="rotate()" /><br />
+    <p>rotate z: <span id="degz-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatez" value="0" class="range-control" onchange="rotate()" /><br />
+  </div>
+
+  <!-- translate变化 -->
+  <div id="experiment">
+    <h3>translate变化</h3>
+    <div id="block">
+    </div>
+  </div>
+  <div id="op">
+    <p>translate x: <span id="translatex-span">0</span> px</p>
+    <input type="range" min="-360" max="360" id="translatex" value="0" class="range-control" onchange="translateall()" /><br/>
+    <p>translate y: <span id="translatey-span">0</span> px</p>
+    <input type="range" min="-360" max="360" id="translatey" value="0" class="range-control" onchange="translateall()" /><br/>
+    <p>translate z: <span id="translatez-span">0</span> px</p>
+    <input type="range" min="-360" max="360" id="translatez" value="0" class="range-control" onchange="translateall()" /><br/>
+  </div>
+</body>
+</html>

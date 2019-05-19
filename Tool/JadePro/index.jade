@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title imooc jade study
+    style.
+      body{color:#ccc;}
+  body
+    h1.title imooc jade study
+    h1#title imooc jade study
+    h1(id='title',class='title') imooc jade study
+    a(href='https://imooc.com') link
+    input(name='coure',type='text',value='')
+    p
+     |大段文本1
+     |大段文本2
+     |大段文本3
+     strong 大段文本4
+     |大段文本5
+    h1 单行注释
+    // h1 我被注释啦
+    h1 非缓冲注释
+    //- h2 什么意思也不是很懂
+    div
+      h3
+        small 我是嵌套
+    script.
+      var name = '脚本书写方式'

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>必应搜索框</title>
+    <style>
+      body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .bg-div {
+        box-sizing: border-box;
+        background-image: url(img/river.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+      }
+      .search-box {
+        position: absolute;
+        top: 200px;
+        left: 300px;
+      }
+      .logo {
+        margin: -4px 18px 0 0;
+        height: 53px;
+        width: 107px;
+        background-image: url(img/logo.png);
+        float: left;
+      }
+      form {
+        float: left;
+        background-color: #fff;
+        padding: 5px;
+      }
+      .search-input-text {
+        border: 0;
+        float: left;
+        height: 25px;
+        line-height: 25px;
+        outline: none;
+        width: 350px;
+      }
+      .search-input-button {
+        border: 0;
+        background-image: url(img/search-button.png);
+        width: 29px;
+        height: 29px;
+        float: left;
+        cursor: pointer;
+        outline: none;
+      }
+      .suggest {
+        /*position: absolute;
+      	top: 239px;
+    		left: 424px;*/
+        color: black;
+        width: 388px;
+        background-color: #fff;
+        border: 1px solid #999;
+        display: none;
+      }
+      .suggest ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .suggest ul li {
+        padding: 5px;
+        font-size: 14px;
+        line-height: 25px;
+      }
+      .suggest ul li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        background-color: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-div">
+      <div class="search-box">
+        <div class="logo"></div>
+        <form action="https://cn.bing.com/search" target="_blank" id="search-form">
+          <input type="text" name="q" id="search_input" autocomplete="off" class="search-input-text" />
+          <input type="submit" value="" class="search-input-button" />
+        </form>
+      </div>
+    </div>
+
+    <div class="suggest" id="search-suggest">
+      <ul id="search-result">
+        
+      </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+      $('#search_input').bind('keyup', function() {
+        var searchText = $('#search_input').val();
+        $.ajax({
+          type: 'get',
+          url: 'https://api.bing.com/qsonhs.aspx?type=cb&q=' + searchText,
+          async: true,
+          dataType: "jsonp",
+          jsonp: 'cb',
+          success: function(data) {
+            // 新增输入框是否含有字符判断
+            if(data.AS.Query.length > 0) {
+              var data = data.AS.Results[0].Suggests;
+              var html = "";
+              for(var i = 0; i < data.length; i++) {
+                html += '<li>' + data[i].Txt + '<li>';
+              }
+              $("#search-result").html(html);
+              $('#search-suggest').show().css({
+                position: 'absolute',
+                top: $('#search-form').offset().top + $('#search-form').height() + 10,
+                left: $('#search-form').offset().left
+              });
+            } else {
+              $('#search-suggest').hide()
+            }
+          }
+        });
+      });
+      $(document).bind('click', function() {
+        $('#search-suggest').hide()
+      })
+    </script>
+  </body>
+</html>

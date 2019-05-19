@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>必应搜索框</title>
+    <style>
+      body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .bg-div {
+        box-sizing: border-box;
+        background-image: url(img/river.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+      }
+      .search-box {
+      	position: absolute;
+      	top: 200px;
+      	left: 300px;
+      }
+      .logo {
+      	margin: -4px 18px 0 0;
+      	height: 53px;
+      	width: 107px;
+      	background-image: url(img/logo.png);
+      	float: left;
+      }
+      form {
+      	float: left;
+      	background-color: #fff;
+      	padding: 5px;
+      }
+      .search-input-text  {
+      	border: 0;
+      	float: left;
+      	height: 25px;
+      	line-height: 25px;
+      	outline: none;
+      	width: 350px;
+      }
+      .search-input-button {
+      	border: 0;
+      	background-image: url(img/search-button.png);
+      	width: 29px;
+      	height: 29px;
+      	float: left;
+      	cursor: pointer;
+      	outline: none;
+      }
+      .suggest {
+      	/*position: absolute;
+      	top: 239px;
+    		left: 424px;*/
+      	color: black;
+      	width: 388px;
+      	background-color: #fff;
+      	border: 1px solid #999;
+      	display: none;
+      }
+      .suggest ul {
+      	list-style: none;
+      	margin: 0;
+      	padding: 0;
+      }
+      .suggest ul li {
+      	padding: 5px;
+      	font-size: 14px;
+      	line-height: 25px;      	
+      }
+      .suggest ul li:hover {
+      	cursor: pointer;
+      	text-decoration: underline;
+      	background-color: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-div">
+    	<div class="search-box">
+    		<div class="logo"></div>
+    	<form action="https://cn.bing.com/search" target="_blank" id="search-form">
+    		<input type="text" name="q" id="search_input" autocomplete="off" class="search-input-text" />
+    		<input type="submit" value="" class="search-input-button" />
+    	</form>
+    	</div>
+    </div>
+    
+    <div class="suggest" id="search-suggest">
+    	<ul>
+    		<li>搜索结果1</li>
+    		<li>搜索结果2</li>
+    		<li>搜索结果3</li>
+    	</ul>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+//  	$('#search_input').bind('keyup',function(){
+//  		$('#search-suggest').show().css({
+//  			position: 'absolute',
+//  			top: $('#search-form').offset().top + $('#search-form').height()+10,
+//  			left: $('#search-form').offset().left
+//  		});
+//  	})
+    	
+    	// 增加字符串长度判断
+    	$('#search_input').bind('keyup',function(){
+    		if($('#search_input').val().length > 0) {
+    			$('#search-suggest').show().css({
+	    			position: 'absolute',
+	    			top: $('#search-form').offset().top + $('#search-form').height()+10,
+	    			left: $('#search-form').offset().left
+	    		});
+    		} else {
+    			$('#search-suggest').hide()
+    		}    		
+    	})
+    </script>
+  </body>
+</html>

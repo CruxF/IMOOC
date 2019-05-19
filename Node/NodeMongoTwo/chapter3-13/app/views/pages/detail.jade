@@ -1,0 +1,22 @@
+extend ../layout
+
+block content
+   .row
+      .col-md-7(style="text-align:center")
+        video(src="#{movie.flash}",controls="controls",allowFullScreen="true",quality="high",width="720",height="600",align="middle",type="application/x-shockwave-flash")
+      .col-md-4(style="text-align:left")
+        dl.dl-horizontal
+        dt 电影名字
+        dd= movie.title
+        dt 导演
+        dd= movie.doctor
+        dt 国家
+        dd= movie.country
+        dt 语言
+        dd= movie.language
+        dt 上映年份
+        dd= movie.year
+        dt 简介
+        dd= movie.summary
+        dt 返回
+        dd: a.btn.btn-success(href="/")  返回首页

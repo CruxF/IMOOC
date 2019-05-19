@@ -1,0 +1,27 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    title #{title}
+    include ../includes/head
+    style.
+      .page-header{width:100vh}
+  body
+    .container
+      .row
+        .page-header.clearfix
+          h1= title
+          small 重度科幻迷
+    .container
+      .row
+        .col-md-5
+          form(method="POST", action="/user/signin")
+            .form-group
+              label(for="signinName") 用户名
+              input#signinName.form-control(name="user[name]", type="text")
+            .form-group
+              label(for="signinPassword") 密码
+              input#signinPassword.form-control(name="user[password]", type="password")
+            .modal-footer
+              button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+              button.btn.btn-success(type="submit") 提交

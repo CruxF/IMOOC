@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Promise animation</title>
+    <style>
+      .ball {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        margin-bottom: 5px;
+      }
+      .ball1 {
+        background: red;
+      }
+      .ball2 {
+        background: yellow;
+      }
+      .ball3 {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball ball1" style="margin-left: 0"></div>
+    <div class="ball ball2" style="margin-left: 0"></div>
+    <div class="ball ball3" style="margin-left: 0"></div>
+
+    <script>
+      var ball1 = document.querySelector('.ball1')
+      var ball2 = document.querySelector('.ball2')
+      var ball3 = document.querySelector('.ball3')
+
+      function animate(ball, distance, cb) {
+        setTimeout(function() {
+          // 获取每个小球距离左侧的距离,px单位被忽略掉了
+          var marginLeft = parseInt(ball.style.marginLeft, 10)
+          // 当球到达我们设定的距离后执行回调函数，也就是让下一个小球开始运动
+          if(marginLeft === distance) {
+          	// cb&&cb() 是指如果cb不为null，即有传入方法时，执行cb()方法，
+          	// 这里用了&&运算符的短路原则，避免当cb为空时执行了cb()方法而报错
+            cb && cb()
+            // 不加return时setTimeout也是一直在回调没有清空
+            return false
+          } else {
+            if(marginLeft < distance) {
+              marginLeft++
+            } else {
+              marginLeft--
+            }
+          }
+          // 需要加上被忽略掉的px单位
+          ball.style.marginLeft = marginLeft + 'px'
+          // 重复调用函数
+          animate(ball, distance, cb)
+        }, 13)
+      }
+      // 调用动画，依次移动第一、第二、第三个球
+      animate(ball1, 100, function() {
+        animate(ball2, 200, function() {
+          animate(ball3, 300, function() {
+            animate(ball3, 150, function() {
+              animate(ball2, 150, function() {
+                animate(ball1, 150, function() {
+                  //
+                })
+              })
+            })
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>必应搜索框</title>
+    <style>
+      body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .bg-div {
+        box-sizing: border-box;
+        background-image: url(img/river.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        position: relative;
+      }
+      .search-box {
+        position: absolute;
+        top: 200px;
+        left: 300px;
+      }
+      .logo {
+        margin: -4px 18px 0 0;
+        height: 53px;
+        width: 107px;
+        background-image: url(img/logo.png);
+        float: left;
+      }
+      form {
+        float: left;
+        background-color: #fff;
+        padding: 5px;
+      }
+      .search-input-text {
+        border: 0;
+        float: left;
+        height: 25px;
+        line-height: 25px;
+        outline: none;
+        width: 350px;
+      }
+      .search-input-button {
+        border: 0;
+        background-image: url(img/search-button.png);
+        width: 29px;
+        height: 29px;
+        float: left;
+        cursor: pointer;
+        outline: none;
+      }
+      .suggest {
+        /*position: absolute;
+      	top: 239px;
+    		left: 424px;*/
+        color: black;
+        width: 388px;
+        background-color: #fff;
+        border: 1px solid #999;
+        display: none;
+      }
+      .suggest ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .suggest ul li {
+        padding: 5px;
+        font-size: 14px;
+        line-height: 25px;
+      }
+      .suggest ul li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        background-color: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-div">
+      <div class="search-box">
+        <div class="logo"></div>
+        <form action="https://cn.bing.com/search" target="_blank" id="search-form">
+          <input type="text" name="q" id="search_input" autocomplete="off" class="search-input-text" />
+          <input type="submit" value="" class="search-input-button" />
+        </form>
+      </div>
+    </div>
+
+    <div class="suggest" id="search-suggest">
+      <ul id="search-result">
+        <li>搜索结果1</li>
+        <li>搜索结果2</li>
+        <li>搜索结果3</li>
+      </ul>
+    </div>
+
+    <script>
+      // 封装id选择器
+      var getDOM = function(id) {
+        return document.getElementById(id);
+      }
+
+      // 封装元素绑定事件
+      var addEvent = function(id, event, fn) {
+        var el = getDOM(id) || document;
+        if(el.addEventListener) {
+          // 如果是非IE浏览器
+          el.addEventListener(event, fn, false);
+        } else if(el.attachEvent) {
+          // 如果是IE浏览器
+          el.attachEvent('on' + event, fn);
+        }
+      }
+
+      // 封装获得ul区域距离左侧的位置
+      var getElementLeft = function(element) {
+        var actualLeft = element.offsetLeft;
+        var current = element.offsetParent;
+        while(current !== null) {
+          actualLeft += current.offsetLeft;
+          current = current.offsetParent;
+        }
+        return actualLeft;
+      }
+
+      // 封装获得ul区域距离顶部的位置
+      var getElementTop = function(element) {
+        var actualTop = element.offsetTop;
+        var current = element.offsetParent;
+        while(current !== null) {
+          actualTop += current.offsetTop;
+          current = current.offsetParent;
+        }
+        return actualTop;
+      }
+      
+      // 封装事件代理方法
+      var delegateEvent = function(target, event, fn){
+      	addEvent(document, event, function(e){
+      		if(e.target.nodeName == target.toUpperCase()){
+      			fn.call(e.target);
+      		}
+      	})
+      }
+      
+      // 封装ajax函数
+      var ajaxGet = function(url, callback){
+      	var _xhr = null;
+      	if(window.XMLHttpRequest){
+      		_xhr = new window.XMLHttpRequest();
+      	} else if(window.ActiveXObject){
+      		// 兼容IE浏览器
+      		_xhr = new ActiveXObject("Msxml2.XMLHTTP");
+      	}
+      	_xhr.onreadystatechange = function() {
+      		if(_xhr.readyState == 4 && _xhr.status == 200) {
+      			callback(JSON.parse(_xhr.responseText));
+      		}
+      	}
+      	_xhr.open('get', url, false);
+      	_xhr.send(null);
+      }
+
+      // 调用封装好的方法
+      addEvent('search_input', 'keyup', function() {
+      	var searchText = getDOM('search_input').value;
+      	ajaxGet('http://api.bing.com/qsonhs.aspx?q='+searchText,function(d){
+      		var d = d.AS.Results[0].Suggests;
+      		var html = '';
+      		for(var i=0;i<d.length;i++) {
+      			html += '<li>'+d[i].Txt+'</li>';
+      		}
+      		getDOM('search-result').innerHTML = html;
+      		// 缓存变量，提高性能
+      		var _dom = getDOM('search-suggest');
+      		_dom.style.top = getElementTop(getDOM('search-form')) + 38 + 'px';
+	        _dom.style.left = getElementLeft(getDOM('search-form')) + 'px';
+	        _dom.style.position = 'absolute';
+	        if(searchText.length > 0) {
+	          _dom.style.display = 'block';
+	        } else {
+	          _dom.style.display = 'none';
+	        }
+      	})       
+      })
+      
+      // 鼠标点击事件
+      delegateEvent('li', 'click', function(){
+      	var keyword = this.innerHTML;
+      	location.href = 'http://cn.bing.com/search?q='+keyword;
+      })
+    </script>
+  </body>
+</html>

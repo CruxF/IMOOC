@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')   
+    title 转义
+  body
+    h2 流程
+    h3 if else
+    - var isImooc = true
+    - var lessons = ['jade','node']
+    if lessons
+      if lessons.length >= 2
+        p more than 2: #{lessons.join(',')}
+      else if lessons.length > 1
+        p more than 1: #{lessons.join(',')}
+      else
+        p no lesson
+    else
+     p no lesson
+   h3 unless
+   unless !isImooc
+     p #{lessons.length}
+   h3 case
+   - var name = 'jade'
+   case name
+     when 'java'
+       p hi java
+     when 'node'
+       p hi node
+     when 'jade'
+       p hi jade
+     default
+       p hi #{name}

@@ -1,0 +1,50 @@
+div,img{
+  margin:0;
+  padding:0;
+  border:0;
+}
+.content1 {
+	background: url(image/new.jpg) no-repeat;
+	width: 1004px;
+	height: 613px;
+	margin: 0 auto;
+	position: relative;
+}
+#show {
+	position: absolute;
+	top: 108px;
+	left: 27px;
+	color: #F00;
+}
+.content2 {
+	background: url(image/kaoyan.jpg) no-repeat;
+	width: 1004px;
+	height: 613px;
+	margin: 0 auto;
+	position: relative;
+}
+.txtshow {
+	position: absolute;
+	top: 126px;
+	left: 477px;
+	color: #000;
+}
+#timeShow{
+  color:#f00;
+  font-weight:bold;
+	font-size:24px;
+}
+.content3{
+  background:url(image/product.jpg) no-repeat;
+  width:1200px;
+  height:398px;
+  margin:0 auto;
+  position:relative;
+}
+.time{
+  position:absolute;
+  top:122px;
+  left:46%;
+  line-height:22px;
+  font-size:14px;
+}

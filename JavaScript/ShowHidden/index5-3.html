@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>鼠标控制动画展开</title>
+  <style type="text/css">
+    body {
+      margin: 0 auto;
+      padding: 0;
+      font-size: 9pt;
+      line-height: 180%;
+    }
+    #pn {
+      background: #f8f8f8;
+      height: auto;
+      width: 750px;
+      display: block;
+      margin: 0 auto;
+      padding: 5px;
+    }
+    .btn {
+      width: 80px;
+      height: 20px;
+      padding: 5px 3px 5px 3px;
+      text-align: center;
+      text-decoration: none;
+      background: #f0f0f0;
+      border: 1px solid #CCC;
+    }
+    .content {
+      border: 1px solid #CCC;
+      display: none;
+      padding: 5px;
+    }
+    .title {
+      font-weight: bold;
+      color: #3030FF;
+      font-size: 11pt;
+    }
+    .subtitle {
+      color: #CCC;
+    }
+    .btm {
+      text-align: right;
+      height: 30px;
+    }
+  </style>
+  <script type="text/javascript">
+    var time = 300;
+    var h = 40;
+    function showdiv(obj) {
+      var x = obj.parentNode.nextSibling; // 获取下一个同胞元素
+      //包含众多空格作为文本节点，因此在我们使用nextSibling和previousSibling时就会出现问题。
+      //因为FireFox会把文本节点误当做元素节点的兄弟节点来处理。我们可以添加nodeType来判断。
+      //当上一节点或者是下一节点为文本节点时，就继续寻找，直到找到下一个元素节点。
+      //其中nodeType的值主要有以下几种：
+      // 元素节点的nodeType值为1
+      // 属性节点的nodeType值为2
+      // 文本节点的nodeType值为3
+      if (x.nodeType != 1) {
+        x = x.nextSibling;
+      }
+      x.style.display = "block";
+      obj.parentNode.style.display = "none";
+    }
+    function hidediv(obj) {
+      obj.parentNode.parentNode.style.display = "none";
+      var x = obj.parentNode.parentNode.previousSibling; // 获取上一个同胞元素
+      if (x.nodeType != 1) {
+        x = x.previousSibling;
+      }
+      x.style.display = "block";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="pn">
+    <div>
+      <p class="title">Slack：团队日常沟通协作工具典范</p>
+      <p class="subtitle">作者：来自网络 发表时间：2014-3-1 </p>
+      <p>
+        现在可以在Slack.com上申请成为试用用户，这是一个面对企业、团队的协作工具，似乎需要试用企业域名后缀的邮箱。 Slack从目前看，基本符合我对团队沟通工具的完全要求。特点如下：
+        在所有端都可以进行，即桌面端，包括Mac OS和Windows系统；web端即浏览器；移动端的支持包括iOS和Android。 同时，移动端是有良好体验以满足移动办公便利性的。
+        聚焦核心行为，即"发布一条信息"，团队成员只需要做一个这个基本行为即可。 发布一条...<a onclick="showdiv(this);" href="#">全文</a>
+      </p>
+      <div class="content">
+        <p>
+          现在可以在Slack.com上申请成为试用用户，这是一个面对企业、团队的协作工具，似乎需要试用企业域名后缀的邮箱。 Slack从目前看，基本符合我对团队沟通工具的完全要求。特点如下：
+        </p>
+        <p>在所有端都可以进行，即桌面端，包括Mac OS和Windows系统；web端即浏览器；移动端的支持包括iOS和Android。</p>
+        <p>同时，移动端是有良好体验以满足移动办公便利性的。</p>
+        <p>聚焦核心行为，即“发布一条信息”，团队成员只需要做一个这个基本行为即可。</p>
+        <p>发布一条信息这个行为可以扩展成为该信息是一个图片或者一个文件等，以便协作更好进行，如果文件能快速预览则更好。</p>
+        <p>支持@方式直接和单个团队成员沟通，并且能够被其他成员看到和参与进来。</p>
+        <p>以#来进行快速形成话题组或者项目组。</p>
+        <p>
+          良好的搜索支持。上述虽然是Slack的特性，也是我对团队日常协作工具的要求——显然，Slack完全符合这些要求，而且产品做得很易用。这些要求其实就是我对“移动、社交、云端存储”的理解，这三个因素基本会重写很多软件和应用。
+        </p>
+        <p>Slack有免费的lite版本，但收费版本似乎价格对中文用户而言略高。</p>
+        <p>
+          Slack由我很喜欢的项目Flickr的创始人新公司TinySpeck创办，因此基础甚好。而且从目前看，基本上会成为一个很成功的应用，所以在产品持续发展上面应该毫无问题。
+        </p>
+        <p>The post Slack：团队日常沟通协作工具典范 appeared first on 游山打猎.</p>
+        <div class="btm">
+          <a href="#" class="btn" onclick="hidediv(this);">收起全文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

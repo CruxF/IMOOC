@@ -923,7 +923,7 @@ JavaScript中事件冒泡，相信大家都已经十分清楚了，就是一个�
 
 **8、章节3-4：** <br>
 这节课程实现的有序预加载图片，关于有序和无序之间的区别，我想对比下相互之间的核心代码应该很容易就能理解：
-```
+```js
 // 有序预加载
 function load() {
   var imgObj = new Image();
@@ -963,8 +963,171 @@ $.each(images, function(i, src) {
 [我是效果](https://cruxf.github.io/IMOOC/JavaScript/ImgPreloading/index4-1.html)<br><br>
 
 **尾声** <br>
-看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？
+看这位讲师的课程已经开始觉得轻松了，慢慢地能够领悟到他的开发思路以及开发模式和套路，这是否也是一种进步呢？<br><br>
 
+
+# 10、SearchFrame => [搜索框制作](https://www.imooc.com/learn/21)
+
+一门历史悠久的课程，然而课程中亮点依然存在，尤其是讲师那封装代码的思想。在学习的过程中，我几乎解决了所有课程中一些不尽人意的地方，下面一起来看一下吧。<br>
+
+[章节1-3](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index1-3.html)、[章节1-4](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index1-4.html)和[章节2-2](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-2.html)由于都是简单的HTML与CSS代码，因此不做任何的讲解，大家点击看效果就好。<br>
+
+在**章节2-4** 中，我额外判断了当输入框没有内容的时候，那么下拉框就隐藏，挺简单的一段代码
+```js
+// 增加字符串长度判断
+$('#search_input').bind('keyup', function() {
+  if($('#search_input').val().length > 0) {
+    $('#search-suggest').show().css({
+      position: 'absolute',
+      top: $('#search-form').offset().top + $('#search-form').height() + 10,
+      left: $('#search-form').offset().left
+    });
+  } else {
+    $('#search-suggest').hide()
+  }
+})
+```
+下面直接贴上课程章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-4.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-4.html)<br><br>
+
+
+**章节2-5和章节2-6** 其实讲到的重点就是ajax跨域的问题，由于这个自己目前也不是非常了解，所以暂时不说先，幸好的是jQuery中有解决跨域的方法，下面直接贴上2-6章节的源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-6.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index2-6.html)<br><br>
+
+
+**章节2-7和章节2-8** 本课程的精髓就在这两个章节之中，得好好体会。这两个章节代码并不难以理解，让新手或者说心浮气躁的人来说比较困难的是如何利用fiddler把本地文件放在`http://api.bing.com` 域名下，莫方，下面就让我手摸手教大家跨过这道门槛。<br>
+**步骤一：** [下载fiddler](https://www.telerik.com/download/fiddler)<br>
+**步骤二：** 安装好之后打开fiddler，点击Composer
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/2.jpg?raw=true)<br>
+**步骤三：** 配置好get请求地址为(`http://api.bing.com/bing-search.html`)，点击execute，出现一个404的文件
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/3.jpg?raw=true)<br>
+**步骤四：** 点击AutoResponder，再点击Enable rules和Unmatched requests passthrough，把404的文件拖到右边
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/4.jpg?raw=true)<br>
+**步骤五：** 配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：`http://api.bing.com/bing-search.html`， 然后点击Save
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/5.jpg?raw=true)<br>
+**步骤六：** 打开Chrome浏览器，输入地址：`http://api.bing.com/bing-search.html`， 假如你看到下面的场景说明已经成功一半了
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/6.jpg?raw=true)<br>
+**步骤七：** 此时看看fiddler中请求页面信息，把出现404的文件如法炮制的拖到右边进行规则配置
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/7.jpg?raw=true)<br>
+**步骤八：** 和步骤五一样进行规则配置，最终配置完的页面如下图
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/8.jpg?raw=true)<br>
+**步骤九：** 之后我们再刷新一次页面，完美展现，输入搜索的内容也能够出现相应的结果
+![](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/img/9.jpg?raw=true)<br>
+
+如果经过上面几步还没解决问题的话，请在慕课网私信我哈。下面直接贴上2-8章节的源码。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index2-8.html)<br>
+
+
+话说[章节3-2](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-2.html)、[章节3-3](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-3.html)和[章节3-4](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-4.html)[章节3-5](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-5.html)[章节3-6](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-6.html)一样是由于都为简单的HTML与CSS代码，因此不做任何的讲解，大家点击看效果就好。不过在门课程倒是发现一篇很好的[关于BFC解读的手记](https://www.imooc.com/article/9723)，还有就是需要看源码的[请点击这里哇](https://github.com/CruxF/IMOOC/tree/master/JavaScript/SearchFrame?1541175622979)<br>
+
+**章节3-7** 唉，讲师太不小心，明明我是会给课程打9.9分的，因为最后一节造成了很大的bug，并且写法并不是那么优雅，所以只能说这是门不那么尽人意的课程，然而为了不让喜欢慕课网的小伙伴失望，我自己手写了一份能跑的代码，希望你们能看上眼。
+下面直接贴上源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/SearchFrame/index3-7.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/SearchFrame/index3-7.html)<br><br>
+
+
+# 11、ShowHidden => [展开与收起效果](https://www.imooc.com/learn/90)
+相当简单的一门课程，一口气直接看完。这门课程不做什么讲解，下面直接看效果演示，部分源码含有讲解注释
+- [章节2-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index2-1.html)
+- [章节2-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index2-2.html)
+- [章节3-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index3-1.html)
+- [章节3-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index3-2.html)
+- [章节4-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index4-1.html)
+- [章节5-2](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index5-2.html)
+- [章节5-3](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index5-3.html)
+- [章节7-1](https://cruxf.github.io/IMOOC/JavaScript/ShowHidden/index7-1.html)<br><br>
+
+
+# 12、PageSpecial =>[网页定位导航特效](https://www.imooc.com/learn/56)
+姜维老师666，编程思维很强，不亏是架构师，我们来看看他的简介：
+> 资深UI 前端 架构，互联网行业折腾10余年，前后端开发、敏捷过程、项目管理经验丰富，负责过多个产品和技术团队，一直奋斗在Full Stack的道路上，爱技术，爱创业，爱一切新事物，玩过乐队，喜欢折腾！<br>
+
+下面我们一起来分析课程源代码
+
+### 章节4-3
+该章节课程讲到了定位的两种方法，一种是简单的a标签锚点方法，通过点击锚点，调到特定的位置，下面源码中current样式并不会因为跳转而改变
+```html
+<ul>
+  <li><a href="#item1">1F 男装</a></li>
+  <li><a href="#item2">2F 女装</a></li>
+  <li><a href="#item3" class="current">3F 美妆</a></li>
+  <li><a href="#item4">4F 数码</a></li>
+  <li><a href="#item5">5F 母婴</a></li>
+</ul>
+
+<div id="item1">
+  男装
+</div>
+```
+
+另外一种方式是通过监听浏览器的滚动事件和滚动高度来实现定位功能
+```js
+<script>
+  $(document).ready(function () {
+    // 滚动条发生滚动时，要获取相应的值
+    $(window).scroll(function () {
+      // 寻找到id为content区域所有类名为item的元素集合
+      var items = $("#content").find(".item");
+      var menu = $("#menu");
+      // 页面滚动条离顶部的距离
+      var top = $(document).scrollTop();
+      // 滚动条现在所在位置的item id
+      var currentId = ""; 
+      items.each(function () {
+        var m = $(this);
+        // m.offset().top代表每一个item的顶部距离滚动条顶部的位置，这是固定值
+        if (top > m.offset().top - 300) { // 减不减300其实都可以
+          currentId = "#" + m.attr("id");
+          // console.log(currentId)
+        } else {
+          return false;
+        }
+      });
+      // 给相应楼层的a设置current，取消其他链接的current
+      var currentLink = menu.find(".current");
+      // 当前currentId存在并且类名为currentLink的href的属性值不等于当前currentId值时
+      if (currentId && currentLink.attr("href") != currentId) {
+        currentLink.removeClass("current");
+        menu.find("[href=" + currentId + "]").addClass("current");
+      }
+    })
+  });
+</script>
+```
+下面直接贴上源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/PageSpecial/index4-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/PageSpecial/index4-3.html)<br><br>
+
+### 尾声
+最后几个章节使用原生JavaScript实现该定位功能，其实思路是一致的，不同的只是在写法上，在这就不详细说明了，下面直接贴上源码和演示。<br>
+[我是源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/PageSpecial/index6-3.html)<br>
+[我是效果](https://cruxf.github.io/IMOOC/JavaScript/PageSpecial/index6-3.html)<br><br>
+
+
+# 13、LoverPro => [H5+JS+CSS3实现七夕言情](https://www.imooc.com/learn/453)
+
+
+# 14、Countdown => [倒计时效果](https://www.imooc.com/learn/59)
+相当基础的一门课程，主要涉及到的是JavaScript的时间（Date）对象，我们熟记下列的对象方法即可
+- Date()返回当前的日期和时间
+- getDate() 查看Date对象并返回日期 （1-31）
+- getDay() 返回星期几（0-6） 
+- getHours() 返回小时数 （0-23）
+- getMinutes() 返回分钟数 （0-59）
+- getMonth() 返回月份值 (从0开始，＋1）
+- getSeconds() 返回秒数 
+- getTime()返回毫秒数
+- getYear() 返回年份，获得年最好用，getFullYear()方法来操作（完整格式 如2014）
+
+对了，忘记提一点就是：操作对象中的方法时，首先得先把这个对象创建（new Date()）出来。由于这门课程年代久远，其中的代码也有些许不合理，下面请看我的源码以及效果演示<br>
+[章节1-2源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index1-2.html)<br>
+[章节1-2演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index1-2.html)<br><br>
+[章节2-1源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index2-1.html)<br>
+[章节2-1演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index2-1.html)<br><br>
+[章节3-1源码](https://github.com/CruxF/IMOOC/blob/master/JavaScript/Countdown/index3-1.html)<br>
+[章节3-1演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index3-1.html)<br><br>
 
 
 

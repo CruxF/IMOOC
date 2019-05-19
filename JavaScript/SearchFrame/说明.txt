@@ -1,0 +1,18 @@
+## input标签
+当input标签的type="submit"时，可以提交表单内容到服务器，
+此时按钮必须放置在要提交的表单元素内，也就是form标签内。
+
+## ajax原理
+
+## 事件代理
+
+## 把本地文件用Fiddler放在http://api.bing.com域名下
+步骤一：[下载fiddler](https://www.telerik.com/download/fiddler)
+步骤二：安装好之后打开fiddler，点击Composer
+步骤三：配置好get请求地址为(http://api.bing.com/bing-search.html)，点击execute，出现一个404的文件
+步骤四：点击AutoResponder，再点击Enable rules和Unmatched requests passthrough，把404的文件拖到右边
+步骤五：配置规则，下面一栏的文件地址为本地的文件地址，上面一栏地址为固定地址：http://api.bing.com/bing-search.html，然后点击Save
+步骤六：打开Chrome浏览器，输入地址：http://api.bing.com/bing-search.html，假如你看到下面的场景说明已经成功一半了
+步骤七：此时看看fiddler中请求页面信息，把出现404的文件如法炮制的拖到右边进行规则配置
+步骤八：和步骤五一样进行规则配置，最终配置完的页面如下图
+步骤九：之后我们再刷新一次页面，完美展现，输入搜索的内容也能够出现相应的结果

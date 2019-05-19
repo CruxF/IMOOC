@@ -1,0 +1,110 @@
+﻿## 概念
+Node本质上是一个JavaScript的运行环境。可以解析JavaScript代码，并没有浏览器安全级的限制；
+提供了系统级别的API，比如文件的读写、进程的管理和网络通信等。
+
+
+## 模块与包管理工具
+
+
+## Commonjs规范
+
+
+## Node与Commonjs规范的关系
+
+
+## 模块的分类
+
+
+## 模块的流程(node4-3)
+
+
+## exports和module.exports的区别
+
+
+## URL和URI的区别
+
+
+## Node中的[url模块](http://nodejs.cn/api/url.html)以及[url.parse()方法](http://nodejs.cn/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
+
+
+## Node中[queryString参数处理](http://nodejs.cn/api/querystring.html)小利器
+在命令行中分别输入以下命令
+- querystring.stringify({name:'scott',course:['jade','node'],from:''})
+- querystring.stringify({name:'scott',course:['jade','node'],from:''},',')
+- querystring.stringify({name:'scott',course:['jade','node'],from:''},',',':')
+- querystring.parse('name=scott&course=jade&course=node&from=')
+- querystring.parse('name=scott,course=jade,course=node,from=')
+- querystring.parse('name=scott,course=jade,course=node,from=',',')
+- querystring.parse('name:scott,course:jade,course:node,from:')
+- querystring.parse('name:scott,course:jade,course:node,from:',',',':')
+- querystring.escape('哈哈')
+- querystring.unescape('%E5%93%88%E5%93%88')
+
+
+## 什么是HTTP？
+它是一种协议，在网络中发挥的作用简单地来说就是下面的三个步骤
+- http客户端发起请求，创建端口
+- http服务器在端口监听客户端请求
+- http服务器向客户端返回状态和内容
+
+再细致的往下说就是如下的步骤(以chrome浏览器搜索为例)
+- Chrome搜索自身的DNS缓存(可以输入该地址：chrome://net-internals/#dns 查看DNS缓存)
+- 假如浏览器没有找到缓存或者缓存已经失效，那么就会搜索操作系统自身的DNS缓存
+- 假如没有找到操作系统自身的DNS缓存，那么就会读取本地的HOST文件
+- 假如没有找到HOST文件，那么浏览器就会发起一个DNS的一个系统调用
+- 浏览器获得域名对应的 IP 地址后，发起 HTTP 的“三次握手”
+- TCP/IP 连接建立起来后，浏览器就可以向服务器发送 HTTP 请求了，例如使用 HTTP 的 GET 方法请求一个根域里的一个域名，协议可以采用 HTTP 1.0 的一个协议。
+- 服务器端接收到了这个请求，根据路径参数，竞购后端的一些处理后，把处理的一个结果的数据返回给浏览器，如果是 目标网 的页面就会把完整的 HTML 页面代码返回给浏览器。
+- 浏览器拿到了 目标网 的完整的HTML 页面代码，在解析和渲染这个页面的时候，里面的 JS 、CSS、 图片静态资源，他们同样也是一个个 HTTP 请求，都需要上面的主要七个步骤
+- 浏览器根据拿到的资源对页面进行渲染，最终把一个完整的页面呈现给用户
+
+1 输入网址
+2 域名解析
+2.1 浏览器自身缓存（chrome://net-internals/#dns）
+2.2 操作系统自身的dns缓存
+2.3 读取本地的host文件
+2.4 浏览器发起一个DNS的系统调用（本地主控DNS服务器：宽带运营商服务器查看本身缓存）
+2.5 运营商服务器发起一个迭代DNS解析的请求（->根域.com服务器->imooc.com域服务器->运营商服
+务器得到(结果)->操作系统内核并缓存->浏览器）
+3 浏览器与服务器的web程序tcp链接->三次握手
+4 发送http请求
+5 服务器处理请求，并将结果返回
+6 浏览器根据返回结果进行处理或页面渲染
+
+
+## 什么是回调？
+
+## 什么是同步/异步？
+"同步模式"就是上一段的模式，后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的；
+"异步模式"则完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，
+后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。
+
+## 什么是I/O？
+
+## 什么是单线程/多线程？
+- 所谓"单线程"，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。
+
+## 什么是阻塞/非阻塞？
+
+## 什么是事件驱动？
+任务的执行不取决于代码的顺序，而取决于某个事件是否发生。
+
+## 什么是基于事件驱动的回调？
+
+## 什么是事件循环？
+参考地址：http://www.cnblogs.com/woodyblog/p/6061671.html
+参考地址：https://blog.csdn.net/z69183787/article/details/52910484
+
+
+## 什么是作用域？
+## 什么是上下文？
+## call与apply
+
+
+## HTTP性能测试
+- 首先，根据网上教程进行到httpd -k install这一步
+- 然后，执行命令ab -n 100 -c 10 http://www.imooc.com/
+
+## 事件模块
+
+## 灌水

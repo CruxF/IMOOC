@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')   
+    title 转义
+  body
+    h2 流程
+    h3 for
+    - var imooc = {course: 'jade',level: 'high'}
+    - for (var k in imooc)
+      p= imooc[k]
+    h3 each
+    - each value, key in imooc
+      p #{key}: #{value}
+    each value, key in imooc
+      p #{key}: #{value}
+    h3 遍历数组
+    - var courses = ['node','vue','react']
+    each item in courses
+      p= item
+    h3 嵌套循环
+    - var sections = [{id: 1, items:['a', 'b']}, {id: 2, items:['c', 'd']}]
+    dl
+      each section in sections
+        dt= section.id
+        each item in section.items
+          dd= item
+    dl
+      each section in sections.length > 0 ? sections:[{id:0,items:['none']}]
+        dt= section.id
+        each item in section.items
+          dd= item
+    h3 while
+    - var n = 0
+    ul
+      while n<4
+        li= n++

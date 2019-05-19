@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    #experiment {
+      /* 属性定义 3D 元素距视图的距离，以像素计 */
+      -webkit-perspective: 800;
+      /* 3D 元素的底部位置 */
+      -webkit-perspective-origin: 50% 50%;
+      -webkit-transform-style: -webkit-preserve-3d;
+    }
+    #block {
+      width: 500px;
+      height: 500px;
+      background-color: #69c;
+      margin: 100px auto;
+      -webkit-transform: rotateX(45deg);
+    }
+  </style>
+</head>
+<body onload="init()">
+  <div id="experiment">
+    <div id="block">
+    </div>
+  </div>
+</body>
+</html>

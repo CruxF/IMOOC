@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+  .container
+    .row
+      each cat in categories
+        .panel.panel-primary
+          .panel-heading
+            h3 #{cat.name}
+          .panel-body
+            if cat.movies && cat.movies.length > 0
+              each item in cat.movies
+                .col-md-4(style="text-align:center")
+                  .thumbnail
+                    a(href="/movie/#{item._id}")
+                      img(src="#{item.poster}", alt="#{item.title}", height="400px", width="300px")
+                    .caption
+                      h3 《#{item.title}》
+                      p: a.btn.btn-primary(href="/movie/#{item._id}",role="button") 观看预告片          
+    .row
+      .col-md-3
+        p: a.btn.btn-warning(href="/admin/movie/new") 录入新电影
+    .row
+      .col-md-3
+        p: a.btn.btn-warning(href="/admin/movie/list") 查看所有电影详情
+             

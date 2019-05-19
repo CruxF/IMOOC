@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>慕课七夕主题</title>
+    <link rel="stylesheet" href="css/style3-3.css" />
+    <link rel="stylesheet" href="css/pageA3-1.css" />
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swipe2-3.js"></script>
+    <script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
+  </head>
+  <body>
+    <div id='content'>
+      <ul class='content-wrap'>
+        <li>
+          <div class="a_background">
+            <div class="a_background_top"></div>
+            <div class="a_background_middle"></div>
+            <div class="a_background_botton"></div>
+          </div>
+        </li>
+        <li> 页面2 </li>
+        <li> 页面3 </li>
+      </ul>
+      <div id="boy" class="charector"></div>
+    </div>
+    <div class="button">
+      <button>开始</button>
+      <button>暂停</button>
+    </div>
+
+    <script type="text/javascript">
+      var swipe = Swipe($("#content"));
+      // 获取数据
+      var getValue = function(className) {
+        var $elem = $('' + className + '')
+        // 走路的路线坐标
+        return {
+          height: $elem.height(),
+          top: $elem.position().top
+        };
+      };
+      // 路的Y轴
+      var pathY = function() {
+        var data = getValue('.a_background_middle');
+        return data.top + data.height / 2;
+      }();
+      var $boy = $("#boy");
+      var boyHeight = $boy.height();
+      // 修正小男孩的正确位置
+      $boy.css({
+        top: pathY - boyHeight + 25
+      });
+      // 开始
+      $("button:first").click(function() {
+        $boy.addClass("slowWalk").css({
+          "left": $("#content").width() + "px",
+          "transition": "all 10s linear"
+        });
+        $boy.removeClass("pauseWalk");
+      })
+      // 暂停
+      $("button:last").click(function() {
+        var left = $boy.css('left');
+        // 强制做了一个改变目标left的处理
+        // 动画是要运行10秒,所以此时动画还是没有结束的
+        $boy.css('left', left);
+        // 增加暂停的样式
+        $boy.addClass('pauseWalk');
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="index2-1.css">
+
+  <script>
+    window.onload = function() {
+      getDay()
+    }
+    function getDay() {
+      var timedate = new Date('2,14,2019')
+      var now = new Date();    
+    　var date = timedate.getTime() - now.getTime();    //得出的为毫秒
+    　var time = Math.ceil(date/(1000 * 60 * 60 * 24));  
+      //1000 * 60 * 60 * 24一天的秒数
+      if(time > 0 ){
+        document.getElementById('timeShow').innerHTML = time;
+      }
+      t = setTimeout('getDay()', (1000 * 60 * 60 * 24));
+    }
+  </script>
+</head>
+<body>
+  <div class="content2">
+    <div class="txtshow">
+      距离2019年研究生考试时间还有&nbsp;<span  id="timeShow"></span>&nbsp;天
+    </div>
+  </div>
+</body>
+</html>
