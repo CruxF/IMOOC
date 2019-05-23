@@ -1,0 +1,16 @@
+<!--pages/detail/detail.wxml-->
+<view wx:if="{{iskebi}}">
+  我是科比的球迷
+</view>
+
+<view wx:if="{{iszhan}}">
+  我是詹姆斯的球迷
+</view>
+
+<view wx:if="{{isqiao}}">
+  我是乔丹的球迷
+</view>
+
+<view wx:if="{{isgeli}}">
+  我是格里芬的球迷
+</view>
