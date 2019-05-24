@@ -733,7 +733,7 @@ onLoad: function(options) {
 }
 ```
 
-当然了，getDetail这个云函数是已经被创建好并且部署到云，记得在云函数终端输入命令：npm install --save request和npm install --save request-promise
+当然了，getDetail这个云函数是已经被创建好并且部署到云，需要记得在云函数终端输入命令：npm install --save request和npm install --save request-promise
 ```js
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
@@ -839,3 +839,7 @@ submit: function() {
 - 点击微信开发者工具中的上传
 - 点击微信公众号 | 小程中的版本管理
 - 点击提交审核
+
+
+### 尾声
+一门很不错的微信开发入门课，核心点值得反复看多遍。<br><br>
