@@ -359,3 +359,11 @@ html
 好了，今天的总结到此结束，后两个章节的问题我就不在这说了，因为除了版本的问题，现在还有更好的[模板引擎](https://pugjs.org/zh-cn/api/getting-started.html)已经出来了。<br><br>
 
 
+# 2、VSCode => [VSCode入门](https://www.imooc.com/learn/1106)
+看完了课程，发现主要就是以下三点
+- 用户配置
+- git配置
+- 插件配置
+
+之前有写过一篇[类似的分享](https://github.com/CruxF/Blog/issues/12)，就不一五一十的来记录课程的那些了。毕竟以上那三点在网上能找到大量的、更详细的分享，再重复去记录与分享就没太大必要了。
+
