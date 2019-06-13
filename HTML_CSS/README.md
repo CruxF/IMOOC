@@ -313,7 +313,124 @@ JavaScript没把我绕晕，倒是课程的CSS部分让我一愣一愣的。课�
 
 雪碧图实现原理：
 - 以图片左上角为原点，建立一个二维的坐标系（只有x轴与y轴）
+- 使用background-position: x轴 y轴;来对图片进行定位（记住是设定为负值）
 
+由于课程代码量较少，下面我直接贴代码吧
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,body,li,h3,ul{
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      height: 32px;
+      line-height: 32px;
+      overflow: hidden; 
+      border-bottom: 1px solid #dedede;
+      text-align: center;
+    }
+    li h3 {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+    }
+    li i {
+      display: inline-block;
+      width: 30px;
+      height: 24px;
+      vertical-align: middle;
+      background: url('sidebar.png')
+    }
+    .cat {
+      margin: 50px auto;
+      width: 150px;
+      background-color: #f8f8f8;
+      border: 1px solid #bbb;
+    }
+    .cat-1 i{
+      background-position: 0 0;
+    }
+    .cat-2 i{
+      background-position: 0 -24px;
+    }
+    .cat-3 i{
+      background-position: 0 -48px;
+    }
+    .cat-4 i{
+      background-position: 0 -72px;
+    }
+    .cat-5 i{
+      background-position: 0 -96px;
+    }
+    .cat-6 i{
+      background-position: 0 -120px;
+    }
+    .cat-7 i{
+      background-position: 0 -144px;
+    }
+    .cat-8 i{
+      background-position: 0 -164px;
+    }
+    .cat-9 i{
+      background-position: -40px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="cat">
+    <ul>
+      <li class="cat-1">
+        <i></i>
+        <h3>服装内衣</h3>
+      </li>
+      <li class="cat-2">
+        <i></i>
+        <h3>鞋包配饰</h3>
+      </li>
+      <li class="cat-3">
+        <i></i>
+        <h3>运动户外</h3>
+      </li>
+      <li class="cat-4">
+        <i></i>
+        <h3>珠宝手表</h3>
+      </li>
+      <li class="cat-5">
+        <i></i>
+        <h3>手机数码</h3>
+      </li>
+      <li class="cat-6">
+        <i></i>
+        <h3>办公电脑</h3>
+      </li>
+      <li class="cat-7">
+        <i></i>
+        <h3>护肤彩妆</h3>
+      </li>
+      <li class="cat-8">
+        <i></i>
+        <h3>母婴用品</h3>
+      </li>
+      <li class="cat-9">
+        <i></i>
+        <h3>其他分类</h3>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
+```
 
 
 
