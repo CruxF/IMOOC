@@ -305,7 +305,7 @@ Page({
 
 ### 云数据库
 云数据库是小程序提供的一个JSON数据库，也称为是文档型数据库，它最大的特点是十分方便存储以及快速查询数据，主要是应用在需要频繁查询数据的场景中。当涉及到复杂的连表查询数据时，还是应该使用关系型数据库为好，两种数据库的差别如下
-
+![](https://github.com/CruxF/IMOOC/blob/master/WxPro/WxCloud/miniprogram/images/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%96%87%E6%A1%A3%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93.jpg?raw=true)
 
 使用云数据库我们能够很方便的操作数据，比如添加一些数据，我们只需要以下几个步骤
 - 创建小程序云开发
@@ -508,6 +508,7 @@ batchDeleteData:function(){
 
 ### 云存储
 云存储的能力也是云开发的一大特点，它的存储过程如下
+![](https://github.com/CruxF/IMOOC/blob/master/WxPro/WxCloud/miniprogram/images/%E4%BA%91%E5%AD%98%E5%82%A8.jpg?raw=true)
 
 下面我们上传一张图片到云端的云存储和云数据库看看
 ```js
@@ -567,6 +568,7 @@ getFile:function(){
 ```
 
 那么我们该如何将图片下载到本地呢，首选请看下面一张图片
+![](https://github.com/CruxF/IMOOC/blob/master/WxPro/WxCloud/miniprogram/images/%E4%BA%91%E5%AD%98%E5%82%A8%E4%B8%8B%E8%BD%BD.jpg?raw=true)
 
 然后接下来请看源码
 ```html
@@ -624,7 +626,7 @@ downloadFile: function (event){
 
 ### 小程序端和云函数发送请求的方式
 我们在调用api的时候需要发送一个请求给后台调取数据，下面看看小程序端和云函数发送请求的区别
-
+![](https://github.com/CruxF/IMOOC/blob/master/WxPro/WxCloud/miniprogram/images/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AB%AFor%E4%BA%91%E5%87%BD%E6%95%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F.jpg?raw=true)
 
 下面我们来看看使用云函数请求数据的步骤
 - 在cloudfunction文件夹中创建相对应的云函数
