@@ -1130,6 +1130,37 @@ $('#search_input').bind('keyup', function() {
 [章节3-1演示](https://cruxf.github.io/IMOOC/JavaScript/Countdown/index3-1.html)<br><br>
 
 
+# 15、FixedSide => [固定边栏滚动特效](https://www.imooc.com/learn/52)
+一篇比较容易理解的课程，我们只要记住以下的核心点即可
+- css中的固定定位(fixed)
+- 监听浏览器的scroll事件
+- 设置fixed条件判断：滚动高度+屏幕高度>边栏区域总高度
 
+下面看核心代码
+```js
+let jWindow = $(window)
+jWindow.scroll(function() {
+  var windowHeight = jWindow.scrollTop() + jWindow.height();
+  var sideHeight = $("#J_BdSide").height(); //这是固定值，2365px
+  if (windowHeight > sideHeight) {
+    $("#J_BdSide").css({
+      position: "fixed",
+      right: "0px",
+      top: -(sideHeight - jWindow.height())
+    });
+  } else {
+    $("#J_BdSide").css({
+      position: "static"
+    });
+  }
+});
+jWindow.onload = function(){ //页面刚加载时
+  jWindow.trigger('scroll')
+}
+jWindow.resize = function(){ //页面大小改变时
+  jWindow.trigger('scroll')
+}
+```
 
+原生JS也是同样的实现思路，在此不做讲解了。<br>
 
