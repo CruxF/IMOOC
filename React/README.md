@@ -1348,7 +1348,26 @@ export default D(E)
 ### 高阶组件显示名
 一般情况下，组件的代码在浏览器中是不会直接表明来自哪个组件的，那么此时我们需要这么来进行处理
 ```js
-
+import React from 'react'
+const D = (WrappedComponent) => class NewComponent extends WrappedComponent {
+  static displayName = `NewComponent(${getDisplayName(WrappedComponent)})`
+  componentDidMount() {
+    console.log('我是修改后的生命周期')
+  }
+  render() {
+    const element = super.render();
+    const newStyle = {
+      color: element.type==='div'?'red':'green'
+    }
+    const newProps = {...this.props, style: newStyle}
+    return React.cloneElement(element, newProps, element.props.children)
+  }
+}
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
+}
+export default D;
+```
 ```
 
 
