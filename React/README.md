@@ -4,7 +4,7 @@
 由于这会是一篇很长的课程学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
 
 
-# 1、ReactInstance => [基于实例的React16傻瓜课程](https://www.imooc.com/course/qa/id/1045/t/2?page=3)
+# 1、ReactInstance => [基于实例的React16傻瓜课程](https://www.imooc.com/course/qa/id/1045)
 React萌新不敢评论这门课程到底好不好，只是能确定的是自己能听明白，代码敲的出来，独特的见解暂时还没，还需不断的学习再学习，下面是一些在学习该课程记录的流水账，有兴趣的可以看一看。<br>
 
 ## React是什么
@@ -865,3 +865,485 @@ serviceWorker.unregister();
 
 ## 尾声
 落伍了，真的是落伍了，不知道怎么回事，实在看不下去，想睡觉，头晕，食言一次，保护头发从现在做起。视频中的几乎所有功能点都可以使用前面两期所学的React16知识来进行改造，然而我就是没啥动力了，呃呃呃呃呃。<br><br>
+
+
+# 4、ReactHOC => [React高级教程之高阶组件](https://www.imooc.com/learn/1075)
+### 高阶函数的基本概念
+- 函数可以作为参数被传递
+```js
+setTimeout(()=>{
+  console.log(1)
+}, 1000)
+```
+- 函数可以作为返回值输出
+```js
+function foo(x) {
+  return function() {
+    return x;
+  }
+}
+```
+
+### 高阶组件基本概念（High Order Component，简称HOC）
+- 高阶组件就是接受一个组件作为参数并返回一个新组件的函数
+- 高阶组件是一个函数，并不是组件
+
+### 为什么需要高阶组件
+- 多个组件都需要某个相同的功能，使用高阶组件能减少重复实现
+- 重复是优秀系统设计的大敌——Robert C.Martin
+
+### 一个高阶组件的简单案例(普通事例)
+```js
+// A组件
+import React, { Component } from 'react'
+import './A.css';
+function A(WrappedComponent) {
+  return class A extends Component {
+    render() {
+      return (
+        <div>
+          <div className="header">这是BC组件公共的部分</div>
+          <div className="content">
+            <WrappedComponent></WrappedComponent>
+          </div>
+        </div>
+      )
+    }
+  }
+}
+export default A;
+
+// A组件样式
+.header {
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background-color: bisque;
+  text-align: center;
+}
+.content {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+// B组件
+import React from 'react'
+import A from './A';
+function B() {
+  return (
+    <div>
+      这是B组件
+    </div>
+  )
+}
+export default A(B);
+
+// C组件
+import React from 'react'
+import A from './A';
+function C() {
+  return (
+    <div>
+      这是C组件
+    </div>
+  )
+}
+export default A(C);
+
+// APP.js文件
+import React from 'react';
+import './App.css';
+import B from './components/B';
+import C from './components/C';
+function App() {
+  return (
+    <div className="App">
+      <B></B>
+      <C></C>
+    </div>
+  );
+}
+export default App;
+```
+
+### 一个高阶组件的简单案例(装饰器事例)
+- 我没能跑起来。。。
+
+### 代理方式的高阶组件
+概念：返回的新组件类直接继承自React.Component类，新组件扮演的角色传入参数组件的一个代理，在新组件的render函数中，将被包裹组件渲染出来，除了高阶组件自已要做的工作，其余功能全都转手给了被包裹的组件<br>
+
+具有以下的特点：
+- 操纵prop
+- 抽取状态
+- 访问ref
+- 包装组件
+
+#### 1、操纵prop
+```js
+// App.js
+import React from 'react';
+import './App.css';
+import B from './components/B';
+import C from './components/C';
+function App() {
+  return (
+    <div className="App">
+      <B name={'小王'} age={18}></B>
+      <C></C>
+    </div>
+  );
+}
+export default App;
+
+// A.js
+import React, { Component } from 'react'
+import './A.css';
+export default (title)=> WrappedComponent => class A extends Component {
+  render() {
+    const { age, ...otherProps } = this.props
+    return (
+      <div>
+        <div className="header">这是BC组件公共的部分</div>
+        <div className="content">
+          {/* 能拿到props中的所有数据 */}
+          {/* <WrappedComponent sex={'男'} {...this.props}></WrappedComponent> */}
+          {/* 不能拿到age数据 */}
+          <WrappedComponent sex={'男'} {...otherProps}></WrappedComponent>
+        </div>
+      </div>
+    )
+  }
+}
+
+// B.js
+import React, { Component } from 'react'
+import A from './A';
+class B extends Component {
+  render() {
+    return (
+      <div>
+        <h3>这是B组件</h3>
+        <div>我的名字是：{this.props.name}</div>
+        <div>我的年龄是：{this.props.age}</div>
+        <div>我的性别是：{this.props.sex}</div>
+      </div>
+    )
+  }
+}
+export default A("提示")(B);
+
+// C.js
+import React from 'react'
+import A from './A';
+function C() {
+  return (
+    <div>
+      这是C组件
+    </div>
+  )
+}
+export default A("提示")(C);
+```
+
+#### 2、访问ref
+```js
+// C.js
+import React, { Component } from 'react'
+import A from './A';
+class C extends Component {
+  getName() {
+    return '我是C组件'
+  }
+  render() {
+    return (
+      <div>
+        这是C组件
+      </div>
+    )
+  }
+}
+export default A("提示")(C);
+
+// A.js
+import React, { Component } from 'react'
+import './A.css';
+export default (title)=> WrappedComponent => class A extends Component {
+  refc(instance) { //instance指的是WrappedComponent外部组件的实例
+    instance.getName && alert(instance.getName()); //外部组件没有getName方法的不执行getName()
+  }
+  render() {
+    const { age, ...otherProps } = this.props
+    return (
+      <div>
+        <div className="header">这是BC组件公共的部分</div>
+        <div className="content">
+          <WrappedComponent sex={'男'} {...this.props} ref={this.refc.bind(this)}></WrappedComponent>
+        </div>
+      </div>
+    )
+  }
+}
+```
+
+#### 3、抽取状态
+假如我们没有将状态抽离出来，那么就会写重复的代码，比如B、C组件有相同的功能，那么在B组件写一套，在C组件又得写一套一样的
+```js
+import React, { Component } from 'react'
+import A from './A';
+
+class B extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+    }
+    // 在JavaScript的类中是无法自动绑定this的，因此我们需要手动绑定
+    this.changeInput = this.changeInput.bind(this)
+  }
+  changeInput(e) {
+    this.setState({
+      value: e.target.value
+    })
+  }
+  render() {
+    return (
+      <div>
+        <h3>这是B组件</h3>
+        <div>我的名字是：{this.props.name}</div>
+        <div>我的年龄是：{this.props.age}</div>
+        <div>我的性别是：{this.props.sex}</div>
+        <input type='text' {...this.props}></input>
+        <div>{this.state.value}</div>
+      </div>
+    )
+  }
+}
+export default A("提示")(B);
+```
+
+然后我们将子组件的状态抽取出来（也叫状态提升）
+```js
+// App.js
+import React from 'react';
+import './App.css';
+import B from './components/B';
+import C from './components/C';
+function App() {
+  return (
+    <div className="App">
+      <B name={'小王'} age={18}></B>
+      <C></C>
+    </div>
+  );
+}
+export default App;
+
+
+// A.js
+import React, { Component } from 'react'
+import './A.css';
+export default (title)=> WrappedComponent => class A extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+    }
+    // 在JavaScript的类中是无法自动绑定this的，因此我们需要手动绑定
+    this.changeInput = this.changeInput.bind(this)
+  }
+  changeInput(e) {
+    this.setState({
+      value: e.target.value
+    })
+  }
+  render() {
+    const newProps = {
+      value: this.state.value,
+      onChange: this.changeInput
+    }
+    return (
+      <div>
+        <div className="header">这是BC组件公共的部分</div>
+        <div className="content">
+          <WrappedComponent sex={'男'} {...this.props} {...newProps}></WrappedComponent>
+        </div>
+      </div>
+    )
+  }
+}
+
+// B.js
+import React, { Component } from 'react'
+import A from './A';
+
+class B extends Component { 
+  render() {
+    return (
+      <div>
+        <h3>这是B组件</h3>
+        <div>我的名字是：{this.props.name}</div>
+        <div>我的年龄是：{this.props.age}</div>
+        <div>我的性别是：{this.props.sex}</div>
+        <input type='text' {...this.props} ></input>
+        <div>{this.props.value}</div>
+      </div>
+    )
+  }
+}
+export default A("提示")(B);
+
+// C.js
+import React, { Component } from 'react'
+import A from './A';
+class C extends Component {
+  render() {
+    return (
+      <div>
+        <div>这是C组件</div>
+        <input type='text' {...this.props} ></input>
+        <div>{this.props.value}</div>
+      </div>
+    )
+  }
+}
+export default A("提示")(C);
+```
+
+#### 4、包装组件
+类似于下面的代码
+```js
+return (
+  <div>
+    <div className="header">这是BC组件公共的部分</div>
+    <div className="content">
+      <WrappedComponent sex={'男'} {...this.props} {...newProps}></WrappedComponent>
+    </div>
+  </div>
+)
+```
+
+### 继承方式的高阶组件
+概念：采用继承关联作为参数的组件和返回的组件，假如传入的组件参数是WrappedComponent，那么返回的组件就直接继承自WrappedComponent<br>
+
+- 代理方式的高阶组件
+```js
+export default ()=> WrappedComponent => class A extends Component {
+  render() {
+    const { ...otherProps } = this.props
+    return <WrappedComponent {...otherProps} />
+  }
+}
+```
+- 继承方式的高阶组件
+```js
+export default ()=> WrappedComponent => class A extends WrappedComponent {
+  render() {
+    const { ...otherProps } = this.props_
+    this.props = otherProps_
+    return super.render()
+  }
+}
+```
+
+#### 1、操纵prop
+```js
+// D.js
+import React from 'react'
+const D = (WrappedComponent) => class NewComponent extends WrappedComponent {
+  render() {
+    const element = super.render();
+    const newStyle = {
+      color: element.type==='div'?'red':'green'
+    }
+    const newProps = {...this.props, style: newStyle}
+    return React.cloneElement(element, newProps, element.props.children)
+  }
+}
+export default D;
+
+// E.js
+import React, { Component } from 'react'
+import D from './D'
+class E extends Component {
+  render() {
+    return (
+      <div>
+        我是div
+      </div>
+    )
+  }
+}
+export default D(E)
+
+// F.js
+import React, { Component } from 'react'
+import D from './D'
+class F extends Component {
+  render() {
+    return (
+      <p>
+        我是p
+      </p>
+    )
+  }
+}
+export default D(F)
+
+// App.js
+import React from 'react';
+import './App.css';
+import E from './components/E';
+import F from './components/F';
+function App() {
+  return (
+    <div className="App">
+      <E></E>
+      <F></F>
+    </div>
+  );
+}
+export default App;
+```
+
+#### 2、操纵生命周期函数
+```js
+// D.js
+import React from 'react'
+const D = (WrappedComponent) => class NewComponent extends WrappedComponent {
+  componentDidMount() {
+    console.log('我是修改后的生命周期')
+  }
+  render() {
+    const element = super.render();
+    const newStyle = {
+      color: element.type==='div'?'red':'green'
+    }
+    const newProps = {...this.props, style: newStyle}
+    return React.cloneElement(element, newProps, element.props.children)
+  }
+}
+export default D;
+
+// E.js
+import React, { Component } from 'react'
+import D from './D'
+class E extends Component {
+  componentDidMount() {
+    console.log('我是原始生命周期')
+  }
+  render() {
+    return (
+      <div>
+        我是div
+      </div>
+    )
+  }
+}
+export default D(E)
+```
+
+### 高阶组件显示名
+
