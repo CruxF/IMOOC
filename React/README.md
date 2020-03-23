@@ -1369,4 +1369,190 @@ function getDisplayName(WrappedComponent) {
 export default D;
 ```
 
+### iconfont的使用
+- 在iconfont官网选择+下载
+- 把.css、.eot、.js、.svg、.ttf、.woff的文件导入到项目中
+- 在APP.js文件中导入`import './static/iconfont.css';`
+- 在组件中使用`<div className={'iconfont icon-home'}></div>`<br><br>
 
+### 路由的使用
+- 安装：npm install -S react-router-dom
+- 编写route.js
+```js
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './pages/home';
+import Category from './pages/category';
+import Car from './pages/car';
+import User from './pages/user';
+export default ()=>(
+  <BrowserRouter>
+    <Switch>
+      <Route path='/home' component={Home}></Route>
+      <Route path='/category' component={Category}></Route>
+      <Route path='/car' component={Car}></Route>
+      <Route path='/user' component={User}></Route>
+    </Switch>
+  </BrowserRouter>
+)
+```
+- 调用route.js
+```js
+import React from 'react';
+import RouteMap from './router';
+import './static/iconfont.css';
+import './App.css';
+function App() {
+  return (
+    <div className="App">
+      <RouteMap></RouteMap>
+    </div>
+  );
+}
+export default App;
+```
+- 底部公共组件Tabbar的编写
+```js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import "./index.css";
+const tarbarArr = [{
+  img: "icon-home",
+  text: "首页",
+  link: '/home'
+},{
+  img: "icon-fenlei",
+  text: "分类",
+  link: '/category'
+},{
+  img: "icon-gouwuche",
+  text: "购物车",
+  link: '/car'
+},{
+  img: "icon-yonghu",
+  text: "我的",
+  link: '/user'
+}]
+export default class index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0
+    }
+  }
+  render() {
+    const url = window.location.href;
+    return (
+      <div className="tabbar">
+        <div className="tabbar-content">
+          {
+            tarbarArr.map((item,index)=>(
+              <Link 
+                to={item.link}
+                className={"tabar-item"+(url.indexOf(item.link)>-1?" active":"")} 
+                key={index}>
+                <div className={'iconfont '+item.img}></div>
+                <div>{item.text}</div>
+              </Link>
+            ))
+          }
+        </div>
+      </div>
+    )
+  }
+}
+```
+
+### 使用高阶组件改写Tabbar
+在上面的代码中，Tabbar组件被home、car、user、category页面用到，每个页面都有相同的引入和相同的CSS代码，这是非常多余的事情
+```js
+// home.js
+import React, { Component } from 'react';
+import Tabbar from '../components/tabbar/index';
+
+export default class home extends Component {
+  render() {
+    return (
+      <div>
+        <div className="home-header"></div>
+        <Tabbar></Tabbar>
+      </div>
+    )
+  }
+}
+```
+
+因此我们可以把Tabbar改写为一个高阶组件
+```js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import "./index.css";
+const tarbarArr = [{
+  img: "icon-home",
+  text: "首页",
+  link: '/home'
+},{
+  img: "icon-fenlei",
+  text: "分类",
+  link: '/category'
+},{
+  img: "icon-gouwuche",
+  text: "购物车",
+  link: '/car'
+},{
+  img: "icon-yonghu",
+  text: "我的",
+  link: '/user'
+}]
+
+const Tabbar = (WrappedComponent) => class index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0
+    }
+  }
+  render() {
+    const url = window.location.href;
+    return (
+      <div className="tabbar-container">
+        <div className="tabbar-children">
+          <WrappedComponent></WrappedComponent>
+        </div>
+        <div className="tabbar">
+          <div className="tabbar-content">
+            {
+              tarbarArr.map((item,index)=>(
+                <Link 
+                  to={item.link}
+                  className={"tabar-item"+(url.indexOf(item.link)>-1?" active":"")} 
+                  key={index}>
+                  <div className={'iconfont '+item.img}></div>
+                  <div>{item.text}</div>
+                </Link>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+export default Tabbar;
+```
+通过这种方式，我们可以在Tarbar组件中统一定义外部组件WrappedComponent的一套CSS样式代码，以及减少外部组件WrappedComponent的代码调用
+```js
+import React, { Component } from 'react';
+import Tabbar from '../components/tabbar/index';
+
+class home extends Component {
+  render() {
+    return (
+      <div>
+        <div className="home-header"></div>
+      </div>
+    )
+  }
+}
+export default Tabbar(home);
+```
