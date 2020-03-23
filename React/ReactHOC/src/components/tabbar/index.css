@@ -1,0 +1,26 @@
+.iconfont {
+  font-size: 28px !important;
+}
+.tabbar {
+  height: 60px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid rgba(204, 204, 204, 0.4);
+  padding: 6px 12px;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-align: center;
+  z-index: 100;
+}
+.tabbar-content {
+  display: flex;
+  justify-content: space-between;
+}
+.tabbar-item {
+  flex: 1;
+}
+.active {
+  color: red !important;
+}

@@ -1,0 +1,29 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+a:hover,a:visited,a:link,a:active {
+  text-decoration: none;
+  color: #333;
+}
+.home-header {
+  width: 100vw;
+  height: 100vh;
+  background-color: rosybrown;
+}
+.category-header {
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+}
+.car-header {
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+}
+.user-header {
+  width: 100vw;
+  height: 100vh;
+  background-color: aquamarine;
+}

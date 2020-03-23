@@ -1,0 +1,14 @@
+.header {
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background-color: bisque;
+  text-align: center;
+}
+.content {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
