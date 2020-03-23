@@ -2,6 +2,7 @@
 
 
 由于这会是一篇很长的课程学习总结，为了优化大家的阅读体验，强烈建议安装Chrome浏览器的插件——GayHub。[下载安装地址](https://github.com/jawil/GayHub)<br>
+假如无法安装GayHub，那么请ctrl+f查询课程名称即可。<br>
 
 
 # 1、ReactInstance => [基于实例的React16傻瓜课程](https://www.imooc.com/course/qa/id/1045)
