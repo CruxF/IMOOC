@@ -1,0 +1,84 @@
+.orderItem {
+  width: 100%;
+  padding: 10px 10px;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.orderItem-pic {
+  width: 100%;
+  height: 100%;
+  width: 26vw;
+  height: 26vw;
+}
+
+.orderItem-picContainer {
+  display: inline-block;
+  vertical-align: top;
+}
+.orderItem-commentContainer {
+  height: 30vw;
+  text-align: left;
+  padding-right: 10px;
+}
+.orderItem-commentContainer textarea {
+  width: 100%;
+}
+.orderItem-commentContainer .orderItem-btn {
+  float: left;
+}
+.orderItem-star {
+  font-size: 24px;
+  color: #999;
+}
+.orderItem-star-light {
+  color: #e9203d;
+}
+
+.orderItem-content {
+  width: 63vw;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 8px;
+}
+
+.orderItem-product {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.orderItem-shop {
+  color: #777;
+  line-height: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.orderItem-price {
+  color: #777;
+  float: left;
+  line-height: 30px;
+}
+
+.orderItem-price::before {
+  content: "￥";
+}
+
+.orderItem-btn {
+  color: white;
+  background: lightgray;
+  float: right;
+  width: 80px;
+  height: 22px;
+  border: 0;
+}
+
+.orderItem-btn-red {
+  background-color: #e9203d;
+}
+
+.orderItem-btn-grey {
+  background-color: #999;
+}
