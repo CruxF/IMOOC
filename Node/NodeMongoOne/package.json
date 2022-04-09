@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "jade": "^1.11.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "mongoose": "^5.3.12",
     "underscore": "^1.9.1"
   },
