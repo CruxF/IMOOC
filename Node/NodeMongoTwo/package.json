@@ -24,7 +24,7 @@
   "devDependencies": {
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
-    "grunt": "^0.4.5"
+    "grunt": "^1.5.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
