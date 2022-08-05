@@ -15,7 +15,7 @@
     "grunt-nodemon": "~0.1.2",
     "jade": "^1.11.0",
     "moment": "^2.22.2",
-    "mongoose": "^5.3.12",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "underscore": "^1.9.1"
   },
