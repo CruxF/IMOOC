@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jade": "^1.11.0",
     "moment": "^2.22.2",
     "mongoose": "^5.3.12",
