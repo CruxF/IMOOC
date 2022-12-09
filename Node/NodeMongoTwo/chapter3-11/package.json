@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "bcrypt": "^3.0.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "grunt-concurrent": "~0.4.3",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-less": "~0.11.4",
